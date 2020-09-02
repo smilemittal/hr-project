@@ -70,15 +70,26 @@
                                                 </td>
                                                 <td>{{$country->created_at->diffForHumans()}}</td>
                                                 <td>
+                                                      <span class="dropdown">
+                                                        <button id="btnSearchDrop12" type="button" class="btn btn-sm btn-icon btn-pure font-medium-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="ft-more-vertical"></i>
+                                                        </button>
+                                                        <span aria-labelledby="btnSearchDrop12" class="dropdown-menu mt-1 dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(55px, 27px, 0px);">
                                                     @if($country->status === 'active')
-                                                        <a href="{{route('inactive-country' , encrypt($country->id))}}" class="btn btn-warning mr-2"
-                                                           title="click to make inactive the active value">Inactive</a>
+                                                            <a href="{{route('inactive-country' , encrypt($country->id))}}" class="dropdown-item" title="click to make inactive the active value">
+                                                                <i class="ft-plus-circle primary"></i> Inactive</a>
                                                     @else
-                                                        <a href="{{route('active-country' ,  encrypt($country->id))}}" class="btn btn-success mr-2"
-                                                           title="click to make active the inactive value">Active</a>
+                                                            <a href="{{route('active-country' ,  encrypt($country->id))}}" class="dropdown-item" title="click to make active the inactive value">
+                                                                <i class="ft-plus-circle primary"></i> Active</a>
                                                     @endif
-                                                        <a href="{{route('update-country' ,  encrypt($country->id))}}" class="btn btn-dark mr-2" title="update the value">Update</a>
-                                                        <a href="{{route('delete-country' ,  encrypt($country->id))}}" class="btn btn-danger mr-2" title="Danger! this action will delete the record from database">Delete</a>
+                                                            <a href="{{route('update-country' ,  encrypt($country->id))}}" class="dropdown-item" title="Edit the value">
+                                                                <i class="ft-trash-2"></i> Edit</a>
+                                                            <a href="{{route('delete-country' ,  encrypt($country->id))}}" class="dropdown-item" title="Danger! this action will delete the record from database">
+                                                                <i class="ft-edit-2"></i> Delete</a>
+                                                    
+                                                        </span>
+                                                    </span>
+                                                    
                                                 </td>
                                             </tr>
                                             @php
