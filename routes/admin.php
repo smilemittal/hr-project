@@ -169,9 +169,23 @@ Route::prefix('admin')->group(function () {
     Route::get('/employee/detail/{id}' , 'Admin\EmployeeController@viewEmployeeDetail')->name('employee-detail');
     Route::get('/employee/delete/{id}' , 'Admin\EmployeeController@deleteEmployee')->name('delete-employee');
 
-
-
-
+    //Company crud
+    Route::get('/company/index' , 'Admin\CompanyController@indexCompany')->name('company-index');
+    Route::get('/company/create/view' , 'Admin\CompanyController@createViewCompany')->name('create-view-company');
+    Route::post('/company/post/data' , 'Admin\CompanyController@postCompany')->name('post-data-company');
+    Route::get('/company/update/{id}' , 'Admin\CompanyController@updateCompany')->name('update-company');
+    Route::post('/company/post/update/data/{id}' , 'Admin\CompanyController@updatePostCompany')->name('post-update-company');
+    Route::get('/company/detail/{id}' , 'Admin\CompanyController@viewCompanyDetail')->name('company-detail');
+    Route::get('/company/delete/{id}' , 'Admin\CompanyController@deleteCompany')->name('delete-company');
+    Route::get('get_states', 'Admin\CompanyController@getStates')->name('get-states');
+     //Branch crud
+    Route::get('branch/index' , 'Admin\BranchController@indexBranch')->name('branch-index');
+    Route::get('branch/create/view' , 'Admin\BranchController@createViewBranch')->name('create-view-branch');
+    Route::post('branch/post/data' , 'Admin\BranchController@postBranch')->name('post-data-branch');
+    Route::get('branch/update/{id}' , 'Admin\BranchController@updateBranch')->name('update-branch');
+    Route::post('branch/post/update/data/{id}' , 'Admin\BranchController@updatePostBranch')->name('post-update-branch');
+    Route::get('branch/detail/{id}' , 'Admin\BranchController@viewBranchDetail')->name('branch-detail');
+    Route::get('branch/delete/{id}' , 'Admin\BranchController@deleteBranch')->name('delete-branch');
 
 });
 

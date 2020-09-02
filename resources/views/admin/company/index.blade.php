@@ -7,9 +7,9 @@
             <div class="breadcrumbs-top d-inline-block">
                 <div class="breadcrumb-wrapper mr-1">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Settings</a>
+                        <li class="breadcrumb-item"><a href="index.html">Companies</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#">Gender</a>
+                        <li class="breadcrumb-item"><a href="#">List</a>
                         </li>
                     </ol>
                 </div>
@@ -19,7 +19,7 @@
                 class="btn btn-warning btn-min-width float-md-right box-shadow-4 mr-1 mb-1"
                 href="chat-application.html"><i class="ft-mail"></i> Email</a></div>
     </div>
-    {{--    main content--}}
+        main content
     <div class="content-body">
         <!-- Alert animation start -->
         <section id="configuration">
@@ -39,15 +39,16 @@
                         </div>
                         <div class="card-content collapse show">
                             <div class="card-body card-dashboard">
-                                <p class="card-text"><a href="{{route('create-view-gender')}}"
+                                <p class="card-text"><a href="{{route('create-view-company')}}"
                                                         class="btn btn-success float-right">Add</a></p>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Gender</th>
-                                            <th>Status</th>
+                                            <th>Company Name</th>
+                                            <th>Email</th>
+                                            <th>Phone number</th>
                                             <th>Created At</th>
                                             <th>Action</th>
                                         </tr>
@@ -56,40 +57,31 @@
                                         @php
                                             $i="1";
                                         @endphp
-                                        @foreach($genders as $gender)
+                                        @foreach($companies as $company)
                                             <tr>
                                                 <td>{{$i}}</td>
-                                                <td>{{$gender->value}}</td>
+                                                <td>{{$company->company_name}}</td>
+                                                <td> {{$company->email}}</td>
+                                                <td> {{$company->phone}}</td>
+                                                <td>{{$company->created_at->diffForHumans()}}</td>
                                                 <td>
-                                                    @if($gender->status === 'active')
-                                                        <span style="color:green"> {{$gender->status}}</span>
-                                                    @else
-                                                        <span style="color:blue"> {{$gender->status}}</span>
-                                                    @endif
-
-                                                </td>
-                                                <td>{{$gender->created_at->diffForHumans()}}</td>
-                                                <td>
-                                                     <span class="dropdown">
+                                                    <span class="dropdown">
                                                         <button id="btnSearchDrop12" type="button" class="btn btn-sm btn-icon btn-pure font-medium-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             <i class="ft-more-vertical"></i>
                                                         </button>
                                                         <span aria-labelledby="btnSearchDrop12" class="dropdown-menu mt-1 dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(55px, 27px, 0px);">
-                                                    @if($gender->status === 'active')
-                                                            <a href="{{route('inactive-gender' , encrypt($gender->id))}}" class="dropdown-item" title="click to make inactive the active value">
-                                                                <i class="ft-plus-circle primary"></i> Inactive</a>
-                                                    @else
-                                                            <a href="{{route('active-gender' ,  encrypt($gender->id))}}" class="dropdown-item" title="click to make active the inactive value">
-                                                                <i class="ft-plus-circle primary"></i> Active</a>
-                                                    @endif
-                                                            <a href="{{route('update-gender' ,  encrypt($gender->id))}}" class="dropdown-item" title="Edit the value">
+                                      
+                                                            <a href="{{route('company-detail' ,  encrypt($company->id))}}" class="dropdown-item" title="update the value">
+                                                                <i class="ft-plus-circle primary"></i>View</a>
+                                                   
+                                                            <a href="{{route('update-company' ,  encrypt($company->id))}}" class="dropdown-item" title="Edit the value">
                                                                 <i class="ft-trash-2"></i> Edit</a>
-                                                            <a href="{{route('delete-gender' ,  encrypt($gender->id))}}" class="dropdown-item" title="Danger! this action will delete the record from database">
+                                                            <a href="{{route('delete-company' ,  encrypt($company->id))}}" class="dropdown-item" title="Danger! this action will delete the record from database">
                                                                 <i class="ft-edit-2"></i> Delete</a>
                                                     
                                                         </span>
                                                     </span>
-                                            
+                                                  
                                                 </td>
                                             </tr>
                                             @php
@@ -100,8 +92,9 @@
                                         <tfoot>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Gender</th>
-                                            <th>Status</th>
+                                            <th>Company Name</th>
+                                            <th>Email</th>
+                                            <th>Phone number</th>
                                             <th>Created At</th>
                                             <th>Action</th>
                                         </tr>

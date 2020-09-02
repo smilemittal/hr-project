@@ -534,6 +534,9 @@
             <li class=" nav-item"><a href="{{route('employee-index')}}"><i class="ft-user"></i><span
                         class="menu-title" data-i18n="">Employee</span></a>
             </li>
+            <li class=" nav-item"><a href="{{route('company-index')}}"><i class="ft-user"></i><span
+                        class="menu-title" data-i18n="">Company</span></a>
+            </li>
         </ul>
     </div>
 </div>
@@ -594,7 +597,7 @@
         document.getElementById('alert-error-message').style.display = 'none'
     }, 3000);
 </script>
-
+@yield('scripts')
 
 
 </body>
