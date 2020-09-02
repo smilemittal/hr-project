@@ -39,7 +39,7 @@
                         </div>
                         <div class="card-content collapse show">
                             <div class="card-body card-dashboard">
-                                <p class="card-text"><a href="{{route('create-view-company')}}"
+                                <p class="card-text"><a href="{{route('create-view-branch')}}"
                                                         class="btn btn-success float-right">Add</a></p>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
