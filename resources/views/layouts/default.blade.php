@@ -534,8 +534,22 @@
             <li class=" nav-item"><a href="{{route('employee-index')}}"><i class="ft-user"></i><span
                         class="menu-title" data-i18n="">Employee</span></a>
             </li>
-            <li class=" nav-item"><a href="{{route('company-index')}}"><i class="ft-user"></i><span
-                        class="menu-title" data-i18n="">Company</span></a>
+            <li class=" nav-item">
+                 <a href="#">
+                    <i class="ft-settings"></i>
+                    <span class="menu-title" data-i18n="">Company</span>
+                </a>
+                    <ul class="menu-content">
+                        <li>
+                           <a href="{{route('company-index')}}"><span
+                            class="menu-title" data-i18n="">List</span></a>
+                        </li>
+                         <li>
+                           <a href="{{route('branch-index')}}"><span
+                            class="menu-title" data-i18n="">Branches</span></a>
+                        </li>
+                    </ul>
+                    
             </li>
         </ul>
     </div>

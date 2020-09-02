@@ -131,7 +131,7 @@
                                                             
                                                         </select>
                                                         @if($errors->has('state_id'))
-                                                            <div class="error" style="color:red">State must be required.</div>
+                                                            <div class="error" style="color:red">State is required.</div>
                                                         @endif
                                                     </div>
                                                 </div>

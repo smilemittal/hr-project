@@ -21,7 +21,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Settings</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#">Update Company</a>
+                        <li class="breadcrumb-item"><a href="#">Update Branch</a>
                         </li>
                     </ol>
                 </div>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="card-content collapse show">
                             <div class="card-body card-dashboard">
-                                <form action="{{route('post-update-company', encrypt($company->id))}}" method="post" enctype="multipart/form-data">
+                                <form action="{{route('post-update-branch', encrypt($branch->id))}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-body">
                                         <div class="row">
@@ -59,22 +59,26 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-3 label-control" for="userinput1">Company Name</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="company-name" value="{{$company->company_name}}">
-                                                        @if($errors->has('company-name'))
-                                                            <div class="error" style="color:red">Company name is required.</div>
+                                                       <select name="company_id" id="company_id" class="form-control border-primary">
+                                                            <option value="">Select</option>
+                                                            @foreach($companies as $company)
+                                                                <option value="{{$company->id}}" @if($company->id == $branch->company_id)selected @endif>{{$company->company_name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @if($errors->has('company_id'))
+                                                            <div class="error" style="color:red">Company is required.</div>
                                                         @endif
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput1">VAT</label>
+                                                    <label class="col-md-3 label-control" for="userinput1">Branch Name</label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="vat" value="{{$company->vat}}">
-                                                        @if($errors->has('vat'))
-                                                            <div class="error" style="color:red">VAT is required.</div>
+                                                               class="form-control border-primary" name="branch-name" value="{{ $branch->branch_name}}">
+                                                        @if($errors->has('branch-name'))
+                                                            <div class="error" style="color:red">Branch Name is required.</div>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -86,7 +90,7 @@
                                                     <label class="col-md-3 label-control" for="userinput2">Address 1</label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput2"
-                                                               class="form-control border-primary" name="address_1" value="{{$company->address_1}}">
+                                                               class="form-control border-primary" name="address_1" value="{{$branch->address_1}}">
                                                         @if($errors->has('address_1'))
                                                             <div class="error" style="color:red">Address 1 is required.</div>
                                                         @endif
@@ -98,7 +102,7 @@
                                                     <label class="col-md-3 label-control" for="userinput1">Address 2</label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="address_2" value="{{$company->address_2}}">
+                                                               class="form-control border-primary" name="address_2" value="{{$branch->address_2}}">
 
                                                     </div>
                                                 </div>
@@ -113,7 +117,7 @@
                                                         <select name="country_id" id="country_id" class="form-control border-primary">
                                                             <option value="">Select</option>
                                                             @foreach($countries as $country)
-                                                                <option value="{{$country->id}}" @if($country->id == $company->country_id)selected @endif>{{$country->value}}</option>
+                                                                <option value="{{$country->id}}" @if($country->id == $branch->country_id)selected @endif>{{$country->value}}</option>
                                                             @endforeach
                                                         </select>
                                                         @if($errors->has('country_id'))
@@ -129,11 +133,11 @@
                                                         <select name="state_id" id="state_id" class="form-control border-primary">
                                                             <option value="">Select</option>
                                                             @foreach($states as $state)
-                                                            <option value="{{$state->id}}" @if($state->id == $company->state_id) selected @endif>{{$state->value}}</option>
+                                                            <option value="{{$state->id}}" @if($state->id == $branch->state_id) selected @endif>{{$state->value}}</option>
                                                             @endforeach
                                                         </select>
                                                         @if($errors->has('state_id'))
-                                                            <div class="error" style="color:red">State is required.</div>
+                                                            <div class="error" style="color:red">State must be required.</div>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -145,7 +149,7 @@
                                                     <label class="col-md-3 label-control" for="userinput2">City</label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput2"
-                                                               class="form-control border-primary" name="city" value="{{$company->city}}">
+                                                               class="form-control border-primary" name="city" value="{{$branch->city}}">
                                                         @if($errors->has('city'))
                                                             <div class="error" style="color:red">City is required.</div>
                                                         @endif
@@ -158,7 +162,7 @@
                                                            for="userinput1">Zipcode</label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="zipcode" value="{{$company->zip_code}}">
+                                                               class="form-control border-primary" name="zipcode" value="{{$branch->zip_code}}">
                                                         @if($errors->has('zipcode'))
                                                             <div class="error" style="color:red">Zipcode is required.</div>
                                                         @endif
@@ -172,7 +176,7 @@
                                                     <label class="col-md-3 label-control" for="userinput2">Email</label>
                                                     <div class="col-md-9">
                                                         <input type="email" id="userinput2"
-                                                               class="form-control border-primary" name="email" value="{{$company->email}}">
+                                                               class="form-control border-primary" name="email" value="{{$branch->email}}">
                                                         @if($errors->has('email'))
                                                             <div class="error" style="color:red">Email must be Unique and required.</div>
                                                         @endif
@@ -186,7 +190,7 @@
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput2"
                                                                class="form-control border-primary"
-                                                               name="phone-number" value="{{$company->phone}}">
+                                                               name="phone-number" value="{{$branch->phone}}">
                                                         @if($errors->has('phone-number'))
                                                             <div class="error" style="color:red">Phone number is required.</div>
                                                         @endif
@@ -202,44 +206,19 @@
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput2"
                                                                class="form-control border-primary"
-                                                               name="mobile-number" value="{{$company->mobile}}">
+                                                               name="mobile-number" value="{{$branch->mobile}}">
                                                         @if($errors->has('mobile-number'))
                                                             <div class="error" style="color:red">Mobile number is required.</div>
                                                         @endif
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput1">Website URL</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="website-url" value="{{$company->website_url}}">
-                                                      @if($errors->has('website-url'))
-                                                            <div class="error" style="color:red">{{ json_encode($errors)}}</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput1">Logo</label>
-                                                    <div class="col-md-9">
-                                                        <input type="file" id="userinput1"
-                                                               class="form-control border-primary" name="logo">
-                                                    @if($company->logo)
-                                                    <img class="mt-2" src="{{asset('storage/app/company-logos/'.$company->logo)}}" alt="" width="150" height="150">
-                                                    @endif
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                     <div class="form-actions right">
-                                        <a href="{{route('company-index')}}" class="btn btn-primary mr-1">View All</a>
+                                        <a href="{{route('branch-index')}}" class="btn btn-primary mr-1">View All</a>
                                         <button type="submit" class="btn btn-success">
                                             <i class="la la-check-square-o"></i> Save
                                         </button>
