@@ -21,7 +21,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Settings</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#">Update Branch</a>
+                        <li class="breadcrumb-item"><a href="#">View Branch</a>
                         </li>
                     </ol>
                 </div>
