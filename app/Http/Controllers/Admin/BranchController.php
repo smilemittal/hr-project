@@ -81,9 +81,9 @@ class BranchController extends Controller
      */
     public function viewBranchDetail($id)
     {
-        $branch = Branch::with('comCountry')->where('id', decrypt($id))->first();
-        if($company) {
-            return view('admin.company.view',compact('company'));
+        $branch = Branch::with('company')->where('id', decrypt($id))->first();
+        if($branch) {
+            return view('admin.branch.view',compact('branch'));
         }
         else {
             return redirect()->back()->with('error' , 'wrong access.');

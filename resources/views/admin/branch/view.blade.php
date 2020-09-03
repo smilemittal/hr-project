@@ -59,15 +59,8 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-3 label-control" for="userinput1">Company Name</label>
                                                     <div class="col-md-9">
-                                                       <select name="company_id" id="company_id" class="form-control border-primary">
-                                                            <option value="">Select</option>
-                                                            @foreach($companies as $company)
-                                                                <option value="{{$company->id}}" @if($company->id == $branch->company_id)selected @endif>{{$company->company_name}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @if($errors->has('company_id'))
-                                                            <div class="error" style="color:red">Company is required.</div>
-                                                        @endif
+                                                         <input type="text" id="userinput1"
+                                                               class="form-control border-primary" name="company_id" value="{{ $branch->company->company_name }}" readonly>
                                                     </div>
                                                 </div>
                                             </div>
@@ -76,10 +69,7 @@
                                                     <label class="col-md-3 label-control" for="userinput1">Branch Name</label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="branch-name" value="{{ $branch->branch_name}}">
-                                                        @if($errors->has('branch-name'))
-                                                            <div class="error" style="color:red">Branch Name is required.</div>
-                                                        @endif
+                                                               class="form-control border-primary" name="branch-name" value="{{ $branch->branch_name}}" readonly>
                                                     </div>
                                                 </div>
                                             </div>
@@ -90,10 +80,8 @@
                                                     <label class="col-md-3 label-control" for="userinput2">Address 1</label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput2"
-                                                               class="form-control border-primary" name="address_1" value="{{$branch->address_1}}">
-                                                        @if($errors->has('address_1'))
-                                                            <div class="error" style="color:red">Address 1 is required.</div>
-                                                        @endif
+                                                               class="form-control border-primary" name="address_1" value="{{$branch->address_1}}" readonly>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -102,7 +90,7 @@
                                                     <label class="col-md-3 label-control" for="userinput1">Address 2</label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="address_2" value="{{$branch->address_2}}">
+                                                               class="form-control border-primary" name="address_2" value="{{$branch->address_2}}" readonly>
 
                                                     </div>
                                                 </div>
@@ -114,15 +102,9 @@
                                                     <label class="col-md-3 label-control"
                                                            for="userinput2">Country</label>
                                                     <div class="col-md-9">
-                                                        <select name="country_id" id="country_id" class="form-control border-primary">
-                                                            <option value="">Select</option>
-                                                            @foreach($countries as $country)
-                                                                <option value="{{$country->id}}" @if($country->id == $branch->country_id)selected @endif>{{$country->value}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @if($errors->has('country_id'))
-                                                            <div class="error" style="color:red">Country is required.</div>
-                                                        @endif
+                                                        <input type="text" id="userinput2"
+                                                               class="form-control border-primary" name="country_id" value="{{$branch->branchCountry->value}}" readonly>
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
@@ -130,15 +112,9 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-3 label-control" for="userinput2">State</label>
                                                     <div class="col-md-9">
-                                                        <select name="state_id" id="state_id" class="form-control border-primary">
-                                                            <option value="">Select</option>
-                                                            @foreach($states as $state)
-                                                            <option value="{{$state->id}}" @if($state->id == $branch->state_id) selected @endif>{{$state->value}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @if($errors->has('state_id'))
-                                                            <div class="error" style="color:red">State must be required.</div>
-                                                        @endif
+                                                        <input type="text" id="userinput2"
+                                                               class="form-control border-primary" name="state_id" value="{{$branch->branchState->value}}" readonly>
+                                                       
                                                     </div>
                                                 </div>
                                             </div>
@@ -149,10 +125,7 @@
                                                     <label class="col-md-3 label-control" for="userinput2">City</label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput2"
-                                                               class="form-control border-primary" name="city" value="{{$branch->city}}">
-                                                        @if($errors->has('city'))
-                                                            <div class="error" style="color:red">City is required.</div>
-                                                        @endif
+                                                               class="form-control border-primary" name="city" value="{{$branch->city}}" readonly>
                                                     </div>
                                                 </div>
                                             </div>
@@ -162,10 +135,8 @@
                                                            for="userinput1">Zipcode</label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="zipcode" value="{{$branch->zip_code}}">
-                                                        @if($errors->has('zipcode'))
-                                                            <div class="error" style="color:red">Zipcode is required.</div>
-                                                        @endif
+                                                               class="form-control border-primary" name="zipcode" value="{{$branch->zip_code}}" readonly> 
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -176,10 +147,8 @@
                                                     <label class="col-md-3 label-control" for="userinput2">Email</label>
                                                     <div class="col-md-9">
                                                         <input type="email" id="userinput2"
-                                                               class="form-control border-primary" name="email" value="{{$branch->email}}">
-                                                        @if($errors->has('email'))
-                                                            <div class="error" style="color:red">Email must be Unique and required.</div>
-                                                        @endif
+                                                               class="form-control border-primary" name="email" value="{{$branch->email}}" readonly>
+
                                                     </div>
                                                 </div>
                                             </div>                                        
@@ -190,10 +159,8 @@
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput2"
                                                                class="form-control border-primary"
-                                                               name="phone-number" value="{{$branch->phone}}">
-                                                        @if($errors->has('phone-number'))
-                                                            <div class="error" style="color:red">Phone number is required.</div>
-                                                        @endif
+                                                               name="phone-number" value="{{$branch->phone}}" readonly>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -206,10 +173,8 @@
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput2"
                                                                class="form-control border-primary"
-                                                               name="mobile-number" value="{{$branch->mobile}}">
-                                                        @if($errors->has('mobile-number'))
-                                                            <div class="error" style="color:red">Mobile number is required.</div>
-                                                        @endif
+                                                               name="mobile-number" value="{{$branch->mobile}}" readonly>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -218,10 +183,8 @@
                                         
                                     </div>
                                     <div class="form-actions right">
-                                        <a href="{{route('branch-index')}}" class="btn btn-primary mr-1">View All</a>
-                                        <button type="submit" class="btn btn-success">
-                                            <i class="la la-check-square-o"></i> Save
-                                        </button>
+                                        <a href="{{route('branch-index')}}" class="btn btn-primary mr-1">Back</a>
+                                
                                     </div>
                                 </form>
 

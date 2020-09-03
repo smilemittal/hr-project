@@ -216,10 +216,8 @@
                                         </div>
                                     
                                     <div class="form-actions right">
-                                        <a href="{{route('company-index')}}" class="btn btn-primary mr-1">View All</a>
-                                        <button type="submit" class="btn btn-success">
-                                            <i class="la la-check-square-o"></i> Save
-                                        </button>
+                                        <a href="{{route('company-index')}}" class="btn btn-primary mr-1">Back</a>
+                                        
                                     </div>
                                 </form>
 
