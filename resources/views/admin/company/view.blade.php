@@ -51,7 +51,7 @@
                         </div>
                         <div class="card-content collapse show">
                             <div class="card-body card-dashboard">
-                                <form action="{{route('post-update-company', encrypt($company->id))}}" method="post" enctype="multipart/form-data">
+                                <form action="{{route('post-update.company', encrypt($company->id))}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-body">
                                         <div class="row">
@@ -200,23 +200,33 @@
                                                 </div>
                                             </div>
                                         </div>
-                                         @if($company->logo)
+                                        
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput1">Logo</label>
-                                                    
-                                                    <img class="mt-2" src="{{asset('storage/app/company-logos/'.$company->logo)}}" alt="" width="150" height="150">
-                                                
-
+                                             @if($company->logo)
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 label-control" for="userinput1">Logo</label>
+                                                        <img class="mt-2" src="{{asset('storage/app/company-logos/'.$company->logo)}}" alt="" width="150" height="150">
                                                     </div>
                                                 </div>
+                                                @endif
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 label-control" for="userinput1">Status</label>
+                                                        <div class="col-md-9">
+                                                            <input type="text" id="userinput1"
+                                                                   class="form-control border-primary" name="status" value="{{\Str::ucfirst($company->status)}}" readonly>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
-                                             @endif
+                                             
                                         </div>
                                     
                                     <div class="form-actions right">
-                                        <a href="{{route('company-index')}}" class="btn btn-primary mr-1">Back</a>
+                                        <a href="{{route('company.index')}}" class="btn btn-primary mr-1">Back</a>
                                         
                                     </div>
                                 </form>

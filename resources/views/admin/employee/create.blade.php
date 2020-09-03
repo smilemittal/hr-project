@@ -51,7 +51,7 @@
                         </div>
                         <div class="card-content collapse show">
                             <div class="card-body card-dashboard">
-                                <form action="{{route('post-data-employee')}}" method="post" enctype="multipart/form-data">
+                                <form action="{{route('post-data.employee')}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-body">
                                         {{--                                        <h4 class="form-section"><i class="la la-eye"></i> Employee Details</h4>--}}
@@ -415,7 +415,7 @@
                                         </div>
                                     </div>
                                     <div class="form-actions right">
-                                        <a href="{{route('employee-index')}}" class="btn btn-primary mr-1">View All</a>
+                                        <a href="{{route('employee.index')}}" class="btn btn-primary mr-1">View All</a>
                                         <button type="submit" class="btn btn-success">
                                             <i class="la la-check-square-o"></i> Save
                                         </button>

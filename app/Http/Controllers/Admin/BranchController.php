@@ -19,8 +19,13 @@ class BranchController extends Controller
      */
     public function indexBranch()
     {
-        $branches = Branch::with('company')->get();
-       return view('admin.branch.index' , compact('branches'));
+        try {
+            $branches = Branch::with('company')->get();
+            return view('admin.branch.index' , compact('branches'));
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+        
     }
 
     /**
@@ -30,10 +35,15 @@ class BranchController extends Controller
      */
     public function createViewBranch()
     {
-        $companies = Company::all();
-        $countries = Country::whereStatus('active')->get();
-        $cities = City::whereStatus('active')->get();
-        return view('admin.branch.create' , compact('countries', 'cities', 'companies'));
+        try {
+            $companies = Company::all();
+            $countries = Country::whereStatus('active')->get();
+            $cities = City::whereStatus('active')->get();
+            return view('admin.branch.create' , compact('countries', 'cities', 'companies'));
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+        
     }
 
     /**
@@ -44,32 +54,40 @@ class BranchController extends Controller
      */
     public function postBranch(Request $request)
     {
-        $request->validate([
-            'company_id' => 'required',
-            'branch-name' => 'required',
-            'address_1' => 'required',
-            'country_id' => 'required',
-            'state_id' => 'required',
-            'city' => 'required',
-            'phone-number' => 'required',
-            'mobile-number' => 'required',
-            'email' => 'required|unique:branches,email',
-            'zipcode' => 'required',
-        ]);
-        Branch::create([
-            'company_id' => $request['company_id'],
-            'branch_name' => $request['branch-name'],
-            'address_1' => $request['address_1'],
-            'address_2' => $request['address_2'],
-            'country_id' => $request['country_id'],
-            'state_id' => $request['state_id'],
-            'city' => $request['city'],
-            'zip_code' => $request['zipcode'],
-            'phone' => $request['phone-number'],
-            'mobile' => $request['mobile-number'],
-            'email' => $request['email'],
-        ]);
-        return redirect()->route('branch-index')->with('success' , 'Branch registered successfully.');
+        try {
+            $request->validate([
+                'company_id' => 'required|exists:companies,id',
+                'branch_name' => 'required',
+                'address_1' => 'required|max:100',
+                'address_2' => 'max:100',
+                'country_id' => 'required',
+                'state_id' => 'required',
+                'city' => 'required',
+                'phone_number' => 'required|max:15',
+                'mobile_number' => 'required|max:15',
+                'email' => 'required|unique:branches,email',
+                'zipcode' => 'required|max:10',
+                'status' => 'required',
+            ]);
+            Branch::create([
+                'company_id' => $request['company_id'],
+                'branch_name' => $request['branch_name'],
+                'address_1' => $request['address_1'],
+                'address_2' => $request['address_2'],
+                'country_id' => $request['country_id'],
+                'state_id' => $request['state_id'],
+                'city' => $request['city'],
+                'zip_code' => $request['zipcode'],
+                'phone' => $request['phone_number'],
+                'mobile' => $request['mobile_number'],
+                'email' => $request['email'],
+                'status' => $request['status'],
+            ]);
+            return redirect()->route('branch.index')->with('success' , 'Branch registered successfully.');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+        
 
     }
 
@@ -81,13 +99,18 @@ class BranchController extends Controller
      */
     public function viewBranchDetail($id)
     {
-        $branch = Branch::with('company')->where('id', decrypt($id))->first();
-        if($branch) {
-            return view('admin.branch.view',compact('branch'));
+        try {
+            $branch = Branch::with('company')->where('id', decrypt($id))->first();
+            if($branch) {
+                return view('admin.branch.view',compact('branch'));
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
         }
-        else {
-            return redirect()->back()->with('error' , 'wrong access.');
-        }
+       
     }
 
     /**
@@ -98,18 +121,22 @@ class BranchController extends Controller
      */
     public function updateBranch($id)
     {
-         $branch = Branch::with('company')->where('id', decrypt($id))->first();
-            
-        if($branch) {
-            $companies = Company::all();
-            $countries = Country::whereStatus('active')->get();
-            $cities = City::whereStatus('active')->get();
-            $states = State::whereStatus('active')->where('country_id', $branch->country_id)->get();
-            return view('admin.branch.update' , compact('branch', 'countries', 'cities', 'states', 'companies'));
+        try {
+            $branch = Branch::with('company')->where('id', decrypt($id))->first();    
+            if($branch) {
+                $companies = Company::all();
+                $countries = Country::whereStatus('active')->get();
+                $cities = City::whereStatus('active')->get();
+                $states = State::whereStatus('active')->where('country_id', $branch->country_id)->get();
+                return view('admin.branch.update' , compact('branch', 'countries', 'cities', 'states', 'companies'));
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
         }
-        else {
-            return redirect()->back()->with('error' , 'wrong access.');
-        }
+        
     }
 
     /**
@@ -121,36 +148,41 @@ class BranchController extends Controller
      */
     public function updatePostBranch(Request $request, $id)
     {
-        $branch = Branch::find(decrypt($id));
-        $request->validate([
-           'company_id' => 'required',
-            'branch-name' => 'required',
-            'address_1' => 'required',
-            'country_id' => 'required',
-            'state_id' => 'required',
-            'city' => 'required',
-            'phone-number' => 'required',
-            'mobile-number' => 'required',
-            'email' => 'required|unique:branches,email,'.$branch->id.'',
-            'zipcode' => 'required',
-        ]);
-
-       
-
-        $branch->update([
-            'company_id' => $request['company_id'],
-            'branch_name' => $request['branch-name'],
-            'address_1' => $request['address_1'],
-            'address_2' => $request['address_2'],
-            'country_id' => $request['country_id'],
-            'state_id' => $request['state_id'],
-            'city' => $request['city'],
-            'zip_code' => $request['zipcode'],
-            'phone' => $request['phone-number'],
-            'mobile' => $request['mobile-number'],
-            'email' => $request['email'],
-        ]);
-        return redirect()->back()->with('success' , 'Branch updated successfully.');
+        try {
+            $branch = Branch::find(decrypt($id));
+            $request->validate([
+                'company_id' => 'required|exists:companies,id',
+                'branch_name' => 'required',
+                'address_1' => 'required|max:100',
+                'address_2' => 'max:100',
+                'country_id' => 'required',
+                'state_id' => 'required',
+                'city' => 'required',
+                'phone_number' => 'required|max:15',
+                'mobile_number' => 'required|max:15',
+                'zipcode' => 'required|max:10',
+                'email' => 'required|unique:branches,email,'.$branch->id.'',
+                'status' => 'required',
+            ]);
+            $branch->update([
+                'company_id' => $request['company_id'],
+                'branch_name' => $request['branch_name'],
+                'address_1' => $request['address_1'],
+                'address_2' => $request['address_2'],
+                'country_id' => $request['country_id'],
+                'state_id' => $request['state_id'],
+                'city' => $request['city'],
+                'zip_code' => $request['zipcode'],
+                'phone' => $request['phone_number'],
+                'mobile' => $request['mobile_number'],
+                'email' => $request['email'],
+                'status' => $request['status'],
+            ]);
+            return redirect()->back()->with('success' , 'Branch updated successfully.');
+        } catch (Exception $e) {
+             return redirect()->back()->with('error', $e->getMessage());
+        }
+        
 
     }
 
@@ -162,14 +194,19 @@ class BranchController extends Controller
      */
     public function deleteBranch($id)
     {
-         $branch = Branch::find(decrypt($id));
-        if($branch) {
-            $branch->delete();
-            return redirect()->back()->with('success' , 'Branch delete successfully.');
+        try {
+            $branch = Branch::find(decrypt($id));
+            if($branch) {
+                $branch->delete();
+                return redirect()->back()->with('success' , 'Branch delete successfully.');
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
         }
-        else {
-            return redirect()->back()->with('error' , 'wrong access.');
-        }
+        
     }
     
 }

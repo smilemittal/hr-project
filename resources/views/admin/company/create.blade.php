@@ -51,7 +51,7 @@
                         </div>
                         <div class="card-content collapse show">
                             <div class="card-body card-dashboard">
-                                <form action="{{route('post-data-company')}}" method="post" enctype="multipart/form-data">
+                                <form action="{{route('post-data.company')}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-body">
                                         <div class="row">
@@ -60,8 +60,8 @@
                                                     <label class="col-md-3 label-control" for="userinput1">Company Name</label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="company-name" value="{{old('company-name')}}">
-                                                        @if($errors->has('company-name'))
+                                                               class="form-control border-primary" name="company_name" value="{{old('company_name')}}">
+                                                        @if($errors->has('company_name'))
                                                             <div class="error" style="color:red">Company name is required.</div>
                                                         @endif
                                                     </div>
@@ -88,7 +88,7 @@
                                                         <input type="text" id="userinput2"
                                                                class="form-control border-primary" name="address_1" value="{{old('address_1')}}">
                                                         @if($errors->has('address_1'))
-                                                            <div class="error" style="color:red">Address 1 is required.</div>
+                                                            <div class="error" style="color:red">Address 1 must be max. 100 Characters and required.</div>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -99,7 +99,9 @@
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput1"
                                                                class="form-control border-primary" name="address_2" value="{{old('address_2')}}">
-
+                                                        @if($errors->has('address_2'))
+                                                            <div class="error" style="color:red">Address 2 must be max. 100 Characters and required.</div>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -158,7 +160,7 @@
                                                         <input type="text" id="userinput1"
                                                                class="form-control border-primary" name="zipcode" value="{{old('zipcode')}}">
                                                         @if($errors->has('zipcode'))
-                                                            <div class="error" style="color:red">Zipcode is required.</div>
+                                                            <div class="error" style="color:red">Zipcode must be max. 10 Characters and required.</div>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -184,9 +186,9 @@
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput2"
                                                                class="form-control border-primary"
-                                                               name="phone-number" value="{{old('phone-number')}}">
-                                                        @if($errors->has('phone-number'))
-                                                            <div class="error" style="color:red">Phone number is required.</div>
+                                                               name="phone_number" value="{{old('phone_number')}}">
+                                                        @if($errors->has('phone_number'))
+                                                            <div class="error" style="color:red">Phone number must be max. 15 Characters and required.</div>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -200,9 +202,9 @@
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput2"
                                                                class="form-control border-primary"
-                                                               name="mobile-number" value="{{old('mobile-number')}}">
-                                                        @if($errors->has('mobile-number'))
-                                                            <div class="error" style="color:red">Mobile number is required.</div>
+                                                               name="mobile_number" value="{{old('mobile_number')}}">
+                                                        @if($errors->has('mobile_number'))
+                                                            <div class="error" style="color:red">Mobile number must be max. 15 Characters and required.</div>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -212,9 +214,9 @@
                                                     <label class="col-md-3 label-control" for="userinput1">Website URL</label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="website-url" value="{{old('website-url')}}">
-                                                        @if($errors->has('website-url'))
-                                                            <div class="error" style="color:red">{{ $errors['website-url'] }}</div>
+                                                               class="form-control border-primary" name="website_url" value="{{old('website_url')}}">
+                                                        @if($errors->has('website_url'))
+                                                            <div class="error" style="color:red">Invalid Website URL</div>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -230,10 +232,24 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="userinput1">Status</label>
+                                                    <div class="col-md-9">
+                                                        <select name="status" id="status" class="form-control border-primary">
+                                                            <option value="active">Active</option>
+                                                            <option value="inactive">Inactive</option>
+                                                        </select>
+                                                        @if($errors->has('status'))
+                                                            <div class="error" style="color:red">Status is required.</div>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-actions right">
-                                        <a href="{{route('company-index')}}" class="btn btn-primary mr-1">View All</a>
+                                        <a href="{{route('company.index')}}" class="btn btn-primary mr-1">View All</a>
                                         <button type="submit" class="btn btn-success">
                                             <i class="la la-check-square-o"></i> Save
                                         </button>

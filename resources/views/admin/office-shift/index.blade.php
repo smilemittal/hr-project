@@ -39,18 +39,17 @@
                         </div>
                         <div class="card-content collapse show">
                             <div class="card-body card-dashboard">
-                                <p class="card-text"><a href="{{route('create-view.branch')}}"
+                                <p class="card-text"><a href="{{route('create-view.office-shift')}}"
                                                         class="btn btn-success float-right">Add</a></p>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Company Name</th>
-                                            <th>Branch Name</th>
-                                            <th>Email</th>
-                                            <th>Phone number</th>
-                                            <th>Created At</th>
+                                            <th>Shift Name</th>
+                                            <th>Week Day</th>
+                                            <th>From</th>
+                                            <th>To</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
@@ -58,14 +57,13 @@
                                         @php
                                             $i="1";
                                         @endphp
-                                        @foreach($branches as $branch)
+                                        @foreach($office_shifts as $office_shift)
                                             <tr>
                                                 <td>{{$i}}</td>
-                                                <td>{{$branch->company->company_name}}</td>
-                                                <td>{{$branch->branch_name}}</td>
-                                                <td> {{$branch->email}}</td>
-                                                <td> {{$branch->phone}}</td>
-                                                <td>{{$branch->created_at->diffForHumans()}}</td>
+                                                <td>{{$office_shift->shift_name}}</td>
+                                                <td>{{$office_shift->weekday}}</td>
+                                                <td> {{\Carbon\Carbon::parse($office_shift->to)->format('h:i A')}}</td>
+                                                <td> {{\Carbon\Carbon::parse($office_shift->to)->format('h:i A')}}</td>
                                                 <td>
                                                     <span class="dropdown">
                                                         <button id="btnSearchDrop12" type="button" class="btn btn-sm btn-icon btn-pure font-medium-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -73,12 +71,11 @@
                                                         </button>
                                                         <span aria-labelledby="btnSearchDrop12" class="dropdown-menu mt-1 dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(55px, 27px, 0px);">
                                       
-                                                            <a href="{{route('branch.detail' ,  encrypt($branch->id))}}" class="dropdown-item" title="update the value">
+                                                            <a href="{{route('office-shift.detail' ,  encrypt($office_shift->id))}}" class="dropdown-item" title="update the value">
                                                                 <i class="ft-plus-circle primary"></i>View</a>
-                                                   
-                                                            <a href="{{route('update.branch' ,  encrypt($branch->id))}}" class="dropdown-item" title="Edit the value">
+                                                            <a href="{{route('update.office-shift' ,  encrypt($office_shift->id))}}" class="dropdown-item" title="Edit the value">
                                                                 <i class="ft-trash-2"></i> Edit</a>
-                                                            <a href="{{route('delete.branch' ,  encrypt($branch->id))}}" class="dropdown-item" title="Danger! this action will delete the record from database">
+                                                            <a href="{{route('delete.office-shift' ,  encrypt($office_shift->id))}}" class="dropdown-item" title="Danger! this action will delete the record from database">
                                                                 <i class="ft-edit-2"></i> Delete</a>
                                                     
                                                         </span>

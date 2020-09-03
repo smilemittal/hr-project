@@ -51,7 +51,7 @@
                         </div>
                         <div class="card-content collapse show">
                             <div class="card-body card-dashboard">
-                                <form action="{{route('post-update-branch', encrypt($branch->id))}}" method="post" enctype="multipart/form-data">
+                                <form action="{{route('post-update.branch', encrypt($branch->id))}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-body">
                                         <div class="row">
@@ -178,12 +178,23 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="userinput2">Status</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" id="userinput2"
+                                                               class="form-control border-primary"
+                                                               name="status" value="{{ \Str::ucfirst($branch->status) }}" readonly>
+
+                                                    </div>
+                                                </div>
+                                            </div>
                                             
                                         </div>
                                         
                                     </div>
                                     <div class="form-actions right">
-                                        <a href="{{route('branch-index')}}" class="btn btn-primary mr-1">Back</a>
+                                        <a href="{{route('branch.index')}}" class="btn btn-primary mr-1">Back</a>
                                 
                                     </div>
                                 </form>

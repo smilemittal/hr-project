@@ -21,6 +21,11 @@
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/vendors.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/pickers/pickadate/default.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/pickers/pickadate/default.date.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/pickers/pickadate/default.time.css')}}">
+
+
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -531,7 +536,7 @@
                 </ul>
             </li>
 
-            <li class=" nav-item"><a href="{{route('employee-index')}}"><i class="ft-user"></i><span
+            <li class=" nav-item"><a href="{{route('employee.index')}}"><i class="ft-user"></i><span
                         class="menu-title" data-i18n="">Employee</span></a>
             </li>
             <li class=" nav-item">
@@ -541,11 +546,11 @@
                 </a>
                     <ul class="menu-content">
                         <li>
-                           <a href="{{route('company-index')}}"><span
+                           <a href="{{route('company.index')}}"><span
                             class="menu-title" data-i18n="">List</span></a>
                         </li>
                          <li>
-                           <a href="{{route('branch-index')}}"><span
+                           <a href="{{route('branch.index')}}"><span
                             class="menu-title" data-i18n="">Branches</span></a>
                         </li>
                     </ul>
@@ -588,6 +593,14 @@
 
 <!-- BEGIN: Page Vendor JS-->
 <script src="{{asset('app-assets/vendors/js/animation/jquery.appear.js')}}" type="text/javascript"></script>
+<script src="{{asset('app-assets/vendors/js/pickers/pickadate/picker.js')}}" type="text/javascript"></script>
+<script src="{{asset('app-assets/vendors/js/pickers/pickadate/picker.date.js')}}" type="text/javascript"></script>
+<script src="{{asset('app-assets/vendors/js/pickers/pickadate/picker.time.js')}}" type="text/javascript"></script>
+<script src="{{asset('app-assets/vendors/js/pickers/pickadate/legacy.js')}}" type="text/javascript"></script>
+<script src="{{asset('app-assets/vendors/js/pickers/dateTime/moment-with-locales.min.js')}}" type="text/javascript"></script>
+
+
+
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->

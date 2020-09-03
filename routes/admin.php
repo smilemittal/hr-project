@@ -161,31 +161,41 @@ Route::prefix('admin')->group(function () {
 
 
     //Employee registration process
-    Route::get('/employee/index' , 'Admin\EmployeeController@indexEmployee')->name('employee-index');
-    Route::get('/employee/create/view' , 'Admin\EmployeeController@createViewEmployee')->name('create-view-employee');
-    Route::post('/employee/post/data' , 'Admin\EmployeeController@postEmployee')->name('post-data-employee');
-    Route::get('/employee/update/{id}' , 'Admin\EmployeeController@updateEmployee')->name('update-employee');
-    Route::post('/employee/post/update/data/{id}' , 'Admin\EmployeeController@updatePostEmployee')->name('post-update-employee');
-    Route::get('/employee/detail/{id}' , 'Admin\EmployeeController@viewEmployeeDetail')->name('employee-detail');
-    Route::get('/employee/delete/{id}' , 'Admin\EmployeeController@deleteEmployee')->name('delete-employee');
+    Route::get('/employee/index' , 'Admin\EmployeeController@indexEmployee')->name('employee.index');
+    Route::get('/employee/create/view' , 'Admin\EmployeeController@createViewEmployee')->name('create-view.employee');
+    Route::post('/employee/post/data' , 'Admin\EmployeeController@postEmployee')->name('post-data.employee');
+    Route::get('/employee/update/{id}' , 'Admin\EmployeeController@updateEmployee')->name('update.employee');
+    Route::post('/employee/post/update/data/{id}' , 'Admin\EmployeeController@updatePostEmployee')->name('post-update.employee');
+    Route::get('/employee/detail/{id}' , 'Admin\EmployeeController@viewEmployeeDetail')->name('employee.detail');
+    Route::get('/employee/delete/{id}' , 'Admin\EmployeeController@deleteEmployee')->name('delete.employee');
 
     //Company crud
-    Route::get('/company/index' , 'Admin\CompanyController@indexCompany')->name('company-index');
-    Route::get('/company/create/view' , 'Admin\CompanyController@createViewCompany')->name('create-view-company');
-    Route::post('/company/post/data' , 'Admin\CompanyController@postCompany')->name('post-data-company');
-    Route::get('/company/update/{id}' , 'Admin\CompanyController@updateCompany')->name('update-company');
-    Route::post('/company/post/update/data/{id}' , 'Admin\CompanyController@updatePostCompany')->name('post-update-company');
-    Route::get('/company/detail/{id}' , 'Admin\CompanyController@viewCompanyDetail')->name('company-detail');
-    Route::get('/company/delete/{id}' , 'Admin\CompanyController@deleteCompany')->name('delete-company');
+    Route::get('/company/index' , 'Admin\CompanyController@indexCompany')->name('company.index');
+    Route::get('/company/create/view' , 'Admin\CompanyController@createViewCompany')->name('create-view.company');
+    Route::post('/company/post/data' , 'Admin\CompanyController@postCompany')->name('post-data.company');
+    Route::get('/company/update/{id}' , 'Admin\CompanyController@updateCompany')->name('update.company');
+    Route::post('/company/post/update/data/{id}' , 'Admin\CompanyController@updatePostCompany')->name('post-update.company');
+    Route::get('/company/detail/{id}' , 'Admin\CompanyController@viewCompanyDetail')->name('company.detail');
+    Route::get('/company/delete/{id}' , 'Admin\CompanyController@deleteCompany')->name('delete.company');
     Route::get('get_states', 'Admin\CompanyController@getStates')->name('get-states');
      //Branch crud
-    Route::get('branch/index' , 'Admin\BranchController@indexBranch')->name('branch-index');
-    Route::get('branch/create/view' , 'Admin\BranchController@createViewBranch')->name('create-view-branch');
-    Route::post('branch/post/data' , 'Admin\BranchController@postBranch')->name('post-data-branch');
-    Route::get('branch/update/{id}' , 'Admin\BranchController@updateBranch')->name('update-branch');
-    Route::post('branch/post/update/data/{id}' , 'Admin\BranchController@updatePostBranch')->name('post-update-branch');
-    Route::get('branch/detail/{id}' , 'Admin\BranchController@viewBranchDetail')->name('branch-detail');
-    Route::get('branch/delete/{id}' , 'Admin\BranchController@deleteBranch')->name('delete-branch');
+    Route::get('branch/index' , 'Admin\BranchController@indexBranch')->name('branch.index');
+    Route::get('branch/create/view' , 'Admin\BranchController@createViewBranch')->name('create-view.branch');
+    Route::post('branch/post/data' , 'Admin\BranchController@postBranch')->name('post-data.branch');
+    Route::get('branch/update/{id}' , 'Admin\BranchController@updateBranch')->name('update.branch');
+    Route::post('branch/post/update/data/{id}' , 'Admin\BranchController@updatePostBranch')->name('post-update.branch');
+    Route::get('branch/detail/{id}' , 'Admin\BranchController@viewBranchDetail')->name('branch.detail');
+    Route::get('branch/delete/{id}' , 'Admin\BranchController@deleteBranch')->name('delete.branch');
+
+
+    //Office Shift
+    Route::get('office-shift/index' , 'Admin\OfficeShiftController@indexOfficeShift')->name('office-shift.index');
+    Route::get('office-shift/create/view' , 'Admin\OfficeShiftController@createViewOfficeShift')->name('create-view.office-shift');
+    Route::post('office-shift/post/data' , 'Admin\OfficeShiftController@postOfficeShift')->name('post-data.office-shift');
+    Route::get('office-shift/update/{id}' , 'Admin\OfficeShiftController@updateOfficeShift')->name('update.office-shift');
+    Route::post('office-shift/post/update/data/{id}' , 'Admin\OfficeShiftController@updatePostOfficeShift')->name('post-update.office-shift');
+    Route::get('office-shift/detail/{id}' , 'Admin\OfficeShiftController@viewOfficeShiftDetail')->name('office-shift.detail');
+    Route::get('office-shift/delete/{id}' , 'Admin\OfficeShiftController@deleteOfficeShift')->name('delete.office-shift');
 
 });
 
