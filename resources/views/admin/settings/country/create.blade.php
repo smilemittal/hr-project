@@ -53,7 +53,7 @@
 
                                     <div class="card-block">
                                         <div class="card-body">
-                                            <form action="{{route('post-data-country')}}" method="post">
+                                            <form action="{{route('post-data.country')}}" method="post">
                                                 @csrf
                                                 <fieldset class="form-group">
                                                     <input type="text" name="country"
@@ -65,7 +65,7 @@
                                                 </fieldset>
                                                 <fieldset class="form-group">
                                                     <button type="submit" class="btn btn-success">Submit</button>
-                                                    <a href="{{route('country-index')}}" class="btn btn-primary">View All</a>
+                                                    <a href="{{route('country.index')}}" class="btn btn-primary">View All</a>
                                                 </fieldset>
                                             </form>
                                         </div>

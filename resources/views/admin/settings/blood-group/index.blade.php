@@ -9,7 +9,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Settings</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#">Cities</a>
+                        <li class="breadcrumb-item"><a href="#">Blood Groups</a>
                         </li>
                     </ol>
                 </div>
@@ -39,14 +39,14 @@
                         </div>
                         <div class="card-content collapse show">
                             <div class="card-body card-dashboard">
-                                <p class="card-text"><a href="{{route('create-view.city')}}"
+                                <p class="card-text"><a href="{{route('create-view.blood-group')}}"
                                                         class="btn btn-success float-right">Add</a></p>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>City</th>
+                                            <th>Blood Group</th>
                                             <th>Status</th>
                                             <th>Created At</th>
                                             <th>Action</th>
@@ -56,35 +56,35 @@
                                         @php
                                             $i="1";
                                         @endphp
-                                        @foreach($cities as $city)
+                                        @foreach($bloodGroups as $bloodGroup)
                                             <tr>
                                                 <td>{{$i}}</td>
-                                                <td>{{$city->value}}</td>
+                                                <td>{{$bloodGroup->value}}</td>
                                                 <td>
-                                                    @if($city->status === 'active')
-                                                        <span style="color:green"> {{$city->status}}</span>
+                                                    @if($bloodGroup->status === 'active')
+                                                        <span style="color:green"> {{$bloodGroup->status}}</span>
                                                     @else
-                                                        <span style="color:blue"> {{$city->status}}</span>
+                                                        <span style="color:blue"> {{$bloodGroup->status}}</span>
                                                     @endif
 
                                                 </td>
-                                                <td>{{$city->created_at->diffForHumans()}}</td>
+                                                <td>{{$bloodGroup->created_at->diffForHumans()}}</td>
                                                 <td>
                                                     <span class="dropdown">
                                                         <button id="btnSearchDrop12" type="button" class="btn btn-sm btn-icon btn-pure font-medium-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             <i class="ft-more-vertical"></i>
                                                         </button>
                                                         <span aria-labelledby="btnSearchDrop12" class="dropdown-menu mt-1 dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(55px, 27px, 0px);">
-                                                    @if($city->status === 'active')
-                                                            <a href="{{route('inactive.city' , encrypt($city->id))}}" class="dropdown-item" title="click to make inactive the active value">
+                                                    @if($bloodGroup->status === 'active')
+                                                            <a href="{{route('inactive.blood-group' , encrypt($bloodGroup->id))}}" class="dropdown-item" title="click to make inactive the active value">
                                                                 <i class="ft-plus-circle primary"></i> Inactive</a>
                                                     @else
-                                                            <a href="{{route('active.city' ,  encrypt($city->id))}}" class="dropdown-item" title="click to make active the inactive value">
+                                                            <a href="{{route('active.blood-group' ,  encrypt($bloodGroup->id))}}" class="dropdown-item" title="click to make active the inactive value">
                                                                 <i class="ft-plus-circle primary"></i> Active</a>
                                                     @endif
-                                                            <a href="{{route('update.city' ,  encrypt($city->id))}}" class="dropdown-item" title="Edit the value">
+                                                            <a href="{{route('update.blood-group' ,  encrypt($bloodGroup->id))}}" class="dropdown-item" title="Edit the value">
                                                                 <i class="ft-trash-2"></i> Edit</a>
-                                                            <a href="{{route('delete.city' ,  encrypt($city->id))}}" class="dropdown-item" title="Danger! this action will delete the record from database">
+                                                            <a href="{{route('delete.blood-group' ,  encrypt($bloodGroup->id))}}" class="dropdown-item" title="Danger! this action will delete the record from database">
                                                                 <i class="ft-edit-2"></i> Delete</a>
                                                     
                                                         </span>
@@ -100,7 +100,7 @@
                                         <tfoot>
                                         <tr>
                                             <th>Id</th>
-                                            <th>City</th>
+                                            <th>Blood Group</th>
                                             <th>Status</th>
                                             <th>Created At</th>
                                             <th>Action</th>

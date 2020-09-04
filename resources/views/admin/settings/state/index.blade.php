@@ -39,7 +39,7 @@
                         </div>
                         <div class="card-content collapse show">
                             <div class="card-body card-dashboard">
-                                <p class="card-text"><a href="{{route('create-view-state')}}"
+                                <p class="card-text"><a href="{{route('create-view.state')}}"
                                                         class="btn btn-success float-right">Add</a></p>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
@@ -76,15 +76,15 @@
                                                         </button>
                                                         <span aria-labelledby="btnSearchDrop12" class="dropdown-menu mt-1 dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(55px, 27px, 0px);">
                                                     @if($state->status === 'active')
-                                                            <a href="{{route('inactive-state' , encrypt($state->id))}}" class="dropdown-item" title="click to make inactive the active value">
+                                                            <a href="{{route('inactive.state' , encrypt($state->id))}}" class="dropdown-item" title="click to make inactive the active value">
                                                                 <i class="ft-plus-circle primary"></i> Inactive</a>
                                                     @else
-                                                            <a href="{{route('active-state' ,  encrypt($state->id))}}" class="dropdown-item" title="click to make active the inactive value">
+                                                            <a href="{{route('active.state' ,  encrypt($state->id))}}" class="dropdown-item" title="click to make active the inactive value">
                                                                 <i class="ft-plus-circle primary"></i> Active</a>
                                                     @endif
-                                                            <a href="{{route('update-state' ,  encrypt($state->id))}}" class="dropdown-item" title="Edit the value">
+                                                            <a href="{{route('update.state' ,  encrypt($state->id))}}" class="dropdown-item" title="Edit the value">
                                                                 <i class="ft-trash-2"></i> Edit</a>
-                                                            <a href="{{route('delete-state' ,  encrypt($state->id))}}" class="dropdown-item" title="Danger! this action will delete the record from database">
+                                                            <a href="{{route('delete.state' ,  encrypt($state->id))}}" class="dropdown-item" title="Danger! this action will delete the record from database">
                                                                 <i class="ft-edit-2"></i> Delete</a>
                                                     
                                                         </span>

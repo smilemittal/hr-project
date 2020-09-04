@@ -478,46 +478,49 @@
                 </a>
                 <ul class="menu-content">
                     <li>
-                        <a class="menu-item" href="{{route('contract-type-index')}}">Contract Type</a>
+                        <a class="menu-item" href="{{route('contract-type.index')}}">Contract Type</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{route('education-level-index')}}">Education Level</a>
+                        <a class="menu-item" href="{{route('education-level.index')}}">Education Level</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{route('document-type-index')}}">Document Type</a>
+                        <a class="menu-item" href="{{route('document-type.index')}}">Document Type</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{route('job-type-index')}}">Job Type</a>
+                        <a class="menu-item" href="{{route('job-type.index')}}">Job Type</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{route('job-category-index')}}">Job Category</a>
+                        <a class="menu-item" href="{{route('job-category.index')}}">Job Category</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{route('nationality-index')}}">Nationality</a>
+                        <a class="menu-item" href="{{route('nationality.index')}}">Nationality</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{route('gender-index')}}">Gender</a>
+                        <a class="menu-item" href="{{route('gender.index')}}">Gender</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{route('martial-status-index')}}">Martial Status</a>
+                        <a class="menu-item" href="{{route('blood-group.index')}}">Blood Group</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{route('contact-tag-index')}}">Contact Tag</a>
+                        <a class="menu-item" href="{{route('martial-status.index')}}">Martial Status</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{route('contact-title-index')}}">Contact Title</a>
+                        <a class="menu-item" href="{{route('contact-tag.index')}}">Contact Tag</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{route('industry-and-business-index')}}">Industry & Business</a>
+                        <a class="menu-item" href="{{route('contact-title.index')}}">Contact Title</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{route('country-index')}}">Country</a>
+                        <a class="menu-item" href="{{route('industry-and-business.index')}}">Industry & Business</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{route('city-index')}}">City</a>
+                        <a class="menu-item" href="{{route('country.index')}}">Country</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{route('state-index')}}">State</a>
+                        <a class="menu-item" href="{{route('city.index')}}">City</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('state.index')}}">State</a>
                     </li>
                     {{--                                <li><a class="menu-item" href="#">Error</a>--}}
                     {{--                                    <ul class="menu-content">--}}

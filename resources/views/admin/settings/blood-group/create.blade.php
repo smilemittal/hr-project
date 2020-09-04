@@ -19,7 +19,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Settings</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#">Update Job Type</a>
+                        <li class="breadcrumb-item"><a href="#">Create Blood Group</a>
                         </li>
                     </ol>
                 </div>
@@ -53,19 +53,19 @@
 
                                     <div class="card-block">
                                         <div class="card-body">
-                                            <form action="{{route('post-update.job-type' , encrypt($record->id))}}" method="post">
+                                            <form action="{{route('post-data.blood-group')}}" method="post">
                                                 @csrf
                                                 <fieldset class="form-group">
-                                                    <input type="text" name="job-type" value="{{$record->value}}"
-                                                           placeholder="Write Job Type" class="form-control"
+                                                    <input type="text" name="blood_group"
+                                                           placeholder="Enter Blood Group" class="form-control"
                                                            id="basicInput">
-                                                    @if($errors->has('job-type'))
-                                                        <div class="error" style="color:red">{{$errors->first('job-type')}}</div>
+                                                    @if($errors->has('blood_group'))
+                                                        <div class="error" style="color:red">{{$errors->first('blood_group')}}</div>
                                                     @endif
                                                 </fieldset>
                                                 <fieldset class="form-group">
                                                     <button type="submit" class="btn btn-success">Submit</button>
-                                                    <a href="{{route('job-type.index')}}" class="btn btn-primary">View All</a>
+                                                    <a href="{{route('blood-group.index')}}" class="btn btn-primary">View All</a>
                                                 </fieldset>
                                             </form>
                                         </div>
