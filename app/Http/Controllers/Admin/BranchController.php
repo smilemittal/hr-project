@@ -36,7 +36,7 @@ class BranchController extends Controller
     public function createViewBranch()
     {
         try {
-            $companies = Company::all();
+            $companies = Company::whereStatus('active')->get();
             $countries = Country::whereStatus('active')->get();
             $cities = City::whereStatus('active')->get();
             return view('admin.branch.create' , compact('countries', 'cities', 'companies'));
@@ -124,7 +124,7 @@ class BranchController extends Controller
         try {
             $branch = Branch::with('company')->where('id', decrypt($id))->first();    
             if($branch) {
-                $companies = Company::all();
+                $companies = Company::whereStatus('active')->get();
                 $countries = Country::whereStatus('active')->get();
                 $cities = City::whereStatus('active')->get();
                 $states = State::whereStatus('active')->where('country_id', $branch->country_id)->get();
