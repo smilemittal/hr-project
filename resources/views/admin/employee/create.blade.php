@@ -32,410 +32,1403 @@
                 href="chat-application.html"><i class="ft-mail"></i> Email</a></div>
     </div>
     {{--    main content--}}
+
     <div class="content-body">
-        <!-- Alert animation start -->
-        <section id="configuration">
-            <div class="row">
-                <div class="col-12">
+        <!-- Tabs with Icons start -->
+        <section id="tabs-with-icons">
+
+            <div class="row match-height">
+                <div class="col-xl-12 col-lg-12">
                     <div class="card">
-                        <div class="card-header">
-                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                    <li><a data-action="close"><i class="ft-x"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-content collapse show">
-                            <div class="card-body card-dashboard">
-                                <form action="{{route('post-data.employee')}}" method="post" enctype="multipart/form-data">
+                        <!-- <div class="card-header">
+                            <h4 class="card-title">Basic Tabs</h4>
+                        </div> -->
+                        <div class="card-content">
+                            <div class="card-body">
+                                <form action="{{route('post-data-employee')}}" method="post" enctype="multipart/form-data">
                                     @csrf
-                                    <div class="form-body">
-                                        {{--                                        <h4 class="form-section"><i class="la la-eye"></i> Employee Details</h4>--}}
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput1">Fist Name</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="firstname">
-                                                        @if($errors->has('firstname'))
-                                                            <div class="error" style="color:red">First name must be required.</div>
-                                                        @endif
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="baseIcon-tab1" data-toggle="tab"
+                                           aria-controls="tabIcon1" href="#tabIcon1" aria-expanded="true"><i
+                                                class="ft-user"></i> Personl Information</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="baseIcon-tab2" data-toggle="tab"
+                                           aria-controls="tabIcon2" href="#tabIcon2" aria-expanded="false"><i
+                                                class="ft-alert-octagon"></i>Work Information</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="baseIcon-tab3" data-toggle="tab"
+                                           aria-controls="tabIcon3" href="#tabIcon3" aria-expanded="false"><i
+                                                class="ft-map-pin"></i> HR Setting</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="baseIcon-tab4" data-toggle="tab"
+                                           aria-controls="tabIcon4" href="#tabIcon4" aria-expanded="false"><i
+                                                class="ft-map-pin"></i> Personal Information </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="baseIcon-tab5" data-toggle="tab"
+                                           aria-controls="tabIcon5" href="#tabIcon5" aria-expanded="false"><i
+                                                class="ft-map-pin"></i>Qualification</a>
+                                    </li>
+
+                                </ul>
+                                <div class="tab-content px-1 pt-1">
+
+                                    <div role="tabpanel" class="tab-pane active" id="tabIcon1"
+                                         aria-expanded="true" aria-labelledby="baseIcon-tab1">
+
+
+
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="media d-flex mx-0 my-1 user-text">
+                                                        <div class="align-left p-0 mr-2">
+                                                            <a href="#" class="profile-image">
+                                                                <img
+                                                                    src="{{asset('app-assets/images/portrait/small/avatar-s-1.png')}}"
+                                                                    class="rounded-circle img-border height-75"
+                                                                    alt="Card image">
+                                                            </a>
+                                                        </div>
+                                                        <div class="media-body text-left text-dark mt-1">
+                                                            <h3 class="font-medium-1 ">Thomas Cruise IV
+                                                            </h3>
+                                                            <div class="form-actions">
+                                                                <button
+                                                                        class="btn btn-sm btn-primary">
+                                                                    <input type="file" name="profile_image" required>
+                                                                </button>
+                                                                {{--                                                            <button type="button"--}}
+                                                                {{--                                                                    class="btn btn-sm btn-danger mr-1">--}}
+                                                                {{--                                                                Reset--}}
+                                                                {{--                                                            </button>--}}
+
+                                                            </div>
+
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                {{--                                            <div class="col-sm-6">--}}
+                                                {{--                                                <div class="f-add mt-1">--}}
+                                                {{--                                                    <table class="border-0">--}}
+                                                {{--                                                        <tbody>--}}
+                                                {{--                                                        <tr>--}}
+                                                {{--                                                            <td>Address:</td>--}}
+                                                {{--                                                            <td>4 Pippln Court, Park Road, New Barnet,--}}
+                                                {{--                                                                London EN4 9TF Unlited Kingdom--}}
+                                                {{--                                                            </td>--}}
+                                                {{--                                                        </tr>--}}
+                                                {{--                                                        <tr>--}}
+                                                {{--                                                            <td>Phone:</td>--}}
+                                                {{--                                                            <td>+91 8602990317</td>--}}
+                                                {{--                                                        </tr>--}}
+                                                {{--                                                        </tbody>--}}
+                                                {{--                                                    </table>--}}
+                                                {{--                                                </div>--}}
+                                                {{--                                            </div>--}}
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput2">Last Name</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput2"
-                                                               class="form-control border-primary" name="lastname">
-                                                        @if($errors->has('lastname'))
-                                                            <div class="error" style="color:red">Last name must be required.</div>
-                                                        @endif
+                                            <div class="row">
+                                                <div class="col-md-6">
+
+                                                    <div class="form-body">
+
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">First Name</label>
+                                                            <input type="text" id="FirstName" required
+                                                                   class="form-control"
+                                                                   placeholder="First Name" name="First Name"
+                                                                   data-toggle="tooltip" data-trigger="hover"
+                                                                   data-placement="top"
+                                                                   data-title="Issue Title">
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput3">Middle Name</label>
+                                                                    <input type="text" id="MiddleName"
+                                                                           class="form-control"
+                                                                           name="Middle Name"
+                                                                           data-toggle="tooltip"
+                                                                           data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Date Opened">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput3">Last Name</label>
+                                                                    <input type="text" id="LastName" required
+                                                                           class="form-control"
+                                                                           name="Last Name"
+                                                                           data-toggle="tooltip"
+                                                                           data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Date Opened">
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
+
+                                                    <div class="form-group">
+                                                        <label for="projectinput3">Title</label>
+                                                        <input type="text" id="Title" required
+                                                               class="form-control"
+                                                               name="Title"
+                                                               data-toggle="tooltip"
+                                                               data-trigger="hover"
+                                                               data-placement="top"
+                                                               data-title="Date Opened">
+                                                    </div>
+
+                                                    {{--                                                    </div>--}}
+
+                                                    {{--                                                    <div class="form-actions">--}}
+                                                    {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
+                                                    {{--                                                            <i class="ft-x"></i> Cancel--}}
+                                                    {{--                                                        </button>--}}
+                                                    {{--                                                        <button   class="btn btn-primary">--}}
+                                                    {{--                                                            <i class="la la-check-square-o"></i> Save--}}
+                                                    {{--                                                        </button>--}}
+                                                    {{--                                                    </div>--}}
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <div class="form-body">
+
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">Email</label>
+                                                            <input type="email" id="Email" required
+                                                                   class="form-control"
+                                                                   placeholder="Email" name="Email"
+                                                                   data-toggle="tooltip" data-trigger="hover"
+                                                                   data-placement="top"
+                                                                   data-title="Issue Title">
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput3">Marital Status</label>
+                                                                    <input type="text" id="MaritalStatus" required
+                                                                           class="form-control"
+                                                                           name="Marital Status"
+                                                                           data-toggle="tooltip"
+                                                                           data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Date Opened">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput3">Contact Mobile
+                                                                        Number</label>
+                                                                    <input type="number" id="ContactMobileNumber" required
+                                                                           class="form-control"
+                                                                           name="Contact Mobile Number"
+                                                                           data-toggle="tooltip"
+                                                                           data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Date Opened">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="projectinput3">Contact phone Number</label>
+                                                            <input type="number" id="ContactMobileNumber" required
+                                                                   class="form-control"
+                                                                   name="Contact phone Number"
+                                                                   data-toggle="tooltip"
+                                                                   data-trigger="hover"
+                                                                   data-placement="top"
+                                                                   data-title="Date Opened">
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <div class="form-body">
+
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">Date of birth</label>
+                                                            <input type="date" id="Dateofbirth" required
+                                                                   class="form-control"
+                                                                   placeholder="Date of birth" name="Date of birth"
+                                                                   data-toggle="tooltip" data-trigger="hover"
+                                                                   data-placement="top"
+                                                                   data-title="Issue Title">
+                                                        </div>
+
+                                                        <div class="row">
+
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput3">House Number</label>
+                                                                    <input type="number" id="HouseNumber" required
+                                                                           class="form-control"
+                                                                           name="House Number"
+                                                                           data-toggle="tooltip"
+                                                                           data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Date Opened">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="projectinput3">House Name</label>
+                                                            <input type="text" id="HouseName" required
+                                                                   class="form-control"
+                                                                   name="House Name"
+                                                                   data-toggle="tooltip"
+                                                                   data-trigger="hover"
+                                                                   data-placement="top"
+                                                                   data-title="Date Opened">
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <div class="form-body">
+
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">Street</label>
+                                                            <input type="text" id="Street" required
+                                                                   class="form-control"
+                                                                   placeholder="Street" name="Street"
+                                                                   data-toggle="tooltip" data-trigger="hover"
+                                                                   data-placement="top"
+                                                                   data-title="Issue Title">
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput1">City</label>
+                                                                    <input type="text" id="City" required
+                                                                           class="form-control"
+                                                                           placeholder="City" name="City"
+                                                                           data-toggle="tooltip" data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Issue Title">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput3">Country / State </label>
+                                                                    <input type="text" id="CountryState" required
+                                                                           class="form-control"
+                                                                           name="CountryState"
+                                                                           data-toggle="tooltip"
+                                                                           data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Date Opened">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="projectinput3">Post Code</label>
+                                                            <input type="text" id="PostCode" required
+                                                                   class="form-control"
+                                                                   name="Post Code"
+                                                                   data-toggle="tooltip"
+                                                                   data-trigger="hover"
+                                                                   data-placement="top"
+                                                                   data-title="Date Opened">
+                                                        </div>
+
+                                                    </div>
+
+                                                    {{--                                                    <div class="form-actions">--}}
+                                                    {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
+                                                    {{--                                                            <i class="ft-x"></i> Cancel--}}
+                                                    {{--                                                        </button>--}}
+                                                    {{--                                                        <button   class="btn btn-primary">--}}
+                                                    {{--                                                            <i class="la la-check-square-o"></i> Save--}}
+                                                    {{--                                                        </button>--}}
+                                                    {{--                                                    </div>--}}
+
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <div class="form-body">
+
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">Country</label>
+                                                            <input type="text" id="Country" required
+                                                                   class="form-control"
+                                                                   placeholder="Country" name="Country"
+                                                                   data-toggle="tooltip" data-trigger="hover"
+                                                                   data-placement="top"
+                                                                   data-title="Issue Title">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="projectinput3">Work Permit No.</label>
+                                                            <input type="text" id="WorkPermitNo" required
+                                                                   class="form-control"
+                                                                   name="Work Permit No"
+                                                                   data-toggle="tooltip"
+                                                                   data-trigger="hover"
+                                                                   data-placement="top"
+                                                                   data-title="Date Opened">
+                                                        </div>
+
+{{--                                                        <div class="row">--}}
+{{--                                                            <div class="col-md-6">--}}
+{{--                                                                <div class="form-group">--}}
+{{--                                                                    <label for="projectinput1">City</label>--}}
+{{--                                                                    <input type="text" id="City" required--}}
+{{--                                                                           class="form-control"--}}
+{{--                                                                           placeholder="City" name="City"--}}
+{{--                                                                           data-toggle="tooltip" data-trigger="hover"--}}
+{{--                                                                           data-placement="top"--}}
+{{--                                                                           data-title="Issue Title">--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+{{--                                                            <div class="col-md-6">--}}
+{{--                                                                <div class="form-group">--}}
+{{--                                                                    <label for="projectinput3">Country / State </label>--}}
+{{--                                                                    <input type="text" id="CountryState" required--}}
+{{--                                                                           class="form-control"--}}
+{{--                                                                           name="CountryState"--}}
+{{--                                                                           data-toggle="tooltip"--}}
+{{--                                                                           data-trigger="hover"--}}
+{{--                                                                           data-placement="top"--}}
+{{--                                                                           data-title="Date Opened">--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <label for="projectinput3">Post Code</label>--}}
+{{--                                                            <input type="text" id="PostCode" required--}}
+{{--                                                                   class="form-control"--}}
+{{--                                                                   name="Post Code"--}}
+{{--                                                                   data-toggle="tooltip"--}}
+{{--                                                                   data-trigger="hover"--}}
+{{--                                                                   data-placement="top"--}}
+{{--                                                                   data-title="Date Opened">--}}
+{{--                                                        </div>--}}
+
+                                                    </div>
+
+                                                    {{--                                                    <div class="form-actions">--}}
+                                                    {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
+                                                    {{--                                                            <i class="ft-x"></i> Cancel--}}
+                                                    {{--                                                        </button>--}}
+                                                    {{--                                                        <button   class="btn btn-primary">--}}
+                                                    {{--                                                            <i class="la la-check-square-o"></i> Save--}}
+                                                    {{--                                                        </button>--}}
+                                                    {{--                                                    </div>--}}
+
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <div class="form-body">
+
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">Nationality</label>
+                                                            <input type="text" id="Nationality" required
+                                                                   class="form-control"
+                                                                   placeholder="Nationality" name="Nationality"
+                                                                   data-toggle="tooltip" data-trigger="hover"
+                                                                   data-placement="top"
+                                                                   data-title="Issue Title">
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput1">Identification
+                                                                        No.</label>
+                                                                    <input type="text" id="IdentificationNo" required
+                                                                           class="form-control"
+                                                                           placeholder="Identification No"
+                                                                           name="Identification No"
+                                                                           data-toggle="tooltip" data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Issue Title">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput3">Visa No. </label>
+                                                                    <input type="text" id="VisaNo" required
+                                                                           class="form-control"
+                                                                           name="Visa No"
+                                                                           data-toggle="tooltip"
+                                                                           data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Date Opened">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <div class="form-body">
+
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">Visa Expiry Date</label>
+                                                            <input type="date" id="VisaExpiryDate" required
+                                                                   class="form-control"
+                                                                   placeholder="Visa Expiry Date"
+                                                                   name="Visa Expiry Date"
+                                                                   data-toggle="tooltip" data-trigger="hover"
+                                                                   data-placement="top"
+                                                                   data-title="Issue Title">
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput1">Blood Group</label>
+                                                                    <input type="text" id="BloodGroup" required
+                                                                           class="form-control"
+                                                                           placeholder="Blood Group No"
+                                                                           name="Blood Group"
+                                                                           data-toggle="tooltip" data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Issue Title">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput3">Visa No. </label>
+                                                                    <input type="text" id="VisaNo" required
+                                                                           class="form-control"
+                                                                           name="Visa No"
+                                                                           data-toggle="tooltip"
+                                                                           data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Date Opened">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="projectinput3">Work Permit No.</label>
+                                                            <input type="text" id="WorkPermitNo" required
+                                                                   class="form-control"
+                                                                   name="Work Permit No"
+                                                                   data-toggle="tooltip"
+                                                                   data-trigger="hover"
+                                                                   data-placement="top"
+                                                                   data-title="Date Opened">
+                                                        </div>
+
+                                                    </div>
+
+                                                    {{--                                                    <div class="form-actions">--}}
+                                                    {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
+                                                    {{--                                                            <i class="ft-x"></i> Cancel--}}
+                                                    {{--                                                        </button>--}}
+                                                    {{--                                                        <button   class="btn btn-primary">--}}
+                                                    {{--                                                            <i class="la la-check-square-o"></i> Save--}}
+                                                    {{--                                                        </button>--}}
+                                                    {{--                                                    </div>--}}
+
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <div class="form-body">
+
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">Bank Account Name</label>
+                                                            <input type="text" id="BankAccountName" required
+                                                                   class="form-control"
+                                                                   placeholder="Bank Account Name"
+                                                                   name="Bank Account Name"
+                                                                   data-toggle="tooltip" data-trigger="hover"
+                                                                   data-placement="top"
+                                                                   data-title="Issue Title">
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput1">Bank Short Code</label>
+                                                                    <input type="text" id="BankShortCode" required
+                                                                           class="form-control"
+                                                                           placeholder="Bank Short Code"
+                                                                           name="Bank Short Code"
+                                                                           data-toggle="tooltip" data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Issue Title">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput3">Bank Account
+                                                                        Number</label>
+                                                                    <input type="text" id="BankAccountNumber" required
+                                                                           class="form-control"
+                                                                           name="Bank Account Number"
+                                                                           data-toggle="tooltip"
+                                                                           data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Date Opened">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput3">Bank IFSC Code</label>
+                                                                    <input type="text" id="BankIFSCCode" required
+                                                                           class="form-control"
+                                                                           name="Bank IFSC Code"
+                                                                           data-toggle="tooltip"
+                                                                           data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Date Opened">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput3">Bank IBAN Code</label>
+                                                                    <input type="text" id="BankIBANCode" required
+                                                                           class="form-control"
+                                                                           name="Bank IBAN Code"
+                                                                           data-toggle="tooltip"
+                                                                           data-trigger="hover"
+                                                                           data-placement="top"
+                                                                           data-title="Date Opened">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        {{--                                                        <div class="form-group">--}}
+                                                        {{--                                                            <label for="projectinput3">Bank IFSC Code</label>--}}
+                                                        {{--                                                            <input type="text" id="BankIFSCCode" required--}}
+                                                        {{--                                                                   class="form-control"--}}
+                                                        {{--                                                                   name="Bank IFSC Code"--}}
+                                                        {{--                                                                   data-toggle="tooltip"--}}
+                                                        {{--                                                                   data-trigger="hover"--}}
+                                                        {{--                                                                   data-placement="top"--}}
+                                                        {{--                                                                   data-title="Date Opened">--}}
+                                                        {{--                                                        </div>--}}
+
+                                                    </div>
+
+                                                    {{--                                                    <div class="form-actions">--}}
+                                                    {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
+                                                    {{--                                                            <i class="ft-x"></i> Cancel--}}
+                                                    {{--                                                        </button>--}}
+                                                    {{--                                                        <button   class="btn btn-primary">--}}
+                                                    {{--                                                            <i class="la la-check-square-o"></i> Save--}}
+                                                    {{--                                                        </button>--}}
+                                                    {{--                                                    </div>--}}
+
                                                 </div>
                                             </div>
-                                        </div>
+                                            <div class="form-actions">
+                                                <a id="baseIcon-tab2" data-toggle="tab" aria-controls="tabIcon2" href="#tabIcon2" aria-expanded="false"> <button   class="btn btn-primary">
+                                                    <i class="la la-check-square-o"></i> Next
+                                                </button></a>
+                                            </div>
+
+                                    </div>
+
+
+                                    <div class="tab-pane" id="tabIcon2" aria-labelledby="baseIcon-tab2">
+
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput1">Title</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="title">
-                                                        @if($errors->has('title'))
-                                                            <div class="error" style="color:red">Title must be required.</div>
-                                                        @endif
+
+                                                <div class="form-body">
+
+                                                    <div class="form-group">
+                                                        <label for="projectinput1">Company</label>
+                                                        <input type="text" id="Company" required
+                                                               class="form-control"
+                                                               placeholder="Company" name="Company"
+                                                               data-toggle="tooltip" data-trigger="hover"
+                                                               data-placement="top"
+                                                               data-title="Issue Title">
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Branch</label>
+                                                                <input type="text" id="Branch"
+                                                                       class="form-control"
+                                                                       name="Branch"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Department</label>
+                                                                <input type="text" id="Department" required
+                                                                       class="form-control"
+                                                                       name="Department"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="projectinput3">Designation</label>
+                                                    <input type="text" id="Title"
+                                                           class="form-control"
+                                                           name="Designation"
+                                                           data-toggle="tooltip"
+                                                           data-trigger="hover"
+                                                           data-placement="top"
+                                                           data-title="Date Opened">
+                                                </div>
+
+                                                {{--                                                    </div>--}}
+
+                                                {{--                                                    <div class="form-actions">--}}
+                                                {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
+                                                {{--                                                            <i class="ft-x"></i> Cancel--}}
+                                                {{--                                                        </button>--}}
+                                                {{--                                                        <button   class="btn btn-primary">--}}
+                                                {{--                                                            <i class="la la-check-square-o"></i> Save--}}
+                                                {{--                                                        </button>--}}
+                                                {{--                                                    </div>--}}
+
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="form-body">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1">Date of joining</label>
+                                                        <input type="date" id="Dateofjoining" required
+                                                               class="form-control"
+                                                               placeholder="Date of joining" name="Date of joining"
+                                                               data-toggle="tooltip" data-trigger="hover"
+                                                               data-placement="top"
+                                                               data-title="Issue Title">
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Date of leaving</label>
+                                                                <input type="date" id="Dateofleaving"
+                                                                       class="form-control"
+                                                                       name="Date of leaving"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Employee Type</label>
+                                                                <div class="mb-2">
+
+                                                                    <div class="form-check form-check-inline">
+                                                                        <input class="form-check-input" type="radio"
+                                                                               name="Employee Type"
+                                                                               id="EmployeeType" value="Employee">
+                                                                        <label class="form-check-label"
+                                                                               for="inlineRadio1">Employee</label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-inline">
+                                                                        <input class="form-check-input" type="radio"
+                                                                               name="Employee Type"
+                                                                               id="EmployeeType" value="Contractor">
+                                                                        <label class="form-check-label"
+                                                                               for="inlineRadio2">Contractor</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Contract Type</label>
+                                                                <div class="mb-2">
+
+                                                                    <div class="form-check form-check-inline">
+                                                                        <input class="form-check-input" type="radio"
+                                                                               name="Contract Type"
+                                                                               id="ContractType" value="full-time">
+                                                                        <label class="form-check-label"
+                                                                               for="inlineRadio1">Employee</label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-inline">
+                                                                        <input class="form-check-input" type="radio"
+                                                                               name="Contract Type"
+                                                                               id="ContractType" value="part-time">
+                                                                        <label class="form-check-label"
+                                                                               for="inlineRadio2">Contractor</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Employee id</label>
+                                                                <input type="text" id="Employeeid"
+                                                                       class="form-control"
+                                                                       name="Employee id"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+
 
                                                     </div>
                                                 </div>
+
+
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput2">Employee ID</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput2"
-                                                               class="form-control border-primary" name="employee-id">
-                                                        @if($errors->has('employee-id'))
-                                                            <div class="error" style="color:red">Emplyee ID must be required.</div>
-                                                        @endif
+
+                                                <div class="form-body">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1">Manager</label>
+                                                        <input type="text" id="Manager" required
+                                                               class="form-control"
+                                                               placeholder="Manager" name="Manager"
+                                                               data-toggle="tooltip" data-trigger="hover"
+                                                               data-placement="top"
+                                                               data-title="Issue Title">
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Job position</label>
+                                                                <input type="text" id="Jobposition"
+                                                                       class="form-control"
+                                                                       name="Job position"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                 </div>
+
+
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="form-body">
+
+                                                    <div class="row">
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Work Mobile no.</label>
+                                                                <input type="number" id="Work Mobile no"
+                                                                       class="form-control"
+                                                                       name="Work Mobile no"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Work phone no.</label>
+                                                                <input type="number" id="Work phone no"
+                                                                       class="form-control"
+                                                                       name="Work phone no"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Work Email</label>
+                                                                <input type="email" id="Work Email"
+                                                                       class="form-control"
+                                                                       name="Work Email"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control"
-                                                           for="userinput1">Username</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="user-name">
-                                                        @if($errors->has('user-name'))
-                                                            <div class="error" style="color:red">User name must be Unique and required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput2">Email</label>
-                                                    <div class="col-md-9">
-                                                        <input type="email" id="userinput2"
-                                                               class="form-control border-primary" name="email">
-                                                        @if($errors->has('email'))
-                                                            <div class="error" style="color:red">Email must be Unique and required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control"
-                                                           for="userinput1">Company</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="company">
-                                                        @if($errors->has('company'))
-                                                            <div class="error" style="color:red">Company must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control"
-                                                           for="userinput2">Location</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput2"
-                                                               class="form-control border-primary" name="location">
-                                                        @if($errors->has('location'))
-                                                            <div class="error" style="color:red">Location must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control"
-                                                           for="userinput1">Department</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="department">
-                                                        @if($errors->has('department'))
-                                                            <div class="error" style="color:red">Department must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control"
-                                                           for="userinput2">Designation</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput2"
-                                                               class="form-control border-primary" name="designation">
-                                                        @if($errors->has('designation'))
-                                                            <div class="error" style="color:red">Designation must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput1">Date of joining</label>
-                                                    <div class="col-md-9">
-                                                        <input type="date" id="userinput1"
-                                                               class="form-control border-primary"
-                                                               name="date-of-joining">
-                                                        @if($errors->has('date-of-joining'))
-                                                            <div class="error" style="color:red">Joining date must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput2">Date of
-                                                        leaving</label>
-                                                    <div class="col-md-9">
-                                                        <input type="date" id="userinput2"
-                                                               class="form-control border-primary"
-                                                               name="date-of-leaving">
-                                                        @if($errors->has('date-of-leaving'))
-                                                            <div class="error" style="color:red">Leaving date must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput1">Role</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="role">
-                                                        @if($errors->has('role'))
-                                                            <div class="error" style="color:red">Role must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control"
-                                                           for="userinput2">Gender</label>
-                                                    <div class="col-md-9">
-                                                        <select name="gender" id="" class="form-control border-primary">
-                                                            @foreach($genders ?? '' as $gender)
-                                                                <option value="{{$gender->id}}">{{$gender->value}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @if($errors->has('gender'))
-                                                            <div class="error" style="color:red">Gender must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput1">Martial status</label>
-                                                    <div class="col-md-9">
-                                                        <select name="martial-status" id="" class="form-control border-primary">
-                                                            @foreach($martialStatus as $martial)
-                                                                <option value="{{$martial->id}}">{{$martial->value}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @if($errors->has('martial-status'))
-                                                            <div class="error" style="color:red">Martial Status must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput2">Contact
-                                                        number</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput2"
-                                                               class="form-control border-primary"
-                                                               name="contact-number">
-                                                        @if($errors->has('contact-number'))
-                                                            <div class="error" style="color:red">Contact number must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control"
-                                                           for="userinput1">Status</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="status">
-                                                        @if($errors->has('status'))
-                                                            <div class="error" style="color:red">Status must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput2">Office Shift</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput2"
-                                                               class="form-control border-primary" name="office-shift">
-                                                        @if($errors->has('office-shift'))
-                                                            <div class="error" style="color:red">Office shift must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput1">Date of
-                                                        birth</label>
-                                                    <div class="col-md-9">
-                                                        <input type="date" id="userinput1"
-                                                               class="form-control border-primary" name="dob">
-                                                        @if($errors->has('dob'))
-                                                            <div class="error" style="color:red">Date of birth must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control"
-                                                           for="userinput2">Country</label>
-                                                    <div class="col-md-9">
-                                                        <select name="country" id="" class="form-control border-primary">
-                                                            @foreach($countries as $country)
-                                                                <option value="{{$country->id}}">{{$country->value}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @if($errors->has('country'))
-                                                            <div class="error" style="color:red">Country must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput1">City</label>
-                                                    <div class="col-md-9">
-                                                        <select name="city" id="" class="form-control border-primary">
-                                                            @foreach($cities as $city)
-                                                                <option value="{{$city->id}}">{{$city->value}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @if($errors->has('city'))
-                                                            <div class="error" style="color:red">City must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput2">State</label>
-                                                    <div class="col-md-9">
-                                                        <select name="state" id="" class="form-control border-primary">
-                                                            @foreach($states as $state)
-                                                            <option value="{{$state->id}}">{{$state->value}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @if($errors->has('state'))
-                                                            <div class="error" style="color:red">State must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput1">Zip
-                                                        code</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput1"
-                                                               class="form-control border-primary" name="zip-code">
-                                                        @if($errors->has('zip-code'))
-                                                            <div class="error" style="color:red">Zip code must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control"
-                                                           for="userinput2">Address</label>
-                                                    <div class="col-md-9">
-                                                        <input type="text" id="userinput2"
-                                                               class="form-control border-primary" name="address">
-                                                        @if($errors->has('address'))
-                                                            <div class="error" style="color:red">Address must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="userinput1">Profile image</label>
-                                                    <div class="col-md-9">
-                                                        <input type="file" id="userinput1"
-                                                               class="form-control border-primary" name="profile-image">
-                                                        @if($errors->has('profile-image'))
-                                                            <div class="error" style="color:red">Profile image must be required.</div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="form-actions">
+                                            <a id="baseIcon-tab3" data-toggle="tab" aria-controls="tabIcon3" href="#tabIcon3" aria-expanded="false"> <button   class="btn btn-primary">
+                                                    <i class="la la-check-square-o"></i> Next
+                                                </button></a>
                                         </div>
                                     </div>
-                                    <div class="form-actions right">
-                                        <a href="{{route('employee.index')}}" class="btn btn-primary mr-1">View All</a>
-                                        <button type="submit" class="btn btn-success">
-                                            <i class="la la-check-square-o"></i> Save
-                                        </button>
+
+
+                                    <div class="tab-pane" id="tabIcon3" aria-labelledby="baseIcon-tab3">
+                                        <div class="row">
+                                            <div class="col-md-6">
+
+                                                <div class="form-body">
+
+                                                    <div class="form-group">
+                                                        <label for="projectinput1">Office Shift</label>
+                                                        <input type="text" id="OfficeShift" required
+                                                               class="form-control"
+                                                               placeholder="Company" name="Office Shift"
+                                                               data-toggle="tooltip" data-trigger="hover"
+                                                               data-placement="top"
+                                                               data-title="Issue Title">
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">User Name</label>
+                                                                <input type="text" id="User Name"
+                                                                       class="form-control"
+                                                                       name="User Name"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Role</label>
+                                                                <input type="text" id="Role" required
+                                                                       class="form-control"
+                                                                       name="Role"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="projectinput3">payrole</label>
+                                                    <input type="text" id="payrole"
+                                                           class="form-control"
+                                                           name="payrole"
+                                                           data-toggle="tooltip"
+                                                           data-trigger="hover"
+                                                           data-placement="top"
+                                                           data-title="Date Opened">
+                                                </div>
+
+                                                {{--                                                    </div>--}}
+
+                                                {{--                                                    <div class="form-actions">--}}
+                                                {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
+                                                {{--                                                            <i class="ft-x"></i> Cancel--}}
+                                                {{--                                                        </button>--}}
+                                                {{--                                                        <button   class="btn btn-primary">--}}
+                                                {{--                                                            <i class="la la-check-square-o"></i> Save--}}
+                                                {{--                                                        </button>--}}
+                                                {{--                                                    </div>--}}
+
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="form-body">
+
+                                                    <div class="form-group">
+                                                        <label for="projectinput1">Timesheet Cost</label>
+                                                        <input type="text" id="TimesheetCost" required
+                                                               class="form-control"
+                                                               placeholder="Company" name="Timesheet Cost"
+                                                               data-toggle="tooltip" data-trigger="hover"
+                                                               data-placement="top"
+                                                               data-title="Issue Title">
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Annual Gross
+                                                                    Salary</label>
+                                                                <input type="text" id="Annual Gross Salary"
+                                                                       class="form-control"
+                                                                       name="Annual Gross Salary"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Attendance</label>
+                                                                <input type="datetime-local" id="Attendance"
+                                                                       required
+                                                                       class="form-control"
+                                                                       name="Attendance"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Badge ID</label>
+                                                                <input type="text" id="Badge ID"
+                                                                       class="form-control"
+                                                                       name="Badge ID"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Manual Attendance</label>
+                                                                <input type="datetime-local" id="Manual Attendance"
+                                                                       class="form-control"
+                                                                       name="Manual Attendance"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                {{--                                                    </div>--}}
+
+                                                {{--                                                    <div class="form-actions">--}}
+                                                {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
+                                                {{--                                                            <i class="ft-x"></i> Cancel--}}
+                                                {{--                                                        </button>--}}
+                                                {{--                                                        <button   class="btn btn-primary">--}}
+                                                {{--                                                            <i class="la la-check-square-o"></i> Save--}}
+                                                {{--                                                        </button>--}}
+                                                {{--                                                    </div>--}}
+
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <a id="baseIcon-tab4" data-toggle="tab" aria-controls="tabIcon4" href="#tabIcon4" aria-expanded="false"> <button   class="btn btn-primary">
+                                                    <i class="la la-check-square-o"></i> Next
+                                                </button></a>
+                                        </div>
                                     </div>
+
+
+                                    <div class="tab-pane" id="tabIcon4" aria-labelledby="baseIcon-tab4">
+                                        <div class="row" id="appendable">
+                                            <div class="col-md-12" id="custom-data">
+
+                                                <div class="form-body">
+
+                                                    <div class="form-group">
+                                                        <label for="projectinput1">Company Name</label>
+                                                        <input type="text" id="CompanyName" required
+                                                               class="form-control"
+                                                               placeholder="Company Name" name="Company Name[]"
+                                                               data-toggle="tooltip" data-trigger="hover"
+                                                               data-placement="top"
+                                                               data-title="Issue Title">
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Job Profile</label>
+                                                                <input type="text" id="Job Profile"
+                                                                       class="form-control"
+                                                                       name="Job Profile[]"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Joining Date</label>
+                                                                <input type="date" id="Joining Date" required
+                                                                       class="form-control"
+                                                                       name="Joining Date[]"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Leaving Date</label>
+                                                                      <input type="date" id="Leaving Date" required
+                                                                       class="form-control"
+                                                                       name="Leaving Date[]"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="projectinput3">Remarks</label>
+                                                    <input type="text" id="Remarks[]"
+                                                           class="form-control"
+                                                           name="Remarks[]"
+                                                           data-toggle="tooltip"
+                                                           data-trigger="hover"
+                                                           data-placement="top"
+                                                           data-title="Date Opened">
+                                                </div>
+
+                                                <hr>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+
+                                            <button   onclick="personal_info(this)" class="btn btn-primary">
+                                                <i class="ft-plus"></i>
+                                            </button>
+                                        </div>
+                                        <div class="form-actions">
+                                            <a id="baseIcon-tab5" data-toggle="tab" aria-controls="tabIcon5" href="#tabIcon5" aria-expanded="false"> <button   class="btn btn-primary">
+                                                    <i class="la la-check-square-o"></i> Next
+                                                </button></a>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="tab-pane" id="tabIcon5" aria-labelledby="baseIcon-tab5">
+                                        <div class="row" id="appendable_qua">
+                                            <div class="col-md-12" id="custom-data-qua">
+
+                                                <div class="form-body">
+
+                                                    <div class="form-group">
+                                                        <label for="projectinput1">Schoole / University</label>
+                                                        <input type="text" id="SchooleUniversity" required
+                                                               class="form-control"
+                                                               placeholder="Schoole / University"
+                                                               name="School University[]"
+                                                               data-toggle="tooltip" data-trigger="hover"
+                                                               data-placement="top"
+                                                               data-title="Issue Title">
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Education Level</label>
+                                                                <input type="text" id="Education Level"
+                                                                       class="form-control"
+                                                                       name="Education Level[]"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Start Date</label>
+                                                                <input type="date" id="Start Date" required
+                                                                       class="form-control"
+                                                                       name="Start Date[]"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">End Date</label>
+                                                                <input type="date" id="End Date" required
+                                                                       class="form-control"
+                                                                       name="End Date[]"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Professional Course (if
+                                                                    any)</label>
+                                                                <input type="date" id="End Date" required
+                                                                       class="form-control"
+                                                                       name="Professional Course[]"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput3">Remarks</label>
+                                                                <input type="text" id="Remarks"
+                                                                       class="form-control"
+                                                                       name="courseRemarks[]"
+                                                                       data-toggle="tooltip"
+                                                                       data-trigger="hover"
+                                                                       data-placement="top"
+                                                                       data-title="Date Opened">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <hr>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+
+                                            <button   onclick="qualification(this)" class="btn btn-primary">
+                                                <i class="ft-plus"></i>
+                                            </button>
+                                        </div>
+                                        <div class="form-actions">
+                                             <button type="submit" class="btn btn-primary">
+                                                    <i class="la la-check-square-o"></i> Save
+                                                </button>
+                                        </div>
+                                    </div>
+                                </div>
                                 </form>
-
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        <!-- Alert animation end -->
-    </div>
-    <!-- END: Content-->
 
-    {{--    <fieldset class="form-group">--}}
-    {{--        <button type="submit" class="btn btn-success">Submit</button>--}}
-    {{--        <a href="{{route('city-index')}}" class="btn btn-primary">View All</a>--}}
-    {{--    </fieldset>--}}
+                </div>
+        </section>
+        <!-- Tabs with Icons end -->
+
+    </div>
+
+
+
+
+
+
+
+    <script>
+        function personal_info(val) {
+
+            let node = document.getElementById("appendable");
+            let child = " <div class=\"col-md-12\" id=\"custom-data\">\n" +
+                "\n" +
+                "                                                    <div class=\"form-body\">\n" +
+                "\n" +
+                "                                                        <div class=\"form-group\">\n" +
+                "                                                            <label for=\"projectinput1\">Company Name</label>\n" +
+                "                                                            <input type=\"text\" id=\"CompanyName\" required\n" +
+                "                                                                   class=\"form-control\"\n" +
+                "                                                                   placeholder=\"Company Name\" name=\"Company Name[]\"\n" +
+                "                                                                   data-toggle=\"tooltip\" data-trigger=\"hover\"\n" +
+                "                                                                   data-placement=\"top\"\n" +
+                "                                                                   data-title=\"Issue Title\">\n" +
+                "                                                        </div>\n" +
+                "\n" +
+                "                                                        <div class=\"row\">\n" +
+                "                                                            <div class=\"col-md-6\">\n" +
+                "                                                                <div class=\"form-group\">\n" +
+                "                                                                    <label for=\"projectinput3\">Job Profile</label>\n" +
+                "                                                                    <input type=\"text\" id=\"Job Profile\"\n" +
+                "                                                                           class=\"form-control\"\n" +
+                "                                                                           name=\"Job Profile[]\"\n" +
+                "                                                                           data-toggle=\"tooltip\"\n" +
+                "                                                                           data-trigger=\"hover\"\n" +
+                "                                                                           data-placement=\"top\"\n" +
+                "                                                                           data-title=\"Date Opened\">\n" +
+                "                                                                </div>\n" +
+                "                                                            </div>\n" +
+                "                                                            <div class=\"col-md-6\">\n" +
+                "                                                                <div class=\"form-group\">\n" +
+                "                                                                    <label for=\"projectinput3\">Joining Date</label>\n" +
+                "                                                                    <input type=\"date\" id=\"Joining Date\" required\n" +
+                "                                                                           class=\"form-control\"\n" +
+                "                                                                           name=\"Joining Date[]\"\n" +
+                "                                                                           data-toggle=\"tooltip\"\n" +
+                "                                                                           data-trigger=\"hover\"\n" +
+                "                                                                           data-placement=\"top\"\n" +
+                "                                                                           data-title=\"Date Opened\">\n" +
+                "                                                                </div>\n" +
+                "                                                            </div>\n" +
+                "                                                            <div class=\"col-md-12\">\n" +
+                "                                                                <div class=\"form-group\">\n" +
+                "                                                                    <label for=\"projectinput3\">Leaving Date</label>\n" +
+                "                                                                    <input type=\"date\" id=\"Leaving Date\" required\n" +
+                "                                                                           class=\"form-control\"\n" +
+                "                                                                           name=\"Leaving Date[]\"\n" +
+                "                                                                           data-toggle=\"tooltip\"\n" +
+                "                                                                           data-trigger=\"hover\"\n" +
+                "                                                                           data-placement=\"top\"\n" +
+                "                                                                           data-title=\"Date Opened\">\n" +
+                "                                                                </div>\n" +
+                "                                                            </div>\n" +
+                "                                                        </div>\n" +
+                "                                                    </div>\n" +
+                "\n" +
+                "                                                    <div class=\"form-group\">\n" +
+                "                                                        <label for=\"projectinput3\">Remarks</label>\n" +
+                "                                                        <input type=\"text\" id=\"Remarks\"\n" +
+                "                                                               class=\"form-control\"\n" +
+                "                                                               name=\"Remarks[]\"\n" +
+                "                                                               data-toggle=\"tooltip\"\n" +
+                "                                                               data-trigger=\"hover\"\n" +
+                "                                                               data-placement=\"top\"\n" +
+                "                                                               data-title=\"Date Opened\">\n" +
+                "                                                    </div>\n" +
+                "\n" +
+                "                                                <hr>\n" +
+                "\n" +
+                "                                            </div>";
+
+            // node.append(child);
+            $("#appendable").append(child)
+            // $("#appendable").append(document.getElementById(val.parentElement.previousElementSibling.firstElementChild.id));
+        }
+
+        function qualification(val) {
+
+            let node = document.getElementById("appendable_qua");
+            let child = "                                            <div class=\"col-md-12\" id=\"custom-data-qua\">\n" +
+                "\n" +
+                "                                                    <div class=\"form-body\">\n" +
+                "\n" +
+                "                                                        <div class=\"form-group\">\n" +
+                "                                                            <label for=\"projectinput1\">Schoole / University</label>\n" +
+                "                                                            <input type=\"text\" id=\"SchooleUniversity\" required\n" +
+                "                                                                   class=\"form-control\"\n" +
+                "                                                                   placeholder=\"School / University\" name=\"School University[]\"\n" +
+                "                                                                   data-toggle=\"tooltip\" data-trigger=\"hover\"\n" +
+                "                                                                   data-placement=\"top\"\n" +
+                "                                                                   data-title=\"Issue Title\">\n" +
+                "                                                        </div>\n" +
+                "\n" +
+                "                                                        <div class=\"row\">\n" +
+                "                                                            <div class=\"col-md-6\">\n" +
+                "                                                                <div class=\"form-group\">\n" +
+                "                                                                    <label for=\"projectinput3\">Education Level</label>\n" +
+                "                                                                    <input type=\"text\" id=\"Education Level\"\n" +
+                "                                                                           class=\"form-control\"\n" +
+                "                                                                           name=\"Education Level[]\"\n" +
+                "                                                                           data-toggle=\"tooltip\"\n" +
+                "                                                                           data-trigger=\"hover\"\n" +
+                "                                                                           data-placement=\"top\"\n" +
+                "                                                                           data-title=\"Date Opened\">\n" +
+                "                                                                </div>\n" +
+                "                                                            </div>\n" +
+                "                                                            <div class=\"col-md-6\">\n" +
+                "                                                                <div class=\"form-group\">\n" +
+                "                                                                    <label for=\"projectinput3\">Start Date</label>\n" +
+                "                                                                    <input type=\"date\" id=\"Start Date\" required\n" +
+                "                                                                           class=\"form-control\"\n" +
+                "                                                                           name=\"Start Date[]\"\n" +
+                "                                                                           data-toggle=\"tooltip\"\n" +
+                "                                                                           data-trigger=\"hover\"\n" +
+                "                                                                           data-placement=\"top\"\n" +
+                "                                                                           data-title=\"Date Opened\">\n" +
+                "                                                                </div>\n" +
+                "                                                            </div>\n" +
+                "                                                            <div class=\"col-md-12\">\n" +
+                "                                                                <div class=\"form-group\">\n" +
+                "                                                                    <label for=\"projectinput3\">End Date</label>\n" +
+                "                                                                    <input type=\"date\" id=\"End Date\" required\n" +
+                "                                                                           class=\"form-control\"\n" +
+                "                                                                           name=\"End Date[]\"\n" +
+                "                                                                           data-toggle=\"tooltip\"\n" +
+                "                                                                           data-trigger=\"hover\"\n" +
+                "                                                                           data-placement=\"top\"\n" +
+                "                                                                           data-title=\"Date Opened\">\n" +
+                "                                                                </div>\n" +
+                "                                                            </div>\n" +
+                "                                                            <div class=\"col-md-6\">\n" +
+                "                                                                <div class=\"form-group\">\n" +
+                "                                                                    <label for=\"projectinput3\">Professional Course (if any)</label>\n" +
+                "                                                                    <input type=\"date\" id=\"End Date\" required\n" +
+                "                                                                           class=\"form-control\"\n" +
+                "                                                                           name=\"Professional Course[]\"\n" +
+                "                                                                           data-toggle=\"tooltip\"\n" +
+                "                                                                           data-trigger=\"hover\"\n" +
+                "                                                                           data-placement=\"top\"\n" +
+                "                                                                           data-title=\"Date Opened\">\n" +
+                "                                                                </div>\n" +
+                "                                                            </div>\n" +
+                "                                                            <div class=\"col-md-6\">\n" +
+                "                                                                <div class=\"form-group\">\n" +
+                "                                                                    <label for=\"projectinput3\">Remarks</label>\n" +
+                "                                                                    <input type=\"text\" id=\"Remarks\"\n" +
+                "                                                                           class=\"form-control\"\n" +
+                "                                                                           name=\"courseRemarks[]\"\n" +
+                "                                                                           data-toggle=\"tooltip\"\n" +
+                "                                                                           data-trigger=\"hover\"\n" +
+                "                                                                           data-placement=\"top\"\n" +
+                "                                                                           data-title=\"Date Opened\">\n" +
+                "                                                                </div>\n" +
+                "                                                            </div>\n" +
+                "                                                        </div>\n" +
+                "                                                    </div>\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "                                                <hr>\n" +
+                "\n" +
+                "                                            </div>\n";
+
+            $("#appendable_qua").append(child)
+        }
+    </script>
 @stop
 
 
