@@ -170,7 +170,7 @@ Route::prefix('admin')->group(function () {
 
 
      //Employee registration process
-     Route::get('/employee/index' , 'Admin\EmployeeController@indexEmployee')->name('employee-index');
+     Route::get('/employee/index' , 'Admin\EmployeeController@indexEmployee')->name('employee.index');
      Route::get('/employee/create/view' , 'Admin\EmployeeController@createViewEmployee')->name('create-view-employee');
      Route::post('/employee/post/data' , 'Admin\EmployeeController@postEmployee')->name('post-data-employee');
      Route::get('/employee/update/{id}' , 'Admin\EmployeeController@updateEmployee')->name('update-employee');
