@@ -169,15 +169,16 @@ Route::prefix('admin')->group(function () {
     Route::get('/blood-group/delete/{id}' , 'Admin\SiteSettingController@deleteBloodGroup')->name('delete.blood-group');
 
 
-    //Employee registration process
-    Route::get('/employee/index' , 'Admin\EmployeeController@indexEmployee')->name('employee.index');
-    Route::get('/employee/create/view' , 'Admin\EmployeeController@createViewEmployee')->name('create-view.employee');
-    Route::post('/employee/post/data' , 'Admin\EmployeeController@postEmployee')->name('post-data.employee');
-    Route::get('/employee/update/{id}' , 'Admin\EmployeeController@updateEmployee')->name('update.employee');
-    Route::post('/employee/post/update/data/{id}' , 'Admin\EmployeeController@updatePostEmployee')->name('post-update.employee');
-    Route::get('/employee/detail/{id}' , 'Admin\EmployeeController@viewEmployeeDetail')->name('employee.detail');
-    Route::get('/employee/delete/{id}' , 'Admin\EmployeeController@deleteEmployee')->name('delete.employee');
-
+     //Employee registration process
+     Route::get('/employee/index' , 'Admin\EmployeeController@indexEmployee')->name('employee-index');
+     Route::get('/employee/create/view' , 'Admin\EmployeeController@createViewEmployee')->name('create-view-employee');
+     Route::post('/employee/post/data' , 'Admin\EmployeeController@postEmployee')->name('post-data-employee');
+     Route::get('/employee/update/{id}' , 'Admin\EmployeeController@updateEmployee')->name('update-employee');
+     Route::post('/employee/post/update/data/{id}' , 'Admin\EmployeeController@updatePostEmployee')->name('post-update-employee');
+     Route::get('/employee/inactive/{id}' , 'Admin\EmployeeController@inactiveEmployee')->name('inactive-employee');
+     Route::get('/employee/active/{id}' , 'Admin\EmployeeController@activeEmployee')->name('active-employee');
+     Route::get('/employee/delete/{id}' , 'Admin\EmployeeController@deleteEmployee')->name('delete-employee');
+ 
     //Company crud
     Route::get('/company/index' , 'Admin\CompanyController@indexCompany')->name('company.index');
     Route::get('/company/create/view' , 'Admin\CompanyController@createViewCompany')->name('create-view.company');
