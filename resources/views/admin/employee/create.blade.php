@@ -51,12 +51,12 @@
                                     <li class="nav-item">
                                         <a class="nav-link active" id="baseIcon-tab1" data-toggle="tab"
                                            aria-controls="tabIcon1" href="#tabIcon1" aria-expanded="true"><i
-                                                class="ft-user"></i> Personl Information</a>
+                                                class="ft-user"></i> Work Information</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="baseIcon-tab2" data-toggle="tab"
                                            aria-controls="tabIcon2" href="#tabIcon2" aria-expanded="false"><i
-                                                class="ft-alert-octagon"></i>Work Information</a>
+                                                class="ft-alert-octagon"></i> Personl Information</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="baseIcon-tab3" data-toggle="tab"
@@ -82,1088 +82,1205 @@
                                     <div role="tabpanel" class="tab-pane active" id="tabIcon1"
                                          aria-expanded="true" aria-labelledby="baseIcon-tab1">
 
+                                                <div class="row bg-lighttt tab_portrait_sctn">
+                                                    <div class="col-sm-6">
+                                                        <div class="media d-flex mx-0 my-1 user-text mt-3">
+                                                            <div class="align-left p-0 mr-2">
+                                                                <a href="#" class="profile-image">
+                                                                    <img  src="{{asset('app-assets/images/portrait/small/avatar-s-1.png')}}" class="rounded-squre img-border height-120 mt-1" alt="Card image">
+                                                                </a>
+                                                            </div>
+                                                            <div class="media-body text-left text-dark">
+                                                                <div class="row">
+                                                                    <div class="col-md-3 pr-md-0">
+                                                                        <div class="form-group">
+                                                                            <label for="">* Title</label>
+                                                                            <select id="" name="priority" class="form-control">
+                                                                                <option value="low">Mr</option>
+                                                                                <option value="medium"></option>
+                                                                                <option value="high"></option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-9 px-1">
+                                                                        <div class="form-group">
+                                                                            <label for="">Name</label>
+                                                                            <input type="text" id="" class="form-control" placeholder="John Smith" name="issuetitle">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-9 px-1">
+                                                                        <div class="form-group">
+                                                                            <label for="timesheetinput1">Work Email</label>
+                                                                            <div class="position-relative has-icon-left">
+                                                                                <input type="text" id="timesheetinput1" class="form-control" placeholder="joh.smith@wrappex.com" name="employeename">
+                                                                                <div class="form-control-position">
+                                                                                    <i class="ft-mail"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3 pl-md-0">
+                                                                        <div class="form-group">
+                                                                            <label for="timesheetinput2">&nbsp;</label>
+                                                                            <div class="position-relative has-icon-left">
+                                                                                <input style="font-size: 17px;
+                                                                                padding: 0 0 0 37px;" type="text" id="timesheetinput2" class="form-control" placeholder="UKK" name="projectname">
+                                                                                <div class="form-control-position">
+                                                                                    <!-- <i class="la la-briefcase"></i> -->
 
-
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="media d-flex mx-0 my-1 user-text">
-                                                        <div class="align-left p-0 mr-2">
-                                                            <a href="#" class="profile-image">
-                                                                <img
-                                                                    src="{{asset('app-assets/images/portrait/small/avatar-s-1.png')}}"
-                                                                    class="rounded-circle img-border height-75"
-                                                                    alt="Card image">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body text-left text-dark mt-1">
-                                                            <h3 class="font-medium-1 ">Thomas Cruise IV
-                                                            </h3>
-                                                            <div class="form-actions">
-                                                                <button
-                                                                        class="btn btn-sm btn-primary">
-                                                                    <input type="file" name="profile_image" required>
-                                                                </button>
-                                                                {{--                                                            <button type="button"--}}
-                                                                {{--                                                                    class="btn btn-sm btn-danger mr-1">--}}
-                                                                {{--                                                                Reset--}}
-                                                                {{--                                                            </button>--}}
+                                                                                    <img style="width: 32px;
+                                                                                    height: 32px;
+                                                                                    margin: -9px 0 0;" src="../digitaadmin/app-assets/images/icons/flagimg.png">
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
 
                                                             </div>
-
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="row position_sctn">
+                                                            <div class="col-sm-12">
+                                                                <h4 class="form-section">Position</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="f-add mt-0">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3" for="">Job Position</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="Senior Developer" name="">
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                           
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group row">
+                                                                        <label  class="col-md-3" for="">Department</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="DevOps" name="">
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group extent-wrp row">
+                                                                        <label class="col-md-3" for="">Manager</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="Chris Walker" name="">
+                                                                        <i class="ft-external-link"></i>
+                                                                    </div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3" for="">Employee ID</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="1254" name="">
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {{--                                            <div class="col-sm-6">--}}
-                                                {{--                                                <div class="f-add mt-1">--}}
-                                                {{--                                                    <table class="border-0">--}}
-                                                {{--                                                        <tbody>--}}
-                                                {{--                                                        <tr>--}}
-                                                {{--                                                            <td>Address:</td>--}}
-                                                {{--                                                            <td>4 Pippln Court, Park Road, New Barnet,--}}
-                                                {{--                                                                London EN4 9TF Unlited Kingdom--}}
-                                                {{--                                                            </td>--}}
-                                                {{--                                                        </tr>--}}
-                                                {{--                                                        <tr>--}}
-                                                {{--                                                            <td>Phone:</td>--}}
-                                                {{--                                                            <td>+91 8602990317</td>--}}
-                                                {{--                                                        </tr>--}}
-                                                {{--                                                        </tbody>--}}
-                                                {{--                                                    </table>--}}
-                                                {{--                                                </div>--}}
-                                                {{--                                            </div>--}}
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-
-                                                    <div class="form-body">
-
-                                                        <div class="form-group">
-                                                            <label for="projectinput1">First Name</label>
-                                                            <input type="text" id="FirstName" required
-                                                                   class="form-control"
-                                                                   placeholder="First Name" name="First Name"
-                                                                   data-toggle="tooltip" data-trigger="hover"
-                                                                   data-placement="top"
-                                                                   data-title="Issue Title">
+                                                    <div class="row mt-3">
+                                                        <div class="col-md-6">
+                                                            <form class="form form-horizontal">
+                                                                <div class="form-body">
+                    
+                                                                   
+                                                                    <h4 class="form-section">Contact Information</h4>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Date of joining</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="position-relative has-icon-left">
+                                                                                <input type="date" id="timesheetinput3" class="form-control" name="date">
+                                                                                <div class="form-control-position">
+                                                                                    <i class="ft-message-square"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput6">Employment Type</label>
+                                                                        <div class="col-md-9">
+                                                                            <select id="projectinput6" name="interested" class="form-control">
+                                                                                <option value="none" selected="" disabled="">Employee</option>
+                                                                                <option value="design">design</option>
+                                                                                <option value="development">development</option>
+                                                                                <option value="illustration">illustration</option>
+                                                                                <option value="branding">branding</option>
+                                                                                <option value="video">video</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput7">Contract Type</label>
+                                                                        <div class="col-md-9">
+                                                                            <select id="projectinput7" name="budget" class="form-control">
+                                                                                <option value="0" selected="" disabled="">Full - Time</option>
+                                                                                <option value="less than 5000$">less than 5000$</option>
+                                                                                <option value="5000$ - 10000$">5000$ - 10000$</option>
+                                                                                <option value="10000$ - 20000$">10000$ - 20000$</option>
+                                                                                <option value="more than 20000$">more than 20000$</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control">Work Mobile</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="row">
+                                                                                <div class="col-md-3 pr-md-0">
+                                                                                    <div class="form-group mb-0">
+                                                                                        
+                                                                                        <div class="position-relative has-icon-right">
+                                                                                            <input style="font-size: 17px;
+                                                                                            padding: 0 0 0 5px;" type="text" id="timesheetinput2" class="form-control" placeholder="+44" name="projectname">
+                                                                                            <div class="form-control-position">
+                                                                                                <!-- <i class="la la-briefcase"></i> -->
+            
+                                                                                                <img style="width: 32px;
+                                                                                                height: 32px;
+                                                                                                margin: -9px 0 0;" src="../digitaadmin/app-assets/images/icons/flagimg.png">
+                                                                                            </div>
+                                                                                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-9 px-1">
+                                                                                    <div class="form-group mb-0">
+                                                                                       
+                                                                                        <div class="position-relative has-icon-right">
+                                                                                            <input type="text" id="timesheetinput1" class="form-control" placeholder="07479982438" name="employeename">
+                                                                                            <div class="form-control-position">
+                                                                                                <i class="ft-message-circle"></i>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control">Work Phone</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="row">
+                                                                                <div class="col-md-3 pr-md-0">
+                                                                                    <div class="form-group mb-0">
+                                                                                        
+                                                                                        <div class="position-relative has-icon-right">
+                                                                                            <input style="font-size: 17px;
+                                                                                            padding: 0 0 0 5px;" type="text" id="timesheetinput2" class="form-control" placeholder="+44" name="projectname">
+                                                                                            <div class="form-control-position">
+                                                                                                <!-- <i class="la la-briefcase"></i> -->
+            
+                                                                                                <img style="width: 32px;
+                                                                                                height: 32px;
+                                                                                                margin: -9px 0 0;" src="../digitaadmin/app-assets/images/icons/flagimg.png">
+                                                                                            </div>
+                                                                                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-9 px-1">
+                                                                                    <div class="form-group mb-0">
+                                                                                       
+                                                                                        <div class="position-relative has-icon-right">
+                                                                                            <input type="text" id="timesheetinput1" class="form-control" placeholder="07479982438" name="employeename">
+                                                                                            <div class="form-control-position">
+                                                                                                <i class="ft-message-circle"></i>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                    
+                                                                
+                                                            </form>
                                                         </div>
 
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput3">Middle Name</label>
-                                                                    <input type="text" id="MiddleName"
-                                                                           class="form-control"
-                                                                           name="Middle Name"
-                                                                           data-toggle="tooltip"
-                                                                           data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Date Opened">
+                                                        <div class="col-md-6">
+                                                            <form class="form form-horizontal">
+                                                                <div class="form-body">
+                    
+                                                                   
+                                                                    <h4 class="form-section">Company Information</h4>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Company</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0">                                                                               
+                                                                                <input type="text" id="" class="form-control" placeholder="Chris Walker" name="">
+                                                                                <i class="ft-external-link ccm"></i>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Branch</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0">                                                                               
+                                                                                <input type="text" id="" class="form-control" placeholder="Main - Branch" name="">
+                                                                                <i class="ccm"><small>PD</small></i>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Work Location</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0">                                                                               
+                                                                                <input type="text" id="" class="form-control" placeholder="London" name="">
+                                                                                <i class="ccm"><small>PD</small></i>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Work Address</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0">                                                                               
+                                                                                <input type="text" id="" class="form-control" placeholder="28 Broad Street, London EC2M 1NH United Kingdom" name="">
+                                                                                
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Working Hours</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0">                                                                               
+                                                                                <input type="text" id="" class="form-control" placeholder="Standard 9 to 5 PM" name="">
+                                                                                <i class="ft-external-link ccm"></i>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput3">Last Name</label>
-                                                                    <input type="text" id="LastName" required
-                                                                           class="form-control"
-                                                                           name="Last Name"
-                                                                           data-toggle="tooltip"
-                                                                           data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Date Opened">
-                                                                </div>
-                                                            </div>
+                    
+                                                            </form>
                                                         </div>
+                                                        
                                                     </div>
 
-                                                    <div class="form-group">
-                                                        <label for="projectinput3">Title</label>
-                                                        <input type="text" id="Title" required
-                                                               class="form-control"
-                                                               name="Title"
-                                                               data-toggle="tooltip"
-                                                               data-trigger="hover"
-                                                               data-placement="top"
-                                                               data-title="Date Opened">
+                                                    <div class="col-md-orizontal">
+                                                        <form class="form form-horizontal">
+                                                            <div class="form-body">
+                
+                                                               
+                                                                <h4 class="form-section">Other Information</h4>
+                                                                
+                                                                <div class="form-group row">
+                                                                    <div class="col-md-12">
+                                                                        <textarea id="projectinput9" rows="5" class="form-control" name="comment" placeholder="WISIWYG"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                
+                                                        </form>
                                                     </div>
-
-                                                    {{--                                                    </div>--}}
-
-                                                    {{--                                                    <div class="form-actions">--}}
-                                                    {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
-                                                    {{--                                                            <i class="ft-x"></i> Cancel--}}
-                                                    {{--                                                        </button>--}}
-                                                    {{--                                                        <button   class="btn btn-primary">--}}
-                                                    {{--                                                            <i class="la la-check-square-o"></i> Save--}}
-                                                    {{--                                                        </button>--}}
-                                                    {{--                                                    </div>--}}
-                                                </div>
-                                                <div class="col-md-6">
-
-                                                    <div class="form-body">
-
-                                                        <div class="form-group">
-                                                            <label for="projectinput1">Email</label>
-                                                            <input type="email" id="Email" required
-                                                                   class="form-control"
-                                                                   placeholder="Email" name="Email"
-                                                                   data-toggle="tooltip" data-trigger="hover"
-                                                                   data-placement="top"
-                                                                   data-title="Issue Title">
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput3">Marital Status</label>
-                                                                    <input type="text" id="MaritalStatus" required
-                                                                           class="form-control"
-                                                                           name="Marital Status"
-                                                                           data-toggle="tooltip"
-                                                                           data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Date Opened">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput3">Contact Mobile
-                                                                        Number</label>
-                                                                    <input type="number" id="ContactMobileNumber" required
-                                                                           class="form-control"
-                                                                           name="Contact Mobile Number"
-                                                                           data-toggle="tooltip"
-                                                                           data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Date Opened">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="projectinput3">Contact phone Number</label>
-                                                            <input type="number" id="ContactMobileNumber" required
-                                                                   class="form-control"
-                                                                   name="Contact phone Number"
-                                                                   data-toggle="tooltip"
-                                                                   data-trigger="hover"
-                                                                   data-placement="top"
-                                                                   data-title="Date Opened">
-                                                        </div>
-
-                                                    </div>
-
-
-                                                </div>
-                                                <div class="col-md-6">
-
-                                                    <div class="form-body">
-
-                                                        <div class="form-group">
-                                                            <label for="projectinput1">Date of birth</label>
-                                                            <input type="date" id="Dateofbirth" required
-                                                                   class="form-control"
-                                                                   placeholder="Date of birth" name="Date of birth"
-                                                                   data-toggle="tooltip" data-trigger="hover"
-                                                                   data-placement="top"
-                                                                   data-title="Issue Title">
-                                                        </div>
-
-                                                        <div class="row">
-
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput3">House Number</label>
-                                                                    <input type="number" id="HouseNumber" required
-                                                                           class="form-control"
-                                                                           name="House Number"
-                                                                           data-toggle="tooltip"
-                                                                           data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Date Opened">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="projectinput3">House Name</label>
-                                                            <input type="text" id="HouseName" required
-                                                                   class="form-control"
-                                                                   name="House Name"
-                                                                   data-toggle="tooltip"
-                                                                   data-trigger="hover"
-                                                                   data-placement="top"
-                                                                   data-title="Date Opened">
-                                                        </div>
-
-                                                    </div>
-
-
-                                                </div>
-                                                <div class="col-md-6">
-
-                                                    <div class="form-body">
-
-                                                        <div class="form-group">
-                                                            <label for="projectinput1">Street</label>
-                                                            <input type="text" id="Street" required
-                                                                   class="form-control"
-                                                                   placeholder="Street" name="Street"
-                                                                   data-toggle="tooltip" data-trigger="hover"
-                                                                   data-placement="top"
-                                                                   data-title="Issue Title">
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput1">City</label>
-                                                                    <select type="text" id="City" required
-                                                                           class="form-control"
-                                                                           placeholder="City" name="City"
-                                                                           data-toggle="tooltip" data-trigger="hover"
-                                                                           data-placement="top"
-                                                                            data-title="Issue Title">
-                                                                        <option value="" selected disabled>Select City</option>
-                                                                        @foreach ($cities as $city)
-                                                                            <option value="{{$city->value}}" >{{$city->value}}</option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput3">Country / State </label>
-                                                                    <select type="text" id="CountryState" required
-                                                                           class="form-control"
-                                                                           name="CountryState"
-                                                                           data-toggle="tooltip"
-                                                                           data-trigger="hover"
-                                                                           data-placement="top"
-                                                                            data-title="Date Opened">
-                                                                        <option value="" selected disabled>Select State</option>
-                                                                        @foreach ($states as $state)
-                                                                            <option value="{{$state->value}}">{{$state->value}}</option>
-                                                                        @endforeach
-
-                                                                    </select>
-{{--                                                                    <input type="text" id="CountryState" required--}}
-{{--                                                                           class="form-control"--}}
-{{--                                                                           name="CountryState"--}}
-{{--                                                                           data-toggle="tooltip"--}}
-{{--                                                                           data-trigger="hover"--}}
-{{--                                                                           data-placement="top"--}}
-{{--                                                                           data-title="Date Opened">--}}
-
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="projectinput3">Post Code</label>
-                                                            <input type="text" id="PostCode" required
-                                                                   class="form-control"
-                                                                   name="Post Code"
-                                                                   data-toggle="tooltip"
-                                                                   data-trigger="hover"
-                                                                   data-placement="top"
-                                                                   data-title="Date Opened">
-                                                        </div>
-
-                                                    </div>
-
-                                                    {{--                                                    <div class="form-actions">--}}
-                                                    {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
-                                                    {{--                                                            <i class="ft-x"></i> Cancel--}}
-                                                    {{--                                                        </button>--}}
-                                                    {{--                                                        <button   class="btn btn-primary">--}}
-                                                    {{--                                                            <i class="la la-check-square-o"></i> Save--}}
-                                                    {{--                                                        </button>--}}
-                                                    {{--                                                    </div>--}}
-
-                                                </div>
-                                                <div class="col-md-6">
-
-                                                    <div class="form-body">
-
-                                                        <div class="form-group">
-                                                            <label for="projectinput1">Country</label>
-                                                            <select type="text" id="Country" required
-                                                                   class="form-control"
-                                                                   placeholder="Country" name="Country"
-                                                                   data-toggle="tooltip" data-trigger="hover"
-                                                                   data-placement="top"
-                                                                    data-title="Issue Title">
-                                                                <option value="" selected disabled>Select Country</option>
-                                                                @foreach ($countries as $country)
-                                                                    <option value="{{$country->value}}">{{$country->value}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="projectinput3">Work Permit No.</label>
-                                                            <input type="text" id="WorkPermitNo" required
-                                                                   class="form-control"
-                                                                   name="Work Permit No"
-                                                                   data-toggle="tooltip"
-                                                                   data-trigger="hover"
-                                                                   data-placement="top"
-                                                                   data-title="Date Opened">
-                                                        </div>
-
-{{--                                                        <div class="row">--}}
-{{--                                                            <div class="col-md-6">--}}
-{{--                                                                <div class="form-group">--}}
-{{--                                                                    <label for="projectinput1">City</label>--}}
-{{--                                                                    <input type="text" id="City" required--}}
-{{--                                                                           class="form-control"--}}
-{{--                                                                           placeholder="City" name="City"--}}
-{{--                                                                           data-toggle="tooltip" data-trigger="hover"--}}
-{{--                                                                           data-placement="top"--}}
-{{--                                                                           data-title="Issue Title">--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                            <div class="col-md-6">--}}
-{{--                                                                <div class="form-group">--}}
-{{--                                                                    <label for="projectinput3">Country / State </label>--}}
-{{--                                                                    <input type="text" id="CountryState" required--}}
-{{--                                                                           class="form-control"--}}
-{{--                                                                           name="CountryState"--}}
-{{--                                                                           data-toggle="tooltip"--}}
-{{--                                                                           data-trigger="hover"--}}
-{{--                                                                           data-placement="top"--}}
-{{--                                                                           data-title="Date Opened">--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-
-{{--                                                        <div class="form-group">--}}
-{{--                                                            <label for="projectinput3">Post Code</label>--}}
-{{--                                                            <input type="text" id="PostCode" required--}}
-{{--                                                                   class="form-control"--}}
-{{--                                                                   name="Post Code"--}}
-{{--                                                                   data-toggle="tooltip"--}}
-{{--                                                                   data-trigger="hover"--}}
-{{--                                                                   data-placement="top"--}}
-{{--                                                                   data-title="Date Opened">--}}
-{{--                                                        </div>--}}
-
-                                                    </div>
-
-                                                    {{--                                                    <div class="form-actions">--}}
-                                                    {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
-                                                    {{--                                                            <i class="ft-x"></i> Cancel--}}
-                                                    {{--                                                        </button>--}}
-                                                    {{--                                                        <button   class="btn btn-primary">--}}
-                                                    {{--                                                            <i class="la la-check-square-o"></i> Save--}}
-                                                    {{--                                                        </button>--}}
-                                                    {{--                                                    </div>--}}
-
-                                                </div>
-                                                <div class="col-md-6">
-
-                                                    <div class="form-body">
-
-                                                        <div class="form-group">
-                                                            <label for="projectinput1">Nationality</label>
-                                                            <input type="text" id="Nationality" required
-                                                                   class="form-control"
-                                                                   placeholder="Nationality" name="Nationality"
-                                                                   data-toggle="tooltip" data-trigger="hover"
-                                                                   data-placement="top"
-                                                                   data-title="Issue Title">
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput1">Identification
-                                                                        No.</label>
-                                                                    <input type="text" id="IdentificationNo" required
-                                                                           class="form-control"
-                                                                           placeholder="Identification No"
-                                                                           name="Identification No"
-                                                                           data-toggle="tooltip" data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Issue Title">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput3">Visa No. </label>
-                                                                    <input type="text" id="VisaNo" required
-                                                                           class="form-control"
-                                                                           name="Visa No"
-                                                                           data-toggle="tooltip"
-                                                                           data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Date Opened">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-
-
-                                                    </div>
-
-
-                                                </div>
-                                                <div class="col-md-6">
-
-                                                    <div class="form-body">
-
-                                                        <div class="form-group">
-                                                            <label for="projectinput1">Visa Expiry Date</label>
-                                                            <input type="date" id="VisaExpiryDate" required
-                                                                   class="form-control"
-                                                                   placeholder="Visa Expiry Date"
-                                                                   name="Visa Expiry Date"
-                                                                   data-toggle="tooltip" data-trigger="hover"
-                                                                   data-placement="top"
-                                                                   data-title="Issue Title">
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput1">Blood Group</label>
-                                                                    <input type="text" id="BloodGroup" required
-                                                                           class="form-control"
-                                                                           placeholder="Blood Group No"
-                                                                           name="Blood Group"
-                                                                           data-toggle="tooltip" data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Issue Title">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput3">Visa No. </label>
-                                                                    <input type="text" id="VisaNo" required
-                                                                           class="form-control"
-                                                                           name="Visa No"
-                                                                           data-toggle="tooltip"
-                                                                           data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Date Opened">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="projectinput3">Work Permit No.</label>
-                                                            <input type="text" id="WorkPermitNo" required
-                                                                   class="form-control"
-                                                                   name="Work Permit No"
-                                                                   data-toggle="tooltip"
-                                                                   data-trigger="hover"
-                                                                   data-placement="top"
-                                                                   data-title="Date Opened">
-                                                        </div>
-
-                                                    </div>
-
-                                                    {{--                                                    <div class="form-actions">--}}
-                                                    {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
-                                                    {{--                                                            <i class="ft-x"></i> Cancel--}}
-                                                    {{--                                                        </button>--}}
-                                                    {{--                                                        <button   class="btn btn-primary">--}}
-                                                    {{--                                                            <i class="la la-check-square-o"></i> Save--}}
-                                                    {{--                                                        </button>--}}
-                                                    {{--                                                    </div>--}}
-
-                                                </div>
-                                                <div class="col-md-6">
-
-                                                    <div class="form-body">
-
-                                                        <div class="form-group">
-                                                            <label for="projectinput1">Bank Account Name</label>
-                                                            <input type="text" id="BankAccountName" required
-                                                                   class="form-control"
-                                                                   placeholder="Bank Account Name"
-                                                                   name="Bank Account Name"
-                                                                   data-toggle="tooltip" data-trigger="hover"
-                                                                   data-placement="top"
-                                                                   data-title="Issue Title">
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput1">Bank Short Code</label>
-                                                                    <input type="text" id="BankShortCode" required
-                                                                           class="form-control"
-                                                                           placeholder="Bank Short Code"
-                                                                           name="Bank Short Code"
-                                                                           data-toggle="tooltip" data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Issue Title">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput3">Bank Account
-                                                                        Number</label>
-                                                                    <input type="text" id="BankAccountNumber" required
-                                                                           class="form-control"
-                                                                           name="Bank Account Number"
-                                                                           data-toggle="tooltip"
-                                                                           data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Date Opened">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput3">Bank IFSC Code</label>
-                                                                    <input type="text" id="BankIFSCCode" required
-                                                                           class="form-control"
-                                                                           name="Bank IFSC Code"
-                                                                           data-toggle="tooltip"
-                                                                           data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Date Opened">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="projectinput3">Bank IBAN Code</label>
-                                                                    <input type="text" id="BankIBANCode" required
-                                                                           class="form-control"
-                                                                           name="Bank IBAN Code"
-                                                                           data-toggle="tooltip"
-                                                                           data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Date Opened">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        {{--                                                        <div class="form-group">--}}
-                                                        {{--                                                            <label for="projectinput3">Bank IFSC Code</label>--}}
-                                                        {{--                                                            <input type="text" id="BankIFSCCode" required--}}
-                                                        {{--                                                                   class="form-control"--}}
-                                                        {{--                                                                   name="Bank IFSC Code"--}}
-                                                        {{--                                                                   data-toggle="tooltip"--}}
-                                                        {{--                                                                   data-trigger="hover"--}}
-                                                        {{--                                                                   data-placement="top"--}}
-                                                        {{--                                                                   data-title="Date Opened">--}}
-                                                        {{--                                                        </div>--}}
-
-                                                    </div>
-
-                                                    {{--                                                    <div class="form-actions">--}}
-                                                    {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
-                                                    {{--                                                            <i class="ft-x"></i> Cancel--}}
-                                                    {{--                                                        </button>--}}
-                                                    {{--                                                        <button   class="btn btn-primary">--}}
-                                                    {{--                                                            <i class="la la-check-square-o"></i> Save--}}
-                                                    {{--                                                        </button>--}}
-                                                    {{--                                                    </div>--}}
-
-                                                </div>
-                                            </div>
-                                            <div class="form-actions">
-                                                <a id="baseIcon-tab2" data-toggle="tab" aria-controls="tabIcon2" href="#tabIcon2" aria-expanded="false"> <button   class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> Next
-                                                </button></a>
-                                            </div>
-
+                                            
                                     </div>
 
 
                                     <div class="tab-pane" id="tabIcon2" aria-labelledby="baseIcon-tab2">
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-
-                                                <div class="form-body">
-
-                                                    <div class="form-group">
-                                                        <label for="projectinput1">Company</label>
-                                                        <input type="text" id="Company" required
-                                                               class="form-control"
-                                                               placeholder="Company" name="Company"
-                                                               data-toggle="tooltip" data-trigger="hover"
-                                                               data-placement="top"
-                                                               data-title="Issue Title">
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Branch</label>
-                                                                <input type="text" id="Branch"
-                                                                       class="form-control"
-                                                                       name="Branch"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
+                                        <div class="row bg-lighttt tab_portrait_sctn">
+                                                    <div class="col-sm-6">
+                                                        <div class="media d-flex mx-0 my-1 user-text mt-3">
+                                                            <div class="align-left p-0 mr-2">
+                                                                <a href="#" class="profile-image">
+                                                                    <img src="https://digita.vhostevents.com/app-assets/images/portrait/small/avatar-s-1.png" class="rounded-squre img-border height-120 mt-1" alt="Card image">
+                                                                </a>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Department</label>
-                                                                <input type="text" id="Department" required
-                                                                       class="form-control"
-                                                                       name="Department"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="projectinput3">Designation</label>
-                                                    <input type="text" id="Title"
-                                                           class="form-control"
-                                                           name="Designation"
-                                                           data-toggle="tooltip"
-                                                           data-trigger="hover"
-                                                           data-placement="top"
-                                                           data-title="Date Opened">
-                                                </div>
-
-                                                {{--                                                    </div>--}}
-
-                                                {{--                                                    <div class="form-actions">--}}
-                                                {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
-                                                {{--                                                            <i class="ft-x"></i> Cancel--}}
-                                                {{--                                                        </button>--}}
-                                                {{--                                                        <button   class="btn btn-primary">--}}
-                                                {{--                                                            <i class="la la-check-square-o"></i> Save--}}
-                                                {{--                                                        </button>--}}
-                                                {{--                                                    </div>--}}
-
-                                            </div>
-                                            <div class="col-md-6">
-
-                                                <div class="form-body">
-                                                    <div class="form-group">
-                                                        <label for="projectinput1">Date of joining</label>
-                                                        <input type="date" id="Dateofjoining" required
-                                                               class="form-control"
-                                                               placeholder="Date of joining" name="Date of joining"
-                                                               data-toggle="tooltip" data-trigger="hover"
-                                                               data-placement="top"
-                                                               data-title="Issue Title">
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Date of leaving</label>
-                                                                <input type="date" id="Dateofleaving"
-                                                                       class="form-control"
-                                                                       name="Date of leaving"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Employee Type</label>
-                                                                <div class="mb-2">
-
-                                                                    <div class="form-check form-check-inline">
-                                                                        <input class="form-check-input" type="radio"
-                                                                               name="Employee Type"
-                                                                               id="EmployeeType" value="Employee">
-                                                                        <label class="form-check-label"
-                                                                               for="inlineRadio1">Employee</label>
+                                                            <div class="media-body text-left text-dark">
+                                                                <div class="row">
+                                                                    <div class="col-md-3 pr-md-0">
+                                                                        <div class="form-group">
+                                                                            <label for="">* Title</label>
+                                                                            <select id="" name="priority" class="form-control">
+                                                                                <option value="low">Mr</option>
+                                                                                <option value="medium"></option>
+                                                                                <option value="high"></option>
+                                                                            </select>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="form-check form-check-inline">
-                                                                        <input class="form-check-input" type="radio"
-                                                                               name="Employee Type"
-                                                                               id="EmployeeType" value="Contractor">
-                                                                        <label class="form-check-label"
-                                                                               for="inlineRadio2">Contractor</label>
+                                                                    <div class="col-md-9 px-1">
+                                                                        <div class="form-group">
+                                                                            <label for="">Name</label>
+                                                                            <input type="text" id="" class="form-control" placeholder="John Smith" name="issuetitle">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-9 px-1">
+                                                                        <div class="form-group">
+                                                                            <label for="timesheetinput1">Work Email</label>
+                                                                            <div class="position-relative has-icon-left">
+                                                                                <input type="text" id="timesheetinput1" class="form-control" placeholder="joh.smith@wrappex.com" name="employeename">
+                                                                                <div class="form-control-position">
+                                                                                    <i class="ft-mail"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3 pl-md-0">
+                                                                        <div class="form-group">
+                                                                            <label for="timesheetinput2">&nbsp;</label>
+                                                                            <div class="position-relative has-icon-left">
+                                                                                <input style="font-size: 17px;
+                                                                                padding: 0 0 0 37px;" type="text" id="timesheetinput2" class="form-control" placeholder="UKK" name="projectname">
+                                                                                <div class="form-control-position">
+                                                                                    <!-- <i class="la la-briefcase"></i> -->
+
+                                                                                    <img style="width: 32px;
+                                                                                    height: 32px;
+                                                                                    margin: -9px 0 0;" src="../digitaadmin/app-assets/images/icons/flagimg.png">
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="row position_sctn">
+                                                            <div class="col-sm-12">
+                                                                <h4 class="form-section">Position</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="f-add mt-0">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3" for="">Job Position</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="Senior Developer" name="">
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                           
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3" for="">Department</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="DevOps" name="">
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group extent-wrp row">
+                                                                        <label class="col-md-3" for="">Manager</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="Chris Walker" name="">
+                                                                        <i class="ft-external-link"></i>
+                                                                    </div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3" for="">Employee ID</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="1254" name="">
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                    <div class="row mt-3">
+                                                        <div class="col-md-6">
+                                                            
+                                                                <div class="form-body">
+                    
+                                                                   
+                                                                    <h4 class="form-section">Contact Information</h4>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Date of joining</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="position-relative has-icon-left">
+                                                                                <input type="date" id="timesheetinput3" class="form-control" name="date">
+                                                                                <div class="form-control-position">
+                                                                                    <i class="ft-message-square"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput6">Employment Type</label>
+                                                                        <div class="col-md-9">
+                                                                            <select id="projectinput6" name="interested" class="form-control">
+                                                                                <option value="none" selected="" disabled="">Employee</option>
+                                                                                <option value="design">design</option>
+                                                                                <option value="development">development</option>
+                                                                                <option value="illustration">illustration</option>
+                                                                                <option value="branding">branding</option>
+                                                                                <option value="video">video</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput7">Contract Type</label>
+                                                                        <div class="col-md-9">
+                                                                            <select id="projectinput7" name="budget" class="form-control">
+                                                                                <option value="0" selected="" disabled="">Full - Time</option>
+                                                                                <option value="less than 5000$">less than 5000$</option>
+                                                                                <option value="5000$ - 10000$">5000$ - 10000$</option>
+                                                                                <option value="10000$ - 20000$">10000$ - 20000$</option>
+                                                                                <option value="more than 20000$">more than 20000$</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control">Work Mobile</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="row">
+                                                                                <div class="col-md-3 pr-md-0">
+                                                                                    <div class="form-group mb-0">
+                                                                                        
+                                                                                        <div class="position-relative has-icon-right">
+                                                                                            <input style="font-size: 17px;
+                                                                                            padding: 0 0 0 5px;" type="text" id="timesheetinput2" class="form-control" placeholder="+44" name="projectname">
+                                                                                            <div class="form-control-position">
+                                                                                                <!-- <i class="la la-briefcase"></i> -->
+            
+                                                                                                <img style="width: 32px;
+                                                                                                height: 32px;
+                                                                                                margin: -9px 0 0;" src="../digitaadmin/app-assets/images/icons/flagimg.png">
+                                                                                            </div>
+                                                                                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-9 px-1">
+                                                                                    <div class="form-group mb-0">
+                                                                                       
+                                                                                        <div class="position-relative has-icon-right">
+                                                                                            <input type="text" id="timesheetinput1" class="form-control" placeholder="07479982438" name="employeename">
+                                                                                            <div class="form-control-position">
+                                                                                                <i class="ft-message-circle"></i>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control">Work Phone</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="row">
+                                                                                <div class="col-md-3 pr-md-0">
+                                                                                    <div class="form-group mb-0">
+                                                                                        
+                                                                                        <div class="position-relative has-icon-right">
+                                                                                            <input style="font-size: 17px;
+                                                                                            padding: 0 0 0 5px;" type="text" id="timesheetinput2" class="form-control" placeholder="+44" name="projectname">
+                                                                                            <div class="form-control-position">
+                                                                                                <!-- <i class="la la-briefcase"></i> -->
+            
+                                                                                                <img style="width: 32px;
+                                                                                                height: 32px;
+                                                                                                margin: -9px 0 0;" src="../digitaadmin/app-assets/images/icons/flagimg.png">
+                                                                                            </div>
+                                                                                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-9 px-1">
+                                                                                    <div class="form-group mb-0">
+                                                                                       
+                                                                                        <div class="position-relative has-icon-right">
+                                                                                            <input type="text" id="timesheetinput1" class="form-control" placeholder="07479982438" name="employeename">
+                                                                                            <div class="form-control-position">
+                                                                                                <i class="ft-message-circle"></i>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                    
+                                                                
+                                                            
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <form class="form form-horizontal">
+                                                                <div class="form-body">
+                    
+                                                                   
+                                                                    <h4 class="form-section">Company Information</h4>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Company</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0">                                                                               
+                                                                                <input type="text" id="" class="form-control" placeholder="Chris Walker" name="">
+                                                                                <i class="ft-external-link ccm"></i>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Branch</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0">                                                                               
+                                                                                <input type="text" id="" class="form-control" placeholder="Main - Branch" name="">
+                                                                                <i class="ccm"><small>PD</small></i>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Work Location</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0">                                                                               
+                                                                                <input type="text" id="" class="form-control" placeholder="London" name="">
+                                                                                <i class="ccm"><small>PD</small></i>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Work Address</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0">                                                                               
+                                                                                <input type="text" id="" class="form-control" placeholder="28 Broad Street, London EC2M 1NH United Kingdom" name="">
+                                                                                
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Working Hours</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0">                                                                               
+                                                                                <input type="text" id="" class="form-control" placeholder="Standard 9 to 5 PM" name="">
+                                                                                <i class="ft-external-link ccm"></i>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    
+                                                                </div>
+                    
+                                                            </form>
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div class="col-md-orizontal">
+                                                        <form class="form form-horizontal">
+                                                            <div class="form-body">
+                
+                                                               
+                                                                <h4 class="form-section">Other Information</h4>
+                                                                
+                                                                <div class="form-group row">
+                                                                    <div class="col-md-12">
+                                                                        <textarea id="projectinput9" rows="5" class="form-control" name="comment" placeholder="WISIWYG"></textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-
-
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Contract Type</label>
-                                                                <div class="mb-2">
-
-                                                                    <div class="form-check form-check-inline">
-                                                                        <input class="form-check-input" type="radio"
-                                                                               name="Contract Type"
-                                                                               id="ContractType" value="full-time">
-                                                                        <label class="form-check-label"
-                                                                               for="inlineRadio1">Employee</label>
-                                                                    </div>
-                                                                    <div class="form-check form-check-inline">
-                                                                        <input class="form-check-input" type="radio"
-                                                                               name="Contract Type"
-                                                                               id="ContractType" value="part-time">
-                                                                        <label class="form-check-label"
-                                                                               for="inlineRadio2">Contractor</label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Employee id</label>
-                                                                <input type="text" id="Employeeid"
-                                                                       class="form-control"
-                                                                       name="Employee id"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
-                                                            </div>
-                                                        </div>
-
-
+                
+                                                        </form>
                                                     </div>
-                                                </div>
-
-
-                                            </div>
-                                            <div class="col-md-6">
-
-                                                <div class="form-body">
-                                                    <div class="form-group">
-                                                        <label for="projectinput1">Manager</label>
-                                                        <input type="text" id="Manager" required
-                                                               class="form-control"
-                                                               placeholder="Manager" name="Manager"
-                                                               data-toggle="tooltip" data-trigger="hover"
-                                                               data-placement="top"
-                                                               data-title="Issue Title">
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Job position</label>
-                                                                <input type="text" id="Jobposition"
-                                                                       class="form-control"
-                                                                       name="Job position"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                            <div class="col-md-6">
-
-                                                <div class="form-body">
-
-                                                    <div class="row">
-
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Work Mobile no.</label>
-                                                                <input type="number" id="Work Mobile no"
-                                                                       class="form-control"
-                                                                       name="Work Mobile no"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Work phone no.</label>
-                                                                <input type="number" id="Work phone no"
-                                                                       class="form-control"
-                                                                       name="Work phone no"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Work Email</label>
-                                                                <input type="email" id="Work Email"
-                                                                       class="form-control"
-                                                                       name="Work Email"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                        <div class="form-actions">
-                                            <a id="baseIcon-tab3" data-toggle="tab" aria-controls="tabIcon3" href="#tabIcon3" aria-expanded="false"> <button   class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> Next
-                                                </button></a>
-                                        </div>
-                                    </div>
+                                            
+                                     </div>
 
 
                                     <div class="tab-pane" id="tabIcon3" aria-labelledby="baseIcon-tab3">
-                                        <div class="row">
-                                            <div class="col-md-6">
+                                               <div class="row bg-lighttt tab_portrait_sctn">
+                                                    <div class="col-sm-6">
+                                                        <div class="media d-flex mx-0 my-1 user-text mt-3">
+                                                            <div class="align-left p-0 mr-2">
+                                                                <a href="#" class="profile-image">
+                                                                    <img src="http://digita.vhostevents.com/app-assets/images/portrait/small/avatar-s-1.png" class="rounded-squre img-border height-120 mt-1" alt="Card image">
+                                                                </a>
+                                                            </div>
+                                                            <div class="media-body text-left text-dark">
+                                                                <div class="row">
+                                                                    <div class="col-md-3 pr-md-0">
+                                                                        <div class="form-group">
+                                                                            <label for="">* Title</label>
+                                                                            <select id="" name="priority" class="form-control">
+                                                                                <option value="low">Mr</option>
+                                                                                <option value="medium"></option>
+                                                                                <option value="high"></option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-9 px-1">
+                                                                        <div class="form-group">
+                                                                            <label for="">Name</label>
+                                                                            <input type="text" id="" class="form-control" placeholder="John Smith" name="issuetitle" >
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-9 px-1">
+                                                                        <div class="form-group">
+                                                                            <label for="timesheetinput1">Work Email</label>
+                                                                            <div class="position-relative has-icon-left">
+                                                                                <input type="text" id="timesheetinput1" class="form-control" placeholder="joh.smith@wrappex.com" name="employeename">
+                                                                                <div class="form-control-position">
+                                                                                    <i class="ft-mail"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3 pl-md-0">
+                                                                        <div class="form-group">
+                                                                            <label for="timesheetinput2">&nbsp;</label>
+                                                                            <div class="position-relative has-icon-left">
+                                                                                <input style="font-size: 17px;
+                                                                                padding: 0 0 0 37px;" type="text" id="timesheetinput2" class="form-control" placeholder="UKK" name="projectname">
+                                                                                <div class="form-control-position">
+                                                                                    <!-- <i class="la la-briefcase"></i> -->
 
-                                                <div class="form-body">
+                                                                                    <img style="width: 32px;
+                                                                                    height: 32px;
+                                                                                    margin: -9px 0 0;" src="../digitaadmin/app-assets/images/icons/flagimg.png">
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
 
-                                                    <div class="form-group">
-                                                        <label for="projectinput1">Office Shift</label>
-                                                        <input type="text" id="OfficeShift" required
-                                                               class="form-control"
-                                                               placeholder="Company" name="Office Shift"
-                                                               data-toggle="tooltip" data-trigger="hover"
-                                                               data-placement="top"
-                                                               data-title="Issue Title">
+                                                            </div>
+                                                        </div>
                                                     </div>
-
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">User Name</label>
-                                                                <input type="text" id="User Name"
-                                                                       class="form-control"
-                                                                       name="User Name"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
+                                                    <div class="col-sm-6">
+                                                        <div class="row position_sctn">
+                                                            <div class="col-sm-12">
+                                                                <h4 class="form-section">Position</h4>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Role</label>
-                                                                <input type="text" id="Role" required
-                                                                       class="form-control"
-                                                                       name="Role"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="projectinput3">payrole</label>
-                                                    <input type="text" id="payrole"
-                                                           class="form-control"
-                                                           name="payrole"
-                                                           data-toggle="tooltip"
-                                                           data-trigger="hover"
-                                                           data-placement="top"
-                                                           data-title="Date Opened">
-                                                </div>
-
-                                                {{--                                                    </div>--}}
-
-                                                {{--                                                    <div class="form-actions">--}}
-                                                {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
-                                                {{--                                                            <i class="ft-x"></i> Cancel--}}
-                                                {{--                                                        </button>--}}
-                                                {{--                                                        <button   class="btn btn-primary">--}}
-                                                {{--                                                            <i class="la la-check-square-o"></i> Save--}}
-                                                {{--                                                        </button>--}}
-                                                {{--                                                    </div>--}}
-
-                                            </div>
-                                            <div class="col-md-6">
-
-                                                <div class="form-body">
-
-                                                    <div class="form-group">
-                                                        <label for="projectinput1">Timesheet Cost</label>
-                                                        <input type="text" id="TimesheetCost" required
-                                                               class="form-control"
-                                                               placeholder="Company" name="Timesheet Cost"
-                                                               data-toggle="tooltip" data-trigger="hover"
-                                                               data-placement="top"
-                                                               data-title="Issue Title">
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Annual Gross
-                                                                    Salary</label>
-                                                                <input type="text" id="Annual Gross Salary"
-                                                                       class="form-control"
-                                                                       name="Annual Gross Salary"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Attendance</label>
-                                                                <input type="datetime-local" id="Attendance"
-                                                                       required
-                                                                       class="form-control"
-                                                                       name="Attendance"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Badge ID</label>
-                                                                <input type="text" id="Badge ID"
-                                                                       class="form-control"
-                                                                       name="Badge ID"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Manual Attendance</label>
-                                                                <input type="datetime-local" id="Manual Attendance"
-                                                                       class="form-control"
-                                                                       name="Manual Attendance"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
+                                                        <div class="f-add mt-0">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3" for="">Job Position</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="Senior Developer" name="">
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                           
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3" for="">Department</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="DevOps" name="">
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group extent-wrp row">
+                                                                        <label class="col-md-3" for="">Manager</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="Chris Walker" name="">
+                                                                        <i class="ft-external-link"></i>
+                                                                    </div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3" for="">Employee ID</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="1254" name="">
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                    <div class="row mt-3c payroll">
+                                                        <div class="col-md-6">
+                                                            
+                                                                <div class="form-body">
+                                                                                
+                                                                <h4 class="form-section">Payroll</h4>
+                                                                          
+                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control">Timesheet Cost</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="row">
+                                                                                <div class="col-md-4 pr-md-0">
+                                                                                    <div class="form-group mb-0">
+                                                                                        
+                                                                                        <div class="position-relative has-icon-right">
+                                                                                            <input style="font-size: 17px;
+                                                                                            padding: 0 0 0 5px;" type="text" id="timesheetinput2" class="form-control" placeholder="GBP" name="projectname">
+                                                                                            <div class="form-control-position">
+                                                                                                <!-- <i class="la la-briefcase"></i> -->
+            
+                                                                                                <img style="width: 32px;
+                                                                                                height: 32px;
+                                                                                                margin: -9px 0 0;" src="../digitaadmin/app-assets/images/icons/flagimg.png">
+                                                                                            </div>
+                                                                                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group paroll_mb mb-0">
+                                                                                       <input  class="form-control" type="number" name="" placeholder="15.00">
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                 <div class="col-md-4">
+                                                                                    <div class="form-group paroll_hrs mb-0">
+                                                                                      <select id="hours" name="" class="form-control">
+                                                                                <option >hour</option>
+                                                                                <option >hour</option>
+                                                                        
+                                                                            </select>
+                                                                                    </div>
+                                                                                </div>
 
 
-                                                {{--                                                    </div>--}}
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control">Gross Annual Salary</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="row">
+                                                                                <div class="col-md-4 pr-md-0">
+                                                                                    <div class="form-group mb-0">
+                                                                                        
+                                                                                        <div class="position-relative has-icon-right">
+                                                                                            <input style="font-size: 17px;
+                                                                                            padding: 0 0 0 5px;" type="text" id="timesheetinput2" class="form-control" placeholder="GBP" name="projectname">
+                                                                                            <div class="form-control-position">
+                                                                                                <!-- <i class="la la-briefcase"></i> -->
+            
+                                                                                                <img style="width: 32px;
+                                                                                                height: 32px;
+                                                                                                margin: -9px 0 0;" src="../digitaadmin/app-assets/images/icons/flagimg.png">
+                                                                                            </div>
+                                                                                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
-                                                {{--                                                    <div class="form-actions">--}}
-                                                {{--                                                        <button type="button" class="btn btn-danger mr-1">--}}
-                                                {{--                                                            <i class="ft-x"></i> Cancel--}}
-                                                {{--                                                        </button>--}}
-                                                {{--                                                        <button   class="btn btn-primary">--}}
-                                                {{--                                                            <i class="la la-check-square-o"></i> Save--}}
-                                                {{--                                                        </button>--}}
-                                                {{--                                                    </div>--}}
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group   paroll_mb mb-0">
+                                                                                       <input  class="form-control" type="number" name="" placeholder="35,000.00">
+                                                                                      
+                                                                                    </div>
+                                                                                </div>
 
-                                            </div>
-                                        </div>
-                                        <div class="form-actions">
-                                            <a id="baseIcon-tab4" data-toggle="tab" aria-controls="tabIcon4" href="#tabIcon4" aria-expanded="false"> <button   class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> Next
-                                                </button></a>
-                                        </div>
-                                    </div>
+                                                                                 <div class="col-md-4">
+                                                                                    <div class="form-group  paroll_hrs mb-0">
+                                                                                      <select id="year" name="" class="form-control">
+                                                                                <option >Year</option>
+                                                                                <option >Year</option>
+                                                                        
+                                                                            </select>
+                                                                                    </div>
+                                                                                </div>
+
+
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                     <div class="form-group row">
+                                                                         <label class="col-md-3">Allowance</label>
+                                                                         <div class="col-md-9">
+                                                                             <div class="grop_input">
+                                                                                 <input  class="form-control"  type="text" name="">
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
+                                                                        <div class="form-group row">
+                                                                         <label class="col-md-3">Leaves</label>
+                                                                         <div class="col-md-9">
+                                                                             <div class="grop_input">
+                                                                                 <input class="form-control"  type="text" name="">
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
+
+   <div class="form-group row">
+                                                                         <label class="col-md-3">Upload Contracts</label>
+                                                                         <div class="col-md-9">
+                                                                             <div class="grop_input">
+                                                                                 <input class="form-control"  type="text" name="">
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
+
+
+
+                                                                </div>
+                    
+                                                                
+                                                            
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <form class="form form-horizontal">
+                                                                <div class="form-body">
+                    
+                                                                   
+                                                                    <h4 class="form-section">Status</h4>
+                                                                 
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Related User</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0">                                                                               
+                                                                                <input type="text" id="" class="form-control" placeholder="John Smith" name="">
+                                                                                <i class="ccm"><small>PD</small></i>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                  
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">User Role</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0">                                                                               
+                                                                                <input type="text" id="" class="form-control" placeholder="johnsmith@gmail.com" name="">
+                                                                                
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                        <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Bade ID</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0">                                                                               
+                                                                                <input type="text" id="" class="form-control" placeholder="johnsmith@gmail.com" name="">
+                                                                                
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput7">Attendance</label>
+                                                                        <div class="col-md-9">
+                                                                            <select id="attendance" name="" class="form-control">
+                                                                                <option value="0" selected="" disabled="">Manaul</option>
+                                                                                <option value="Auto">Auto</option>
+                                                                                <option value="Approvel">Approvel</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                    
+                                                            </form>
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div class="col-md-orizontal">
+                                                        <form class="form form-horizontal">
+                                                            <div class="form-body">
+                
+                                                               
+                                                                <h4 class="form-section">Other Information</h4>
+                                                                
+                                                                <div class="form-group row">
+                                                                    <div class="col-md-12">
+                                                                        <textarea id="projectinput9" rows="5" class="form-control" name="comment" placeholder="WISIWYG"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                
+                                                        </form>
+                                                    </div>
+                                            
+                                                     </div>
 
 
                                     <div class="tab-pane" id="tabIcon4" aria-labelledby="baseIcon-tab4">
-                                        <div class="row" id="appendable">
-                                            <div class="col-md-12" id="custom-data">
+                                       
+                                               <div class="row bg-lighttt tab_portrait_sctn">
+                                                    <div class="col-sm-6">
+                                                        <div class="media d-flex mx-0 my-1 user-text mt-3">
+                                                            <div class="align-left p-0 mr-2">
+                                                                <a href="#" class="profile-image">
+                                                                    <img src="http://digita.vhostevents.com/app-assets/images/portrait/small/avatar-s-1.png" class="rounded-squre img-border height-120 mt-1" alt="Card image">
+                                                                </a>
+                                                            </div>
+                                                            <div class="media-body text-left text-dark">
+                                                                <div class="row">
+                                                                    <div class="col-md-3 pr-md-0">
+                                                                        <div class="form-group">
+                                                                            <label for="">* Title</label>
+                                                                            <select id="" name="priority" class="form-control">
+                                                                                <option value="low">Mr</option>
+                                                                                <option value="medium"></option>
+                                                                                <option value="high"></option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-9 px-1">
+                                                                        <div class="form-group">
+                                                                            <label for="">Name</label>
+                                                                            <input type="text" id="" class="form-control" placeholder="John Smith" name="issuetitle">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-9 px-1">
+                                                                        <div class="form-group">
+                                                                            <label for="timesheetinput1">Work Email</label>
+                                                                            <div class="position-relative has-icon-left">
+                                                                                <input type="text" id="timesheetinput1" class="form-control" placeholder="joh.smith@wrappex.com" name="employeename">
+                                                                                <div class="form-control-position">
+                                                                                    <i class="ft-mail"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3 pl-md-0">
+                                                                        <div class="form-group">
+                                                                            <label for="timesheetinput2">&nbsp;</label>
+                                                                            <div class="position-relative has-icon-left">
+                                                                                <input style="font-size: 17px;
+                                                                                padding: 0 0 0 37px;" type="text" id="timesheetinput2" class="form-control" placeholder="UKK" name="projectname">
+                                                                                <div class="form-control-position">
+                                                                                    <!-- <i class="la la-briefcase"></i> -->
 
-                                                <div class="form-body">
+                                                                                    <img style="width: 32px;
+                                                                                    height: 32px;
+                                                                                    margin: -9px 0 0;" src="../digitaadmin/app-assets/images/icons/flagimg.png">
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
 
-                                                    <div class="form-group">
-                                                        <label for="projectinput1">Company Name</label>
-                                                        <input type="text" id="CompanyName" required
-                                                               class="form-control"
-                                                               placeholder="Company Name" name="Company Name[]"
-                                                               data-toggle="tooltip" data-trigger="hover"
-                                                               data-placement="top"
-                                                               data-title="Issue Title">
+                                                            </div>
+                                                        </div>
                                                     </div>
-
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Job Profile</label>
-                                                                <input type="text" id="Job Profile"
-                                                                       class="form-control"
-                                                                       name="Job Profile[]"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
+                                                    <div class="col-sm-6">
+                                                        <div class="row position_sctn">
+                                                            <div class="col-sm-12">
+                                                                <h4 class="form-section">Position</h4>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Joining Date</label>
-                                                                <input type="date" id="Joining Date" required
-                                                                       class="form-control"
-                                                                       name="Joining Date[]"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group">
-                                                                <label for="projectinput3">Leaving Date</label>
-                                                                      <input type="date" id="Leaving Date" required
-                                                                       class="form-control"
-                                                                       name="Leaving Date[]"
-                                                                       data-toggle="tooltip"
-                                                                       data-trigger="hover"
-                                                                       data-placement="top"
-                                                                       data-title="Date Opened">
+                                                        <div class="f-add mt-0">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3" for="">Job Position</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="Senior Developer" name="">
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                           
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3" for="">Department</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="DevOps" name="">
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group extent-wrp row">
+                                                                        <label class="col-md-3" for="">Manager</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="Chris Walker" name="">
+                                                                        <i class="ft-external-link"></i>
+                                                                    </div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3" for="">Employee ID</label>
+                                                                        <div class="col-md-9">
+                                                                        <input type="text" id="" class="form-control" placeholder="1254" name="">
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                    <div class="row mt-3c payroll">
+                                                        <div class="col-md-6">
+                                                            
+                                                                <div class="form-body">
+                                                                                
+                                                                <h4 class="form-section">Professional Information</h4>
+                                                                  
+                                                                     <div class="form-group row">
+                                                                         <label class="col-md-3">Last Working Comany</label>
+                                                                         <div class="col-md-9">
+                                                                             <div class="grop_input">
+                                                                                 <input class="form-control" type="text" name="">
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
+                                                                        <div class="form-group row">
+                                                                         <label class="col-md-3">Last Working Jab Position</label>
+                                                                         <div class="col-md-9">
+                                                                             <div class="grop_input">
+                                                                                 <input class="form-control" type="text" name="">
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
 
-                                                <div class="form-group">
-                                                    <label for="projectinput3">Remarks</label>
-                                                    <input type="text" id="Remarks[]"
-                                                           class="form-control"
-                                                           name="Remarks[]"
-                                                           data-toggle="tooltip"
-                                                           data-trigger="hover"
-                                                           data-placement="top"
-                                                           data-title="Date Opened">
-                                                </div>
+                                                                  <div class="form-group row">
+                                                                         <label class="col-md-3">Leaving Date</label>
+                                                                         <div class="col-md-9">
+                                                                             <div class="grop_input">
+                                                                                 <input class="form-control" type="text" name="">
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
 
-                                                <hr>
+                                                                         <div class="form-group row">
+                                                                         <label class="col-md-3">Remarks</label>
+                                                                         <div class="col-md-9">
+                                                                             <div class="grop_input">
+                                                                                 <input class="form-control" type="text" name="">
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
+                                                                         <div class="form-group row">
+                                                                         <label class="col-md-3">Upload Contracts</label>
+                                                                         <div class="col-md-9">
+                                                                             <div class="grop_input">
+                                                                                 <input class="form-control" type="text" name="">
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
 
-                                            </div>
-                                        </div>
-                                        <div class="form-actions">
 
-                                            <button   onclick="personal_info(this)" class="btn btn-primary">
-                                                <i class="ft-plus"></i>
-                                            </button>
-                                        </div>
-                                        <div class="form-actions">
-                                            <a id="baseIcon-tab5" data-toggle="tab" aria-controls="tabIcon5" href="#tabIcon5" aria-expanded="false"> <button   class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> Next
-                                                </button></a>
-                                        </div>
+
+                                                                </div>
+                    
+                                                                
+                                                            
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <form class="form form-horizontal">
+                                                                <div class="form-body">
+                    
+                                                                   
+                                                                    <h4 class="form-section">Qualification</h4>
+                                                                 
+                                                                    <div class="form-group row">
+                                                                         <label class="col-md-3">Qualification</label>
+                                                                         <div class="col-md-9">
+                                                                             <div class="grop_input">
+                                                                                 <input class="form-control" type="text" name="">
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
+                                                                  <div class="form-group row">
+                                                                         <label class="col-md-3">Education Level</label>
+                                                                         <div class="col-md-9">
+                                                                             <div class="grop_input">
+                                                                                 <input class="form-control" type="text" name="">
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
+                                                                    <div class="form-group row">
+                                                                         <label class="col-md-3">Date of Certification</label>
+                                                                         <div class="col-md-9">
+                                                                             <div class="grop_input">
+                                                                                 <input class="form-control" type="text" name="">
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
+                                                                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput7">Remarks</label>
+                                                                        <div class="col-md-9">
+                                                                            <select id="Remarks" name="" class="form-control">
+                                                                                <option value="0" selected="" disabled="">Manaul</option>
+                                                                                <option value="Auto">Auto</option>
+                                                                                <option value="Approvel">Approvel</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                    
+                                                            </form>
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div class="col-md-orizontal">
+                                                        <form class="form form-horizontal">
+                                                            <div class="form-body">
+                
+                                                               
+                                                                <h4 class="form-section">Other Information</h4>
+                                                                
+                                                                <div class="form-group row">
+                                                                    <div class="col-md-12">
+                                                                        <textarea id="projectinput9" rows="5" class="form-control" name="comment" placeholder="WISIWYG"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                
+                                                        </form>
+                                                    </div>
+                                            
+                                                   
                                     </div>
 
 
