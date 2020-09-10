@@ -207,5 +207,8 @@ Route::prefix('admin')->group(function () {
     Route::get('office-shift/detail/{id}' , 'Admin\OfficeShiftController@viewOfficeShiftDetail')->name('office-shift.detail');
     Route::get('office-shift/delete/{id}' , 'Admin\OfficeShiftController@deleteOfficeShift')->name('delete.office-shift');
 
+    //Contact Create View
+    Route::get('/contact/create/view' , 'Admin\ContactController@create')->name('create-view.contact');
+  
 });
 
