@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.dashboard');
+Auth::routes();
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/', function () {
+        return view('admin.dashboard');
+    });
+
+    include "admin.php";
 });
 
-include "admin.php";
