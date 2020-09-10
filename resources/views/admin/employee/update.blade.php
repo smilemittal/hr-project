@@ -288,24 +288,54 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="projectinput1">City</label>
-                                                                    <input value="{{$record->City}}"; type="text" id="City" required
-                                                                           class="form-control"
-                                                                           placeholder="City" name="City"
-                                                                           data-toggle="tooltip" data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Issue Title">
+                                                                    <select type="text" id="City" required
+                                                                            class="form-control"
+                                                                            placeholder="City" name="City"
+                                                                            data-toggle="tooltip" data-trigger="hover"
+                                                                            data-placement="top"
+                                                                            data-title="Issue Title">
+                                                                        <option value="" selected disabled>Select City</option>
+                                                                        @foreach ($cities as $city)
+
+                                                                            @if ($record->City==$city->value)
+                                                                                <option value="{{$city->value}}" selected >{{$city->value}}</option>
+                                                                            @else
+                                                                                <option value="{{$city->value}}" >{{$city->value}}</option>
+                                                                            @endif
+                                                                        @endforeach
+                                                                    </select>
                                                                 </div>
+
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="projectinput3">Country / State </label>
-                                                                    <input value="{{$record->CountryState}}"; type="text" id="CountryState" required
-                                                                           class="form-control"
-                                                                           name="CountryState"
-                                                                           data-toggle="tooltip"
-                                                                           data-trigger="hover"
-                                                                           data-placement="top"
-                                                                           data-title="Date Opened">
+                                                                    <select type="text" id="CountryState" required
+                                                                            class="form-control"
+                                                                            name="CountryState"
+                                                                            data-toggle="tooltip"
+                                                                            data-trigger="hover"
+                                                                            data-placement="top"
+                                                                            data-title="Date Opened">
+                                                                        <option value="" selected disabled>Select State</option>
+                                                                        @foreach ($states as $state)
+                                                                            @if ($state->value==$record->CountryState)
+                                                                                <option value="{{$state->value}}" selected>{{$state->value}}</option>
+                                                                            @else
+                                                                                <option value="{{$state->value}}">{{$state->value}}</option>
+                                                                            @endif
+                                                                        @endforeach
+
+                                                                    </select>
+                                                                    {{--                                                                    <input type="text" id="CountryState" required--}}
+                                                                    {{--                                                                           class="form-control"--}}
+                                                                    {{--                                                                           name="CountryState"--}}
+                                                                    {{--                                                                           data-toggle="tooltip"--}}
+                                                                    {{--                                                                           data-trigger="hover"--}}
+                                                                    {{--                                                                           data-placement="top"--}}
+                                                                    {{--                                                                           data-title="Date Opened">--}}
+
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -330,13 +360,26 @@
 
                                                         <div class="form-group">
                                                             <label for="projectinput1">Country</label>
-                                                            <input value="{{$record->Country}}"; type="text" id="Country" required
-                                                                   class="form-control"
-                                                                   placeholder="Country" name="Country"
-                                                                   data-toggle="tooltip" data-trigger="hover"
-                                                                   data-placement="top"
-                                                                   data-title="Issue Title">
+                                                            <select type="text" id="Country" required
+                                                                    class="form-control"
+                                                                    placeholder="Country" name="Country"
+                                                                    data-toggle="tooltip" data-trigger="hover"
+                                                                    data-placement="top"
+                                                                    data-title="Issue Title">
+                                                                <option value="" selected disabled>Select Country</option>
+                                                                @foreach ($countries as $country)
+
+                                                                    @if ($country->value==$record->Country)
+                                                                        <option value="{{$country->value}}" selected>{{$country->value}}</option>
+
+                                                                    @else
+                                                                        <option value="{{$country->value}}">{{$country->value}}</option>
+
+                                                                    @endif
+                                                                @endforeach
+                                                            </select>
                                                         </div>
+
                                                         <div class="form-group">
                                                             <label for="projectinput3">Work Permit No.</label>
                                                             <input value="{{$record->Work_Permit_No}}"; type="text" id="WorkPermitNo" required

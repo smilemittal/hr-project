@@ -7,7 +7,7 @@
         </div>
     @endif
     @if ($message = Session::get('error'))
-        <div class="alert alert-danger mb-2" id="alert-error-message" style="width: 500px;position: absolute;right: 0;top: 0px;" role="alert">
+        <div class="alert alert-error mb-2" id="alert-error-message" style="width: 500px;position: absolute;right: 0;top: 0px;" role="alert">
             <strong>Error! </strong> {{$message}}
         </div>
     @endif
@@ -53,8 +53,23 @@
 
                                     <div class="card-block">
                                         <div class="card-body">
-                                            <form action="{{route('post-data.city')}}" method="post">
+                                            <form action="{{route('post-data-city')}}" method="post">
                                                 @csrf
+
+
+                                                <fieldset class="form-group">
+                                                    <select  name="state"  class="form-control">
+                                                        <option value="" selected disabled>Select State</option>
+                                                        @foreach($states as $state)
+                                                            <option value="{{$state->id}}">{{$state->value}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @if($errors->has('country'))
+                                                        <div class="error" style="color:red">{{$errors->first('country')}}</div>
+                                                    @endif
+                                                </fieldset>
+
+
                                                 <fieldset class="form-group">
                                                     <input type="text" name="city-name"
                                                            placeholder="Write City Name" class="form-control"
@@ -65,7 +80,7 @@
                                                 </fieldset>
                                                 <fieldset class="form-group">
                                                     <button type="submit" class="btn btn-success">Submit</button>
-                                                    <a href="{{route('city.index')}}" class="btn btn-primary">View All</a>
+                                                    <a href="{{route('city-index')}}" class="btn btn-primary">View All</a>
                                                 </fieldset>
                                             </form>
                                         </div>

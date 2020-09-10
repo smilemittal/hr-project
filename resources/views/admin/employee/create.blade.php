@@ -317,24 +317,44 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="projectinput1">City</label>
-                                                                    <input type="text" id="City" required
+                                                                    <select type="text" id="City" required
                                                                            class="form-control"
                                                                            placeholder="City" name="City"
                                                                            data-toggle="tooltip" data-trigger="hover"
                                                                            data-placement="top"
-                                                                           data-title="Issue Title">
+                                                                            data-title="Issue Title">
+                                                                        <option value="" selected disabled>Select City</option>
+                                                                        @foreach ($cities as $city)
+                                                                            <option value="{{$city->value}}" >{{$city->value}}</option>
+                                                                        @endforeach
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="projectinput3">Country / State </label>
-                                                                    <input type="text" id="CountryState" required
+                                                                    <select type="text" id="CountryState" required
                                                                            class="form-control"
                                                                            name="CountryState"
                                                                            data-toggle="tooltip"
                                                                            data-trigger="hover"
                                                                            data-placement="top"
-                                                                           data-title="Date Opened">
+                                                                            data-title="Date Opened">
+                                                                        <option value="" selected disabled>Select State</option>
+                                                                        @foreach ($states as $state)
+                                                                            <option value="{{$state->value}}">{{$state->value}}</option>
+                                                                        @endforeach
+
+                                                                    </select>
+{{--                                                                    <input type="text" id="CountryState" required--}}
+{{--                                                                           class="form-control"--}}
+{{--                                                                           name="CountryState"--}}
+{{--                                                                           data-toggle="tooltip"--}}
+{{--                                                                           data-trigger="hover"--}}
+{{--                                                                           data-placement="top"--}}
+{{--                                                                           data-title="Date Opened">--}}
+
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -368,12 +388,17 @@
 
                                                         <div class="form-group">
                                                             <label for="projectinput1">Country</label>
-                                                            <input type="text" id="Country" required
+                                                            <select type="text" id="Country" required
                                                                    class="form-control"
                                                                    placeholder="Country" name="Country"
                                                                    data-toggle="tooltip" data-trigger="hover"
                                                                    data-placement="top"
-                                                                   data-title="Issue Title">
+                                                                    data-title="Issue Title">
+                                                                <option value="" selected disabled>Select Country</option>
+                                                                @foreach ($countries as $country)
+                                                                    <option value="{{$country->value}}">{{$country->value}}</option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="projectinput3">Work Permit No.</label>

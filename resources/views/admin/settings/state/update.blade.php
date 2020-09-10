@@ -7,7 +7,7 @@
         </div>
     @endif
     @if ($message = Session::get('error'))
-        <div class="alert alert-danger mb-2" id="alert-error-message" style="width: 500px;position: absolute;right: 0;top: 0px;" role="alert">
+        <div class="alert alert-error mb-2" id="alert-error-message" style="width: 500px;position: absolute;right: 0;top: 0px;" role="alert">
             <strong>Error! </strong> {{$message}}
         </div>
     @endif
@@ -53,8 +53,26 @@
 
                                     <div class="card-block">
                                         <div class="card-body">
-                                            <form action="{{route('post-update.state' , encrypt($record->id))}}" method="post">
+                                            <form action="{{route('post-update-state' , encrypt($record->id))}}" method="post">
                                                 @csrf
+
+                                                <fieldset class="form-group">
+                                                    <select  name="country"  class="form-control">
+                                                        <option value="" selected disabled>Select Country</option>
+                                                        @foreach($countries as $country)
+                                                            @if ($country->id==$record->country_id)
+                                                                <option value="{{$country->id}}" selected>{{$country->value}}</option>
+                                                            @else
+                                                                <option value="{{$country->id}}">{{$country->value}}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    </select>
+                                                    @if($errors->has('country'))
+                                                        <div class="error" style="color:red">{{$errors->first('country')}}</div>
+                                                    @endif
+                                                </fieldset>
+
+
                                                 <fieldset class="form-group">
                                                     <input type="text" name="state-name" value="{{$record->value}}"
                                                            placeholder="Write State Name" class="form-control"
@@ -65,7 +83,7 @@
                                                 </fieldset>
                                                 <fieldset class="form-group">
                                                     <button type="submit" class="btn btn-success">Submit</button>
-                                                    <a href="{{route('state.index')}}" class="btn btn-primary">View All</a>
+                                                    <a href="{{route('state-index')}}" class="btn btn-primary">View All</a>
                                                 </fieldset>
                                             </form>
                                         </div>

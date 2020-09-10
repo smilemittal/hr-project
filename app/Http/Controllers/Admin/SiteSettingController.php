@@ -1453,7 +1453,8 @@ class SiteSettingController extends Controller
 
     public function createViewCity() {
         try{
-            return view('admin.settings.city.create');
+	    $states=State::whereStatus('active')->get();
+            return view('admin.settings.city.create',compact('states'));
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
@@ -1462,11 +1463,13 @@ class SiteSettingController extends Controller
     public function postCity(Request $request) {
         try{
             $request->validate([
-                'city-name' => 'required|unique:cities,value|max:50'
+                'city-name' => 'required|unique:cities,value|max:50',
+		'state' => 'required',
             ]);
 
             City::create([
                 'value'=> $request['city-name'],
+ 		'state_id'=> $request['state'],
                 'status' => 'active',
             ]);
 
@@ -1479,8 +1482,9 @@ class SiteSettingController extends Controller
     public function updateCity($id) {
         try{
             $record = City::find(decrypt($id));
+ 	    $states=State::whereStatus('active')->get();
             if($record) {
-                return view('admin.settings.city.update' , compact('record'));
+                return view('admin.settings.city.update' , compact('record','states'));
             }
             else {
                 return redirect()->back()->with('error' , 'wrong access.');
@@ -1499,6 +1503,7 @@ class SiteSettingController extends Controller
                 ]);
 
                 $record->value = $request['city-name'];
+ 		$record->state_id = $request['state'];
                 $record->save();
                 return redirect()->back()->with('success' , 'City updated successfully.');
             }
@@ -1572,7 +1577,9 @@ class SiteSettingController extends Controller
 
     public function createViewState() {
         try{
-            return view('admin.settings.state.create');
+            $countries=Country::whereStatus('active')->get();
+            return view('admin.settings.state.create',compact('countries'));
+
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
@@ -1581,11 +1588,13 @@ class SiteSettingController extends Controller
     public function postState(Request $request) {
         try{
             $request->validate([
-                'state-name' => 'required|unique:states,value|max:50'
+                'state-name' => 'required|unique:states,value|max:50',
+		'country' => 'required'
             ]);
 
             State::create([
                 'value'=> $request['state-name'],
+		'country_id'=> $request['country'],
                 'status' => 'active',
             ]);
 
@@ -1598,8 +1607,9 @@ class SiteSettingController extends Controller
     public function updateState($id) {
         try{
             $record = State::find(decrypt($id));
+	    $countries=Country::whereStatus('active')->get();
             if($record) {
-                return view('admin.settings.state.update' , compact('record'));
+                return view('admin.settings.state.update' , compact('record','countries'));
             }
             else {
                 return redirect()->back()->with('error' , 'wrong access.');
@@ -1618,6 +1628,7 @@ class SiteSettingController extends Controller
                 ]);
 
                 $record->value = $request['state-name'];
+		$record->country_id = $request['country'];
                 $record->save();
                 return redirect()->back()->with('success' , 'State updated successfully.');
             }
