@@ -23,7 +23,7 @@
     <div class="card-content">
 
         <div class="card-body">
-            <form class="form-horizontal" action="{{ route('login') }}" novalidate>
+            <form class="form-horizontal" action="{{ route('login') }}" method="post" novalidate>
                         @csrf
                 <fieldset class="form-group position-relative has-icon-left">
                     <input type="email" id="user-name" placeholder="Your email" class="form-control round @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>

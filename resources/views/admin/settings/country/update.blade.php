@@ -62,6 +62,18 @@
                                                     @if($errors->has('country'))
                                                         <div class="error" style="color:red">{{$errors->first('country')}}</div>
                                                     @endif
+                                                     <input type="text" name="code"
+                                                           placeholder="Write Country Code" value="{{$record->code}}" class="form-control"
+                                                           id="basicInput">
+                                                    @if($errors->has('code'))
+                                                        <div class="error" style="color:red">{{$errors->first('code')}}</div>
+                                                    @endif
+                                                    <input type="text" name="phonecode"
+                                                           placeholder="Write Country Phone Code" value="{{$record->phonecode}}" class="form-control"
+                                                           id="basicInput">
+                                                    @if($errors->has('phonecode'))
+                                                        <div class="error" style="color:red">{{$errors->first('phonecode')}}</div>
+                                                    @endif
                                                 </fieldset>
                                                 <fieldset class="form-group">
                                                     <button type="submit" class="btn btn-success">Submit</button>

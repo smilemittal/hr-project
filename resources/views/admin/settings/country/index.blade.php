@@ -68,7 +68,7 @@
                                                     @endif
 
                                                 </td>
-                                                <td>{{$country->created_at->diffForHumans()}}</td>
+                                                <td>{{!empty($country->created_at) ? $country->created_at->diffForHumans(): ""}}</td>
                                                 <td>
                                                       <span class="dropdown">
                                                         <button id="btnSearchDrop12" type="button" class="btn btn-sm btn-icon btn-pure font-medium-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
