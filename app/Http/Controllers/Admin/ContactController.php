@@ -12,7 +12,7 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function createViewCompany()
+    public function create()
     {
         try {
             return view('admin.contact.create');
