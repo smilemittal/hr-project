@@ -47,6 +47,7 @@
                             <div class="card-body">
                                 <form action="{{route('post-data-employee')}}" method="post" enctype="multipart/form-data">
                                     @csrf
+                                    <div class="card-header">
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
                                         <a class="nav-link active" id="baseIcon-tab1" data-toggle="tab"
@@ -67,7 +68,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="baseIcon-tab4" data-toggle="tab"
                                            aria-controls="tabIcon4" href="#tabIcon4" aria-expanded="false"><i
-                                                class="ft-map-pin"></i> Personal Information </a>
+                                                class="ft-map-pin"></i> Professional Information </a>
                                     </li>
 
                                     <li class="nav-item">
@@ -77,6 +78,21 @@
                                     </li>
 
                                 </ul>
+                                <div class="heading-elements">
+                                        <ul class="list-inline mb-0" style="margin-top:8px;">
+                                            <li>
+                                                <a data-action="collapse">
+                                                    <i class="ft-info"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-action="reload">
+                                                    <i class="ft-aperture"></i>
+                                                </a>
+                                            </li>                                          
+                                        </ul>
+                                    </div>                                    
+                            </div>
                                 <div class="tab-content px-1 pt-1">
 
                                     <div role="tabpanel" class="tab-pane active" id="tabIcon1"
@@ -87,7 +103,7 @@
                                                         <div class="media d-flex mx-0 my-1 user-text mt-3">
                                                             <div class="align-left p-0 mr-2">
                                                                 <a href="#" class="profile-image">
-                                                                    <img  src="{{asset('app-assets/images/portrait/small/avatar-s-1.png')}}" class="rounded-squre img-border height-120 mt-1" alt="Card image">
+                                                                    <img  src="{{asset('app-assets/images/portrait/small/avatar-s-1.png')}}" class="rounded-squre img-border height-120" alt="Card image">
                                                                 </a>
                                                             </div>
                                                             <div class="media-body text-left text-dark">
@@ -339,7 +355,7 @@
                                                                         <div class="col-md-9">
                                                                             <div class="form-group extent-wrp mb-0">                                                                               
                                                                                 <input type="text" id="" class="form-control" placeholder="Main - Branch" name="">
-                                                                                <i class="ccm"><small>PD</small></i>
+                                                                                
                                                                                 
                                                                             </div>
                                                                         </div>
@@ -349,7 +365,7 @@
                                                                         <div class="col-md-9">
                                                                             <div class="form-group extent-wrp mb-0">                                                                               
                                                                                 <input type="text" id="" class="form-control" placeholder="London" name="">
-                                                                                <i class="ccm"><small>PD</small></i>
+                                                                                
                                                                                 
                                                                             </div>
                                                                         </div>
@@ -409,7 +425,7 @@
                                                         <div class="media d-flex mx-0 my-1 user-text mt-3">
                                                             <div class="align-left p-0 mr-2">
                                                                 <a href="#" class="profile-image">
-                                                                    <img src="https://digita.vhostevents.com/app-assets/images/portrait/small/avatar-s-1.png" class="rounded-squre img-border height-120 mt-1" alt="Card image">
+                                                                    <img src="https://digita.vhostevents.com/app-assets/images/portrait/small/avatar-s-1.png" class="rounded-squre img-border height-120" alt="Card image">
                                                                 </a>
                                                             </div>
                                                             <div class="media-body text-left text-dark">
@@ -517,121 +533,65 @@
                                                         <div class="col-md-6">
                                                             
                                                                 <div class="form-body">
-                    
+                                                                  <div class="personal_address"> 
+                                                                    <h4 class="form-section">Personal Address</h4>
+                                                                    <input type="text" placeholder="Postcode Search" name="">
+                                                                   </div>
+
                                                                    
-                                                                    <h4 class="form-section">Contact Information</h4>
                                                                     <div class="form-group row">
-                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Date of joining</label>
+                                                                        <label class="col-md-3 label-control" for="projectinput6">House Number</label>
                                                                         <div class="col-md-9">
-                                                                            <div class="position-relative has-icon-left">
-                                                                                <input type="date" id="timesheetinput3" class="form-control" name="date">
-                                                                                <div class="form-control-position">
-                                                                                    <i class="ft-message-square"></i>
-                                                                                </div>
-                                                                            </div>
+                                                                            <input type="text" id="" class="form-control" placeholder="55" name="">
                                                                         </div>
                                                                     </div>
-                    
                                                                     <div class="form-group row">
-                                                                        <label class="col-md-3 label-control" for="projectinput6">Employment Type</label>
+                                                                        <label class="col-md-3 label-control" for="projectinput6">House Name</label>
                                                                         <div class="col-md-9">
-                                                                            <select id="projectinput6" name="interested" class="form-control">
-                                                                                <option value="none" selected="" disabled="">Employee</option>
-                                                                                <option value="design">design</option>
-                                                                                <option value="development">development</option>
-                                                                                <option value="illustration">illustration</option>
-                                                                                <option value="branding">branding</option>
-                                                                                <option value="video">video</option>
+                                                                            <input type="text" id="" class="form-control" placeholder="4 Pippin Court" name="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput6">Address Info</label>
+                                                                        <div class="col-md-9">
+                                                                            <input type="text" id="" class="form-control" placeholder="Apple Tree Gardens" name="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput6">Street</label>
+                                                                        <div class="col-md-9">
+                                                                            <input type="text" id="" class="form-control" placeholder="Park Road" name="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput6">City</label>
+                                                                        <div class="col-md-9">
+                                                                            <input type="text" id="" class="form-control" placeholder="New Barnet" name="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput6">County</label>
+                                                                        <div class="col-md-9">
+                                                                            <input type="text" id="" class="form-control" placeholder="Hertfordshire" name="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput6">Postcode</label>
+                                                                        <div class="col-md-9">
+                                                                            <input type="text" id="" class="form-control" placeholder="EN4 9TF" name="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput7">Country</label>
+                                                                        <div class="col-md-9">
+                                                                            <select id="attendance" name="" class="form-control">
+                                                                                <option value="0" selected="" disabled="">United Kingdom</option>
+                                                                                <option value="Auto">United Kingdom 1</option>
+                                                                                <option value="Approvel">United Kingdom 2</option>
+                                                                                <option value="Approvel">United Kingdom 3</option>
                                                                             </select>
                                                                         </div>
-                                                                    </div>
-                    
-                                                                    <div class="form-group row">
-                                                                        <label class="col-md-3 label-control" for="projectinput7">Contract Type</label>
-                                                                        <div class="col-md-9">
-                                                                            <select id="projectinput7" name="budget" class="form-control">
-                                                                                <option value="0" selected="" disabled="">Full - Time</option>
-                                                                                <option value="less than 5000$">less than 5000$</option>
-                                                                                <option value="5000$ - 10000$">5000$ - 10000$</option>
-                                                                                <option value="10000$ - 20000$">10000$ - 20000$</option>
-                                                                                <option value="more than 20000$">more than 20000$</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                    
-                                                                    <div class="form-group row">
-                                                                        <label class="col-md-3 label-control">Work Mobile</label>
-                                                                        <div class="col-md-9">
-                                                                            <div class="row">
-                                                                                <div class="col-md-3 pr-md-0">
-                                                                                    <div class="form-group mb-0">
-                                                                                        
-                                                                                        <div class="position-relative has-icon-right">
-                                                                                            <input style="font-size: 17px;
-                                                                                            padding: 0 0 0 5px;" type="text" id="timesheetinput2" class="form-control" placeholder="+44" name="projectname">
-                                                                                            <div class="form-control-position">
-                                                                                                <!-- <i class="la la-briefcase"></i> -->
-            
-                                                                                                <img style="width: 32px;
-                                                                                                height: 32px;
-                                                                                                margin: -9px 0 0;" src="../digitaadmin/app-assets/images/icons/flagimg.png">
-                                                                                            </div>
-                                                                                            
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-md-9 px-1">
-                                                                                    <div class="form-group mb-0">
-                                                                                       
-                                                                                        <div class="position-relative has-icon-right">
-                                                                                            <input type="text" id="timesheetinput1" class="form-control" placeholder="07479982438" name="employeename">
-                                                                                            <div class="form-control-position">
-                                                                                                <i class="ft-message-circle"></i>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                    
-                                                                    <div class="form-group row">
-                                                                        <label class="col-md-3 label-control">Work Phone</label>
-                                                                        <div class="col-md-9">
-                                                                            <div class="row">
-                                                                                <div class="col-md-3 pr-md-0">
-                                                                                    <div class="form-group mb-0">
-                                                                                        
-                                                                                        <div class="position-relative has-icon-right">
-                                                                                            <input style="font-size: 17px;
-                                                                                            padding: 0 0 0 5px;" type="text" id="timesheetinput2" class="form-control" placeholder="+44" name="projectname">
-                                                                                            <div class="form-control-position">
-                                                                                                <!-- <i class="la la-briefcase"></i> -->
-            
-                                                                                                <img style="width: 32px;
-                                                                                                height: 32px;
-                                                                                                margin: -9px 0 0;" src="../digitaadmin/app-assets/images/icons/flagimg.png">
-                                                                                            </div>
-                                                                                            
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-md-9 px-1">
-                                                                                    <div class="form-group mb-0">
-                                                                                       
-                                                                                        <div class="position-relative has-icon-right">
-                                                                                            <input type="text" id="timesheetinput1" class="form-control" placeholder="07479982438" name="employeename">
-                                                                                            <div class="form-control-position">
-                                                                                                <i class="ft-message-circle"></i>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                    </div>                    
                                                                     
                                                                 </div>
                     
@@ -644,62 +604,271 @@
                                                                 <div class="form-body">
                     
                                                                    
-                                                                    <h4 class="form-section">Company Information</h4>
+                                                                    <h4 class="form-section">Personal Contacts</h4>
+                                                                    
                                                                     <div class="form-group row">
-                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Company</label>
+                                                                        <label class="col-md-3 label-control">Contact Mobile</label>
                                                                         <div class="col-md-9">
-                                                                            <div class="form-group extent-wrp mb-0">                                                                               
-                                                                                <input type="text" id="" class="form-control" placeholder="Chris Walker" name="">
-                                                                                <i class="ft-external-link ccm"></i>
+                                                                            <div class="row">
+                                                                                <div class="col-md-3 pr-md-0">
+                                                                                    <div class="form-group mb-0">
+                                                                                        
+                                                                                        <div class="position-relative has-icon-right">
+                                                                                            <input style="font-size: 17px;
+                                                                                            padding: 0 0 0 5px;" type="text" id="timesheetinput2" class="form-control" placeholder="+44" name="projectname">
+                                                                                            <div class="form-control-position">
+                                                                                                <!-- <i class="la la-briefcase"></i> -->
+            
+                                                                                                <img style="width: 32px;
+                                                                                                height: 32px;
+                                                                                                margin: -9px 0 0;" src="../digitaadmin/app-assets/images/icons/flagimg.png">
+                                                                                            </div>
+                                                                                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-9 px-1">
+                                                                                    <div class="form-group mb-0">
+                                                                                       
+                                                                                        <input type="text" id="" class="form-control" placeholder="07479982438" name="">
+                                                                                    </div>
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                    
+                                                                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control">Contact Phone</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="row">
+                                                                                <div class="col-md-3 pr-md-0">
+                                                                                    <div class="form-group mb-0">
+                                                                                        
+                                                                                        <div class="position-relative has-icon-right">
+                                                                                            <input style="font-size: 17px;
+                                                                                            padding: 0 0 0 5px;" type="text" id="timesheetinput2" class="form-control" placeholder="+44" name="projectname">
+                                                                                            <div class="form-control-position">
+                                                                                                <!-- <i class="la la-briefcase"></i> -->
+            
+                                                                                                <img style="width: 32px;
+                                                                                                height: 32px;
+                                                                                                margin: -9px 0 0;" src="../digitaadmin/app-assets/images/icons/flagimg.png">
+                                                                                            </div>
+                                                                                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-9 px-1">
+                                                                                    <div class="form-group mb-0">
+                                                                                       
+                                                                                        <input type="text" id="" class="form-control" placeholder="07479982438" name="">
+                                                                                    </div>
+                                                                                </div>
                                                                                 
                                                                             </div>
                                                                         </div>
                                                                     </div>
                     
                                                                     <div class="form-group row">
-                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Branch</label>
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Contact email</label>
                                                                         <div class="col-md-9">
                                                                             <div class="form-group extent-wrp mb-0">                                                                               
-                                                                                <input type="text" id="" class="form-control" placeholder="Main - Branch" name="">
-                                                                                <i class="ccm"><small>PD</small></i>
-                                                                                
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Work Location</label>
-                                                                        <div class="col-md-9">
-                                                                            <div class="form-group extent-wrp mb-0">                                                                               
-                                                                                <input type="text" id="" class="form-control" placeholder="London" name="">
-                                                                                <i class="ccm"><small>PD</small></i>
-                                                                                
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Work Address</label>
-                                                                        <div class="col-md-9">
-                                                                            <div class="form-group extent-wrp mb-0">                                                                               
-                                                                                <input type="text" id="" class="form-control" placeholder="28 Broad Street, London EC2M 1NH United Kingdom" name="">
+                                                                                <input type="text" id="" class="form-control" placeholder="johnsmith@gmail.com" name="">
                                                                                 
                                                                                 
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                    
                                                                     <div class="form-group row">
-                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Working Hours</label>
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Date of Birth</label>
                                                                         <div class="col-md-9">
                                                                             <div class="form-group extent-wrp mb-0">                                                                               
-                                                                                <input type="text" id="" class="form-control" placeholder="Standard 9 to 5 PM" name="">
-                                                                                <i class="ft-external-link ccm"></i>
+                                                                                <input type="text" id="" class="form-control" placeholder="01/07/1985" name="">
+                                                                                
                                                                                 
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput7">Blood Group</label>
+                                                                        <div class="col-md-9">
+                                                                            <select id="attendance" name="" class="form-control">
+                                                                                <option value="0" selected="" disabled="">A + ve </option>
+                                                                                <option value="Auto">A + ve </option>
+                                                                                <option value="Auto">A - ve </option>
+                                                                                <option value="Auto">O + ve </option>
+                                                                                <option value="Auto">O - ve </option>
+                                                                                <option value="Auto">AB + ve </option>
+                                                                                <option value="Auto">AB - ve </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div> 
+                                                                </div>
+                    
+                                                                <div class="form-body">
+                    
+                                                                   
+                                                                    <h4 class="form-section">Emergency Contacts</h4>
+                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Next of Kin Name</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0"> 
+                                                                                <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Contact number</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0"> 
+                                                                                <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput7">Relationship</label>
+                                                                        <div class="col-md-9">
+                                                                            <select id="attendance" name="" class="form-control">
+                                                                                <option value="0" selected="" disabled="">Daughter </option>
+                                                                                <option value="Auto">Daughter </option>
+                                                                                <option value="Auto">Sister </option>
+                                                                                <option value="Auto">Son </option>
+                                                                                <option value="Auto">O - ve </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div> 
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        
+                                                    </div>
+<div class="row mt-3">
+                                                        <div class="col-md-6">
+                                                            
+                                                                <div class="form-body">
+                                                                  <div class="personal_address"> 
+                                                                    <h4 class="form-section">Identification</h4>
+                                                                   </div>
+
+                                                                   
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput7">Nationality</label>
+                                                                        <div class="col-md-9">
+                                                                            <select id="attendance" name="" class="form-control">
+                                                                                <option value="0" selected="" disabled="">British</option>
+                                                                                <option value="Auto">British 1</option>
+                                                                                <option value="Approvel">British 2</option>
+                                                                                <option value="Approvel">British 3</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div> 
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput7">ID Proof</label>
+                                                                        <div class="col-md-9">
+                                                                            <select id="attendance" name="" class="form-control">
+                                                                                <option value="0" selected="" disabled="">Voter ID</option>
+                                                                                <option value="Auto">Passport</option>
+                                                                                <option value="Approvel">Voter ID</option>
+                                                                                <option value="Approvel">Passport</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div> 
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput6">ID Number</label>
+                                                                        <div class="col-md-9">
+                                                                            <input type="text" id="" class="form-control" placeholder="45128789" name="">
+                                                                        </div>
+                                                                    </div> 
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput6">Immigration permit #</label>
+                                                                        <div class="col-md-9">
+                                                                            <input type="text" id="" class="form-control" placeholder="245145461" name="">
+                                                                        </div>
+                                                                    </div> 
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput6">Immgn expirty date</label>
+                                                                        <div class="col-md-9">
+                                                                            <input type="text" id="" class="form-control" placeholder="9/25/2021" name="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="projectinput6">Attachments</label>
+                                                                        <div class="col-md-9">
+                                                                            <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                        </div>
+                                                                    </div>                   
                                                                     
                                                                 </div>
                     
+                                                                
+                                                            
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <form class="form">
+                    
+                                                                <div class="form-body">
+                    
+                                                                   
+                                                                    <h4 class="form-section">Bank Details</h4>
+                    
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Bank Account Name</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0"> 
+                                                                                <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Bank Name</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0"> 
+                                                                                <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Sort Code</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0"> 
+                                                                                <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">Account Number</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0"> 
+                                                                                <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">IFSC Code</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0"> 
+                                                                                <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-md-3 label-control" for="timesheetinput3">IBAN Number</label>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group extent-wrp mb-0"> 
+                                                                                <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div>
                                                             </form>
                                                         </div>
                                                         
@@ -731,7 +900,7 @@
                                                         <div class="media d-flex mx-0 my-1 user-text mt-3">
                                                             <div class="align-left p-0 mr-2">
                                                                 <a href="#" class="profile-image">
-                                                                    <img src="http://digita.vhostevents.com/app-assets/images/portrait/small/avatar-s-1.png" class="rounded-squre img-border height-120 mt-1" alt="Card image">
+                                                                    <img src="http://digita.vhostevents.com/app-assets/images/portrait/small/avatar-s-1.png" class="rounded-squre img-border height-120" alt="Card image">
                                                                 </a>
                                                             </div>
                                                             <div class="media-body text-left text-dark">
@@ -979,7 +1148,7 @@
                                                                         <div class="col-md-9">
                                                                             <div class="form-group extent-wrp mb-0">                                                                               
                                                                                 <input type="text" id="" class="form-control" placeholder="John Smith" name="">
-                                                                                <i class="ccm"><small>PD</small></i>
+                                                                                
                                                                                 
                                                                             </div>
                                                                         </div>
@@ -1051,7 +1220,7 @@
                                                         <div class="media d-flex mx-0 my-1 user-text mt-3">
                                                             <div class="align-left p-0 mr-2">
                                                                 <a href="#" class="profile-image">
-                                                                    <img src="http://digita.vhostevents.com/app-assets/images/portrait/small/avatar-s-1.png" class="rounded-squre img-border height-120 mt-1" alt="Card image">
+                                                                    <img src="http://digita.vhostevents.com/app-assets/images/portrait/small/avatar-s-1.png" class="rounded-squre img-border height-120" alt="Card image">
                                                                 </a>
                                                             </div>
                                                             <div class="media-body text-left text-dark">

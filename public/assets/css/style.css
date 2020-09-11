@@ -46,6 +46,7 @@ form h4.form-section {
     padding-top: 0px !important;
     border: 0px;
     margin-bottom: 4px;
+    display: inline-block;
 }
 .form-group label {
     font-size: 12px;
@@ -53,6 +54,7 @@ form h4.form-section {
     display:flex;
     align-item:center;
     font-weight: 500;
+    padding-right: 0;
 }
 input::placeholder {
     color: #000 !IMPORTANT;font-size: 12px;
@@ -67,4 +69,22 @@ form.form.form-horizontal {
 }
 .row.mt-3c.payroll input {
     width: 100%;
+}
+.personal_address {
+    display: flex;
+    align-items: center;
+}
+
+.personal_address input {
+    background: #f3f3f3;
+    max-width: 160px;
+    border: 1px solid #cacfe7;
+    color: #cacfe7;
+    padding: 3px 12px;
+    margin-left: auto;
+}
+
+.card-header .heading-elements, .card-header .heading-elements-toggle {
+    top: 38px;
+    font-size: 24px;
 }
