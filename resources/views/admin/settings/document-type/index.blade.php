@@ -46,7 +46,7 @@
                                         <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Contract Type</th>
+                                            <th>Document Type</th>
                                             <th>Status</th>
                                             <th>Created At</th>
                                             <th>Action</th>
