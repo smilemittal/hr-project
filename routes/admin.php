@@ -188,6 +188,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/company/detail/{id}' , 'Admin\CompanyController@viewCompanyDetail')->name('company.detail');
     Route::get('/company/delete/{id}' , 'Admin\CompanyController@deleteCompany')->name('delete.company');
     Route::get('get_states', 'Admin\CompanyController@getStates')->name('get-states');
+    Route::get('get_cities', 'Admin\CompanyController@getCities')->name('get-cities');
      //Branch crud
     Route::get('branch/index' , 'Admin\BranchController@indexBranch')->name('branch.index');
     Route::get('branch/create/view' , 'Admin\BranchController@createViewBranch')->name('create-view.branch');

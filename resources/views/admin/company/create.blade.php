@@ -144,12 +144,19 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-3 label-control" for="userinput2">City</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" id="userinput2"
-                                                               class="form-control border-primary" name="city" value="{{old('city')}}">
-                                                        @if($errors->has('city'))
+                                                          <select name="city_id" id="city_id" class="city_select form-control border-primary">
+                                                                <option value="">Select</option>
+                                                            </select>
+                                                              
+                                                       
+                                                        <button type="button" class="btn btn-secondary add_city">Edit</button>
+                                                        <input type="text" name="city" placeholder="Write Your City" class="add_city_field form-control border-primary" style="display: none;">
+                                                        <button type="button" class="btn btn-secondary back_to_city_select" style="display: none;">Back</button>
+                                                         @if($errors->has('city_id'))
                                                             <div class="error" style="color:red">City is required.</div>
                                                         @endif
                                                     </div>
+                                                    
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -288,6 +295,34 @@
                
             },
         });
+    });
+    $('#state_id').on('change', function(){
+        var state_id = $('#state_id option:selected').val();
+        $.ajax({
+            method: 'get',
+            url: '{{ route("get-cities") }}',
+            data: {'state_id': state_id},
+            success: function(data){
+                if(data.html != ''){
+                    $('#city_id option:gt(0)').remove();
+                    $('#city_id').append(data.html);
+                }
+               
+            },
+        });
+    });
+    $('.add_city').on('click', function(){
+        $(this).hide();
+         $('.city_select').hide();
+        $('.add_city_field').show();
+        $('.back_to_city_select').show();
+    });
+    $('.back_to_city_select').on('click', function(){
+        $(this).hide();
+        $('.add_city_field').hide();
+        $('.city_select').show();
+        $('.add_city').show();
+
     });
 </script>
 

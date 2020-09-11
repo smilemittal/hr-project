@@ -64,7 +64,6 @@ class CompanyController extends Controller
                 'address_2' => 'max:100',
                 'country_id' => 'required|exists:countries,id',
                 'state_id' => 'required|exists:states,id',
-                'city' => 'required',
                 'phone_number' => 'required|max:15',
                 'mobile_number' => 'required|max:15',
                 'email' => 'required|unique:companies,email',
@@ -81,19 +80,26 @@ class CompanyController extends Controller
                 $file->storeAs('company-logos', $logo);
             }
 
+            if(!empty($request['city'])){   
+                $city = City::create(['value' => $request['city'], 'state_id' => $request['state_id']]);
+                $city_id = $city->id;
+            }else{
+                $city_id = $request['city_id'];
+            }
+
             Company::create([
-                'company_name' => $request['company-name'],
+                'company_name' => $request['company_name'],
                 'vat' => $request['vat'],
                 'address_1' => $request['address_1'],
                 'address_2' => $request['address_2'],
                 'country_id' => $request['country_id'],
                 'state_id' => $request['state_id'],
-                'city' => $request['city'],
+                'city_id' => $city_id,
                 'zip_code' => $request['zipcode'],
-                'phone' => $request['phone-number'],
-                'mobile' => $request['mobile-number'],
+                'phone' => $request['phone_number'],
+                'mobile' => $request['mobile_number'],
                 'email' => $request['email'],
-                'website_url' => $request['website-url'],
+                'website_url' => $request['website_url'],
                 'logo' => $logo,
                 'status' => $request['status'],
             ]);
@@ -112,7 +118,7 @@ class CompanyController extends Controller
     public function viewCompanyDetail($id)
     {
         try {
-            $company = Company::with('comCountry')->where('id', decrypt($id))->first();
+            $company = Company::with('comCountry', 'comCity', 'comState')->where('id', decrypt($id))->first();
             if($company) {
                 return view('admin.company.view',compact('company'));
             }
@@ -160,7 +166,6 @@ class CompanyController extends Controller
     public function updatePostCompany(Request $request, $id)
     {
         try {
-           // dd($request->all());
             $company = Company::find(decrypt($id));
             $request->validate([
                 'company_name' => 'required',
@@ -169,7 +174,6 @@ class CompanyController extends Controller
                 'address_2' => 'max:100',
                 'country_id' => 'required|exists:countries,id',
                 'state_id' => 'required|exists:states,id',
-                'city' => 'required',
                 'phone_number' => 'required|max:15',
                 'mobile_number' => 'required|max:15',
                 'zipcode' => 'required|max:10',
@@ -186,6 +190,12 @@ class CompanyController extends Controller
             }else{
                 $logo = $company->logo;
             }
+            if(!empty($request['city'])){   
+                $city = City::create(['value' => $request['city'], 'state_id' => $request['state_id']]);
+                $city_id = $city->id;
+            }else{
+                $city_id = $request['city_id'];
+            }
             $company->update([
                 'company_name' => $request['company_name'],
                 'vat' => $request['vat'],
@@ -193,7 +203,7 @@ class CompanyController extends Controller
                 'address_2' => $request['address_2'],
                 'country_id' => $request['country_id'],
                 'state_id' => $request['state_id'],
-                'city' => $request['city'],
+                'city_id' => $city_id,
                 'zip_code' => $request['zipcode'],
                 'phone' => $request['phone_number'],
                 'mobile' => $request['mobile_number'],
@@ -240,6 +250,23 @@ class CompanyController extends Controller
                 if(!empty($states) && $states->count() > 0){
                     foreach($states as $state){
                      $html .= '<option value="'.$state->id.'">'.$state->value.'</option>';   
+                    } 
+                }
+                return response()->json(['html' => $html]);
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+        
+    }
+    public function getCities(Request $request){
+        try {
+            if($request->ajax()){
+                $html = '';
+                $cities = City::where('status', 'active')->where('state_id', $request->state_id)->get();
+                if(!empty($cities) && $cities->count() > 0){
+                    foreach($cities as $city){
+                     $html .= '<option value="'.$city->id.'">'.$city->value.'</option>';   
                     } 
                 }
                 return response()->json(['html' => $html]);

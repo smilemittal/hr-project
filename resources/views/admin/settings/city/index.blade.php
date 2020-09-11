@@ -47,6 +47,7 @@
                                         <tr>
                                             <th>Id</th>
                                             <th>City</th>
+                                            <th>State</th>                 
                                             <th>Status</th>
                                             <th>Created At</th>
                                             <th>Action</th>
@@ -60,6 +61,7 @@
                                             <tr>
                                                 <td>{{$i}}</td>
                                                 <td>{{$city->value}}</td>
+                                                <td>{{$city->state->value}}</td>
                                                 <td>
                                                     @if($city->status === 'active')
                                                         <span style="color:green"> {{$city->status}}</span>
@@ -68,7 +70,7 @@
                                                     @endif
 
                                                 </td>
-                                                <td>{{$city->created_at->diffForHumans()}}</td>
+                                                <td>{{ !empty($city->created_at)?$city->created_at->diffForHumans(): ''}}</td>
                                                 <td>
                                                     <span class="dropdown">
                                                         <button id="btnSearchDrop12" type="button" class="btn btn-sm btn-icon btn-pure font-medium-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
