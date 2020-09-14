@@ -64,6 +64,7 @@ class CompanyController extends Controller
                 'address_2' => 'max:100',
                 'country_id' => 'required|exists:countries,id',
                 'state_id' => 'required|exists:states,id',
+                'city_id' => 'required', 
                 'phone_number' => 'required|max:15',
                 'mobile_number' => 'required|max:15',
                 'email' => 'required|unique:companies,email',
@@ -79,14 +80,6 @@ class CompanyController extends Controller
                 $logo = time() . '.' . $file->getClientOriginalExtension();
                 $file->storeAs('company-logos', $logo);
             }
-
-            if(!empty($request['city'])){   
-                $city = City::create(['value' => $request['city'], 'state_id' => $request['state_id']]);
-                $city_id = $city->id;
-            }else{
-                $city_id = $request['city_id'];
-            }
-
             Company::create([
                 'company_name' => $request['company_name'],
                 'vat' => $request['vat'],
@@ -94,7 +87,7 @@ class CompanyController extends Controller
                 'address_2' => $request['address_2'],
                 'country_id' => $request['country_id'],
                 'state_id' => $request['state_id'],
-                'city_id' => $city_id,
+                'city_id' => $request['city_id'],
                 'zip_code' => $request['zipcode'],
                 'phone' => $request['phone_number'],
                 'mobile' => $request['mobile_number'],
@@ -143,8 +136,8 @@ class CompanyController extends Controller
             $company = Company::find(decrypt($id));
             if($company) {
                 $countries = Country::whereStatus('active')->get();
-                $cities = City::whereStatus('active')->get();
                 $states = State::whereStatus('active')->where('country_id', $company->country_id)->get();
+                $cities = City::whereStatus('active')->where('state_id', $company->state_id)->get();
                 return view('admin.company.update' , compact('company', 'countries', 'cities', 'states'));
             }
             else {
@@ -174,6 +167,7 @@ class CompanyController extends Controller
                 'address_2' => 'max:100',
                 'country_id' => 'required|exists:countries,id',
                 'state_id' => 'required|exists:states,id',
+                'city_id' => 'required', 
                 'phone_number' => 'required|max:15',
                 'mobile_number' => 'required|max:15',
                 'zipcode' => 'required|max:10',
@@ -190,12 +184,7 @@ class CompanyController extends Controller
             }else{
                 $logo = $company->logo;
             }
-            if(!empty($request['city'])){   
-                $city = City::create(['value' => $request['city'], 'state_id' => $request['state_id']]);
-                $city_id = $city->id;
-            }else{
-                $city_id = $request['city_id'];
-            }
+
             $company->update([
                 'company_name' => $request['company_name'],
                 'vat' => $request['vat'],
@@ -203,7 +192,7 @@ class CompanyController extends Controller
                 'address_2' => $request['address_2'],
                 'country_id' => $request['country_id'],
                 'state_id' => $request['state_id'],
-                'city_id' => $city_id,
+                'city_id' => $request['city_id'],
                 'zip_code' => $request['zipcode'],
                 'phone' => $request['phone_number'],
                 'mobile' => $request['mobile_number'],
@@ -248,8 +237,12 @@ class CompanyController extends Controller
                 $html = '';
                 $states = State::where('status', 'active')->where('country_id', $request->country_id)->get();
                 if(!empty($states) && $states->count() > 0){
-                    foreach($states as $state){
-                     $html .= '<option value="'.$state->id.'">'.$state->value.'</option>';   
+                   foreach($states as $state){
+                        if($request->filled('state_id') && $request->state_id == $state->id){
+                            $html .= '<option value="'.$state->id.'" selected>'.$state->value.'</option>'; 
+                        }else{
+                             $html .= '<option value="'.$state->id.'">'.$state->value.'</option>'; 
+                        }  
                     } 
                 }
                 return response()->json(['html' => $html]);
@@ -265,8 +258,13 @@ class CompanyController extends Controller
                 $html = '';
                 $cities = City::where('status', 'active')->where('state_id', $request->state_id)->get();
                 if(!empty($cities) && $cities->count() > 0){
+                    $html .= '<option value="enter_city" class="enter_city">Enter New City</option>';
                     foreach($cities as $city){
-                     $html .= '<option value="'.$city->id.'">'.$city->value.'</option>';   
+                        if($request->filled('city_id') && $request->city_id == $city->id){
+                            $html .= '<option value="'.$city->id.'" selected>'.$city->value.'</option>'; 
+                        }else{
+                             $html .= '<option value="'.$city->id.'">'.$city->value.'</option>'; 
+                        }  
                     } 
                 }
                 return response()->json(['html' => $html]);

@@ -1342,6 +1342,7 @@ class SiteSettingController extends Controller
 
     public function postCountry(Request $request) {
         try{
+
             $request->validate([
                 'country' => 'required|unique:countries,value|max:50',
                 'code' => 'required',
@@ -1573,6 +1574,23 @@ class SiteSettingController extends Controller
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
+    public function saveNewCity(Request $request){
+        try {
+            if($request->ajax()){
+                 $request->validate([
+                    'state_id' => 'required',
+                    'city' => 'required',
+                ]);
+                 $city = $request->city;
+                 $state_id = $request->state_id;
+                $city = City::create(['value' => $city, 'state_id' => $state_id]);
+                return response()->json(['success' => true, 'message' => 'City added']);
+            }
+            
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
     //End City
 
     //Start State
@@ -1597,10 +1615,10 @@ class SiteSettingController extends Controller
 
     public function postState(Request $request) {
         try{
+
             $request->validate([
-                'state-name' => 'required|unique:states,value|max:50',
-		          'country' => 'required',
-                  ''
+              'state-name' => 'required|unique:states,value|max:50',
+		      'country' => 'required',
             ]);
 
             State::create([

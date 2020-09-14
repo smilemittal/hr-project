@@ -146,7 +146,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/city/inactive/{id}' , 'Admin\SiteSettingController@inactiveCity')->name('inactive.city');
     Route::get('/city/active/{id}' , 'Admin\SiteSettingController@activeCity')->name('active.city');
     Route::get('/city/delete/{id}' , 'Admin\SiteSettingController@deleteCity')->name('delete.city');
-
+    Route::post('/city/post/new_city', 'Admin\SiteSettingController@saveNewCity')->name('save-new.city');
 
     //city routes
     Route::get('/states/index' , 'Admin\SiteSettingController@indexState')->name('state.index');
