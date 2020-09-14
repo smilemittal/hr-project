@@ -38,8 +38,7 @@ class BranchController extends Controller
         try {
             $companies = Company::whereStatus('active')->get();
             $countries = Country::whereStatus('active')->get();
-            $cities = City::whereStatus('active')->get();
-            return view('admin.branch.create' , compact('countries', 'cities', 'companies'));
+            return view('admin.branch.create' , compact('countries', 'companies'));
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
@@ -56,19 +55,20 @@ class BranchController extends Controller
     {
         try {
             $request->validate([
-                'company_id' => 'required|exists:companies,id',
-                'branch_name' => 'required',
-                'address_1' => 'required|max:100',
-                'address_2' => 'max:100',
-                'country_id' => 'required',
-                'state_id' => 'required',
-                'city' => 'required',
-                'phone_number' => 'required|max:15',
-                'mobile_number' => 'required|max:15',
-                'email' => 'required|unique:branches,email',
-                'zipcode' => 'required|max:10',
-                'status' => 'required',
+                    'company_id' => 'required|exists:companies,id',
+                    'branch_name' => 'required',
+                    'address_1' => 'required|max:100',
+                    'address_2' => 'max:100',
+                    'country_id' => 'required',
+                    'state_id' => 'required',
+                    'city_id' => 'required',
+                    'phone_number' => 'required|max:15',
+                    'mobile_number' => 'required|max:15',
+                    'email' => 'required|unique:branches,email',
+                    'zipcode' => 'required|max:10',
+                    'status' => 'required',
             ]);
+
             Branch::create([
                 'company_id' => $request['company_id'],
                 'branch_name' => $request['branch_name'],
@@ -76,7 +76,7 @@ class BranchController extends Controller
                 'address_2' => $request['address_2'],
                 'country_id' => $request['country_id'],
                 'state_id' => $request['state_id'],
-                'city' => $request['city'],
+                'city_id' => $request['city_id'],
                 'zip_code' => $request['zipcode'],
                 'phone' => $request['phone_number'],
                 'mobile' => $request['mobile_number'],
@@ -126,8 +126,8 @@ class BranchController extends Controller
             if($branch) {
                 $companies = Company::whereStatus('active')->get();
                 $countries = Country::whereStatus('active')->get();
-                $cities = City::whereStatus('active')->get();
                 $states = State::whereStatus('active')->where('country_id', $branch->country_id)->get();
+                $cities = City::whereStatus('active')->where('state_id', $branch->state_id)->get();
                 return view('admin.branch.update' , compact('branch', 'countries', 'cities', 'states', 'companies'));
             }
             else {
@@ -157,13 +157,14 @@ class BranchController extends Controller
                 'address_2' => 'max:100',
                 'country_id' => 'required',
                 'state_id' => 'required',
-                'city' => 'required',
+                'city_id' => 'required',              
                 'phone_number' => 'required|max:15',
                 'mobile_number' => 'required|max:15',
                 'zipcode' => 'required|max:10',
                 'email' => 'required|unique:branches,email,'.$branch->id.'',
                 'status' => 'required',
             ]);
+
             $branch->update([
                 'company_id' => $request['company_id'],
                 'branch_name' => $request['branch_name'],
@@ -171,7 +172,7 @@ class BranchController extends Controller
                 'address_2' => $request['address_2'],
                 'country_id' => $request['country_id'],
                 'state_id' => $request['state_id'],
-                'city' => $request['city'],
+                'city_id' => $request['city_id'],
                 'zip_code' => $request['zipcode'],
                 'phone' => $request['phone_number'],
                 'mobile' => $request['mobile_number'],

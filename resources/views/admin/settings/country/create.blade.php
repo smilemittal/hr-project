@@ -53,7 +53,7 @@
 
                                     <div class="card-block">
                                         <div class="card-body">
-                                            <form action="{{route('post-data.country')}}" method="post">
+                                            <!-- <form action="{{route('post-data.country')}}" method="post">
                                                 @csrf
                                                 <fieldset class="form-group">
                                                     <input type="text" name="country"
@@ -80,6 +80,37 @@
                                                     <button type="submit" class="btn btn-success">Submit</button>
                                                     <a href="{{route('country.index')}}" class="btn btn-primary">View All</a>
                                                 </fieldset>
+                                            </form> -->
+                                            <form class="form" action="{{route('post-data.country')}}" method="post">
+                                                @csrf
+                                                <div class="form-body">
+                                                    <div class="form-group">
+                                                        <label class="sr-only" for="country">Country Name</label>
+                                                        <input type="text" id="country" class="form-control" placeholder="Country Name" name="country">
+                                                        @if($errors->has('country'))
+                                                            <div class="error" style="color:red">{{$errors->first('country')}}</div>
+                                                        @endif
+                                                    </div>
+                                                     <div class="form-group">
+                                                        <label class="sr-only" for="code">Country Code</label>
+                                                        <input type="text" id="code" class="form-control" placeholder="Country Code" name="code">
+                                                        @if($errors->has('code'))
+                                                            <div class="error" style="color:red">{{$errors->first('code')}}</div>
+                                                        @endif
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                       <label class="sr-only" for="phonecode">Country Phonecode</label>
+                                                        <input type="text" id="phonecode" class="form-control" placeholder="Country Phonecode" name="phonecode">
+                                                        @if($errors->has('phonecode'))
+                                                            <div class="error" style="color:red">{{$errors->first('phonecode')}}</div>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                     <button type="submit" class="btn btn-success">Submit</button>
+                                                    <a href="{{route('country.index')}}" class="btn btn-primary">View All</a>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
