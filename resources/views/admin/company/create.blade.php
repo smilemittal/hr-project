@@ -144,12 +144,15 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-3 label-control" for="userinput2">City</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" id="userinput2"
-                                                               class="form-control border-primary" name="city" value="{{old('city')}}">
-                                                        @if($errors->has('city'))
+                                                        <select name="city_id" id="city_id" class="city_select form-control border-primary city_id_control" >
+                                                            <option value="">Select</option>
+
+                                                        </select>                                       
+                                                        @if($errors->has('city_id'))
                                                             <div class="error" style="color:red">City is required.</div>
                                                         @endif
                                                     </div>
+                                                    
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -261,6 +264,32 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <label class="modal-title text-text-bold-600" id="myModalLabel33">Save New City</label>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="{{ route('save-new.city') }}" method="post">
+                            @csrf
+                            <div class="modal-body">
+                                <label>Enter City Name: </label>
+                                <div class="form-group">
+                                    <input type="text" name="city" placeholder="Write city name" class="form-control new_city">
+                                <div class="error modal_city_error" style="color:red"></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="reset" class="btn btn-secondary " data-dismiss="modal" value="close">
+                                <input type="submit" class="btn btn-primary save_new_city" value="Save">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
         <!-- Alert animation end -->
     </div>
@@ -289,8 +318,94 @@
             },
         });
     });
-</script>
+    $('#state_id').on('change', function(){
+        var state_id = $('#state_id option:selected').val();
+        $.ajax({
+            method: 'get',
+            url: '{{ route("get-cities") }}',
+            data: {'state_id': state_id},
+            success: function(data){
+                if(data.html != ''){
+                    $('#city_id option:gt(0)').remove();
+                    $('#city_id').append(data.html);
+                }
+               
+            },
+        });
+    });
+    $('#city_id').on('change', function(){
+        var city_id = $('#city_id option:selected').val();
+        if(city_id == 'enter_city'){
+            $('#inlineForm').modal();
+        }
+    }); 
 
+    $('.save_new_city').on('click', function(e){
+        e.preventDefault();
+        var state_id = $('#state_id option:selected').val();
+        var new_city = $('.new_city').val();
+        $.ajax({
+            url: "{{ route('save-new.city') }}",
+            method: 'post',
+            data: {
+                 "_token": "{{ csrf_token() }}",
+                 'state_id': state_id,
+                 'city': new_city,
+            },
+            success: function(data){
+                if(data.success == true){
+                    $('#state_id').trigger('change');
+                    $('#inlineForm').modal('hide');
+                }
+            },
+            error: function(data){
+                $('.modal_city_error').html(data.responseJSON.errors.city[0]);
+            }
+
+        });
+
+    });
+</script>
+<script type="text/javascript">
+   
+    $(document).ready(function(){
+         @if(!empty(old('country_id')))
+            var country_id = "{{ old('country_id') }}";
+            var state_id = "{{ old('state_id') }}";
+            $.ajax({
+                method: 'get',
+                url: '{{ route("get-states") }}',
+                data: {'country_id': country_id, @if(!empty(old('state_id')))  'state_id': state_id @endif },
+                success: function(data){
+                    if(data.html != ''){
+                        $('#state_id option:gt(0)').remove();
+                        $('#state_id').append(data.html);
+                    }
+                },
+            });
+            @endif
+
+            @if(!empty(old('state_id')))
+              var state_id = "{{ old('state_id') }}";
+              var city_id = "{{ old('city_id') }}";;
+                $.ajax({
+                    method: 'get',
+                    url: '{{ route("get-cities") }}',
+                    data: {'state_id': state_id, @if(!empty(old('city_id')))  'city_id': city_id @endif },
+                    success: function(data){
+                        if(data.html != ''){
+                            $('#city_id option:gt(0)').remove();
+                            $('#city_id').append(data.html);
+                        }
+                       
+                    },
+                });
+           @endif
+        });
+
+
+   
+</script>
 
 @endsection
 

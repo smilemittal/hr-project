@@ -120,10 +120,8 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-3 label-control" for="userinput2">State</label>
                                                     <div class="col-md-9">
-                                                        <select name="state_id" id="state_id" class="form-control border-primary" readonly>
-                                                            <option value="">Select</option>
-                                                           
-                                                        </select>
+                                                        <input type="text" id="userinput2"
+                                                               class="form-control border-primary" name="state_id" value="{{$company->comState->value}}" readonly>
                                                       
                                                     </div>
                                                 </div>
@@ -135,7 +133,7 @@
                                                     <label class="col-md-3 label-control" for="userinput2">City</label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="userinput2"
-                                                               class="form-control border-primary" name="city" value="{{$company->city}}" readonly>
+                                                               class="form-control border-primary" name="city" value="{{$company->comCity->value}}" readonly>
                                                        
                                                     </div>
                                                 </div>

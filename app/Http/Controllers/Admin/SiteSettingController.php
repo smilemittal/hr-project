@@ -1342,13 +1342,18 @@ class SiteSettingController extends Controller
 
     public function postCountry(Request $request) {
         try{
+
             $request->validate([
-                'country' => 'required|unique:countries,value|max:50'
+                'country' => 'required|unique:countries,value|max:50',
+                'code' => 'required',
+                'phonecode' => 'required',
             ]);
 
             Country::create([
                 'value'=> $request['country'],
                 'status' => 'active',
+                'phonecode' => $request['phonecode'],
+                'code' => $request['code'],
             ]);
 
             return redirect()->back()->with('success' , 'Country submitted successfully.');
@@ -1376,10 +1381,15 @@ class SiteSettingController extends Controller
             $record = Country::find(decrypt($id));
             if($record) {
                 $request->validate([
-                    'country' => 'required|unique:countries,value|max:50'
+                    'country' => 'required|unique:countries,value|max:50',
+                    'code' => 'required',
+                    'phonecode' => 'required',
                 ]);
 
                 $record->value = $request['country'];
+                $record->code = $request['code'];
+                $record->phonecode = $request['phonecode'];
+
                 $record->save();
                 return redirect()->back()->with('success' , 'Country updated successfully.');
             }
@@ -1444,7 +1454,8 @@ class SiteSettingController extends Controller
     //Start City
     public function indexCity() {
         try{
-            $cities = City::get();
+            $cities = City::with('state')->get();
+            //dd($cities);
             return view('admin.settings.city.index' , compact('cities'));
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
@@ -1464,12 +1475,12 @@ class SiteSettingController extends Controller
         try{
             $request->validate([
                 'city-name' => 'required|unique:cities,value|max:50',
-		'state' => 'required',
+		          'state' => 'required',
             ]);
 
             City::create([
                 'value'=> $request['city-name'],
- 		'state_id'=> $request['state'],
+ 		         'state_id'=> $request['state'],
                 'status' => 'active',
             ]);
 
@@ -1563,12 +1574,29 @@ class SiteSettingController extends Controller
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
+    public function saveNewCity(Request $request){
+        try {
+            if($request->ajax()){
+                 $request->validate([
+                    'state_id' => 'required',
+                    'city' => 'required',
+                ]);
+                 $city = $request->city;
+                 $state_id = $request->state_id;
+                $city = City::create(['value' => $city, 'state_id' => $state_id]);
+                return response()->json(['success' => true, 'message' => 'City added']);
+            }
+            
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
     //End City
 
     //Start State
     public function indexState() {
         try{
-            $states = State::get();
+            $states = State::with('country')->get();
             return view('admin.settings.state.index' , compact('states'));
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
@@ -1587,15 +1615,17 @@ class SiteSettingController extends Controller
 
     public function postState(Request $request) {
         try{
+
             $request->validate([
-                'state-name' => 'required|unique:states,value|max:50',
-		'country' => 'required'
+              'state-name' => 'required|unique:states,value|max:50',
+		      'country' => 'required',
             ]);
 
             State::create([
                 'value'=> $request['state-name'],
-		'country_id'=> $request['country'],
+		      'country_id'=> $request['country'],
                 'status' => 'active',
+             
             ]);
 
             return redirect()->back()->with('success' , 'State submitted successfully.');
