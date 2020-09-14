@@ -538,7 +538,10 @@
                     {{--                                </li>--}}
                 </ul>
             </li>
-
+            <li class=" nav-item"><a href="{{route('contact.create')}}"><i class="ft-user"></i><span
+                        class="menu-title" data-i18n="">Contact</span></a>
+            </li>
+           
             <li class=" nav-item"><a href="{{route('employee.index')}}"><i class="ft-user"></i><span
                         class="menu-title" data-i18n="">Employee</span></a>
             </li>
