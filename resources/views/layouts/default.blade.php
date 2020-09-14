@@ -444,7 +444,7 @@
 
 
 <!-- BEGIN: Main Menu-->
-<div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true"
+<div class="main-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-active="true"
      data-img="{{asset('app-assets/images/backgrounds/04.jpg')}}">
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row position-relative">
@@ -452,7 +452,7 @@
                 <a class="navbar-brand" href="index.html">
                     <img class="brand-logo" alt="Chameleon admin logo"
                          src="{{asset('app-assets/images/logo/logo.png')}}"/>
-                    <h3 class="brand-text">Chameleon</h3>
+                    <!-- <h3 class="brand-text">Chameleon</h3> -->
                 </a>
             </li>
             <li class="nav-item d-none d-md-block nav-toggle">

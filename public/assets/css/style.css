@@ -88,3 +88,12 @@ form.form.form-horizontal {
     top: 15px;
     font-size: 20px;
 }
+.create_btn {
+    font-size: 14px;
+    color: #fff !important;
+    background: #28afd0;
+    padding: 8px 15px;
+    display: inline-block;
+    margin: 5px 0px 10px;
+    border-radius: 3px;
+}

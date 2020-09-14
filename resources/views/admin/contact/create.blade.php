@@ -181,7 +181,7 @@
                                                         </div>
                                                         <div class="col-xl-4 col-md-6">
                                                           <div class="form-group">
-                                                            <label for="">Tage</label>
+                                                            <label for="">tag</label>
                                                             <div class="position-relative">
                                                               <input type="text" id="" class="form-control" placeholder="" name="employeename">
                                                             </div>
@@ -297,7 +297,7 @@
                                                       <div class="row">
                                                         <div class="col-md-12">
                                                           <div class="form-group">
-                                                            <label for="timesheetinput1">Tage</label>
+                                                            <label for="timesheetinput1">tag</label>
                                                             <div class="position-relative">
                                                               <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
                                                             </div>
@@ -374,14 +374,24 @@
                                                                       </div>
                                                                       </div>
                                                                   </div>
+                                                                  
+
                                                                   <div class="col-md-12">
                                                                       <div class="form-group row">
-                                                                          <label class="col-md-3" for="">City</label>
+                                                                          <label class="col-md-3" for="">Postcode</label>
+                                                                          <div class="col-md-9">
+                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                      </div>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="col-md-12">
+                                                                      <div class="form-group row">
+                                                                          <label class="col-md-3" for="">Country</label>
                                                                           <div class="col-md-9">
                                                                           <select id="" name="priority" class="form-control">
-                                                                            <option value="low">City</option>
-                                                                            <option value="medium">Developer</option>
-                                                                            <option value="high">Coder</option>
+                                                                            <option value="low">Afghanistan</option>
+                                                                            <option value="medium">Albania</option>
+                                                                            <option value="high">Algeria</option>
                                                                           </select>
                                                                       </div>
                                                                       </div>
@@ -400,20 +410,12 @@
                                                                   </div>
                                                                   <div class="col-md-12">
                                                                       <div class="form-group row">
-                                                                          <label class="col-md-3" for="">Postcode</label>
-                                                                          <div class="col-md-9">
-                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">Country</label>
+                                                                          <label class="col-md-3" for="">City</label>
                                                                           <div class="col-md-9">
                                                                           <select id="" name="priority" class="form-control">
-                                                                            <option value="low">Afghanistan</option>
-                                                                            <option value="medium">Albania</option>
-                                                                            <option value="high">Algeria</option>
+                                                                            <option value="low">City</option>
+                                                                            <option value="medium">Developer</option>
+                                                                            <option value="high">Coder</option>
                                                                           </select>
                                                                       </div>
                                                                       </div>
@@ -619,7 +621,7 @@
                                                         
                                                         <div class="col-xl-4 col-md-6">
                                                           <div class="form-group">
-                                                            <label for="timesheetinput1">Tage</label>
+                                                            <label for="timesheetinput1">Tags</label>
                                                             <div class="position-relative">
                                                               <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
                                                             </div>
@@ -824,7 +826,7 @@
                                                       <div class="row">
                                                         <div class="col-md-12">
                                                           <div class="form-group">
-                                                            <label for="timesheetinput1">Tage</label>
+                                                            <label for="timesheetinput1">tag</label>
                                                             <div class="position-relative">
                                                               <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
                                                             </div>
@@ -901,30 +903,8 @@
                                                                       </div>
                                                                       </div>
                                                                   </div>
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">City</label>
-                                                                          <div class="col-md-9">
-                                                                          <select id="" name="priority" class="form-control">
-                                                                            <option value="low">City</option>
-                                                                            <option value="medium">Developer</option>
-                                                                            <option value="high">Coder</option>
-                                                                          </select>
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">County</label>
-                                                                          <div class="col-md-9">
-                                                                          <select id="" name="priority" class="form-control">
-                                                                            <option value="low">County</option>
-                                                                            <option value="medium">County</option>
-                                                                            <option value="high">County</option>
-                                                                          </select>
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
+                                                                 
+                                                                 
                                                                   <div class="col-md-12">
                                                                       <div class="form-group row">
                                                                           <label class="col-md-3" for="">Postcode</label>
@@ -941,6 +921,30 @@
                                                                             <option value="low">Afghanistan</option>
                                                                             <option value="medium">Albania</option>
                                                                             <option value="high">Algeria</option>
+                                                                          </select>
+                                                                      </div>
+                                                                      </div>
+                                                                  </div>
+                                                                   <div class="col-md-12">
+                                                                      <div class="form-group row">
+                                                                          <label class="col-md-3" for="">County</label>
+                                                                          <div class="col-md-9">
+                                                                          <select id="" name="priority" class="form-control">
+                                                                            <option value="low">County</option>
+                                                                            <option value="medium">County</option>
+                                                                            <option value="high">County</option>
+                                                                          </select>
+                                                                      </div>
+                                                                      </div>
+                                                                  </div>
+                                                                   <div class="col-md-12">
+                                                                      <div class="form-group row">
+                                                                          <label class="col-md-3" for="">City</label>
+                                                                          <div class="col-md-9">
+                                                                          <select id="" name="priority" class="form-control">
+                                                                            <option value="low">City</option>
+                                                                            <option value="medium">Developer</option>
+                                                                            <option value="high">Coder</option>
                                                                           </select>
                                                                       </div>
                                                                       </div>
@@ -964,6 +968,7 @@
                                        <div class="row">
                                          <div class="col-sm-12">
                                            <h4>Contacts</h4>
+                                           <a href="javascript:void(0)" class="create_btn" data-toggle="modal" data-target="#create-modal">Create</a>
                                          </div>
                                          
                                           <div class="col-md-4 col-sm-6">
@@ -978,7 +983,32 @@
                                                       <div class="col-8 pl-0">
                                                           <div class="p-0">                                                                
                                                               <div class="float-right">
-                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                 <button type="button" class="close_btn close" data-toggle="modal" data-target="#close_modal">
+                                                                      <span aria-hidden="true">×</span>
+                                                                  </button>                                                                
+                                                                  <p>Alexanda Walker Director of Marketing and Communications</p>                                                                
+                                                                  <a href="#">walker@17capital.com</a>
+                                                                  
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-4 col-sm-6">
+                                            <div class="card mb-1 contactbox-m">
+                                              <div class="card-body p-0">
+                                                  <div class="row">
+                                                      <div class="col-4">
+                                                          <div class="border-left-radius-palette">
+                                                          <img src="http://digita.vhostevents.com/app-assets/images/portrait/small/avatar-s-1.png" class="rounded-squre img-fluid img-border height-120 mt-0" alt="Card image">
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-8 pl-0">
+                                                          <div class="p-0">                                                                
+                                                              <div class="float-right">
+                                                                  <button type="button" class="close_btn close" data-toggle="modal" data-target="#close_modal">
                                                                       <span aria-hidden="true">×</span>
                                                                   </button>
                                                                   <p>Alexanda Walker Director of Marketing and Communications</p>                                                                
@@ -1003,7 +1033,7 @@
                                                       <div class="col-8 pl-0">
                                                           <div class="p-0">                                                                
                                                               <div class="float-right">
-                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                 <button type="button" class="close_btn close" data-toggle="modal" data-target="#close_modal">
                                                                       <span aria-hidden="true">×</span>
                                                                   </button>
                                                                   <p>Alexanda Walker Director of Marketing and Communications</p>                                                                
@@ -1028,7 +1058,7 @@
                                                       <div class="col-8 pl-0">
                                                           <div class="p-0">                                                                
                                                               <div class="float-right">
-                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                  <button type="button" class="close_btn close" data-toggle="modal" data-target="#close_modal">
                                                                       <span aria-hidden="true">×</span>
                                                                   </button>
                                                                   <p>Alexanda Walker Director of Marketing and Communications</p>                                                                
@@ -1053,7 +1083,7 @@
                                                       <div class="col-8 pl-0">
                                                           <div class="p-0">                                                                
                                                               <div class="float-right">
-                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                 <button type="button" class="close_btn close" data-toggle="modal" data-target="#close_modal">
                                                                       <span aria-hidden="true">×</span>
                                                                   </button>
                                                                   <p>Alexanda Walker Director of Marketing and Communications</p>                                                                
@@ -1078,32 +1108,7 @@
                                                       <div class="col-8 pl-0">
                                                           <div class="p-0">                                                                
                                                               <div class="float-right">
-                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                      <span aria-hidden="true">×</span>
-                                                                  </button>
-                                                                  <p>Alexanda Walker Director of Marketing and Communications</p>                                                                
-                                                                  <a href="#">walker@17capital.com</a>
-                                                                  
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="col-md-4 col-sm-6">
-                                            <div class="card mb-1 contactbox-m">
-                                              <div class="card-body p-0">
-                                                  <div class="row">
-                                                      <div class="col-4">
-                                                          <div class="border-left-radius-palette">
-                                                          <img src="http://digita.vhostevents.com/app-assets/images/portrait/small/avatar-s-1.png" class="rounded-squre img-fluid img-border height-120 mt-0" alt="Card image">
-                                                          </div>
-                                                      </div>
-                                                      <div class="col-8 pl-0">
-                                                          <div class="p-0">                                                                
-                                                              <div class="float-right">
-                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                  <button type="button" class="close_btn close" data-toggle="modal" data-target="#close_modal">
                                                                       <span aria-hidden="true">×</span>
                                                                   </button>
                                                                   <p>Alexanda Walker Director of Marketing and Communications</p>                                                                
@@ -1226,7 +1231,7 @@
                                                         <div class="row">
                                                           <div class="col-md-12">
                                                             <div class="form-group">
-                                                              <label for="timesheetinput1">Tage</label>
+                                                              <label for="timesheetinput1">tag</label>
                                                               <div class="position-relative">
                                                                 <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
                                                               </div>
@@ -1400,7 +1405,7 @@
                                                       <div class="row">
                                                         <div class="col-md-12">
                                                           <div class="form-group">
-                                                            <label for="timesheetinput1">Tage</label>
+                                                            <label for="timesheetinput1">tag</label>
                                                             <div class="position-relative">
                                                               <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
                                                             </div>
@@ -1598,7 +1603,7 @@
                                                         </div>
                                                         <div class="col-xl-4 col-md-6">
                                                           <div class="form-group">
-                                                            <label for="">Tage</label>
+                                                            <label for="">tag</label>
                                                             <div class="position-relative">
                                                               <input type="text" id="" class="form-control" placeholder="" name="employeename">
                                                             </div>
@@ -1714,7 +1719,7 @@
                                                       <div class="row">
                                                         <div class="col-md-12">
                                                           <div class="form-group">
-                                                            <label for="timesheetinput1">Tage</label>
+                                                            <label for="timesheetinput1">tag</label>
                                                             <div class="position-relative">
                                                               <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
                                                             </div>
@@ -1791,30 +1796,8 @@
                                                                       </div>
                                                                       </div>
                                                                   </div>
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">City</label>
-                                                                          <div class="col-md-9">
-                                                                          <select id="" name="priority" class="form-control">
-                                                                            <option value="low">City</option>
-                                                                            <option value="medium">Developer</option>
-                                                                            <option value="high">Coder</option>
-                                                                          </select>
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">County</label>
-                                                                          <div class="col-md-9">
-                                                                          <select id="" name="priority" class="form-control">
-                                                                            <option value="low">County</option>
-                                                                            <option value="medium">County</option>
-                                                                            <option value="high">County</option>
-                                                                          </select>
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
+                                                                
+                                                                 
                                                                   <div class="col-md-12">
                                                                       <div class="form-group row">
                                                                           <label class="col-md-3" for="">Postcode</label>
@@ -1831,6 +1814,30 @@
                                                                             <option value="low">Afghanistan</option>
                                                                             <option value="medium">Albania</option>
                                                                             <option value="high">Algeria</option>
+                                                                          </select>
+                                                                      </div>
+                                                                      </div>
+                                                                  </div>
+                                                                   <div class="col-md-12">
+                                                                      <div class="form-group row">
+                                                                          <label class="col-md-3" for="">County</label>
+                                                                          <div class="col-md-9">
+                                                                          <select id="" name="priority" class="form-control">
+                                                                            <option value="low">County</option>
+                                                                            <option value="medium">County</option>
+                                                                            <option value="high">County</option>
+                                                                          </select>
+                                                                      </div>
+                                                                      </div>
+                                                                  </div>
+                                                                    <div class="col-md-12">
+                                                                      <div class="form-group row">
+                                                                          <label class="col-md-3" for="">City</label>
+                                                                          <div class="col-md-9">
+                                                                          <select id="" name="priority" class="form-control">
+                                                                            <option value="low">City</option>
+                                                                            <option value="medium">Developer</option>
+                                                                            <option value="high">Coder</option>
                                                                           </select>
                                                                       </div>
                                                                       </div>
@@ -2035,7 +2042,7 @@
                         </div>
                         <div class="col-xl-4 col-md-6">
                           <div class="form-group">
-                            <label for="">Tage</label>
+                            <label for="">tag</label>
                             <div class="position-relative">
                               <input type="text" id="" class="form-control" placeholder="" name="employeename">
                             </div>
@@ -2373,3 +2380,41 @@
 @stop
 
 
+<!-- Modal Create-->
+  <div class="modal fade" id="create-modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+          <p>hii</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!--Close-->
+
+
+  <!-- Close modal-->
+  <div class="modal fade" id="close_modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+          <p>do you want to close this contact</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!--Close-->
