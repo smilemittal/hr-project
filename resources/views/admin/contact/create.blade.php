@@ -80,10 +80,7 @@
                                 <div class="card-content">
                                   <div class="card-body px-0">
                                     <div class="tab-content p-0">
-                                    <!--Information Tab Content-->
-                                      <div role="tabpanel" class="tab-pane active" id="tabIcon1"
-                                        aria-expanded="true" aria-labelledby="baseIcon-tab1">
-                                        <div class="bg-lighttt">
+                                         <div class="bg-lighttt">
                                           <ul class="nav nav-tabs w-100 pt-1 px-1">
                                             <li class="nav-item">
                                               <a class="nav-link" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab1" aria-expanded="true">
@@ -183,7 +180,7 @@
                                                           <div class="form-group">
                                                             <label for="">tag</label>
                                                             <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="" name="employeename">
+                                                              <input name='tags' value='tag1, tag2 ' type="text" id="" class="form-control " placeholder="" name="employeename">                                                         
                                                             </div>
                                                           </div>
                                                         </div>
@@ -299,7 +296,7 @@
                                                           <div class="form-group">
                                                             <label for="timesheetinput1">tag</label>
                                                             <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
+                                                                    <input name='tags' value='tag1, tag2 ' type="text" id="" class="form-control" placeholder="" name="employeename">
                                                             </div>
                                                           </div>
                                                         </div>
@@ -333,7 +330,7 @@
                                                       <div class="row">
                                                                   <div class="col-md-12">
                                                                       <div class="form-group row">
-                                                                          <label class="col-md-3" for="">Address</label>
+                                                                          <label class="col-md-3" for="">Address type</label>
                                                                           <div class="col-md-9">
                                                                           <input type="text" id="" class="form-control" placeholder="" name="">
                                                                       </div>
@@ -435,6 +432,10 @@
                                             </div>
                                           </div>
                                         </div>
+                                    <!--Information Tab Content-->
+                                      <div role="tabpanel" class="tab-pane active" id="tabIcon1"
+                                        aria-expanded="true" aria-labelledby="baseIcon-tab1">
+                                       
                                         <div class="row mt-1">
                                           <div class="col-md-6">
                                             <form class="form form-horizontal">
@@ -546,424 +547,7 @@
                                       </div>
                                     <!--Contact Tab Content-->
                                       <div class="tab-pane" id="tabIcon2" aria-labelledby="baseIcon-tab2">
-                                        <div class="bg-lighttt">
-                                          <!-- <ul class="nav nav-tabs w-100 pt-1 px-1">
-                                            <li class="nav-item">
-                                              <a class="nav-link" id="base-tab3" data-toggle="tab" aria-controls="tab1" href="#tab1" aria-expanded="true">
-                                                <div class="form-check">
-                                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                                  <label class="form-check-label" for="exampleRadios1">
-                                                  Individual
-                                                  </label>
-                                                </div>
-                                              </a>
-                                            </li>
-                                            <li class="nav-item">
-                                              <a class="nav-link" id="base-tab4" data-toggle="tab" aria-controls="tab2" href="#tab2" aria-expanded="false">
-                                                <div class="form-check">
-                                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                                  <label class="form-check-label" for="exampleRadios2">
-                                                  Company
-                                                  </label>
-                                                </div>
-                                              </a>
-                                            </li>
-                                          </ul> -->
-                                          <div class="tab-content px-1 pt-1 col-sm-12">
-                                            <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab3">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                  <div class="media d-flex mx-0 user-text mt-0">
-                                                    <div class="align-left p-0 mr-2">
-                                                      <a href="#" class="profile-image">
-                                                      <img src="{{asset('app-assets/images/portrait/small/avatar-s-1.png')}}"
-                                                        class="rounded-squre img-border height-120 mt-0"
-                                                        alt="Card image">
-                                                      </a>
-                                                    </div>
-                                                    <div class="media-body text-left text-dark">
-                                                      
-                                                      <div class="row">
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="" class="">Contract Rite Limited</label>
-                                                            <div class="position-relative">
-                                                              <select id="" name="priority" class="form-control">
-                                                                <option value="low">Designer</option>
-                                                                <option value="medium">Developer</option>
-                                                                <option value="high">Coder</option>
-                                                              </select>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="" class="">Business Classification</label>
-                                                            <div class="position-relative">
-                                                              <select id="" name="priority" class="form-control">
-                                                                <option value="low">Business</option>
-                                                                <option value="medium">Developer</option>
-                                                                <option value="high">Coder</option>
-                                                              </select>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="timesheetinput1">Account Status</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="timesheetinput1">Tags</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">Address</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Address" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">House Number</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Address" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-
-                                                      <div class="row">
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">House Name</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Address" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">Address info</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Address" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">Street</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Address" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">City</label>
-                                                            <div class="position-relative">
-                                                            <select id="" name="priority" class="form-control">
-                                                              <option value="low">City</option>
-                                                              <option value="medium">Developer</option>
-                                                              <option value="high">Coder</option>
-                                                            </select>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">County</label>
-                                                            <div class="position-relative">
-                                                              <select id="" name="priority" class="form-control">
-                                                                <option value="low">County</option>
-                                                                <option value="medium">County</option>
-                                                                <option value="high">County</option>
-                                                              </select>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">Postcode</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Address" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">Country</label>
-                                                            <div class="position-relative">
-                                                              <select id="" name="priority" class="form-control">
-                                                                <option value="low">Afghanistan</option>
-                                                                <option value="medium">Albania</option>
-                                                                <option value="high">Algeria</option>
-                                                              </select>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">Email</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Enter Your Email" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">Phone</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Phone" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        </div>
-
-                                                      <div class="row">
-                                                       
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">Mobile</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Mobile" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      
-                                                      <div class="row">
-                                                        <div class="col-md-12 mt-1 text-right">
-                                                          <button type="button" class="btn btn-bg-gradient-x-purple-red mb-1" data-toggle="modal" data-keyboard="false" data-target="#keyboard1">More Address</button>
-                                                        </div>
-                                                      </div>
-                                                      
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                
-                                              </div>
-                                            </div>
-                                            <div class="tab-pane" id="tab2" aria-labelledby="base-tab4">
-                                            <div class="row">
-                                                <div class="col-md-7 pt-3">
-                                                  <div class="media d-flex mx-0 user-text mt-0">
-                                                    <div class="align-left p-0 mr-2">
-                                                      <a href="#" class="profile-image">
-                                                      <img  src="{{asset('app-assets/images/portrait/small/avatar-s-1.png')}}" class="rounded-squre img-border height-120" alt="Card image">
-                                                      </a>
-                                                    </div>
-                                                    <div class="media-body text-left text-dark">
-                                                      <div class="row">
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">                                                                            
-                                                            <input type="text" id="" class="form-control" placeholder="Contract Right Limited" name="issuetitle">
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                      
-                                                        <div class="col-md-12 col-xl-6">
-                                                          <div class="form-group">
-                                                            <label for="timesheetinput1">Business Classification</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-12 col-xl-6">
-                                                          <div class="form-group">
-                                                            <label for="timesheetinput1">Account Status</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">
-                                                            <label for="">Email</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Enter Your Email" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-12 col-xl-6">
-                                                          <div class="form-group">
-                                                            <label for="">Phone</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Phone" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-12 col-xl-6">
-                                                          <div class="form-group">
-                                                            <label for="">Mobile</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Mobile" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">
-                                                            <label for="timesheetinput1">tag</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">
-                                                            <label for="timesheetinput1">Company Website</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div class="col-md-5">
-                                                  <div class="media-body text-left text-dark">
-                                                      
-                                                      <div class="row">
-                                                      
-                                                        <div class="row position_sctn">
-                                                              <div class="col-sm-12">
-                                                                  <h4 class="form-section">Address Type</h4>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-
-                                                      <div class="row">
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">Address</label>
-                                                                          <div class="col-md-9">
-                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                            
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">House Number</label>
-                                                                          <div class="col-md-9">
-                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group extent-wrp row">
-                                                                          <label class="col-md-3" for="">House Name</label>
-                                                                          <div class="col-md-9">
-                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                        
-                                                                      </div>
-                                                                          
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">Address info</label>
-                                                                          <div class="col-md-9">
-                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">Street</label>
-                                                                          <div class="col-md-9">
-                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                 
-                                                                 
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">Postcode</label>
-                                                                          <div class="col-md-9">
-                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">Country</label>
-                                                                          <div class="col-md-9">
-                                                                          <select id="" name="priority" class="form-control">
-                                                                            <option value="low">Afghanistan</option>
-                                                                            <option value="medium">Albania</option>
-                                                                            <option value="high">Algeria</option>
-                                                                          </select>
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                   <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">County</label>
-                                                                          <div class="col-md-9">
-                                                                          <select id="" name="priority" class="form-control">
-                                                                            <option value="low">County</option>
-                                                                            <option value="medium">County</option>
-                                                                            <option value="high">County</option>
-                                                                          </select>
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                   <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">City</label>
-                                                                          <div class="col-md-9">
-                                                                          <select id="" name="priority" class="form-control">
-                                                                            <option value="low">City</option>
-                                                                            <option value="medium">Developer</option>
-                                                                            <option value="high">Coder</option>
-                                                                          </select>
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  
-                                                              </div>
-
-                                                              <div class="row">
-                                                          <div class="col-md-12 mt-1 text-right">
-                                                            <button type="button" class="btn btn-bg-gradient-x-purple-red mb-1" data-toggle="modal" data-keyboard="false" data-target="#moreAddress">More Address</button>
-                                                          </div>
-                                                        </div>
-                                                        
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
+                                       
 
                                        <div class="row">
                                          <div class="col-sm-12">
@@ -1504,359 +1088,7 @@
                                           </form>
                                         </div>
                                       </div> -->
-                                      <div role="tabpanel" class="tab-pane" id="tabIcon3" aria-expanded="true" aria-labelledby="baseIcon-tab3">
-                                        <div class="bg-lighttt">
-                                          <ul class="nav nav-tabs w-100 pt-1 px-1">
-                                            <li class="nav-item">
-                                              <a class="nav-link" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab3" aria-expanded="true">
-                                                <div class="form-check">
-                                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                                  <label class="form-check-label" for="exampleRadios1">
-                                                  Individual
-                                                  </label>
-                                                </div>
-                                              </a>
-                                            </li>
-                                            <li class="nav-item">
-                                              <a class="nav-link" id="base-tab2" data-toggle="tab" aria-controls="tab2" href="#tab4" aria-expanded="false">
-                                                <div class="form-check">
-                                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                                  <label class="form-check-label" for="exampleRadios2">
-                                                  Company
-                                                  </label>
-                                                </div>
-                                              </a>
-                                            </li>
-                                          </ul>
-                                          <div class="tab-content px-1 pt-1 col-sm-12">
-                                            <div role="tabpanel" class="tab-pane" id="tab3" aria-expanded="true" aria-labelledby="base-tab1">
-                                              <div class="row">
-                                                <div class="col-sm-12">
-                                                  <div class="media d-flex mx-0 user-text mt-0">
-                                                    <div class="align-left p-0 mr-2">
-                                                      <a href="#" class="profile-image">
-                                                      <img src="{{asset('app-assets/images/portrait/small/avatar-s-1.png')}}"
-                                                        class="rounded-squre img-border height-120 mt-0"
-                                                        alt="Card image">
-                                                      </a>
-                                                    </div>
-                                                    <div class="media-body text-left text-dark">
-                                                      <div class="row">
-                                                        <div class="col-md-2 pr-md-0">
-                                                          <div class="form-group">
-                                                            <select id="" name="priority" class="form-control">
-                                                              <option value="low">Mr</option>
-                                                              <option value="medium"></option>
-                                                              <option value="high"></option>
-                                                            </select>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-10">
-                                                        <div class="row">
-                                                          <div class="col-md-4">
-                                                            <div class="form-group">
-                                                              <div class="position-relative">
-                                                                <input type="text" id="" class="form-control" placeholder="First Name" name="issuetitle">
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <div class="col-md-4">
-                                                            <div class="form-group">
-                                                              <div class="position-relative">
-                                                                <input type="text" id="" class="form-control" placeholder="Middle Name" name="issuetitle">
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <div class="col-md-4">
-                                                            <div class="form-group">
-                                                              <div class="position-relative">
-                                                                <input type="text" id="" class="form-control" placeholder="Last Name" name="issuetitle">
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-
-                                                      
-
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="" class="">Job Position</label>
-                                                            <div class="position-relative">
-                                                              <select id="" name="priority" class="form-control">
-                                                                <option value="low">Designer</option>
-                                                                <option value="medium">Developer</option>
-                                                                <option value="high">Coder</option>
-                                                              </select>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">Business / Refine</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">tag</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-md-6 col-xl-4">
-                                                          <div class="form-group">
-                                                            <label for="">Email</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Enter Your Email" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-6 col-xl-4">
-                                                          <div class="form-group">
-                                                            <label for="">Phone</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Phone" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-6 col-xl-4">
-                                                          <div class="form-group">
-                                                            <label for="">Mobile</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Mobile" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col">
-                                                          <div class="form-group">
-                                                            <label for="">Address</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Address" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      
-                                                      
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                
-                                              </div>
-                                            </div>
-                                            <div class="tab-pane active" id="tab4" aria-labelledby="base-tab2">
-                                              <div class="row">
-                                                <div class="col-md-7 pt-3">
-                                                  <div class="media d-flex mx-0 user-text mt-0">
-                                                    <div class="align-left p-0 mr-2">
-                                                      <a href="#" class="profile-image">
-                                                      <img  src="{{asset('app-assets/images/portrait/small/avatar-s-1.png')}}" class="rounded-squre img-border height-120" alt="Card image">
-                                                      </a>
-                                                    </div>
-                                                    <div class="media-body text-left text-dark">
-                                                      <div class="row">
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">                                                                            
-                                                            <input type="text" id="" class="form-control" placeholder="Contract Right Limited" name="issuetitle">
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                      
-                                                        <div class="col-md-12 col-xl-6">
-                                                          <div class="form-group">
-                                                            <label for="timesheetinput1">Business Classification</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-12 col-xl-6">
-                                                          <div class="form-group">
-                                                            <label for="timesheetinput1">Account Status</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">
-                                                            <label for="">Email</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Enter Your Email" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-12 col-xl-6">
-                                                          <div class="form-group">
-                                                            <label for="">Phone</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Phone" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-12 col-xl-6">
-                                                          <div class="form-group">
-                                                            <label for="">Mobile</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Mobile" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">
-                                                            <label for="timesheetinput1">tag</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">
-                                                            <label for="timesheetinput1">Company Website</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div class="col-md-5">
-                                                  <div class="media-body text-left text-dark">
-                                                      
-                                                      <div class="row">
-                                                      
-                                                        <div class="row position_sctn">
-                                                              <div class="col-sm-12">
-                                                                  <h4 class="form-section">Address Type</h4>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-
-                                                      <div class="row">
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">Address</label>
-                                                                          <div class="col-md-9">
-                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                            
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">House Number</label>
-                                                                          <div class="col-md-9">
-                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group extent-wrp row">
-                                                                          <label class="col-md-3" for="">House Name</label>
-                                                                          <div class="col-md-9">
-                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                        
-                                                                      </div>
-                                                                          
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">Address info</label>
-                                                                          <div class="col-md-9">
-                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">Street</label>
-                                                                          <div class="col-md-9">
-                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                
-                                                                 
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">Postcode</label>
-                                                                          <div class="col-md-9">
-                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">Country</label>
-                                                                          <div class="col-md-9">
-                                                                          <select id="" name="priority" class="form-control">
-                                                                            <option value="low">Afghanistan</option>
-                                                                            <option value="medium">Albania</option>
-                                                                            <option value="high">Algeria</option>
-                                                                          </select>
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                   <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">County</label>
-                                                                          <div class="col-md-9">
-                                                                          <select id="" name="priority" class="form-control">
-                                                                            <option value="low">County</option>
-                                                                            <option value="medium">County</option>
-                                                                            <option value="high">County</option>
-                                                                          </select>
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                    <div class="col-md-12">
-                                                                      <div class="form-group row">
-                                                                          <label class="col-md-3" for="">City</label>
-                                                                          <div class="col-md-9">
-                                                                          <select id="" name="priority" class="form-control">
-                                                                            <option value="low">City</option>
-                                                                            <option value="medium">Developer</option>
-                                                                            <option value="high">Coder</option>
-                                                                          </select>
-                                                                      </div>
-                                                                      </div>
-                                                                  </div>
-                                                                  
-                                                              </div>
-
-                                                              <div class="row">
-                                                          <div class="col-md-12 mt-1 text-right">
-                                                            <button type="button" class="btn btn-bg-gradient-x-purple-red mb-1" data-toggle="modal" data-keyboard="false" data-target="#moreAddress">More Address</button>
-                                                          </div>
-                                                        </div>
-                                                        
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
+                                      <div role="tabpanel" class="tab-pane" id="tabIcon3" aria-expanded="true" aria-labelledby="baseIcon-tab3">                                    
                                         <div class="row mt-1">
                                           <div class="col-md-12">
                                             <form class="form form-horizontal">
@@ -1868,7 +1100,10 @@
                                                       <label class="col-md-4 label-control" for="">Sales Person</label>
                                                       <div class="col-md-8">
                                                         <div class="position-relative">
-                                                          <input type="text" id="" class="form-control">
+                                                         <select id="" name="sales-person" class="form-control">
+                                                                            <option value="Sales Person">Sales Person</option>
+                                                                            <option value="medium">Sales Person 1</option>
+                                                                          </select>
                                                         </div>
                                                       </div>
                                                     </div>
@@ -2044,7 +1279,7 @@
                           <div class="form-group">
                             <label for="">tag</label>
                             <div class="position-relative">
-                              <input type="text" id="" class="form-control" placeholder="" name="employeename">
+                             <input name='tags' value='tag1, tag2 ' type="text" id="" class="form-control" placeholder="" name="employeename">
                             </div>
                           </div>
                         </div>
@@ -2105,7 +1340,7 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
               <div class="modal-header">
-                  <h4 class="modal-title" id="basicModalLabel3">More Address</h4>
+                  <h4 class="modal-title" id="basicModalLabel3"> Sales person</h4>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
@@ -2113,86 +1348,115 @@
               <div class="modal-body pb-0">
               <div class="row">
                 <div class="col-lg-12 col-xl-12">
-                    
+                    <div class="col_dropdown">
 
-                    <div id="collapse3" class="card-accordion">
-                        <div class="card collapse-icon accordion-icon-rotate">
-                            <div class="card">
-                                <div class="card-header" id="headingCOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseC1" aria-expanded="true" aria-controls="collapseC1">
-                                        <i class="ft-book"></i> Correspondence
-                                        </button>
-                                    </h5> 
-                                </div> 
+<div class="col_boxdrop">
+    <div class="row">
 
-                                <div id="collapseC1" class="collapse show" aria-labelledby="headingCOne">
-                                    <div class="card-body">
-                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingCTwo">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseC2" aria-expanded="false" aria-controls="collapseC2">
-                                        <i class="ft-bold"></i>  Invoice / Billing
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="collapseC2" class="collapse" aria-labelledby="headingCTwo">
-                                    <div class="card-body">
-                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingCThree">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseC3" aria-expanded="false" aria-controls="collapseC3">
-                                        <i class="ft-map-pin"></i>  Registered address
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="collapseC3" class="collapse" aria-labelledby="headingCThree">
-                                    <div class="card-body">
-                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
-                                    </div>
-                                </div>
-                            </div>
+                                                                  <div class="col-md-12">
+                                                                      <div class="form-group row">
+                                                                          <label class="col-md-3" for="">Address type</label>
+                                                                          <div class="col-md-9">
+                                                                          <div class="col_boxdrop">
+  <select name="address" id="address">
+    <option value="Correspondence"> Correspondence</option>
+    <option value="Invoice"> Invoice / Billing</option>
+    <option value="Registered">Registered address</option>
+    <option value="Shipping"> Shipping</option>
+    <option value="Other"> Other address</option>
+  </select>
+</div>
+                                                                      </div>
+                                                                      </div>
+                                                                  </div>
+                                                            
+                                                                  <div class="col-md-12">
+                                                                      <div class="form-group row">
+                                                                          <label class="col-md-3" for="">House Number</label>
+                                                                          <div class="col-md-9">
+                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                      </div>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="col-md-12">
+                                                                      <div class="form-group extent-wrp row">
+                                                                          <label class="col-md-3" for="">House Name</label>
+                                                                          <div class="col-md-9">
+                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                        
+                                                                      </div>
+                                                                          
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="col-md-12">
+                                                                      <div class="form-group row">
+                                                                          <label class="col-md-3" for="">Address info</label>
+                                                                          <div class="col-md-9">
+                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                      </div>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="col-md-12">
+                                                                      <div class="form-group row">
+                                                                          <label class="col-md-3" for="">Street</label>
+                                                                          <div class="col-md-9">
+                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                      </div>
+                                                                      </div>
+                                                                  </div>
+                                                                  
 
+                                                                  <div class="col-md-12">
+                                                                      <div class="form-group row">
+                                                                          <label class="col-md-3" for="">Postcode</label>
+                                                                          <div class="col-md-9">
+                                                                          <input type="text" id="" class="form-control" placeholder="" name="">
+                                                                      </div>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="col-md-12">
+                                                                      <div class="form-group row">
+                                                                          <label class="col-md-3" for="">Country</label>
+                                                                          <div class="col-md-9">
+                                                                          <select id="" name="priority" class="form-control">
+                                                                            <option value="low">Afghanistan</option>
+                                                                            <option value="medium">Albania</option>
+                                                                            <option value="high">Algeria</option>
+                                                                          </select>
+                                                                      </div>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="col-md-12">
+                                                                      <div class="form-group row">
+                                                                          <label class="col-md-3" for="">County</label>
+                                                                          <div class="col-md-9">
+                                                                          <select id="" name="priority" class="form-control">
+                                                                            <option value="low">County</option>
+                                                                            <option value="medium">County</option>
+                                                                            <option value="high">County</option>
+                                                                          </select>
+                                                                      </div>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="col-md-12">
+                                                                      <div class="form-group row">
+                                                                          <label class="col-md-3" for="">City</label>
+                                                                          <div class="col-md-9">
+                                                                          <select id="" name="priority" class="form-control">
+                                                                            <option value="low">City</option>
+                                                                            <option value="medium">Developer</option>
+                                                                            <option value="high">Coder</option>
+                                                                          </select>
+                                                                      </div>
+                                                                      </div>
+                                                                  </div>
+                                                                  
+                                                              </div>
+</div>
 
-                            <div class="card">
-                                <div class="card-header" id="headingCfore">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseC4" aria-expanded="false" aria-controls="collapseC4">
-                                        <i class="ft-anchor"></i>  Shipping
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="collapseC4" class="collapse" aria-labelledby="headingCfore">
-                                    <div class="card-body">
-                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingCfive">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseC5" aria-expanded="false" aria-controls="collapseC5">
-                                        <i class="ft-align-justify"></i>  Other address
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="collapseC5" class="collapse" aria-labelledby="headingCfive">
-                                    <div class="card-body">
-                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
-                                    </div>
-                                </div>
-                            </div>
+</div>
+                  
 
-                        </div>
-                    </div>
                 </div>
                   
                 </div>
@@ -2381,7 +1645,7 @@
 
 
 <!-- Modal Create-->
-  <div class="modal fade" id="create-modal" role="dialog">
+  <div class="modal fade modal_custom" id="create-modal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -2401,17 +1665,18 @@
 
 
   <!-- Close modal-->
-  <div class="modal fade" id="close_modal" role="dialog">
+  <div class="modal fade modal_custom" id="close_modal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"></h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body contact-close">
           <p>do you want to close this contact</p>
+          <a href="#">Yes</a>
+          <a href="#">No</a>
         </div>
       </div>
       

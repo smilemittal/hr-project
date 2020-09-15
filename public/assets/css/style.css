@@ -97,3 +97,45 @@ form.form.form-horizontal {
     margin: 5px 0px 10px;
     border-radius: 3px;
 }
+.col_dropdown {
+    width: 100%;
+}
+
+.col_dropdown .col_boxdrop {
+    width: 100%;
+    padding: 5px 0px;
+}
+
+.col_dropdown .col_boxdrop select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.col_dropdown .col_boxdrop label.col-md-3 {
+    align-items: center;
+}
+button:focus{
+    outline:0 !important;
+}
+.contact-close {
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+.contact-close p {
+    font-size: 17px;
+    color: #232323;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.contact-close a {
+    display: inline-block;
+    border: 1px  solid #232323;
+    padding: 6px 15px;
+    border-radius: 5px;
+    color: #000;
+    font-weight: 700;
+    margin: 0px 5px;
+}
