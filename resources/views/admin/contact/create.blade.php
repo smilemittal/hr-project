@@ -81,156 +81,21 @@
                                   <div class="card-body px-0">
                                     <div class="tab-content p-0">
                                          <div class="bg-lighttt">
-                                          <ul class="nav nav-tabs w-100 pt-1 px-1">
-                                            <li class="nav-item">
-                                              <a class="nav-link active" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab1" aria-expanded="true">
+                                         
                                                 <div class="form-check">
                                                   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
                                                   <label class="form-check-label" for="exampleRadios1">
                                                   Individual
                                                   </label>
                                                 </div>
-                                              </a>
-                                            </li>
-                                            <li class="nav-item">
-                                              <a class="nav-link" id="base-tab2" data-toggle="tab" aria-controls="tab2" href="#tab2" aria-expanded="false">
+                                            
                                                 <div class="form-check">
                                                   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
                                                   <label class="form-check-label" for="exampleRadios2">
                                                   Company
                                                   </label>
                                                 </div>
-                                              </a>
-                                            </li>
-                                          </ul>
-                                          <div class="tab-content px-1 pt-1 col-sm-12">
-                                            <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
-                                              <div class="row">
-                                                <div class="col-sm-12">
-                                                  <div class="media d-flex mx-0 user-text mt-0">
-                                                    <div class="align-left p-0 mr-2">
-                                                      <a href="#" class="profile-image">
-                                                      <img src="{{asset('app-assets/images/portrait/small/avatar-s-1.png')}}"
-                                                        class="rounded-squre img-border height-120 mt-0"
-                                                        alt="Card image">
-                                                      </a>
-                                                    </div>
-                                                    <div class="media-body text-left text-dark">
-                                                      <div class="row">
-                                                        <div class="col-md-2 pr-md-0">
-                                                          <div class="form-group">
-                                                            <select id="" name="priority" class="form-control">
-                                                              <option value="low">Mr</option>
-                                                              <option value="medium"></option>
-                                                              <option value="high"></option>
-                                                            </select>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-10">
-                                                        <div class="row">
-                                                          <div class="col-md-4">
-                                                            <div class="form-group">
-                                                              <div class="position-relative">
-                                                                <input type="text" id="" class="form-control" placeholder="First Name" name="issuetitle">
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <div class="col-md-4">
-                                                            <div class="form-group">
-                                                              <div class="position-relative">
-                                                                <input type="text" id="" class="form-control" placeholder="Middle Name" name="issuetitle">
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <div class="col-md-4">
-                                                            <div class="form-group">
-                                                              <div class="position-relative">
-                                                                <input type="text" id="" class="form-control" placeholder="Last Name" name="issuetitle">
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-
-                                                      
-
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="" class="">Job Position</label>
-                                                            <div class="position-relative">
-                                                              <select id="" name="priority" class="form-control">
-                                                                <option value="low">Designer</option>
-                                                                <option value="medium">Developer</option>
-                                                                <option value="high">Coder</option>
-                                                              </select>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">Business / Refine</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-xl-4 col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="">tag</label>
-                                                            <div class="position-relative">
-                                                              <input name='tags' value='tag1, tag2 ' type="text" id="" class="form-control " placeholder="" name="employeename">                                                         
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-md-6 col-xl-4">
-                                                          <div class="form-group">
-                                                            <label for="">Email</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Enter Your Email" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-6 col-xl-4">
-                                                          <div class="form-group">
-                                                            <label for="">Phone</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Phone" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-6 col-xl-4">
-                                                          <div class="form-group">
-                                                            <label for="">Mobile</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Mobile" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col">
-                                                          <div class="form-group">
-                                                            <label for="">Address</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="" class="form-control" placeholder="Address" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      
-                                                      
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                
-                                              </div>
-                                            </div>
-                                            <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
-                                              <div class="row">
+                                                                                    <div class="row">
                                                 <div class="col-md-7">
                                                   <div class="media d-flex mx-0 user-text mt-0">
                                                     <div class="align-left p-0 mr-2">
@@ -472,8 +337,7 @@
                                                   </div>
                                               </div>
                                             </div>
-                                          </div>
-                                        </div>
+                                         
                                     <!--Information Tab Content-->
                                       <div role="tabpanel" class="tab-pane active" id="tabIcon1"
                                         aria-expanded="true" aria-labelledby="baseIcon-tab1">
