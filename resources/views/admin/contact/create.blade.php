@@ -344,7 +344,7 @@
                                        
                                         <div class="row mt-1">
                                           <div class="col-md-6">
-                                            <form class="form form-horizontal">
+                                           
                                               <div class="form-body">
                                                 <h4 class="form-section">Social Info</h4>
                                                 <div class="form-group row">
@@ -380,10 +380,10 @@
                                                   </div>
                                                 </div>
                                               </div>
-                                            </form>
+                                            
                                           </div>
                                           <div class="col-md-6">
-                                            <form class="form form-horizontal">
+                                         
                                               <div class="form-body">
                                                 <h4 class="form-section">CxRM</h4>
                                                 <div class="row cxrmcheckbox pb-2">
@@ -433,23 +433,10 @@
                                                   </div>
                                                 </div>
                                               </div>
-                                            </form>
+                                            
                                           </div>
                                         </div>
-                                        <div class="row">
-                                        <div class="col-md-12">
-                                          <form class="form form-horizontal">
-                                            <div class="form-body">
-                                              <h4 class="form-section">Other Information</h4>
-                                              <div class="form-group row">
-                                                <div class="col-md-12">
-                                                  <textarea id="projectinput9" rows="5" class="form-control" name="comment" placeholder="WISIWYG"></textarea>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </form>
-                                        </div>
-                                        </div>
+                                       
                                       </div>
                                     <!--Contact Tab Content-->
                                       <div class="tab-pane" id="tabIcon2" aria-labelledby="baseIcon-tab2">
@@ -617,387 +604,14 @@
                                        </div>
 
                                         
-                                        <div class="col-md-12">
-                                          <form class="form form-horizontal">
-                                            <div class="form-body">
-                                              <h4 class="form-section">Other Information</h4>
-                                              <div class="form-group row">
-                                                <div class="col-md-12">
-                                                  <textarea id="projectinput9" rows="5" class="form-control" name="comment" placeholder="WISIWYG"></textarea>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </form>
-                                        </div>
+                                       
                                       </div>
                                       <!--Accounting Tab Content-->
-                                      <!-- <div class="tab-pane" id="tabIcon3" aria-labelledby="baseIcon-tab3">
-                                        <div class="bg-lighttt">
-                                          <ul class="nav nav-tabs w-100 pt-1 px-1">
-                                            <li class="nav-item">
-                                              <a class="nav-link" id="base-tab5" data-toggle="tab" aria-controls="tab3" href="#tab3" aria-expanded="true">
-                                                <div class="form-check">
-                                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                                  <label class="form-check-label" for="exampleRadios1">
-                                                  Individual
-                                                  </label>
-                                                </div>
-                                              </a>
-                                            </li>
-                                            <li class="nav-item">
-                                              <a class="nav-link" id="base-tab6" data-toggle="tab" aria-controls="tab4" href="#tab4" aria-expanded="false">
-                                                <div class="form-check">
-                                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                                  <label class="form-check-label" for="exampleRadios2">
-                                                  Company
-                                                  </label>
-                                                </div>
-                                              </a>
-                                            </li>
-                                          </ul>
-                                          <div class="tab-content px-1 pt-1 col-sm-12">
-                                            <div role="tabpanel" class="tab-pane active" id="tab3" aria-expanded="true" aria-labelledby="base-tab5">
-                                              <div class="row">
-                                                  <div class="col-md-7 pt-3">
-                                                    <div class="media d-flex mx-0 user-text mt-0">
-                                                      <div class="align-left p-0 mr-2">
-                                                        <a href="#" class="profile-image">
-                                                        <img  src="{{asset('app-assets/images/portrait/small/avatar-s-1.png')}}" class="rounded-squre img-border height-120" alt="Card image">
-                                                        </a>
-                                                      </div>
-                                                      <div class="media-body text-left text-dark">
-                                                        <div class="row">
-                                                          <div class="col-md-12">
-                                                            <div class="form-group">                                                                            
-                                                              <input type="text" id="" class="form-control" placeholder="Contract Right Limited" name="issuetitle">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="row">
-                                                        
-                                                          <div class="col-md-12 col-xl-6">
-                                                            <div class="form-group">
-                                                              <label for="timesheetinput1">Business Classification</label>
-                                                              <div class="position-relative">
-                                                                <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <div class="col-md-12 col-xl-6">
-                                                            <div class="form-group">
-                                                              <label for="timesheetinput1">Account Status</label>
-                                                              <div class="position-relative">
-                                                                <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="row">
-                                                          <div class="col-md-12">
-                                                            <div class="form-group">
-                                                              <label for="">Email</label>
-                                                              <div class="position-relative">
-                                                                <input type="text" id="" class="form-control" placeholder="Enter Your Email" name="employeename">
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <div class="col-md-12 col-xl-6">
-                                                            <div class="form-group">
-                                                              <label for="">Phone</label>
-                                                              <div class="position-relative">
-                                                                <input type="text" id="" class="form-control" placeholder="Phone" name="employeename">
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <div class="col-md-12 col-xl-6">
-                                                            <div class="form-group">
-                                                              <label for="">Mobile</label>
-                                                              <div class="position-relative">
-                                                                <input type="text" id="" class="form-control" placeholder="Mobile" name="employeename">
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="row">
-                                                          <div class="col-md-12">
-                                                            <div class="form-group">
-                                                              <label for="timesheetinput1">tag</label>
-                                                              <div class="position-relative">
-                                                                <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="row">
-                                                          <div class="col-md-12">
-                                                            <div class="form-group">
-                                                              <label for="timesheetinput1">Company Website</label>
-                                                              <div class="position-relative">
-                                                                <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="col-md-5">
-                                                    <div class="media-body text-left text-dark">
-                                                        
-                                                        <div class="row">
-                                                        
-                                                          <div class="row position_sctn">
-                                                                <div class="col-sm-12">
-                                                                    <h4 class="form-section">Address Type</h4>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row">
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-md-3" for="">Address</label>
-                                                                            <div class="col-md-9">
-                                                                            <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                        </div>
-                                                                        </div>
-                                                                    </div>
-                                                              
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-md-3" for="">House Number</label>
-                                                                            <div class="col-md-9">
-                                                                            <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                        </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group extent-wrp row">
-                                                                            <label class="col-md-3" for="">House Name</label>
-                                                                            <div class="col-md-9">
-                                                                            <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                          
-                                                                        </div>
-                                                                            
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-md-3" for="">Address info</label>
-                                                                            <div class="col-md-9">
-                                                                            <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                        </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-md-3" for="">Street</label>
-                                                                            <div class="col-md-9">
-                                                                            <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                        </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-md-3" for="">City</label>
-                                                                            <div class="col-md-9">
-                                                                            <select id="" name="priority" class="form-control">
-                                                                              <option value="low">City</option>
-                                                                              <option value="medium">Developer</option>
-                                                                              <option value="high">Coder</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-md-3" for="">County</label>
-                                                                            <div class="col-md-9">
-                                                                            <select id="" name="priority" class="form-control">
-                                                                              <option value="low">County</option>
-                                                                              <option value="medium">County</option>
-                                                                              <option value="high">County</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-md-3" for="">Postcode</label>
-                                                                            <div class="col-md-9">
-                                                                            <input type="text" id="" class="form-control" placeholder="" name="">
-                                                                        </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group row">
-                                                                            <label class="col-md-3" for="">Country</label>
-                                                                            <div class="col-md-9">
-                                                                            <select id="" name="priority" class="form-control">
-                                                                              <option value="low">Afghanistan</option>
-                                                                              <option value="medium">Albania</option>
-                                                                              <option value="high">Algeria</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    
-                                                                </div>
-
-                                                                <div class="row">
-                                                            <div class="col-md-12 mt-1 text-right">
-                                                              <button type="button" class="btn btn-bg-gradient-x-purple-red mb-1" data-toggle="modal" data-keyboard="false" data-target="#moreAddress">More Address</button>
-                                                            </div>
-                                                          </div>
-                                                          
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane" id="tab2" aria-labelledby="base-tab6">
-                                              <div class="row col-sm-12">
-                                                <div class="col-sm-7">
-                                                  <div class="media d-flex mx-0 my-1 user-text mt-0">
-                                                    <div class="align-left p-0 mr-2">
-                                                      <a href="#" class="profile-image">
-                                                      <img src="{{asset('app-assets/images/portrait/small/avatar-s-1.png')}}"
-                                                        class="rounded-squre img-border height-120 mt-0"
-                                                        alt="Card image">
-                                                      </a>
-                                                    </div>
-                                                    <div class="media-body text-left text-dark">
-                                                      <div class="row">
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">                                                                            
-                                                            <input type="text" id="" class="form-control" placeholder="Contract Right Limited" name="issuetitle">
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="timesheetinput1">Business Classification</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                          <div class="form-group">
-                                                            <label for="timesheetinput1">Account Status</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">
-                                                            <label for="timesheetinput1">tag</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div class="col-sm-5">2</div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                          <div class="col-md-12">
-                                            <form class="form form-horizontal">
-                                              <div class="form-body">
-                                                <h4 class="form-section">Accounting</h4>
-                                                <div class="row">
-                                                  <div class="col-md-6 col-sm-6">
-                                                    <div class="form-group row">
-                                                      <label class="col-md-3 label-control" for="">Sales Person</label>
-                                                      <div class="col-md-8">
-                                                        <div class="position-relative">
-                                                          <input type="text" id="" class="form-control" >
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="col-md-6 col-sm-6">
-                                                    <div class="form-group row">
-                                                      <label class="col-md-3 label-control" for="">Accounts Receivable</label>
-                                                      <div class="col-md-8">
-                                                        <div class="position-relative">
-                                                          <input type="text" id="" class="form-control" >
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="col-md-6 col-sm-6">
-                                                    <div class="form-group row">
-                                                      <label class="col-md-3 label-control" for="projectinput7">Sales Price list</label>
-                                                      <div class="col-md-8">
-                                                        <div class="position-relative">
-                                                          <input type="text" id="" class="form-control" >
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="col-md-6 col-sm-6">
-                                                    <div class="form-group row">
-                                                      <label class="col-md-3 label-control" for="projectinput7">Accounts Payable</label>
-                                                      <div class="col-md-8">
-                                                        <div class="position-relative">
-                                                          <input type="text" id="" class="form-control" >
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="col-md-6 col-sm-6">
-                                                    <div class="form-group row">
-                                                      <label class="col-md-3 label-control" for="projectinput7">Customer Payment Terms</label>
-                                                      <div class="col-md-8">
-                                                        <div class="position-relative">
-                                                          <input type="text" id="" class="form-control" >
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="col-md-6 col-sm-6">
-                                                    <div class="form-group row">
-                                                      <label class="col-md-3 label-control" for="projectinput7">Vendor Payment Terms</label>
-                                                      <div class="col-md-8">
-                                                        <div class="position-relative">
-                                                          <input type="text" id="" class="form-control" >
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </form>
-                                          </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                          <form class="form form-horizontal">
-                                            <div class="form-body">
-                                              <h4 class="form-section">Other Information</h4>
-                                              <div class="form-group row">
-                                                <div class="col-md-12">
-                                                  <textarea id="projectinput9" rows="5" class="form-control" name="comment" placeholder="WISIWYG"></textarea>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </form>
-                                        </div>
-                                      </div> -->
+                                      
                                       <div role="tabpanel" class="tab-pane" id="tabIcon3" aria-expanded="true" aria-labelledby="baseIcon-tab3">                                    
                                         <div class="row mt-1">
                                           <div class="col-md-12">
-                                            <form class="form form-horizontal">
+                                            
                                               <div class="form-body">
                                                 <h4 class="form-section">Accounting</h4>
                                                 <div class="row">
@@ -1066,12 +680,15 @@
                                                   </div>
                                                 </div>
                                               </div>
-                                            </form>
+                                           
                                           </div>
                                         </div>
-                                        <div class="row">
+                                       
+                                      </div>
+
+ <div class="row">
                                         <div class="col-md-12">
-                                          <form class="form form-horizontal">
+                                         
                                             <div class="form-body">
                                               <h4 class="form-section">Other Information</h4>
                                               <div class="form-group row">
@@ -1080,12 +697,9 @@
                                                 </div>
                                               </div>
                                             </div>
-                                          </form>
+                                          
                                         </div>
                                         </div>
-                                      </div>
-
-
                                     </div>
                                   </div>
                                 </div>
