@@ -83,9 +83,9 @@
                                          <div class="bg-lighttt">
                                           <ul class="nav nav-tabs w-100 pt-1 px-1">
                                             <li class="nav-item">
-                                              <a class="nav-link" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab1" aria-expanded="true">
+                                              <a class="nav-link active" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab1" aria-expanded="true">
                                                 <div class="form-check">
-                                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
                                                   <label class="form-check-label" for="exampleRadios1">
                                                   Individual
                                                   </label>
@@ -231,7 +231,7 @@
                                             </div>
                                             <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
                                               <div class="row">
-                                                <div class="col-md-7 pt-3">
+                                                <div class="col-md-7">
                                                   <div class="media d-flex mx-0 user-text mt-0">
                                                     <div class="align-left p-0 mr-2">
                                                       <a href="#" class="profile-image">
@@ -239,13 +239,68 @@
                                                       </a>
                                                     </div>
                                                     <div class="media-body text-left text-dark">
-                                                      <div class="row">
+                                                    	<div class="row_bussiness-md">
+                                                    		<div class="row">                                                        
                                                         <div class="col-md-12">
-                                                          <div class="form-group">                                                                            
-                                                            <input type="text" id="" class="form-control" placeholder="Contract Right Limited" name="issuetitle">
+                                                        <div class="row">
+                                                        	<div class="col-md-6">
+                                                        	<div class="form-group">
+                                                            <select id="" name="priority" class="form-control">
+                                                              <option value="low">Mr</option>
+                                                              <option value="medium"></option>
+                                                              <option value="high"></option>
+                                                            </select>
+                                                          </div>
+                                                      </div>
+                                                          <div class="col-md-6">
+                                                            <div class="form-group">
+                                                              <div class="position-relative">
+                                                                <input type="text" id="" class="form-control" placeholder="First Name" name="issuetitle">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="col-md-6">
+                                                            <div class="form-group">
+                                                              <div class="position-relative">
+                                                                <input type="text" id="" class="form-control" placeholder="Middle Name" name="issuetitle">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="col-md-6">
+                                                            <div class="form-group">
+                                                              <div class="position-relative">
+                                                                <input type="text" id="" class="form-control" placeholder="Last Name" name="issuetitle">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="col-md-6">
+                                                          <div class="form-group">
+                                                            <label for="" class="">Job Position</label>
+                                                            <div class="position-relative">
+                                                              <select id="" name="priority" class="form-control">
+                                                                <option value="low">Designer</option>
+                                                                <option value="medium">Developer</option>
+                                                                <option value="high">Coder</option>
+                                                              </select>
+                                                            </div>
                                                           </div>
                                                         </div>
+                                                        <div class="col-md-6">
+                                                          <div class="form-group">
+                                                            <label for="">Business / Refine</label>
+                                                            <div class="position-relative">
+                                                              <input type="text" id="" class="form-control" placeholder="" name="employeename">
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                        </div>
                                                       </div>
+
+                                                      
+
+                                                      </div>
+                                                    	</div>
+                                                    <div class="row_bussiness-col">                                                    
                                                       <div class="row">
                                                       
                                                         <div class="col-md-12 col-xl-6">
@@ -265,8 +320,9 @@
                                                           </div>
                                                         </div>
                                                       </div>
-                                                      <div class="row">
-                                                        <div class="col-md-12">
+                                                  </div>
+                                                      <div class="row_colmd row">
+                                                        <div class="col-md-6">
                                                           <div class="form-group">
                                                             <label for="">Email</label>
                                                             <div class="position-relative">
@@ -274,7 +330,15 @@
                                                             </div>
                                                           </div>
                                                         </div>
-                                                        <div class="col-md-12 col-xl-6">
+                                                         <div class="col-md-6">
+                                                          <div class="form-group">
+                                                            <label for="timesheetinput1">Company Website</label>
+                                                            <div class="position-relative">
+                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-md-6">
                                                           <div class="form-group">
                                                             <label for="">Phone</label>
                                                             <div class="position-relative">
@@ -282,7 +346,7 @@
                                                             </div>
                                                           </div>
                                                         </div>
-                                                        <div class="col-md-12 col-xl-6">
+                                                        <div class="col-md-6">
                                                           <div class="form-group">
                                                             <label for="">Mobile</label>
                                                             <div class="position-relative">
@@ -290,8 +354,6 @@
                                                             </div>
                                                           </div>
                                                         </div>
-                                                      </div>
-                                                      <div class="row">
                                                         <div class="col-md-12">
                                                           <div class="form-group">
                                                             <label for="timesheetinput1">tag</label>
@@ -300,32 +362,12 @@
                                                             </div>
                                                           </div>
                                                         </div>
-                                                      </div>
-                                                      <div class="row">
-                                                        <div class="col-md-12">
-                                                          <div class="form-group">
-                                                            <label for="timesheetinput1">Company Website</label>
-                                                            <div class="position-relative">
-                                                              <input type="text" id="timesheetinput1" class="form-control" placeholder="" name="employeename">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      
+                                                      </div>                                                      
                                                     </div>
                                                   </div>
                                                 </div>
                                                 <div class="col-md-5">
-                                                  <div class="media-body text-left text-dark">
-                                                      
-                                                      <div class="row">
-                                                      
-                                                        <div class="row position_sctn">
-                                                              <div class="col-sm-12">
-                                                                  <h4 class="form-section">Address Type</h4>
-                                                              </div>
-                                                          </div>
-                                                      </div>
+                                                  <div class="media-body text-left text-dark">                                                
 
                                                       <div class="row">
                                                                   <div class="col-md-12">
