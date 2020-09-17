@@ -1331,7 +1331,7 @@
                                 <div class="tab-content p-0">
                                     <div class="bg-lighttt">
                                         <div class="row">
-                                            <div class="col-md-12">
+                                            <div class="col-md-6">
                                                 <div class="media d-flex mx-0 user-text mt-0">
                                                     <div class="align-left p-0 mr-2">
                                                         <a href="#" class="profile-image">
@@ -1508,7 +1508,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12">
+                                            <div class="col-md-6">
                                                 <div class="media-body text-left text-dark">
                                                     <div class="row">
                                                         <div class="col-md-12">
