@@ -97,6 +97,7 @@ class ContactController extends Controller
             $contact->social_info = $request['social'];
             $contact->cxrm = $request['cxrm'];
             $contact->other_information = $request['other-information'];
+            $contact->photo = $imageName;
             $contact->save();
             $AddressInfo =new ContactAddress();
             $AddressInfo->contact_id = $contact->id;

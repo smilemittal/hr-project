@@ -139,3 +139,15 @@ button:focus{
     font-weight: 700;
     margin: 0px 5px;
 }
+.nav.nav-tabs .nav-item .nav-link.active input::before {
+    background: #0075ff !important;
+    width: 10px;
+    height: 10px;
+    border: 2px solid  #ffffff;
+    position: absolute;
+    content: "";
+    border-radius: 100%;
+    padding: 6px;
+    top: -2px;
+    left: -1px;
+}
