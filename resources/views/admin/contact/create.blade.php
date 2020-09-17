@@ -640,7 +640,8 @@
                                                 <div class="tab-pane" id="tabIcon2" aria-labelledby="baseIcon-tab2">
 
 
-                                                    <div class="row" id="contact-target" style="display: none">
+                                                    <div  id="contact-target" style="display: none">
+                                                      <div class="row">
                                                         <div class="col-sm-12">
                                                             <h4>Contacts</h4>
                                                             <a href="javascript:void(0)" class="create_btn"
@@ -837,6 +838,7 @@
 
 
                                                     </div>
+                                                  </div>
 
 
                                                 </div>
@@ -1293,8 +1295,7 @@
             </div>
         </div>
     </div>
-
-
+  </div>
 
 
     <!-- Modal Create-->
