@@ -1832,11 +1832,9 @@
                             <a onclick="childForm('{{route('contact.child.post')}}')" class="btn btn-success float-right m-1">Submit</a>
                             <div class="col-md-12">
                                 <div class="error" style="display: none;color: red"
-                                     id="error-for-sub-child">Company name and Business classifications must be required
-                                    for create the sub child.
+                                     id="error-for-sub-child">Company name and Business classifications must be required for create the sub contact.
                                 </div>
                             </div>
-
                         </form>
                     </div>
                 </div>
@@ -1844,16 +1842,6 @@
             </div>
         </div>
         <!--Close-->
-
-
-
-
-
-
-
-
-
-
 
         <!-- Close modal-->
         <div class="modal fade modal_custom" id="close_modal" role="dialog">
@@ -1874,11 +1862,5 @@
             </div>
         </div>
         <!--Close-->
-        <script src="http://malsup.github.com/jquery.form.js"></script>
-
-
-
-
-
 @stop
 

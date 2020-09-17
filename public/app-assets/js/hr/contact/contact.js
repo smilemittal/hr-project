@@ -389,10 +389,14 @@ function childForm(route) {
     let companyName = document.getElementById('company-name').value;
     if(companyName) {
         let form = $("#child-form").serialize();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajax({
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             url: route,
-            method: 'get',
+            method: 'post',
             enctype:'multipart/form-data',
             data: {'data': form},
             success: function (result) {
