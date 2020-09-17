@@ -80,6 +80,4 @@
         <!-- Alert animation end -->
     </div>
     <!-- END: Content-->
-@stop
-
-
+@endsection

@@ -173,6 +173,10 @@ function individualRadio(id) {
     document.getElementById('individual-basic-info').style.display = 'block';
     document.getElementById('company-basic-info').style.display = 'none';
     document.getElementById('business-classifications').style.display = 'none';
+    document.getElementById('address-type').style.display = 'none';
+    document.getElementById('more-address').style.display = 'none';
+    document.getElementById('website').style.display = 'none';
+
 
     contactType = 'Individual';
 }
@@ -183,6 +187,9 @@ function companyRadio(id) {
     document.getElementById('individual-basic-info').style.display = 'none';
     document.getElementById('company-basic-info').style.display = 'block';
     document.getElementById('business-classifications').style.display = 'block';
+    document.getElementById('address-type').style.display = 'block';
+    document.getElementById('more-address').style.display = 'block';
+    document.getElementById('website').style.display = 'block';
     contactType = 'Company';
 }
 
@@ -244,10 +251,15 @@ function postDetail(contactInfo) {
         let lastName = document.getElementById('last-name').value;
 
         if (firstName && lastName) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $.ajax({
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                // headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 url: contactInfo,
-                method: 'get',
+                method: 'post',
                 data: {'first-name': firstName, 'last-name': lastName, 'contact-type': contactType},
                 success: function (result) {
                     if (result != "error") {
@@ -268,10 +280,14 @@ function postDetail(contactInfo) {
     } else if (contactType === 'Company') {
         let companyName = document.getElementById('company-name').value;
         if (companyName) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
             $.ajax({
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 url: contactInfo,
-                method: 'get',
+                method: 'post',
                 data: {'company-name': companyName, 'contact-type': contactType},
                 success: function (result) {
                     if (result != "error") {
@@ -373,10 +389,14 @@ function childForm(route) {
     let companyName = document.getElementById('company-name').value;
     if(companyName) {
         let form = $("#child-form").serialize();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajax({
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             url: route,
-            method: 'get',
+            method: 'post',
             enctype:'multipart/form-data',
             data: {'data': form},
             success: function (result) {

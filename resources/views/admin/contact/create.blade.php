@@ -25,7 +25,6 @@
     <div class="content-body">
         <!-- Tabs with Icons start -->
         <section id="tabs-with-icons">
-
             <div class="row match-height">
                 <div class="col-xl-12 col-lg-12">
                     <div class="card">
@@ -302,7 +301,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="row_colmd row">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-md-12">
                                                                             <div class="form-group">
                                                                                 <label for="">Email</label>
                                                                                 <div class="position-relative">
@@ -310,7 +309,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-md-12" id="website" style="display: none">
                                                                             <div class="form-group">
                                                                                 <label for="timesheetinput1">Website</label>
                                                                                 <div class="position-relative">
@@ -360,7 +359,7 @@
                                                             <div class="media-body text-left text-dark">
 
                                                                 <div class="row">
-                                                                    <div class="col-md-12">
+                                                                    <div class="col-md-12" id="address-type" style="display: none">
                                                                         <div class="form-group row">
                                                                             <label class="col-md-3" for="">Address
                                                                                 type</label>
@@ -401,7 +400,7 @@
                                                                                 <div class="row cxrmcheckbox pb-2">
                                                                                     <div class="col-md-6 col-sm-6">
                                                                                         <div class="custom-control custom-checkbox" id="other-sec" onclick="checkAddressType(this.id)">
-                                                                                            <input type="checkbox" name="address-type[]"  value="Other" class="custom-control-input" id="other">
+                                                                                            <input type="checkbox" name="address-type[]" value="Other" class="custom-control-input" id="other">
                                                                                             <label class="custom-control-label" for="other">Other</label>
                                                                                             <!-- <i class="ft-external-link ccm"></i> -->
                                                                                         </div>
@@ -413,7 +412,8 @@
                                                                     </div>
                                                                     <div class="col-md-12">
                                                                         <div class="form-group row">
-                                                                            <label class="col-md-3" for="">House Number</label>
+                                                                            <label class="col-md-3" for="">House
+                                                                                Number</label>
                                                                             <div class="col-md-9">
                                                                                 <input type="text" id="" class="form-control" placeholder="" name="house-number">
                                                                             </div>
@@ -512,7 +512,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="row">
+                                                                <div class="row" id="more-address" style="display: none">
                                                                     <div class="col-md-12 mt-1 text-right">
                                                                         <button type="button"
                                                                                 class="btn btn-bg-gradient-x-purple-red mb-1"
@@ -640,8 +640,10 @@
                                                 <div class="tab-pane" id="tabIcon2" aria-labelledby="baseIcon-tab2">
 
 
+
                                                     <div  id="contact-target" style="display: none">
                                                       <div class="row">
+
                                                         <div class="col-sm-12">
                                                             <h4>Contacts</h4>
                                                             <a href="javascript:void(0)" class="create_btn"
@@ -1125,16 +1127,13 @@
                     <div class="row">
                         <div class="col-lg-12 col-xl-12">
                             <div class="col_dropdown">
-
                                 <div class="col_boxdrop">
-
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group row">
                                                 <label class="col-md-3" for="">Address
                                                     type</label>
                                                 <div class="col-md-9">
-
                                                     <div class="row cxrmcheckbox pb-2">
                                                         <div class="col-md-6 col-sm-6">
                                                             <div class="custom-control custom-checkbox" id="correspondence-more-sec" {{--onclick="checkAddressType(this.id)"--}}>
@@ -1170,7 +1169,7 @@
                                                     <div class="row cxrmcheckbox pb-2">
                                                         <div class="col-md-6 col-sm-6">
                                                             <div class="custom-control custom-checkbox" id="other-more-sec" {{--onclick="checkAddressType(this.id)"--}}>
-                                                                <input type="checkbox" name="address-type[]"  value="Other" class="custom-control-input" id="other-more">
+                                                                <input type="checkbox" name="address-type[]" value="Other" class="custom-control-input" id="other-more">
                                                                 <label class="custom-control-label" for="other-more">Other</label>
                                                                 <!-- <i class="ft-external-link ccm"></i> -->
                                                             </div>
@@ -1280,30 +1279,26 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                </div>
                             </div>
 
-
                         </div>
-
                     </div>
-                </div>
-                <div class="modal-footer pt-0">
-                    <button type="button" class="btn grey btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-sm btn-danger">Save</button>
+                    <div class="modal-footer pt-0">
+                        <button type="button" class="btn grey btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-sm btn-danger">Save</button>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
   </div>
 
 
-    <!-- Modal Create-->
-    <div class="modal fade modal_custom" id="create-modal" role="dialog">
-        <div class="modal-dialog">
 
             <!-- Modal content-->
-            <div class="modal-content">
+            <div class="modal-contentmodal_custom" id="create-modal">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title"></h4>
@@ -1365,148 +1360,142 @@
                                                                                     <option value="medium"></option>
                                                                                     <option value="high"></option>
                                                                                 </select>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group">
-                                                                                <div class="position-relative">
-                                                                                    <input type="text"
-                                                                                           id="first-name"
-                                                                                           class="form-control"
-                                                                                           placeholder="First Name"
-                                                                                           name="first-name">
-                                                                                    <div class="error"
-                                                                                         style="display: none; color: red"
-                                                                                         id="error-for-first-name">
-                                                                                        First name must be
-                                                                                        required
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group">
-                                                                                <div class="position-relative">
-                                                                                    <input type="text"
-                                                                                           id="middle-name"
-                                                                                           class="form-control"
-                                                                                           placeholder="Middle Name"
-                                                                                           name="middle-name">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group">
-                                                                                <div class="position-relative">
-                                                                                    <input type="text"
-                                                                                           id="last-name"
-                                                                                           class="form-control"
-                                                                                           placeholder="Last Name"
-                                                                                           name="last-name">
-                                                                                    <div class="error"
-                                                                                         style="display: none;color: red"
-                                                                                         id="error-for-last-name">
-                                                                                        Last name must be
-                                                                                        required
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group">
-                                                                                <label for="" class="">Job
-                                                                                    Position</label>
-                                                                                <div class="position-relative">
-                                                                                    <select name="job-position"
-                                                                                            class="form-control">
-                                                                                        <option selected
-                                                                                                disabled>
-                                                                                            Select any one
-                                                                                        </option>
-                                                                                        <option value="low">
-                                                                                            Designer
-                                                                                        </option>
-                                                                                        <option value="medium">
-                                                                                            Developer
-                                                                                        </option>
-                                                                                        <option value="high">
-                                                                                            Coder
-                                                                                        </option>
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group">
-                                                                                <label for="">Business /
-                                                                                    Refine</label>
-                                                                                <div class="position-relative">
-                                                                                    <input type="text" id=""
-                                                                                           class="form-control"
-                                                                                           placeholder=""
-                                                                                           name="business-info">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
 
-                                                            </div>
-                                                        </div>
-                                                        <div class="row_colmd row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="">Email</label>
-                                                                    <div class="position-relative">
-                                                                        <input type="email" id="" class="form-control" placeholder="Enter Your Email" name="email">
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <div class="position-relative">
+                                                                                        <input type="text"
+                                                                                               id="first-name"
+                                                                                               class="form-control"
+                                                                                               placeholder="First Name"
+                                                                                               name="first-name">
+                                                                                        <div class="error"
+                                                                                             style="display: none; color: red"
+                                                                                             id="error-for-first-name">
+                                                                                            First name must be
+                                                                                            required
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <div class="position-relative">
+                                                                                        <input type="text"
+                                                                                               id="middle-name"
+                                                                                               class="form-control"
+                                                                                               placeholder="Middle Name"
+                                                                                               name="middle-name">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <div class="position-relative">
+                                                                                        <input type="text"
+                                                                                               id="last-name"
+                                                                                               class="form-control"
+                                                                                               placeholder="Last Name"
+                                                                                               name="last-name">
+                                                                                        <div class="error"
+                                                                                             style="display: none;color: red"
+                                                                                             id="error-for-last-name">
+                                                                                            Last name must be
+                                                                                            required
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="" class="">Job
+                                                                                        Position</label>
+                                                                                    <div class="position-relative">
+                                                                                        <select name="job-position"
+                                                                                                class="form-control">
+                                                                                            <option selected
+                                                                                                    disabled>
+                                                                                                Select any one
+                                                                                            </option>
+                                                                                            <option value="low">
+                                                                                                Designer
+                                                                                            </option>
+                                                                                            <option value="medium">
+                                                                                                Developer
+                                                                                            </option>
+                                                                                            <option value="high">
+                                                                                                Coder
+                                                                                            </option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="">Business /
+                                                                                        Refine</label>
+                                                                                    <div class="position-relative">
+                                                                                        <input type="text" id=""
+                                                                                               class="form-control"
+                                                                                               placeholder=""
+                                                                                               name="business-info">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
+
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="timesheetinput1">Website</label>
-                                                                    <div class="position-relative">
-                                                                        <input type="url" id="timesheetinput1" class="form-control" placeholder="" name="website">
+                                                            <div class="row_colmd row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label for="">Email</label>
+                                                                        <div class="position-relative">
+                                                                            <input type="email" id="" class="form-control" placeholder="Enter Your Email" name="email">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="">Phone</label>
-                                                                    <div class="position-relative">
-                                                                        <input type="text" id=""
-                                                                               class="form-control"
-                                                                               placeholder="Phone"
-                                                                               name="phone">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="">Phone</label>
+                                                                        <div class="position-relative">
+                                                                            <input type="text" id=""
+                                                                                   class="form-control"
+                                                                                   placeholder="Phone"
+                                                                                   name="phone">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="">Mobile</label>
-                                                                    <div class="position-relative">
-                                                                        <input type="text" id=""
-                                                                               class="form-control"
-                                                                               placeholder="Mobile"
-                                                                               name="mobile">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="">Mobile</label>
+                                                                        <div class="position-relative">
+                                                                            <input type="text" id=""
+                                                                                   class="form-control"
+                                                                                   placeholder="Mobile"
+                                                                                   name="mobile">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <label for="timesheetinput1">tag</label>
-                                                                    <div class="position-relative">
-                                                                        <input name='tags'
-                                                                               value='tag1, tag2 '
-                                                                               type="text" id=""
-                                                                               class="form-control"
-                                                                               placeholder="">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label for="timesheetinput1">tag</label>
+                                                                        <div class="position-relative">
+                                                                            <input name='tags'
+                                                                                   value='tag1, tag2 '
+                                                                                   type="text" id=""
+                                                                                   class="form-control"
+                                                                                   placeholder="">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="media-body text-left text-dark">
@@ -1516,392 +1505,360 @@
                                                                 <label class="col-md-3" for="">House Number</label>
                                                                 <div class="col-md-9">
                                                                     <input type="text" id="" class="form-control" placeholder="" name="house-number">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group extent-wrp row">
-                                                                <label class="col-md-3" for="">House
-                                                                    Name</label>
-                                                                <div class="col-md-9">
-                                                                    <input type="text" id=""
-                                                                           class="form-control"
-                                                                           placeholder="" name="house-name">
 
                                                                 </div>
-
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group row">
-                                                                <label class="col-md-3" for="">Address
-                                                                    info</label>
-                                                                <div class="col-md-9">
-                                                                    <input type="text" id=""
-                                                                           class="form-control"
-                                                                           placeholder=""
-                                                                           name="address-info">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group extent-wrp row">
+                                                                    <label class="col-md-3" for="">House
+                                                                        Name</label>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" id=""
+                                                                               class="form-control"
+                                                                               placeholder="" name="house-name">
+
+                                                                    </div>
+
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group row">
-                                                                <label class="col-md-3"
-                                                                       for="">Street</label>
-                                                                <div class="col-md-9">
-                                                                    <input type="text" id=""
-                                                                           class="form-control"
-                                                                           placeholder="" name="street">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-3" for="">Address
+                                                                        info</label>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" id=""
+                                                                               class="form-control"
+                                                                               placeholder=""
+                                                                               name="address-info">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group row">
-                                                                <label class="col-md-3"
-                                                                       for="">Postcode</label>
-                                                                <div class="col-md-9">
-                                                                    <input type="text" id=""
-                                                                           class="form-control"
-                                                                           placeholder="" name="post-code">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-3"
+                                                                           for="">Street</label>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" id=""
+                                                                               class="form-control"
+                                                                               placeholder="" name="street">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group row">
-                                                                <label class="col-md-3"
-                                                                       for="">Country</label>
-                                                                <div class="col-md-9">
-                                                                    <select id="" name="country"
-                                                                            onchange="selectChildCountry(this.value , '{{route('get-state-for-contact')}}')"
-                                                                            class="form-control">
-                                                                        <option value="">Select Country
-                                                                        </option>
-                                                                        @forelse($countries as $country)
-                                                                            <option value="{{$country->id}}">{{$country->value}}</option>
-                                                                        @empty
-                                                                            <option selected disabled>not
-                                                                                found in record
-                                                                            </option>
-                                                                        @endforelse
-
-                                                                    </select>
+                                                            <div class="col-md-12">
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-3"
+                                                                           for="">Postcode</label>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" id=""
+                                                                               class="form-control"
+                                                                               placeholder="" name="post-code">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group row">
-                                                                <label class="col-md-3"
-                                                                       for="">State</label>
-                                                                <div class="col-md-9">
-                                                                    <select id="putChildState" name="state"
-                                                                            onchange="selectChildState(this.value, '{{route('get-city-for-contact')}}')"
-                                                                            class="form-control">
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group row">
-                                                                <label class="col-md-3" for="">City</label>
-                                                                <div class="col-md-9">
-                                                                    <select id="putChildCity" name="city"
-                                                                            class="form-control">
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--Information Tab Content-->
-                                    <div role="tabpanel" class="tab-pane active" id="childTab1"
-                                         aria-expanded="true" aria-labelledby="baseIcon-tab1">
-
-                                        <div class="row mt-1">
-                                            <div class="col-md-6">
-
-                                                <div class="form-body">
-                                                    <h4 class="form-section">Social Info</h4>
-                                                    <div class="form-group row">
-                                                        <label class="col-md-3 label-control" for="">LinkedIn</label>
-                                                        <div class="col-md-8">
-                                                            <div class="position-relative">
-                                                                <input type="url" id="" name="social[]" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <label class="col-md-3 label-control" for="">Facebook</label>
-                                                        <div class="col-md-8">
-                                                            <div class="position-relative">
-                                                                <input type="url" id="" name="social[]" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <label class="col-md-3 label-control"
-                                                               for="projectinput7">Twitter</label>
-                                                        <div class="col-md-8">
-                                                            <div class="position-relative">
-                                                                <input type="url" id="" name="social[]" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <label class="col-md-3 label-control">Instagram</label>
-                                                        <div class="col-md-8">
-                                                            <div class="position-relative">
-                                                                <input type="url" id="" name="social[]" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="col-md-6">
-
-                                                <div class="form-body">
-                                                    <h4 class="form-section">CxRM</h4>
-                                                    <div class="row cxrmcheckbox pb-2">
-                                                        <div class="col-md-6 col-sm-6">
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" value="Customer" name="cxrm[]" id="childCustomer">
-                                                                <label class="custom-control-label"
-                                                                       for="childCustomer">Customer</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6 col-sm-6">
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox"
-                                                                       class="custom-control-input" value="Supplier" name="cxrm[]" id="childSupplier">
-                                                                <label class="custom-control-label"
-                                                                       for="childSupplier">Supplier</label>
-                                                                <!-- <i class="ft-external-link ccm"></i> -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row cxrmcheckbox pb-2">
-                                                        <div class="col-md-6 col-sm-6">
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" name="cxrm[]" value="Beneficiary" class="custom-control-input" id="childBeneficiary">
-                                                                <label class="custom-control-label"
-                                                                       for="childBeneficiary">Beneficiary</label>
-                                                                <!-- <i class="ft-external-link ccm"></i> -->
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6 col-sm-6">
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" name="cxrm[]" value="Partner" class="custom-control-input" id="childPartner">
-                                                                <label class="custom-control-label"
-                                                                       for="childPartner">Partner</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row cxrmcheckbox pb-2">
-                                                        <div class="col-md-6 col-sm-6">
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" name="cxrm[]" value="Employee" class="custom-control-input" id="childEmployee">
-                                                                <label class="custom-control-label"
-                                                                       for="childEmployee">Employee</label>
-                                                                <!-- <i class="ft-external-link ccm"></i> -->
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6 col-sm-6">
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" name="cxrm[]" value="User" class="custom-control-input" id="childUser">
-                                                                <label class="custom-control-label"
-                                                                       for="childUser">User</label>
-                                                                <!-- <i class="ft-external-link ccm"></i> -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <!--Accounting Tab Content-->
-                                    <div role="tabpanel" class="tab-pane" id="childTab2" aria-expanded="true"
-                                         aria-labelledby="baseIcon-tab3">
-                                        <div class="row mt-1">
-                                            <div class="col-md-12">
-                                                <div class="form-body">
-                                                    <h4 class="form-section">Accounting</h4>
-                                                    <div class="row">
-                                                        <div class="col-md-6 col-sm-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-md-4 label-control"
-                                                                       for="">Sales Person</label>
-                                                                <div class="col-md-8">
-                                                                    <div class="position-relative">
-                                                                        <select id="" name="sales-person"
+                                                            <div class="col-md-12">
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-3"
+                                                                           for="">Country</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="" name="country"
+                                                                                onchange="selectChildCountry(this.value , '{{route('get-state-for-contact')}}')"
                                                                                 class="form-control">
-                                                                            <option value="1">
-                                                                                Sales Person
+                                                                            <option value="">Select Country
                                                                             </option>
-                                                                            <option value="2">Sales
-                                                                                Person 1
-                                                                            </option>
+                                                                            @forelse($countries as $country)
+                                                                                <option value="{{$country->id}}">{{$country->value}}</option>
+                                                                            @empty
+                                                                                <option selected disabled>not
+                                                                                    found in record
+                                                                                </option>
+                                                                            @endforelse
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-3"
+                                                                           for="">State</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="putChildState" name="state"
+                                                                                onchange="selectChildState(this.value, '{{route('get-city-for-contact')}}')"
+                                                                                class="form-control">
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-3" for="">City</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="putChildCity" name="city"
+                                                                                class="form-control">
                                                                         </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6 col-sm-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-md-4 label-control"
-                                                                       for="">Accounts Receivable</label>
-                                                                <div class="col-md-8">
-                                                                    <div class="position-relative">
-                                                                        <input type="text" id="" name="account-rec-able"
-                                                                               class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6 col-sm-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-md-4 label-control"
-                                                                       for="projectinput7">Sales Price
-                                                                    list</label>
-                                                                <div class="col-md-8">
-                                                                    <div class="position-relative">
-                                                                        <input type="text" id="" name="sales-price"
-                                                                               class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6 col-sm-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-md-4 label-control"
-                                                                       for="projectinput7">Accounts
-                                                                    Payable</label>
-                                                                <div class="col-md-8">
-                                                                    <div class="position-relative">
-                                                                        <input type="text" id="" name="account-payable"
-                                                                               class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6 col-sm-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-md-4 label-control"
-                                                                       for="projectinput7">Customer Payment
-                                                                    Terms</label>
-                                                                <div class="col-md-8">
-                                                                    <div class="position-relative">
-                                                                        <input type="text" id="" name="customer-payment"
-                                                                               class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6 col-sm-6">
-                                                            <div class="form-group row">
-                                                                <label class="col-md-4 label-control"
-                                                                       for="projectinput7">Vendor Payment
-                                                                    Terms</label>
-                                                                <div class="col-md-8">
-                                                                    <div class="position-relative">
-                                                                        <input type="text" id="" name="vendor-term"
-                                                                               class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                    </div>
+                                        <!--Information Tab Content-->
+                                        <div role="tabpanel" class="tab-pane active" id="childTab1"
+                                             aria-expanded="true" aria-labelledby="baseIcon-tab1">
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-body">
-                                                <h4 class="form-section">Other Information</h4>
-                                                <div class="form-group row">
-                                                    <div class="col-md-12">
-                                                                    <textarea id="projectinput9" rows="5" class="form-control" name="other-information"
-                                                                              placeholder="WISIWYG"></textarea>
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <div class="form-body">
+                                                        <h4 class="form-section">Social Info</h4>
+                                                        <div class="form-group row">
+                                                            <label class="col-md-3 label-control" for="">LinkedIn</label>
+                                                            <div class="col-md-8">
+                                                                <div class="position-relative">
+                                                                    <input type="url" id="" name="social[]" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-md-3 label-control" for="">Facebook</label>
+                                                            <div class="col-md-8">
+                                                                <div class="position-relative">
+                                                                    <input type="url" id="" name="social[]" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-md-3 label-control"
+                                                                   for="projectinput7">Twitter</label>
+                                                            <div class="col-md-8">
+                                                                <div class="position-relative">
+                                                                    <input type="url" id="" name="social[]" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-md-3 label-control">Instagram</label>
+                                                            <div class="col-md-8">
+                                                                <div class="position-relative">
+                                                                    <input type="url" id="" name="social[]" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-body">
+                                                        <h4 class="form-section">CxRM</h4>
+                                                        <div class="row cxrmcheckbox pb-2">
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" value="Customer" name="cxrm[]" id="childCustomer">
+                                                                    <label class="custom-control-label"
+                                                                           for="childCustomer">Customer</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox"
+                                                                           class="custom-control-input" value="Supplier" name="cxrm[]" id="childSupplier">
+                                                                    <label class="custom-control-label"
+                                                                           for="childSupplier">Supplier</label>
+                                                                    <!-- <i class="ft-external-link ccm"></i> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row cxrmcheckbox pb-2">
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" name="cxrm[]" value="Beneficiary" class="custom-control-input" id="childBeneficiary">
+                                                                    <label class="custom-control-label"
+                                                                           for="childBeneficiary">Beneficiary</label>
+                                                                    <!-- <i class="ft-external-link ccm"></i> -->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" name="cxrm[]" value="Partner" class="custom-control-input" id="childPartner">
+                                                                    <label class="custom-control-label"
+                                                                           for="childPartner">Partner</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row cxrmcheckbox pb-2">
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" name="cxrm[]" value="Employee" class="custom-control-input" id="childEmployee">
+                                                                    <label class="custom-control-label"
+                                                                           for="childEmployee">Employee</label>
+                                                                    <!-- <i class="ft-external-link ccm"></i> -->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" name="cxrm[]" value="User" class="custom-control-input" id="childUser">
+                                                                    <label class="custom-control-label"
+                                                                           for="childUser">User</label>
+                                                                    <!-- <i class="ft-external-link ccm"></i> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!--Accounting Tab Content-->
+                                        <div role="tabpanel" class="tab-pane" id="childTab2" aria-expanded="true"
+                                             aria-labelledby="baseIcon-tab3">
+                                            <div class="row mt-1">
+                                                <div class="col-md-12">
+                                                    <div class="form-body">
+                                                        <h4 class="form-section">Accounting</h4>
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 label-control"
+                                                                           for="">Sales Person</label>
+                                                                    <div class="col-md-8">
+                                                                        <div class="position-relative">
+                                                                            <select id="" name="sales-person"
+                                                                                    class="form-control">
+                                                                                <option value="1">
+                                                                                    Sales Person
+                                                                                </option>
+                                                                                <option value="2">Sales
+                                                                                    Person 1
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 label-control"
+                                                                           for="">Accounts Receivable</label>
+                                                                    <div class="col-md-8">
+                                                                        <div class="position-relative">
+                                                                            <input type="text" id="" name="account-rec-able"
+                                                                                   class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 label-control"
+                                                                           for="projectinput7">Sales Price
+                                                                        list</label>
+                                                                    <div class="col-md-8">
+                                                                        <div class="position-relative">
+                                                                            <input type="text" id="" name="sales-price"
+                                                                                   class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 label-control"
+                                                                           for="projectinput7">Accounts
+                                                                        Payable</label>
+                                                                    <div class="col-md-8">
+                                                                        <div class="position-relative">
+                                                                            <input type="text" id="" name="account-payable"
+                                                                                   class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 label-control"
+                                                                           for="projectinput7">Customer Payment
+                                                                        Terms</label>
+                                                                    <div class="col-md-8">
+                                                                        <div class="position-relative">
+                                                                            <input type="text" id="" name="customer-payment"
+                                                                                   class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-4 label-control"
+                                                                           for="projectinput7">Vendor Payment Terms</label>
+                                                                    <div class="col-md-8">
+                                                                        <div class="position-relative">
+                                                                            <input type="text" id="" name="vendor-term"
+                                                                                   class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
 
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-body">
+                                                    <h4 class="form-section">Other Information</h4>
+                                                    <div class="form-group row">
+                                                        <div class="col-md-12">
+                                                                    <textarea id="projectinput9" rows="5" class="form-control" name="other-information"
+                                                                              placeholder="WISIWYG"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!--newcode-->
-{{--                        <input type="submit" value="Submit" />--}}
-                        <a onclick="childForm('{{route('contact.child.post')}}')" class="btn btn-success float-right m-1">Submit</a>
-
-                        <div class="col-md-12">
-                            <div class="error" style="display: none;color: red"
-                                 id="error-for-sub-child">Company name and Business classifications must be required for create the sub child.
+                            <!--newcode-->
+                            {{--                        <input type="submit" value="Submit" />--}}
+                            <a onclick="childForm('{{route('contact.child.post')}}')" class="btn btn-success float-right m-1">Submit</a>
+                            <div class="col-md-12">
+                                <div class="error" style="display: none;color: red"
+                                     id="error-for-sub-child">Company name and Business classifications must be required for create the sub contact.
+                                </div>
                             </div>
-                        </div>
-
-                    </form>
+                        </form>
+                    </div>
                 </div>
+
             </div>
-
         </div>
-    </div>
-    <!--Close-->
+        <!--Close-->
 
-    <!-- Close modal-->
-    <div class="modal fade modal_custom" id="close_modal" role="dialog">
-        <div class="modal-dialog">
+        <!-- Close modal-->
+        <div class="modal fade modal_custom" id="close_modal" role="dialog">
+            <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body contact-close">
+                        <p>do you want to close this contact</p>
+                        <a href="#">Yes</a>
+                        <a href="#">No</a>
+                    </div>
                 </div>
-                <div class="modal-body contact-close">
-                    <p>do you want to close this contact</p>
-                    <a href="#">Yes</a>
-                    <a href="#">No</a>
-                </div>
+
             </div>
-
         </div>
-    </div>
-    <!--Close-->
-    <script src="http://malsup.github.com/jquery.form.js"></script>
-
-
-{{--    <script>--}}
-{{--        $(document).ready(function (e) {--}}
-{{--            $("#child-form").on('submit',(function(e) {--}}
-{{--                e.preventDefault();--}}
-{{--                $.ajax({--}}
-{{--                    url: "{{route('contact.child.post')}}",--}}
-{{--                    type: "POST",--}}
-{{--                    data:  new FormData(this),--}}
-{{--                    contentType: false,--}}
-{{--                    cache: false,--}}
-{{--                    processData:false,--}}
-{{--                    success: function(data)--}}
-{{--                    {--}}
-
-{{--                    },--}}
-{{--                    error: function()--}}
-{{--                    {--}}
-{{--                    }--}}
-{{--                });--}}
-{{--            }));--}}
-{{--        });--}}
-{{--    </script>--}}
-
-
+        <!--Close-->
 @stop
 
