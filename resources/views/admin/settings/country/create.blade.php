@@ -101,7 +101,7 @@
                                                     
                                                     <div class="form-group">
                                                        <label class="sr-only" for="phonecode">Country Phonecode</label>
-                                                        <input type="text" id="phonecode" class="form-control" placeholder="Country Phonecode" name="phonecode">
+                                                        <input type="number" id="phonecode" class="form-control" placeholder="Country Phonecode" name="phonecode">
                                                         @if($errors->has('phonecode'))
                                                             <div class="error" style="color:red">{{$errors->first('phonecode')}}</div>
                                                         @endif
