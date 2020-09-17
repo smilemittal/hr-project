@@ -69,7 +69,6 @@ class ContactController extends Controller
         }
     }
 
-
     public function postContact(Request $request)
     {
         $contact = Contact::find($request['id']);
@@ -125,11 +124,10 @@ class ContactController extends Controller
             $accInfo->save();
 
             dd('all done');
-
         }
-        else {
-
-        }
+       else {
+           dd('some thing goes wrong');
+       }
     }
 
     public function postChildContact(Request $request) {
