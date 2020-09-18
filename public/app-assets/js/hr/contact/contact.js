@@ -193,7 +193,7 @@ function companyRadio(id) {
     contactType = 'Company';
 }
 
-function selectCountry(countryID , route) {
+function selectCountry(countryID, route) {
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         url: route,
@@ -219,7 +219,7 @@ function selectCountry(countryID , route) {
     });
 }
 
-function selectState(stateID , route) {
+function selectState(stateID, route) {
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         url: route,
@@ -291,7 +291,7 @@ function postDetail(contactInfo) {
                 data: {'company-name': companyName, 'contact-type': contactType},
                 success: function (result) {
                     if (result != "error") {
-                        recordID=result;
+                        recordID = result;
                         document.getElementById('record-id').value = result;
                         document.getElementById('parentID').value = result;
                     } else {
@@ -333,7 +333,7 @@ function previewChildImage(input) {
     }
 }
 
-function selectChildCountry(countryID , route) {
+function selectChildCountry(countryID, route) {
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         url: route,
@@ -359,7 +359,7 @@ function selectChildCountry(countryID , route) {
     });
 }
 
-function selectChildState(stateID , route) {
+function selectChildState(stateID, route) {
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         url: route,
@@ -386,37 +386,10 @@ function selectChildState(stateID , route) {
 }
 
 function childForm(route) {
-    let companyName = document.getElementById('company-name').value;
-    if(companyName) {
-        let form = $("#child-form").serialize();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: route,
-            method: 'post',
-            enctype:'multipart/form-data',
-            data: {'data': form},
-            success: function (result) {
-                if (result != "error") {
 
-                } else {
-
-                }
-            }
-        });
-    }
-    else {
-        document.getElementById('error-for-sub-child').style.display = 'block';
-        setTimeout(function () {
-            document.getElementById('error-for-sub-child').style.display = 'block';
-        }, 3000);
-    }
 }
 
-function selectMoreCountry(countryID , route) {
+function selectMoreCountry(countryID, route) {
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         url: route,
@@ -442,7 +415,7 @@ function selectMoreCountry(countryID , route) {
     });
 }
 
-function selectMoreState(stateID , route) {
+function selectMoreState(stateID, route) {
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         url: route,
@@ -467,6 +440,153 @@ function selectMoreState(stateID , route) {
         }
     });
 }
+
+$(document).ready(function (e) {
+    $('#child-form').on('submit', (function (e) {
+        let companyName = document.getElementById('company-name').value;
+        if (companyName) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                method: 'POST',
+                url: $(this).attr('action'),
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    $("#child-contact-section").append('<div class="col-md-4 col-sm-6">\n' +
+                        '                                                                <div class="card mb-1 contactbox-m">\n' +
+                        '                                                                    <div class="card-body p-0">\n' +
+                        '                                                                        <div class="row">\n' +
+                        '                                                                            <div class="col-4">\n' +
+                        '                                                                                <div class="border-left-radius-palette">\n' +
+                        '                                                                                    <img src=' + data.picture + '\n' +
+                        '                                                                                         class="rounded-squre img-fluid img-border height-120 mt-0"\n' +
+                        '                                                                                         alt="Card image">\n' +
+                        '                                                                                </div>\n' +
+                        '                                                                            </div>\n' +
+                        '                                                                            <div class="col-8 pl-0">\n' +
+                        '                                                                                <div class="p-0">\n' +
+                        '                                                                                    <div class="float-right">\n' +
+                        '                                                                                        <button type="button"\n' +
+                        '                                                                                                class="close_btn close"\n' +
+                        '                                                                                                data-toggle="modal"\n' +
+                        '                                                                                                data-target="#close_modal">\n' +
+                        '                                                                                            <span aria-hidden="true">×</span>\n' +
+                        '                                                                                        </button>\n' +
+                        '                                                                                        <p>' + data.name + '</p>\n' +
+                        '                                                                                        <a href="#">' + data.email + '</a>\n' +
+                        '                                                                                    </div>\n' +
+                        '                                                                                </div>\n' +
+                        '                                                                            </div>\n' +
+                        '                                                                        </div>\n' +
+                        '                                                                    </div>\n' +
+                        '                                                                </div>\n' +
+                        '                                                            </div>');
+
+
+                    // document.getElementById('child-form').reset();
+                    $("#child-form").trigger("reset");
+                    document.getElementById('success-sub-child').style.display = 'block';
+                    setTimeout(function () {
+                        document.getElementById('success-sub-child').style.display = 'none';
+                    }, 3000);
+
+                },
+                error: function (data) {
+                    // console.log(printErrorMsg(data.error));
+                    conosle.log('error');
+                    $.each(data.error, function (key, value) {
+                        console.log('abdullah', value);
+                    });
+
+                    // document.getElementById('error-for-sub-child').style.display = 'block';
+                    // setTimeout(function () {
+                    //     document.getElementById('error-for-sub-child').style.display = 'block';
+                    // }, 3000);
+                }
+            });
+        }
+        else {
+            document.getElementById('error-for-sub-child').style.display = 'block';
+            window.stop();
+            setTimeout(function () {
+                document.getElementById('error-for-sub-child').style.display = 'block';
+            }, 3000);
+        }
+    }));
+    $("#ImageBrowse").on("change", function () {
+        $("#imageUploadForm").submit();
+    });
+});
+
+
+
+$(document).ready(function (e) {
+    $('#child-address').on('submit', (function (e) {
+        let companyName = document.getElementById('company-name').value;
+        if (companyName) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                method: 'POST',
+                url: $(this).attr('action'),
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+
+                    // document.getElementById('child-form').reset();
+                    $("#child-form").trigger("reset");
+                    document.getElementById('success-address').style.display = 'block';
+                    setTimeout(function () {
+                        document.getElementById('success-address').style.display = 'none';
+                    }, 3000);
+
+                },
+                error: function (data) {
+                    // console.log(printErrorMsg(data.error));
+                    conosle.log('error');
+                    $.each(data.error, function (key, value) {
+                        console.log('abdullah', value);
+                    });
+
+                    // document.getElementById('error-for-sub-child').style.display = 'block';
+                    // setTimeout(function () {
+                    //     document.getElementById('error-for-sub-child').style.display = 'block';
+                    // }, 3000);
+                }
+            });
+        }
+        else {
+           alert('company name must be required for adding the company address.');
+           window.stop();
+        }
+    }));
+});
+
+
+
+
+
+// function ShowHideDiv(chkPassport) {
+//     var dvPassport = document.getElementById("dvPassport");
+//     dvPassport.style.display = chkPassport.checked ? "block" : "none";
+// }
+
+
 
 
 
