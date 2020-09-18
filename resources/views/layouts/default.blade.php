@@ -22,10 +22,7 @@
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/vendors.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/pickers/pickadate/default.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/pickers/pickadate/default.date.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/pickers/pickadate/default.time.css')}}">
-
+    @yield('page-vendor-css')
 
     <!-- END: Vendor CSS-->
 
@@ -38,16 +35,14 @@
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css"
-          href="{{asset('app-assets/css/core/menu/menu-types/vertical-menu-modern.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/core/colors/palette-gradient.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/plugins/animate/animate.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/fonts/simple-line-icons/style.min.css')}}">
+          href="{{asset('app-assets/css/core/menu/menu-types/vertical-menu.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/core/colors/palette-gradient.min.css')}}">
+
+    @yield('page-css')
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
-
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/tables/datatable/datatables.min.css')}}">
     <!-- END: Custom CSS-->
 
 </head>
@@ -598,16 +593,9 @@
 <script src="{{asset('app-assets/vendors/js/vendors.min.js')}}" type="text/javascript"></script>
 <!-- BEGIN Vendor JS-->
 
+
 <!-- BEGIN: Page Vendor JS-->
-<script src="{{asset('app-assets/vendors/js/animation/jquery.appear.js')}}" type="text/javascript"></script>
-<script src="{{asset('app-assets/vendors/js/pickers/pickadate/picker.js')}}" type="text/javascript"></script>
-<script src="{{asset('app-assets/vendors/js/pickers/pickadate/picker.date.js')}}" type="text/javascript"></script>
-<script src="{{asset('app-assets/vendors/js/pickers/pickadate/picker.time.js')}}" type="text/javascript"></script>
-<script src="{{asset('app-assets/vendors/js/pickers/pickadate/legacy.js')}}" type="text/javascript"></script>
-<script src="{{asset('app-assets/vendors/js/pickers/dateTime/moment-with-locales.min.js')}}" type="text/javascript"></script>
-
-
-
+@yield('page-vendor-js')
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->
@@ -616,7 +604,7 @@
 <!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->
-<script src="{{asset('app-assets/js/scripts/animation/animation.js')}}" type="text/javascript"></script>
+@yield('page-js')
 <!-- END: Page JS-->
 <script src="{{asset('app-assets/js/scripts/extensions/toastr.js')}}" type="text/javascript"></script>
 <script src="{{asset('app-assets/vendors/js/tables/datatable/datatables.min.js')}}" type="text/javascript"></script>

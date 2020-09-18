@@ -1,4 +1,7 @@
 @extends('layouts.default')
+@section('page-vendor-css')
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/tables/datatable/datatables.min.css')}}">
+@endsection
 @section('content')
     <!-- BEGIN: Content-->
     <div class="content-header row">
@@ -117,4 +120,11 @@
         <!-- Alert animation end -->
     </div>
     <!-- END: Content-->
-@stop
+@endsection
+@section('page-vendor-js')
+<script src="{{asset('app-assets/vendors/js/tables/datatable/datatables.min.js')}}" type="text/javascript"></script>
+@endsection
+
+@section('page-js')
+<script src="{{asset('app-assets/js/scripts/tables/datatables/datatable-basic.min.js')}}" type="text/javascript"></script>
+@endsection

@@ -151,3 +151,28 @@ button:focus{
     top: -2px;
     left: -1px;
 }
+#create-modal .modal-dialog {
+    width: 100%;
+    max-width: 70%;
+    left: 10%;
+}
+#create-modal .bg-lighttt {
+    padding: 15px;
+}
+#moreAddress .modal-dialog.modal-dialog-centered {
+    width: 100%;
+    max-width: 1000px;
+}
+
+#moreAddress .modal-dialog.modal-dialog-centered .cxrmcheckbox.pb-2 {
+    padding-bottom: 5px !IMPORTANT;
+}
+.modal {
+    z-index: 99999;
+}
+.modal-backdrop {
+    z-index: 9999;
+}
+.media-body.text-left.text-dark .row.cxrmcheckbox.pb-2 {
+    padding-bottom: 0px !IMPORTANT;
+}
