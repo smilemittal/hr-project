@@ -31,7 +31,7 @@ class CreateContactAddressesTable extends Migration
             $table->integer('state_id');
             $table->integer('country_id');
             $table->string('pincode');
-            $table->string('mobile');
+            $table->string('mobile')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('website')->nullable();
