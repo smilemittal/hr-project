@@ -9,7 +9,6 @@ use App\Country;
 use App\Http\Controllers\Controller;
 use App\State;
 use Illuminate\Http\Request;
-use PHPUnit\Framework\Constraint\Count;
 
 class ContactController extends Controller
 {
@@ -98,6 +97,7 @@ class ContactController extends Controller
                 $profile_picture = $request->file('photo');
                 $imageName = time() . '.' . $profile_picture->getClientOriginalExtension();
                 $profile_picture->storeAs('contact-profile', $imageName);
+                $contact->photo = $imageName;
             }
             if ($contact->contact_type == 'Individual') {
                 $contact->contact_name = $request['first-name'];
@@ -114,7 +114,7 @@ class ContactController extends Controller
             $contact->social_info = json_encode($request['social']);
             $contact->cxrm = json_encode($request['cxrm']);
             $contact->other_information = $request['other-information'];
-            $contact->photo = $imageName;
+           
             $contact->save();
             $AddressInfo = new ContactAddress();
             $AddressInfo->contact_id = $contact->id;
@@ -173,14 +173,15 @@ class ContactController extends Controller
             'email' => 'required',
             'photo' => 'required',
         ]);
-        if ($request->file('photo')) {
-            $profile_picture = $request->file('photo');
-            $imageName = time() . '.' . $profile_picture->getClientOriginalExtension();
-            $profile_picture->storeAs('public/contact-profile', $imageName);
-        }
+        $contact = new Contact();
         $parentContact = Contact::find($request['id']);
         if ($parentContact) {
-            $contact = new Contact();
+            if ($request->file('photo')) {
+                $profile_picture = $request->file('photo');
+                $imageName = time() . '.' . $profile_picture->getClientOriginalExtension();
+                $profile_picture->storeAs('public/contact-profile', $imageName);
+                $contact->photo = $imageName;
+            }
             $contact->contact_type = $parentContact->contact_type;
             $contact->contact_name = $request['first-name'];
             $contact->middle_name = $request['middle-name'];
@@ -191,7 +192,6 @@ class ContactController extends Controller
             $contact->social_info = json_encode($request['social']);
             $contact->cxrm = json_encode($request['cxrm']);
             $contact->other_information = $request['other-information'];
-            $contact->photo = $imageName;
             $contact->parent_id = $request['id'];
             $contact->save();
             $AddressInfo = new ContactAddress();
