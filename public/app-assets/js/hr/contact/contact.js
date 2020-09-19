@@ -323,58 +323,6 @@ function previewImage(input) {
     }
 }
 
-function selectChildCountry(countryID, route) {
-    $.ajax({
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        url: route,
-        method: 'get',
-        data: {'id': countryID},
-        success: function (result) {
-            if (result != "error") {
-                document.getElementById('putChildState').innerText = "";
-                $.each(result, function (key, value) {
-                    $("#putChildState").append(
-                        '<option value=' + value.id + '>' + value.value + '</option>'
-                    );
-                });
-
-
-            } else {
-                document.getElementById('putChildState').innerText = "";
-                $("#putChildState").append(
-                    '<option selected disabled>Record not found</option>'
-                );
-            }
-        }
-    });
-}
-
-function selectChildState(stateID, route) {
-    $.ajax({
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        url: route,
-        method: 'get',
-        data: {'id': stateID},
-        success: function (result) {
-            if (result != "error") {
-                document.getElementById('putChildCity').innerText = "";
-                $.each(result, function (key, value) {
-                    $("#putChildCity").append(
-                        '<option value=' + value.id + '>' + value.value + '</option>'
-                    );
-                });
-
-
-            } else {
-                document.getElementById('putCity').innerText = "";
-                $("#putChildCity").append(
-                    '<option selected disabled>Record not found</option>'
-                );
-            }
-        }
-    });
-}
-
 function childForm(route) {
     $.get(route, function( data ) {
         $( ".child-form" ).html( data );
@@ -486,7 +434,7 @@ $(document).ready(function (e) {
 
 
                     // document.getElementById('child-form').reset();
-                    $("#child-form").trigger("reset");
+                    $(".child-form").html("");
                     document.getElementById('success-sub-child').style.display = 'block';
                     setTimeout(function () {
                         document.getElementById('success-sub-child').style.display = 'none';
