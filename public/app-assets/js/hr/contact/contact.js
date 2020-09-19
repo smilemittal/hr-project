@@ -570,9 +570,10 @@ function moreAddressType(id) {
         } else if (checkBox.firstElementChild.value == 'Shipping') {
             document.getElementById('Shipping').setAttribute("disabled", "");
         } else if (checkBox.firstElementChild.value == 'Other') {
-            document.getElementById('Other').setAttribute("disabled", "");
+            document.getElementById('other').setAttribute("disabled", "");
         }
-    } else {
+    }
+    else {
         if (checkBox.firstElementChild.value == 'Correspondence') {
             document.getElementById('Correspondence').removeAttribute("disabled");
         } else if (checkBox.firstElementChild.value == 'Invoice') {
@@ -582,7 +583,7 @@ function moreAddressType(id) {
         } else if (checkBox.firstElementChild.value == 'Shipping') {
             document.getElementById('Shipping').removeAttribute("disabled");
         } else if (checkBox.firstElementChild.value == 'Other') {
-            document.getElementById('Other').removeAttribute("disabled");
+            document.getElementById('other').removeAttribute("disabled");
         }
     }
 
