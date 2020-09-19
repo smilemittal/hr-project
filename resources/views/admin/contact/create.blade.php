@@ -391,7 +391,6 @@
 
                         </div>
                         <input type="submit" value="Submit" class="btn btn-success float-right">
-                        {{--                        <a onclick="childForm('{{route('contact.child.post')}}')" class="btn btn-success float-right m-1">Submit</a>--}}
                         <div class="col-md-12">
                             <div class="success" style="display: none;color: green"
                                  id="success-sub-child">Child added successfully.
