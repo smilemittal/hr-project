@@ -103,6 +103,7 @@
                                         <tr>
                                             <th>Id</th>
                                             <th>City</th>
+                                            <th>State</th>
                                             <th>Status</th>
                                             <th>Created At</th>
                                             <th>Action</th>

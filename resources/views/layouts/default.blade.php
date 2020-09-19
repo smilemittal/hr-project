@@ -473,12 +473,26 @@
                     <span class="menu-title" data-i18n="">Settings</span>
                 </a>
                 <ul class="menu-content">
+
                     <li>
                         <a class="menu-item" href="{{route('contract-type.index')}}">Contract Type</a>
                     </li>
                     <li>
                         <a class="menu-item" href="{{route('education-level.index')}}">Education Level</a>
                     </li>
+                    <li>
+                        <a class="menu-item" href="{{route('employment-type.index')}}">Employment Type</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('attendance.index')}}">Attendance</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('period-frequency.index')}}">Period Frequency</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('relationship.index')}}">Relationship</a>
+                    </li>
+
                     <li>
                         <a class="menu-item" href="{{route('document-type.index')}}">Document Type</a>
                     </li>
@@ -552,6 +566,7 @@
                         <a class="menu-item" href="{{route('contact.trash.view')}}">Trash</a>
                     </li>
 
+
                 </ul>
             </li>
 
@@ -584,6 +599,16 @@
 <div class="app-content content">
     <div class="content-wrapper">
         <div class="content-wrapper-before"></div>
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success mb-2" style="width: 500px;position: absolute;right: 0;top: 0px;" id="alert-success-message" role="alert">
+                <strong>Success! </strong> {{$message}}
+            </div>
+        @endif
+        @if ($message = Session::get('error'))
+            <div class="alert alert-danger mb-2" id="alert-error-message" style="width: 500px;position: absolute;right: 0;top: 0px;" role="alert">
+                <strong>Error! </strong> {{$message}}
+            </div>
+        @endif
         @yield('content')
     </div>
 </div>
@@ -628,7 +653,6 @@
 <script src="{{asset('app-assets/js/scripts/extensions/toastr.js')}}" type="text/javascript"></script>
 <script src="{{asset('app-assets/vendors/js/tables/datatable/datatables.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('app-assets/js/scripts/tables/datatables/datatable-basic.js')}}" type="text/javascript"></script>
-<script src="{{asset('app-assets/js/hr/contact/contact.js')}}" type="text/javascript"></script>
 <script>
     setTimeout(function(){
         document.getElementById('alert-success-message').style.display = 'none'

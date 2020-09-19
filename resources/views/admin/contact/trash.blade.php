@@ -50,8 +50,7 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone Number</th>
-                                            <th>Status</th>
-                                            <th>Created At</th>
+                                            <th>Deleted At</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
@@ -79,8 +78,7 @@
                                                         not found
                                                     @endif
                                                 </td>
-                                                <td> {{$contact->status}}</td>
-                                                <td>{{ !empty($contact->created_at)?$contact->created_at->diffForHumans(): ''}}</td>
+                                                <td>{{ !empty($contact->deleted_at)?$contact->deleted_at->diffForHumans(): ''}}</td>
                                                 <td>
                                                     <span class="dropdown">
                                                         <button id="btnSearchDrop12" type="button" class="btn btn-sm btn-icon btn-pure font-medium-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

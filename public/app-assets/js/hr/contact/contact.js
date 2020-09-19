@@ -202,13 +202,14 @@ function selectCountry(countryID, route) {
         success: function (result) {
             if (result != "error") {
                 document.getElementById('putState').innerText = "";
+                $("#putState").append(
+                    '<option selcetd> Select state</option>'
+                );
                 $.each(result, function (key, value) {
                     $("#putState").append(
                         '<option value=' + value.id + '>' + value.value + '</option>'
                     );
                 });
-
-
             } else {
                 document.getElementById('putState').innerText = "";
                 $("#putState").append(
@@ -228,6 +229,9 @@ function selectState(stateID, route) {
         success: function (result) {
             if (result != "error") {
                 document.getElementById('putCity').innerText = "";
+                $("#putCity").append(
+                    '<option selcetd>Select City</option>'
+                );
                 $.each(result, function (key, value) {
                     $("#putCity").append(
                         '<option value=' + value.id + '>' + value.value + '</option>'
@@ -246,148 +250,92 @@ function selectState(stateID, route) {
 }
 
 function postDetail(contactInfo) {
-    if (contactType === 'Individual') {
-        let firstName = document.getElementById('first-name').value;
-        let lastName = document.getElementById('last-name').value;
+    if (document.getElementById('record-id').value == '') {
+        if (contactType === 'Individual') {
+            let firstName = document.getElementById('first-name').value;
+            let lastName = document.getElementById('last-name').value;
 
-        if (firstName && lastName) {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                // headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                url: contactInfo,
-                method: 'post',
-                data: {'first-name': firstName, 'last-name': lastName, 'contact-type': contactType},
-                success: function (result) {
-                    if (result != "error") {
-                        document.getElementById('record-id').value = result;
-                    } else {
-
+            if (firstName && lastName) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
-                }
-            });
+                });
+                $.ajax({
+                    url: contactInfo,
+                    method: 'post',
+                    data: {'first-name': firstName, 'last-name': lastName, 'contact-type': contactType},
+                    success: function (result) {
+                        if (result != "error") {
+                            document.getElementById('record-id').value = result;
+                        } else {
+
+                        }
+                    }
+                });
+            } else {
+                document.getElementById('error-for-first-name').style.display = 'block';
+                document.getElementById('error-for-last-name').style.display = 'block';
+                setTimeout(function () {
+                    document.getElementById('error-for-first-name').style.display = 'none';
+                    document.getElementById('error-for-last-name').style.display = 'none';
+                }, 3000);
+            }
+        } else if (contactType === 'Company') {
+            let companyName = document.getElementById('company-name').value;
+            if (companyName) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: contactInfo,
+                    method: 'post',
+                    data: {'company-name': companyName, 'contact-type': contactType},
+                    success: function (result) {
+                        if (result != "error") {
+                            recordID = result;
+                            document.getElementById('record-id').value = result;
+                            document.getElementById('parentID').value = result;
+                        } else {
+                        }
+                    }
+                });
+            } else {
+                document.getElementById('error-for-company-name').style.display = 'block';
+                setTimeout(function () {
+                    document.getElementById('error-for-company-name').style.display = 'none';
+                }, 3000);
+            }
         } else {
-            document.getElementById('error-for-first-name').style.display = 'block';
-            document.getElementById('error-for-last-name').style.display = 'block';
+            document.getElementById('error-for-individual-company').style.display = 'block';
             setTimeout(function () {
-                document.getElementById('error-for-first-name').style.display = 'none';
-                document.getElementById('error-for-last-name').style.display = 'none';
+                document.getElementById('error-for-individual-company').style.display = 'none';
             }, 3000);
         }
-    } else if (contactType === 'Company') {
-        let companyName = document.getElementById('company-name').value;
-        if (companyName) {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                url: contactInfo,
-                method: 'post',
-                data: {'company-name': companyName, 'contact-type': contactType},
-                success: function (result) {
-                    if (result != "error") {
-                        recordID = result;
-                        document.getElementById('record-id').value = result;
-                        document.getElementById('parentID').value = result;
-                    } else {
-                    }
-                }
-            });
-        } else {
-            document.getElementById('error-for-company-name').style.display = 'block';
-            setTimeout(function () {
-                document.getElementById('error-for-company-name').style.display = 'none';
-            }, 3000);
-        }
-    } else {
-        document.getElementById('error-for-individual-company').style.display = 'block';
-        setTimeout(function () {
-            document.getElementById('error-for-individual-company').style.display = 'none';
-        }, 3000);
     }
-
 }
 
 function previewImage(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
-            $('#targetImage').attr('src', e.target.result);
+            $(input).prev().attr('src', e.target.result);
         };
         reader.readAsDataURL(input.files[0]);
     }
-}
-
-function previewChildImage(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('#targetChildImage').attr('src', e.target.result);
-        };
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-function selectChildCountry(countryID, route) {
-    $.ajax({
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        url: route,
-        method: 'get',
-        data: {'id': countryID},
-        success: function (result) {
-            if (result != "error") {
-                document.getElementById('putChildState').innerText = "";
-                $.each(result, function (key, value) {
-                    $("#putChildState").append(
-                        '<option value=' + value.id + '>' + value.value + '</option>'
-                    );
-                });
-
-
-            } else {
-                document.getElementById('putChildState').innerText = "";
-                $("#putChildState").append(
-                    '<option selected disabled>Record not found</option>'
-                );
-            }
-        }
-    });
-}
-
-function selectChildState(stateID, route) {
-    $.ajax({
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        url: route,
-        method: 'get',
-        data: {'id': stateID},
-        success: function (result) {
-            if (result != "error") {
-                document.getElementById('putChildCity').innerText = "";
-                $.each(result, function (key, value) {
-                    $("#putChildCity").append(
-                        '<option value=' + value.id + '>' + value.value + '</option>'
-                    );
-                });
-
-
-            } else {
-                document.getElementById('putCity').innerText = "";
-                $("#putChildCity").append(
-                    '<option selected disabled>Record not found</option>'
-                );
-            }
-        }
-    });
 }
 
 function childForm(route) {
-
+    $.get(route, function (data) {
+        $(".child-form").html(data);
+    });
 }
+
+$('#create-modal').on('shown.bs.modal', function (e) {
+    childForm(createForm);
+})
 
 function selectMoreCountry(countryID, route) {
     $.ajax({
@@ -398,6 +346,9 @@ function selectMoreCountry(countryID, route) {
         success: function (result) {
             if (result != "error") {
                 document.getElementById('putMoreState').innerText = "";
+                $("#putMoreState").append(
+                    '<option selcetd>Select City</option>'
+                );
                 $.each(result, function (key, value) {
                     $("#putMoreState").append(
                         '<option value=' + value.id + '>' + value.value + '</option>'
@@ -424,6 +375,9 @@ function selectMoreState(stateID, route) {
         success: function (result) {
             if (result != "error") {
                 document.getElementById('putMoreCity').innerText = "";
+                $("#putMoreCity").append(
+                    '<option selcetd>Select City</option>'
+                );
                 $.each(result, function (key, value) {
                     $("#putMoreCity").append(
                         '<option value=' + value.id + '>' + value.value + '</option>'
@@ -492,7 +446,7 @@ $(document).ready(function (e) {
 
 
                     // document.getElementById('child-form').reset();
-                    $("#child-form").trigger("reset");
+                    $(".child-form").html("");
                     document.getElementById('success-sub-child').style.display = 'block';
                     setTimeout(function () {
                         document.getElementById('success-sub-child').style.display = 'none';
@@ -512,8 +466,7 @@ $(document).ready(function (e) {
                     // }, 3000);
                 }
             });
-        }
-        else {
+        } else {
             document.getElementById('error-for-sub-child').style.display = 'block';
             window.stop();
             setTimeout(function () {
@@ -525,8 +478,6 @@ $(document).ready(function (e) {
         $("#imageUploadForm").submit();
     });
 });
-
-
 
 $(document).ready(function (e) {
     $('#child-address').on('submit', (function (e) {
@@ -569,16 +520,74 @@ $(document).ready(function (e) {
                     // }, 3000);
                 }
             });
-        }
-        else {
-           alert('company name must be required for adding the company address.');
-           window.stop();
+        } else {
+            alert('company name must be required for adding the company address.');
+            window.stop();
         }
     }));
 });
 
+function checkAddressType(id) {
+    let checkBox = document.getElementById(id);
+    let condition = checkBox.firstElementChild.checked;
+    if (condition) {
+        if (checkBox.firstElementChild.value == 'Correspondence') {
+            document.getElementById('correspondence-more').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Invoice') {
+            document.getElementById('invoice-more').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Registered') {
+            document.getElementById('registered-more').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Shipping') {
+            document.getElementById('shipping-more').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Other') {
+            document.getElementById('other-more').setAttribute("disabled", "");
+        }
+    } else {
+        if (checkBox.firstElementChild.value == 'Correspondence') {
+            document.getElementById('correspondence-more').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Invoice') {
+            document.getElementById('invoice-more').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Registered') {
+            document.getElementById('registered-more').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Shipping') {
+            document.getElementById('shipping-more').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Other') {
+            document.getElementById('other-more').removeAttribute("disabled");
+        }
+    }
+}
 
+function moreAddressType(id) {
+    let checkBox = document.getElementById(id);
+    let condition = checkBox.firstElementChild.checked;
+    if (condition) {
+        if (checkBox.firstElementChild.value == 'Correspondence') {
+            document.getElementById('Correspondence').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Invoice') {
+            document.getElementById('Invoice').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Registered') {
+            document.getElementById('Registered').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Shipping') {
+            document.getElementById('Shipping').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Other') {
+            document.getElementById('other').setAttribute("disabled", "");
+        }
+    }
+    else {
+        if (checkBox.firstElementChild.value == 'Correspondence') {
+            document.getElementById('Correspondence').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Invoice') {
+            document.getElementById('Invoice').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Registered') {
+            document.getElementById('Registered').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Shipping') {
+            document.getElementById('Shipping').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Other') {
+            document.getElementById('other').removeAttribute("disabled");
+        }
+    }
 
+}
 
 
 // function ShowHideDiv(chkPassport) {

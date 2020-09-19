@@ -12,11 +12,13 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $contacts = Contact::get();
 //        dd(!isset($contacts[1]->getAddressInfo),$contacts[0]->getAddressInfo[0] , $contacts[0]->getAccInfo);
-        return view('admin.contact.index' , compact('contacts'));
+        return view('admin.contact.index', compact('contacts'));
     }
+
     public function create()
     {
         try {
@@ -52,6 +54,11 @@ class ContactController extends Controller
     public function postContactTypeInfo(Request $request)
     {
         if ($request['contact-type'] == 'Individual') {
+            $request->validate([
+                'first-name' => 'required',
+                'last-name' => 'required',
+                'contact-type' => 'required',
+            ]);
             $contact = Contact::create([
                 'contact_type' => $request['contact-type'],
                 'contact_name' => $request['first-name'],
@@ -59,6 +66,10 @@ class ContactController extends Controller
             ]);
             return $contact->id;
         } else if ($request['contact-type'] == 'Company') {
+            $request->validate([
+                'company-name' => 'required',
+                'contact-type' => 'required',
+            ]);
             $contact = Contact::create([
                 'contact_type' => $request['contact-type'],
                 'contact_name' => $request['company-name'],
@@ -108,7 +119,6 @@ class ContactController extends Controller
             ]);
 
 
-
             if ($request->file('photo')) {
                 $profile_picture = $request->file('photo');
                 $imageName = time() . '.' . $profile_picture->getClientOriginalExtension();
@@ -130,7 +140,7 @@ class ContactController extends Controller
             $contact->social_info = json_encode($request['social']);
             $contact->cxrm = json_encode($request['cxrm']);
             $contact->other_information = $request['other-information'];
-           
+
             $contact->save();
             $AddressInfo = new ContactAddress();
             $AddressInfo->contact_id = $contact->id;
@@ -147,9 +157,10 @@ class ContactController extends Controller
             $AddressInfo->email = $request['email'];
             $AddressInfo->website = $request['website'];
             $AddressInfo->save();
+            if($request['account-rec-able'])
             $accInfo = new ContactAccountingInfo();
             $accInfo->contact_id = $contact->id;
-            $accInfo->sales_person = 1;
+            $accInfo->sales_person = $request['sales-person'];
             $accInfo->account_receivable = $request['account-rec-able'];
             $accInfo->sales_price_list = $request['sales-price'];
             $accInfo->accounts_payable = $request['account-payable'];
@@ -159,7 +170,7 @@ class ContactController extends Controller
 
             dd('all done');
         } else {
-            return redirect()->back('error','contact type must be required like company or Individual.');
+            return redirect()->back('error', 'contact type must be required like company or Individual.');
         }
     }
 
@@ -233,10 +244,10 @@ class ContactController extends Controller
             $accInfo->vendor_payments_terms = $request['vendor-term'];
             $accInfo->save();
 
-            $name = $contact->contact_name. " " .$contact->last_name;
+            $name = $contact->contact_name . " " . $contact->last_name;
             $email = $AddressInfo->email;
-            $photo = public_path('storage/app/public/contact-profile/'.$contact->photo);
-            return response(array('name'=>$name , 'email'=>$email , 'picture'=>$photo));
+            $photo = public_path('storage/app/public/contact-profile/' . $contact->photo);
+            return response(array('name' => $name, 'email' => $email, 'picture' => $photo));
         } else {
             return "no parent found";
         }
@@ -260,72 +271,78 @@ class ContactController extends Controller
         dd('all-done');
     }
 
-    public function view($id) {
+    public function view($id)
+    {
         $exist = Contact::find(decrypt($id));
-        if($exist) {
-            return view('admin.contact.view' , compact('exist'));
-        }
-        else {
-            return redirect()->back()->with('error' , 'invalid access.');
+        if ($exist) {
+            return view('admin.contact.view', compact('exist'));
+        } else {
+            return redirect()->back()->with('error', 'invalid access.');
         }
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
         $exist = Contact::find(decrypt($id));
-        if($exist) {
-            return view('admin.contact.update' , compact('exist'));
-
-        }
-        else {
-            return redirect()->back()->with('error' , 'invalid access.');
+        if ($exist) {
+            return view('admin.contact.update', compact('exist'));
+        } else {
+            return redirect()->back()->with('error', 'invalid access.');
         }
     }
 
-    public function trash($id) {
+    public function trash($id)
+    {
         $exist = Contact::find(decrypt($id));
-        if($exist) {
-            $exist->softDeletes();
-            return redirect()->back()->with('success' , 'Move to trash successfully.');
-        }
-        else {
-            return redirect()->back()->with('error' , 'invalid access.');
-        }
-    }
-
-    public function trashView() {
-        dd("trash view");
-    }
-
-    public function restore($id) {
-        dd("restore", $id);
-        $exist = Contact::find(decrypt($id));
-        if($exist) {
-            $exist->softdelete();
-            return redirect()->back()->with('success' , 'record restore successfully.');
-        }
-        else {
-            return redirect()->back()->with('error' , 'invalid access.');
-        }
-    }
-
-    public function delete($id) {
-        dd("delete", $id);
-        $exist = Contact::find(decrypt($id));
-        if($exist) {
-            $exist->getAddressInfo->delete();
-            $exist->getAccInfo->delete();
+        if ($exist) {
             $exist->delete();
-            return redirect()->back()->with('success' , 'Deleted from database successfully.');
-        }
-        else {
-            return redirect()->back()->with('error' , 'invalid access.');
+            return redirect()->back()->with('success', 'Move to trash successfully.');
+        } else {
+            return redirect()->back()->with('error', 'invalid access.');
         }
     }
 
+    public function trashView()
+    {
+        $contacts = Contact::onlyTrashed()->get();
+        return view('admin.contact.trash', compact('contacts'));
+    }
 
+    public function restore($id)
+    {
+        $exist = Contact::withTrashed()->find(decrypt($id));
+        if ($exist) {
+            $exist->restore();
+            return redirect()->back()->with('success', 'record restore successfully.');
+        } else {
+            return redirect()->back()->with('error', 'invalid access.');
+        }
+    }
 
+    public function delete($id)
+    {
+        $exist = Contact::withTrashed()->find(decrypt($id));
+        if ($exist) {
+            foreach ($exist->getAddressInfo as $record) {
+                $record->delete();
+            }
+            $exist->getAccInfo->delete();
+            $exist->forceDelete();
+            return redirect()->back()->with('success', 'Deleted from database successfully.');
+        } else {
+            return redirect()->back()->with('error', 'invalid access.');
+        }
+    }
 
-
-
+    public function createContactView()
+    {
+        try {
+            $countries = Country::whereStatus('active')->get();
+            $is_parent = false;
+            return view('admin.contact.partials.form', compact('countries', 'is_parent'))->render();
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
 
 }
