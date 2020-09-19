@@ -13,12 +13,11 @@ use PHPUnit\Framework\Constraint\Count;
 
 class ContactController extends Controller
 {
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index() {
+        $contacts = Contact::get();
+//        dd(!isset($contacts[1]->getAddressInfo),$contacts[0]->getAddressInfo[0] , $contacts[0]->getAccInfo);
+        return view('admin.contact.index' , compact('contacts'));
+    }
     public function create()
     {
         try {
@@ -89,9 +88,26 @@ class ContactController extends Controller
                 ]);
             }
             $request->validate([
-                'email' => 'required | email',
-                'cxrm' => 'required',
+                'cxrm*' => 'required',
+                'account-rec-able' => 'required',
+                'sales-price' => 'required',
+                'account-payable' => 'required',
+                'customer-payment' => 'required',
+                'vendor-term' => 'required',
+                'house-number' => 'required',
+                'house-name' => 'required',
+                'address-info' => 'required',
+                'street' => 'required',
+                'city' => 'required',
+                'state' => 'required',
+                'country' => 'required',
+                'post-code' => 'required',
+                'mobile' => 'required',
+                'phone' => 'required',
+                'email' => 'required',
+                'photo' => 'required',
             ]);
+
 
 
             if ($request->file('photo')) {
@@ -143,7 +159,7 @@ class ContactController extends Controller
 
             dd('all done');
         } else {
-            dd('some thing goes wrong');
+            return redirect()->back('error','contact type must be required like company or Individual.');
         }
     }
 
@@ -243,6 +259,73 @@ class ContactController extends Controller
         $AddressInfo->save();
         dd('all-done');
     }
+
+    public function view($id) {
+        $exist = Contact::find(decrypt($id));
+        if($exist) {
+            return view('admin.contact.view' , compact('exist'));
+        }
+        else {
+            return redirect()->back()->with('error' , 'invalid access.');
+        }
+    }
+
+    public function edit($id) {
+        $exist = Contact::find(decrypt($id));
+        if($exist) {
+            return view('admin.contact.update' , compact('exist'));
+
+        }
+        else {
+            return redirect()->back()->with('error' , 'invalid access.');
+        }
+    }
+
+    public function trash($id) {
+        $exist = Contact::find(decrypt($id));
+        if($exist) {
+            $exist->softDeletes();
+            return redirect()->back()->with('success' , 'Move to trash successfully.');
+        }
+        else {
+            return redirect()->back()->with('error' , 'invalid access.');
+        }
+    }
+
+    public function trashView() {
+        dd("trash view");
+    }
+
+    public function restore($id) {
+        dd("restore", $id);
+        $exist = Contact::find(decrypt($id));
+        if($exist) {
+            $exist->softdelete();
+            return redirect()->back()->with('success' , 'record restore successfully.');
+        }
+        else {
+            return redirect()->back()->with('error' , 'invalid access.');
+        }
+    }
+
+    public function delete($id) {
+        dd("delete", $id);
+        $exist = Contact::find(decrypt($id));
+        if($exist) {
+            $exist->getAddressInfo->delete();
+            $exist->getAccInfo->delete();
+            $exist->delete();
+            return redirect()->back()->with('success' , 'Deleted from database successfully.');
+        }
+        else {
+            return redirect()->back()->with('error' , 'invalid access.');
+        }
+    }
+
+
+
+
+
 
 
 }

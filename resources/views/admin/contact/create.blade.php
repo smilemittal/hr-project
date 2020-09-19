@@ -161,6 +161,10 @@
                                                                                                     First name must be
                                                                                                     required
                                                                                                 </div>
+                                                                                                @if($errors->has('first-name'))
+                                                                                                    <div class="error"
+                                                                                                         style="color:red">{{$errors->first('first-name')}}</div>
+                                                                                                @endif
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -172,6 +176,10 @@
                                                                                                        class="form-control"
                                                                                                        placeholder="Middle Name"
                                                                                                        name="middle-name">
+                                                                                                @if($errors->has('middle-name'))
+                                                                                                    <div class="error"
+                                                                                                         style="color:red">{{$errors->first('middle-name')}}</div>
+                                                                                                @endif
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -183,6 +191,11 @@
                                                                                                        class="form-control"
                                                                                                        placeholder="Last Name"
                                                                                                        name="last-name">
+                                                                                                @if($errors->has('last-name'))
+                                                                                                    <div class="error"
+                                                                                                         style="color:red">{{$errors->first('last-name')}}</div>
+                                                                                                @endif
+
                                                                                                 <div class="error"
                                                                                                      style="display: none;color: red"
                                                                                                      id="error-for-last-name">
@@ -215,6 +228,10 @@
                                                                                                         Coder
                                                                                                     </option>
                                                                                                 </select>
+                                                                                                @if($errors->has('job-position'))
+                                                                                                    <div class="error"
+                                                                                                         style="color:red">{{$errors->first('job-position')}}</div>
+                                                                                                @endif
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -227,6 +244,10 @@
                                                                                                        class="form-control"
                                                                                                        placeholder=""
                                                                                                        name="business-info">
+                                                                                                @if($errors->has('business-info'))
+                                                                                                    <div class="error"
+                                                                                                         style="color:red">{{$errors->first('business-info')}}</div>
+                                                                                                @endif
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -249,6 +270,10 @@
                                                                                                        class="form-control"
                                                                                                        placeholder="Company Name"
                                                                                                        name="company-name">
+                                                                                                @if($errors->has('company-name'))
+                                                                                                    <div class="error"
+                                                                                                         style="color:red">{{$errors->first('company-name')}}</div>
+                                                                                                @endif
                                                                                                 <div class="error"
                                                                                                      style="display: none;color: red"
                                                                                                      id="error-for-company-name">
@@ -282,6 +307,10 @@
                                                                                                class="form-control"
                                                                                                placeholder=""
                                                                                                name="business-classifications">
+                                                                                        @if($errors->has('business-classifications'))
+                                                                                            <div class="error"
+                                                                                                 style="color:red">{{$errors->first('business-classifications')}}</div>
+                                                                                        @endif
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -295,6 +324,10 @@
                                                                                                class="form-control"
                                                                                                placeholder=""
                                                                                                name="account-status">
+                                                                                        @if($errors->has('account-status'))
+                                                                                            <div class="error"
+                                                                                                 style="color:red">{{$errors->first('account-status')}}</div>
+                                                                                        @endif
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -305,7 +338,11 @@
                                                                             <div class="form-group">
                                                                                 <label for="">Email</label>
                                                                                 <div class="position-relative">
-                                                                                    <input type="email" id="" class="form-control" placeholder="Enter Your Email" name="email">
+                                                                                    <input type="email" id="" class="form-control" placeholder="Enter Your Email" name="email">.
+                                                                                    @if($errors->has('email'))
+                                                                                        <div class="error"
+                                                                                             style="color:red">{{$errors->first('email')}}</div>
+                                                                                    @endif
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -314,6 +351,10 @@
                                                                                 <label for="timesheetinput1">Website</label>
                                                                                 <div class="position-relative">
                                                                                     <input type="url" id="timesheetinput1" class="form-control" placeholder="" name="website">
+                                                                                    @if($errors->has('website'))
+                                                                                        <div class="error"
+                                                                                             style="color:red">{{$errors->first('website')}}</div>
+                                                                                    @endif
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -325,6 +366,10 @@
                                                                                            class="form-control"
                                                                                            placeholder="Phone"
                                                                                            name="phone">
+                                                                                    @if($errors->has('phone'))
+                                                                                        <div class="error"
+                                                                                             style="color:red">{{$errors->first('phone')}}</div>
+                                                                                    @endif
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -336,6 +381,10 @@
                                                                                            class="form-control"
                                                                                            placeholder="Mobile"
                                                                                            name="mobile">
+                                                                                    @if($errors->has('mobile'))
+                                                                                        <div class="error"
+                                                                                             style="color:red">{{$errors->first('mobile')}}</div>
+                                                                                    @endif
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -348,6 +397,10 @@
                                                                                            type="text" id=""
                                                                                            class="form-control"
                                                                                            placeholder="">
+                                                                                    @if($errors->has('tags'))
+                                                                                        <div class="error"
+                                                                                             style="color:red">{{$errors->first('tags')}}</div>
+                                                                                    @endif
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -406,6 +459,10 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
+                                                                                @if($errors->has('address-type[]'))
+                                                                                    <div class="error"
+                                                                                         style="color:red">{{$errors->first('address-type[]')}}</div>
+                                                                                @endif
 
                                                                             </div>
                                                                         </div>
@@ -416,6 +473,10 @@
                                                                                 Number</label>
                                                                             <div class="col-md-9">
                                                                                 <input type="text" id="" class="form-control" placeholder="" name="house-number">
+                                                                                @if($errors->has('house-number'))
+                                                                                    <div class="error"
+                                                                                         style="color:red">{{$errors->first('house-number')}}</div>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -427,6 +488,10 @@
                                                                                 <input type="text" id=""
                                                                                        class="form-control"
                                                                                        placeholder="" name="house-name">
+                                                                                @if($errors->has('house-name'))
+                                                                                    <div class="error"
+                                                                                         style="color:red">{{$errors->first('house-name')}}</div>
+                                                                                @endif
 
                                                                             </div>
 
@@ -441,6 +506,10 @@
                                                                                        class="form-control"
                                                                                        placeholder=""
                                                                                        name="address-info">
+                                                                                @if($errors->has('address-info'))
+                                                                                    <div class="error"
+                                                                                         style="color:red">{{$errors->first('address-info')}}</div>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -452,6 +521,11 @@
                                                                                 <input type="text" id=""
                                                                                        class="form-control"
                                                                                        placeholder="" name="street">
+                                                                                @if($errors->has('street'))
+                                                                                    <div class="error"
+                                                                                         style="color:red">{{$errors->first('street')}}</div>
+                                                                                @endif
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -463,6 +537,10 @@
                                                                                 <input type="text" id=""
                                                                                        class="form-control"
                                                                                        placeholder="" name="post-code">
+                                                                                @if($errors->has('post-code'))
+                                                                                    <div class="error"
+                                                                                         style="color:red">{{$errors->first('post-code')}}</div>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -485,6 +563,10 @@
                                                                                     @endforelse
 
                                                                                 </select>
+                                                                                @if($errors->has('country'))
+                                                                                    <div class="error"
+                                                                                         style="color:red">{{$errors->first('country')}}</div>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -497,6 +579,10 @@
                                                                                         onchange="selectState(this.value, '{{route('get-city-for-contact')}}')"
                                                                                         class="form-control">
                                                                                 </select>
+                                                                                @if($errors->has('state'))
+                                                                                    <div class="error"
+                                                                                         style="color:red">{{$errors->first('state')}}</div>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -507,6 +593,10 @@
                                                                                 <select id="putCity" name="city"
                                                                                         class="form-control">
                                                                                 </select>
+                                                                                @if($errors->has('city'))
+                                                                                    <div class="error"
+                                                                                         style="color:red">{{$errors->first('city')}}</div>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -630,6 +720,10 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                @if($errors->has('cxrm'))
+                                                                    <div class="error"
+                                                                         style="color:red">{{$errors->first('cxrm')}}</div>
+                                                                @endif
                                                             </div>
 
                                                         </div>
@@ -671,7 +765,7 @@
                                                                                    for="">Sales Person</label>
                                                                             <div class="col-md-8">
                                                                                 <div class="position-relative">
-                                                                                    <select id="" name="1"
+                                                                                    <select id="" name="sales-person"
                                                                                             class="form-control">
                                                                                         <option value="1">
                                                                                             Sales Person
@@ -680,6 +774,10 @@
                                                                                             Person 1
                                                                                         </option>
                                                                                     </select>
+                                                                                    @if($errors->has('sales-person'))
+                                                                                        <div class="error"
+                                                                                             style="color:red">{{$errors->first('sales-person')}}</div>
+                                                                                    @endif
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -692,6 +790,10 @@
                                                                                 <div class="position-relative">
                                                                                     <input type="text" id="" name="account-rec-able"
                                                                                            class="form-control">
+                                                                                    @if($errors->has('account-rec-able'))
+                                                                                        <div class="error"
+                                                                                             style="color:red">{{$errors->first('account-rec-able')}}</div>
+                                                                                    @endif
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -705,6 +807,9 @@
                                                                                 <div class="position-relative">
                                                                                     <input type="text" id="" name="sales-price"
                                                                                            class="form-control">
+                                                                                    @if($errors->has('sales-price'))
+                                                                                        <div class="error" style="color:red">{{$errors->first('sales-price')}}</div>
+                                                                                    @endif
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -718,6 +823,9 @@
                                                                                 <div class="position-relative">
                                                                                     <input type="text" id="" name="account-payable"
                                                                                            class="form-control">
+                                                                                    @if($errors->has('account-payable'))
+                                                                                        <div class="error" style="color:red">{{$errors->first('account-payable')}}</div>
+                                                                                    @endif
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -731,6 +839,9 @@
                                                                                 <div class="position-relative">
                                                                                     <input type="text" id="" name="customer-payment"
                                                                                            class="form-control">
+                                                                                    @if($errors->has('customer-payment'))
+                                                                                        <div class="error" style="color:red">{{$errors->first('customer-payment')}}</div>
+                                                                                    @endif
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -744,6 +855,9 @@
                                                                                 <div class="position-relative">
                                                                                     <input type="text" id="" name="vendor-term"
                                                                                            class="form-control">
+                                                                                    @if($errors->has('vendor-term'))
+                                                                                        <div class="error" style="color:red">{{$errors->first('vendor-term')}}</div>
+                                                                                    @endif
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -764,6 +878,9 @@
                                                                 <div class="col-md-12">
                                                                     <textarea id="projectinput9" rows="5" class="form-control" name="other-information"
                                                                               placeholder="WISIWYG"></textarea>
+                                                                    @if($errors->has('other-information'))
+                                                                        <div class="error" style="color:red">{{$errors->first('other-information')}}</div>
+                                                                    @endif
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -783,7 +900,6 @@
                 </div>
         </section>
         <!-- Tabs with Icons end -->
-
     </div>
 
 
