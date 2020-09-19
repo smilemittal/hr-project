@@ -193,32 +193,30 @@ function companyRadio(id) {
     contactType = 'Company';
 }
 
-function selectCountry(countryID, route) {
+$(document).on('change', '.country-change', function() {
+    var countrySelect = $(this);
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        url: route,
+        url: $.trim(getStates) + '/' + countrySelect.val(),
         method: 'get',
-        data: {'id': countryID},
         success: function (result) {
             if (result != "error") {
-                document.getElementById('putState').innerText = "";
-                $("#putState").append(
+                countrySelect.parents('.country-parent').next().find('.state-change').html(
                     '<option selcetd> Select state</option>'
                 );
                 $.each(result, function (key, value) {
-                    $("#putState").append(
+                    countrySelect.parents('.country-parent').next().find('.state-change').append(
                         '<option value=' + value.id + '>' + value.value + '</option>'
                     );
                 });
             } else {
-                document.getElementById('putState').innerText = "";
-                $("#putState").append(
+                 countrySelect.parents('.country-parent').next().find('.state-change').html(
                     '<option selected disabled>Record not found</option>'
                 );
             }
         }
     });
-}
+});
 
 function selectState(stateID, route) {
     $.ajax({
@@ -537,22 +535,3 @@ function checkAddressType(id) {
 function moreAddressType(id) {
     console.log(id);
 }
-
-
-
-
-
-// function ShowHideDiv(chkPassport) {
-//     var dvPassport = document.getElementById("dvPassport");
-//     dvPassport.style.display = chkPassport.checked ? "block" : "none";
-// }
-
-
-
-
-
-
-
-
-
-

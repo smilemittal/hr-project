@@ -215,8 +215,8 @@ Route::prefix('admin')->group(function () {
     Route::post('post/contact' , 'Admin\ContactController@postContact')->name('contact.post');
     Route::post('post/child/contact' , 'Admin\ContactController@postChildContact')->name('contact.child.post');
     Route::post('post/more/contact/address' , 'Admin\ContactController@postMoreAddress')->name('more.address.post');
-    Route::get('get/states/for/contact' , 'Admin\ContactController@getStates')->name('get-state-for-contact');
-    Route::get('get/cities/for/contact' , 'Admin\ContactController@getCities')->name('get-city-for-contact');
+    Route::get('get/states/{country_id?}' , 'Admin\ContactController@getStates')->name('get.state');
+    Route::get('get/cities/{state_id?}' , 'Admin\ContactController@getCities')->name('get.city');
     Route::post('/post/contact/type/info' , 'Admin\ContactController@postContactTypeInfo')->name('post-contact-type-info');
 
     Route::get('/contact/view/{id}' , 'Admin\ContactController@view')->name('contact.view');

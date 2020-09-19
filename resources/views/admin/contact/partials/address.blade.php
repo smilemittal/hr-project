@@ -107,14 +107,13 @@
         </div>
     </div>
 </div>
-<div class="col-md-12">
+<div class="col-md-12 country-parent">
     <div class="form-group row">
         <label class="col-md-3"
                 for="">Country</label>
         <div class="col-md-9">
             <select id="" name="country"
-                    onchange="selectCountry(this.value , '{{route('get-state-for-contact')}}')"
-                    class="form-control">
+                     class="form-control country-change">
                 <option value="">Select Country
                 </option>
                 @forelse($countries as $country)
@@ -129,24 +128,24 @@
         </div>
     </div>
 </div>
-<div class="col-md-12">
+<div class="col-md-12 state-parent">
     <div class="form-group row">
         <label class="col-md-3"
                 for="">State</label>
         <div class="col-md-9">
-            <select id="putState" name="state"
-                    onchange="selectState(this.value, '{{route('get-city-for-contact')}}')"
-                    class="form-control">
+            <select name="state" class="form-control state-change">
+                <option value="">Select state
+                </option>
             </select>
         </div>
     </div>
 </div>
-<div class="col-md-12">
+<div class="col-md-12 city-parent">
     <div class="form-group row">
         <label class="col-md-3" for="">City</label>
         <div class="col-md-9">
-            <select id="putCity" name="city"
-                    class="form-control">
+            <select name="city"
+                    class="city-change form-control">
             </select>
         </div>
     </div>

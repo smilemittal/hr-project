@@ -29,9 +29,9 @@ class ContactController extends Controller
         }
     }
 
-    public function getStates(Request $request)
+    public function getStates($country_id = 0)
     {
-        $country = Country::find($request->id);
+        $country = Country::find($country_id);
         if ($country->getState->count() > 0) {
             $state = $country->getState;
             return $state;

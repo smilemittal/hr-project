@@ -315,7 +315,6 @@
                                                        for="">Country</label>
                                                 <div class="col-md-9">
                                                     <select id="" name="country"
-                                                            onchange="selectMoreCountry(this.value , '{{route('get-state-for-contact')}}')"
                                                             class="form-control">
                                                         <option value="">Select Country
                                                         </option>
@@ -337,7 +336,6 @@
                                                        for="">State</label>
                                                 <div class="col-md-9">
                                                     <select id="putMoreState" name="priority"
-                                                            onchange="selectMoreState(this.value, '{{route('get-city-for-contact')}}')"
                                                             class="form-control">
                                                     </select>
                                                 </div>
@@ -431,6 +429,8 @@
 @section('page-js')
 <script>
     var createForm = "{{ route('contact.form') }}";
+    var getStates = "{{ route('get.state', ['country_id' => '']) }}";
+    var getCities = "{{ route('get.city', ['state_id' => '']) }}";
 </script>
 <script src="{{asset('app-assets/js/hr/contact/contact.js')}}" type="text/javascript"></script>
 
