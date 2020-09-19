@@ -3,18 +3,18 @@
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link active" id="cxrm-tab1" data-toggle="tab"
-                aria-controls="info-tab" href="#info-tab" aria-expanded="true">Information </a>
+                aria-controls="{{ $is_parent ? 'parent' : 'child' }}_info-tab" href="#{{ $is_parent ? 'parent' : 'child' }}_info-tab" aria-expanded="true">Information </a>
         </li>
         @if($is_parent)
         <li class="nav-item" id="contact-hyperlink" style="display: none">
             <a class="nav-link" id="cxrm-tab2" data-toggle="tab"
-                aria-controls="contact-tab" href="#contact-tab" aria-expanded="false">
+                aria-controls="{{ $is_parent ? 'parent' : 'child' }}_contact-tab" href="#{{ $is_parent ? 'parent' : 'child' }}_contact-tab" aria-expanded="false">
                 Contacts</a>
         </li>
         @endif
         <li class="nav-item">
             <a class="nav-link" id="cxrm-tab3" data-toggle="tab"
-                aria-controls="accounting-tab" href="#accounting-tab" aria-expanded="false">
+                aria-controls="{{ $is_parent ? 'parent' : 'child' }}_accounting-tab" href="#{{ $is_parent ? 'parent' : 'child' }}_accounting-tab" aria-expanded="false">
                 Accounting</a>
         </li>
     </ul>
@@ -169,13 +169,11 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="">Business /
-                                                            Refine</label>
+                                                        <label for="">Business / Refine</label>
                                                         <div class="position-relative">
                                                             <input type="text" id=""
                                                                     class="form-control"
-                                                                    placeholder="Business /
-                                                            Refine"
+                                                                    placeholder="Business / Refine"
                                                                     name="business-info">
                                                         </div>
                                                     </div>
@@ -230,8 +228,7 @@
                                                     <input type="text"
                                                             onclick="postDetail('{{route('post-contact-type-info')}}')"
                                                             class="form-control"
-                                                            placeholder="Business
-                                                    Classification"
+                                                            placeholder="Business Classification"
                                                             name="business-classifications">
                                                 </div>
                                             </div>
@@ -332,7 +329,7 @@
             </div>
 
             <!--Information Tab Content-->
-            <div role="tabpanel" class="tab-pane active" id="info-tab"
+            <div role="tabpanel" class="tab-pane active" id="{{ $is_parent ? 'parent' : 'child' }}_info-tab"
                     aria-expanded="true" aria-labelledby="baseIcon-tab1">
 
                 <div class="row mt-1">
@@ -441,7 +438,7 @@
             </div>
             <!--Contact Tab Content-->
             @if($is_parent)
-            <div class="tab-pane" id="contact-tab" aria-labelledby="baseIcon-tab2">
+            <div class="tab-pane" id="{{ $is_parent ? 'parent' : 'child' }}_contact-tab" aria-labelledby="baseIcon-tab2">
 
 
                 <div id="contact-target" style="display: none">
@@ -462,7 +459,7 @@
             @endif
             <!--Accounting Tab Content-->
 
-            <div role="tabpanel" class="tab-pane" id="accounting-tab" aria-expanded="true"
+            <div role="tabpanel" class="tab-pane" id="{{ $is_parent ? 'parent' : 'child' }}_accounting-tab" aria-expanded="true"
                     aria-labelledby="baseIcon-tab3">
                 <div class="row mt-1">
                     <div class="col-md-12">
