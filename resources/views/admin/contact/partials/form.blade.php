@@ -59,6 +59,9 @@
                         </label>
                     </div>
                     <div class="col-md-12">
+                        @if($errors->has('contact-type'))
+                            <div class="error" style="color:red">Contact Type must be required.</div>
+                        @endif
                         <div class="error" style="display: none;color: red"
                                 id="error-for-individual-company">1 type must be
                             select.
@@ -110,6 +113,9 @@
                                                                     class="form-control"
                                                                     placeholder="First Name"
                                                                     name="first-name">
+                                                            @if($errors->has('first-name'))
+                                                                <div class="error" style="color:red">First name must be required.</div>
+                                                            @endif
                                                             <div class="error"
                                                                     style="display: none; color: red"
                                                                     id="error-for-first-name">
@@ -138,6 +144,9 @@
                                                                     class="form-control"
                                                                     placeholder="Last Name"
                                                                     name="last-name">
+                                                            @if($errors->has('last-name'))
+                                                                <div class="error" style="color:red">Last name must be required.</div>
+                                                            @endif
                                                             <div class="error"
                                                                     style="display: none;color: red"
                                                                     id="error-for-last-name">
@@ -149,15 +158,16 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="" class="">Job
-                                                            Position</label>
+                                                        <label for="" class="">Job Position</label>
                                                         <div class="position-relative">
                                                             <input type="text"
                                                                 onclick="postDetail('{{route('post-contact-type-info')}}')"
                                                                 class="form-control"
-                                                                placeholder="Job
-                                                            Position"
+                                                                placeholder="Job Position"
                                                                 name="job-position">
+                                                            @if($errors->has('job-position'))
+                                                                <div class="error" style="color:red">Job position must be required.</div>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
@@ -169,6 +179,9 @@
                                                                     class="form-control"
                                                                     placeholder="Business / Refine"
                                                                     name="business-info">
+                                                            @if($errors->has('business-info'))
+                                                                <div class="error" style="color:red">Business info must be required.</div>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
@@ -192,6 +205,9 @@
                                                                     class="form-control"
                                                                     placeholder="Company Name"
                                                                     name="company-name">
+                                                            @if($errors->has('company-name'))
+                                                                <div class="error" style="color:red">{{$errors->first('company-name')}}</div>
+                                                            @endif
                                                             <div class="error"
                                                                     style="display: none;color: red"
                                                                     id="error-for-company-name">
@@ -216,26 +232,30 @@
 
                                         <div class="col-md-12 col-xl-6">
                                             <div class="form-group">
-                                                <label>Business
-                                                    Classification</label>
+                                                <label>Business Classification</label>
                                                 <div class="position-relative">
                                                     <input type="text"
                                                             onclick="postDetail('{{route('post-contact-type-info')}}')"
                                                             class="form-control"
                                                             placeholder="Business Classification"
                                                             name="business-classifications">
+                                                    @if($errors->has('business-classifications'))
+                                                        <div class="error" style="color:red">Business classifications must be required.</div>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-xl-6">
                                             <div class="form-group">
-                                                <label>Account
-                                                    Status</label>
+                                                <label>Account Status</label>
                                                 <div class="position-relative">
                                                     <input type="text"
                                                            class="form-control"
                                                             placeholder="Account Status"
                                                             name="account-status">
+                                                    @if($errors->has('account-status'))
+                                                        <div class="error" style="color:red">Account status must be required.</div>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -248,6 +268,9 @@
                                             <label for="">Email</label>
                                             <div class="position-relative">
                                                 <input type="email" id="" class="form-control" placeholder="Enter Your Email" name="email">
+                                                @if($errors->has('email'))
+                                                    <div class="error" style="color:red">{{$errors->first('email')}}</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -257,6 +280,9 @@
                                             <label>Website</label>
                                             <div class="position-relative">
                                                 <input type="url"  class="form-control" placeholder="Enter Your Website" name="website">
+                                                @if($errors->has('website'))
+                                                    <div class="error" style="color:red">Website URL must be required.</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -269,6 +295,9 @@
                                                         class="form-control"
                                                         placeholder="Phone"
                                                         name="phone">
+                                                @if($errors->has('phone'))
+                                                    <div class="error" style="color:red">Phone must be required.</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -280,6 +309,9 @@
                                                         class="form-control"
                                                         placeholder="Mobile"
                                                         name="mobile">
+                                                @if($errors->has('mobile'))
+                                                    <div class="error" style="color:red">Mobile must be required.</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -291,6 +323,9 @@
                                                         type="text" id=""
                                                         class="form-control"
                                                         placeholder="tags">
+                                                @if($errors->has('tags'))
+                                                    <div class="error" style="color:red">Tags must be required.</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -300,11 +335,9 @@
                     </div>
                     <div class="col-md-5">
                         <div class="media-body text-left text-dark">
-
                             <div class="row">
                                @include('admin.contact.partials.address',['is_parent' => true])
                             </div>
-
                             @if($is_parent)
                             <div class="row" id="more-address" style="display: none">
                                 <div class="col-md-12 mt-1 text-right">
@@ -325,10 +358,8 @@
             <!--Information Tab Content-->
             <div role="tabpanel" class="tab-pane active" id="{{ $is_parent ? 'parent' : 'child' }}_info-tab"
                     aria-expanded="true" aria-labelledby="baseIcon-tab1">
-
                 <div class="row mt-1">
                     <div class="col-md-6">
-
                         <div class="form-body">
                             <h4 class="form-section">Social Info</h4>
                             <div class="form-group row">
@@ -368,7 +399,6 @@
 
                     </div>
                     <div class="col-md-6">
-
                         <div class="form-body">
                             <h4 class="form-section">CxRM</h4>
                             <div class="row cxrmcheckbox pb-2">
@@ -424,16 +454,17 @@
                                     </div>
                                 </div>
                             </div>
+                            @if($errors->has('cxrm'))
+                                <div class="error" style="color:red">At least one CXRM must be required.</div>
+                            @endif
                         </div>
-
                     </div>
                 </div>
-
             </div>
             <!--Contact Tab Content-->
             @if($is_parent)
-            <div class="tab-pane" id="{{ $is_parent ? 'parent' : 'child' }}_contact-tab" aria-labelledby="baseIcon-tab2">
 
+            <div class="tab-pane" id="{{ $is_parent ? 'parent' : 'child' }}_contact-tab" aria-labelledby="baseIcon-tab2">
 
                 <div id="contact-target" style="display: none">
                     <div class="row" id="child-contact-section">
@@ -444,11 +475,8 @@
                                 data-toggle="modal"
                                 data-target="#create-modal">Create</a>
                         </div>
-
                     </div>
                 </div>
-
-
             </div>
             @endif
             <!--Accounting Tab Content-->
@@ -467,15 +495,13 @@
                                                 for="">Sales Person</label>
                                         <div class="col-md-8">
                                             <div class="position-relative">
-                                                <select id="" name="sales-person"
-                                                        class="form-control">
-                                                    <option value="1">
-                                                        Sales Person
-                                                    </option>
-                                                    <option value="2">Sales
-                                                        Person 1
-                                                    </option>
+                                                <select id="" name="sales-person" class="form-control">
+                                                    <option value="1">Sales Person</option>
+                                                    <option value="2">Sales Person 1</option>
                                                 </select>
+                                                @if($errors->has('sales-person'))
+                                                    <div class="error" style="color:red">Sales person must be required.</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -488,6 +514,9 @@
                                             <div class="position-relative">
                                                 <input type="text" id="" name="account-rec-able"
                                                         class="form-control">
+                                                @if($errors->has('account-rec-able'))
+                                                    <div class="error" style="color:red">Account receivable must be required.</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -501,6 +530,9 @@
                                             <div class="position-relative">
                                                 <input type="text" id="" name="sales-price"
                                                         class="form-control">
+                                                @if($errors->has('sales-price'))
+                                                    <div class="error" style="color:red">Sales price must be required.</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -514,6 +546,9 @@
                                             <div class="position-relative">
                                                 <input type="text" id="" name="account-payable"
                                                         class="form-control">
+                                                @if($errors->has('account-payable'))
+                                                    <div class="error" style="color:red">Accounts payable must be required.</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -527,6 +562,9 @@
                                             <div class="position-relative">
                                                 <input type="text" id="" name="customer-payment"
                                                         class="form-control">
+                                                @if($errors->has('customer-payment'))
+                                                    <div class="error" style="color:red">Customer payment terms must be required.</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -540,6 +578,9 @@
                                             <div class="position-relative">
                                                 <input type="text" id="" name="vendor-term"
                                                         class="form-control">
+                                                @if($errors->has('vendor-term'))
+                                                    <div class="error" style="color:red">Vendor payment terms must be required</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -560,6 +601,9 @@
                             <div class="col-md-12">
                                 <textarea id="projectinput9" rows="5" class="form-control" name="other-information"
                                             placeholder="WISIWYG"></textarea>
+                                @if($errors->has('other-information'))
+                                    <div class="error" style="color:red">Other information must be required.</div>
+                                @endif
                             </div>
                         </div>
                     </div>

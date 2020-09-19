@@ -35,7 +35,6 @@
                                     <input type="hidden" id="record-id" name="id">
 
                                     @include('admin.contact.partials.form', ['is_parent' => true])
-                                  
 
                                     <button type="submit" class="btn btn-success float-right mb-2">Submit</button>
                                 </form>
@@ -177,9 +176,7 @@
                                                         @forelse($countries as $country)
                                                             <option value="{{$country->id}}">{{$country->value}}</option>
                                                         @empty
-                                                            <option selected disabled>not
-                                                                found in record
-                                                            </option>
+                                                            <option selected disabled>not found in record</option>
                                                         @endforelse
 
                                                     </select>
@@ -201,7 +198,7 @@
                                             <div class="form-group row">
                                                 <label class="col-md-3" for="">City</label>
                                                 <div class="col-md-9">
-                                                    <select id="putMoreCity" name="City"
+                                                    <select id="putMoreCity" name="city"
                                                             class="form-control">
                                                     </select>
                                                 </div>

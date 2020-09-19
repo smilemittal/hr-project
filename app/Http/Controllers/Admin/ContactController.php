@@ -9,6 +9,7 @@ use App\Country;
 use App\Http\Controllers\Controller;
 use App\State;
 use Illuminate\Http\Request;
+use function GuzzleHttp\Promise\all;
 
 class ContactController extends Controller
 {
@@ -40,9 +41,9 @@ class ContactController extends Controller
         }
     }
 
-    public function getCities(Request $request)
+    public function getCities($state_id = 0)
     {
-        $state = State::find($request->id);
+        $state = State::find($state_id);
         if ($state->getCity->count() > 0) {
             $city = $state->getCity;
             return $city;
@@ -90,6 +91,7 @@ class ContactController extends Controller
                     'business-info' => 'required',
                 ]);
             } elseif ($contact->contact_type == 'company') {
+                dd('in else');
                 $request->validate([
                     'company-name' => 'required',
                     'business-classifications' => 'required',
@@ -98,7 +100,7 @@ class ContactController extends Controller
                 ]);
             }
             $request->validate([
-                'cxrm*' => 'required',
+                'cxrm' => 'required',
                 'account-rec-able' => 'required',
                 'sales-price' => 'required',
                 'account-payable' => 'required',
@@ -118,6 +120,7 @@ class ContactController extends Controller
                 'photo' => 'required',
             ]);
 
+            dd($request->all());
 
             if ($request->file('photo')) {
                 $profile_picture = $request->file('photo');
@@ -125,23 +128,26 @@ class ContactController extends Controller
                 $profile_picture->storeAs('contact-profile', $imageName);
                 $contact->photo = $imageName;
             }
+
             if ($contact->contact_type == 'Individual') {
                 $contact->contact_name = $request['first-name'];
                 $contact->middle_name = $request['middle-name'];
                 $contact->last_name = $request['last-name'];
                 $contact->job_position = $request['job-position'];
                 $contact->business_info = $request['business-info'];
-            } else {
+            }
+            else {
                 $contact->contact_name = $request['company-name'];
                 $contact->business_classifications = $request['business-classifications'];
                 $contact->account_status = $request['account-status'];
             }
+
             $contact->tags = $request['tags'];
             $contact->social_info = json_encode($request['social']);
             $contact->cxrm = json_encode($request['cxrm']);
             $contact->other_information = $request['other-information'];
-
             $contact->save();
+
             $AddressInfo = new ContactAddress();
             $AddressInfo->contact_id = $contact->id;
             $AddressInfo->house_number = $request['house-number'];
@@ -157,8 +163,9 @@ class ContactController extends Controller
             $AddressInfo->email = $request['email'];
             $AddressInfo->website = $request['website'];
             $AddressInfo->save();
-            if($request['account-rec-able'])
-            $accInfo = new ContactAccountingInfo();
+
+            if ($request['account-rec-able'])
+                $accInfo = new ContactAccountingInfo();
             $accInfo->contact_id = $contact->id;
             $accInfo->sales_person = $request['sales-person'];
             $accInfo->account_receivable = $request['account-rec-able'];
@@ -169,8 +176,19 @@ class ContactController extends Controller
             $accInfo->save();
 
             dd('all done');
-        } else {
-            return redirect()->back('error', 'contact type must be required like company or Individual.');
+
+
+
+
+
+
+
+
+
+
+        }
+        else {
+            return redirect()->back()->with('error', 'Please fill the proper form with select one type like Company or Individual.');
         }
     }
 

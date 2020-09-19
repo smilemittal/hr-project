@@ -48,6 +48,9 @@
             </div>
 
         </div>
+        @if($errors->has('address-type'))
+            <div class="error" style="color:red">Address type must be required.</div>
+        @endif
     </div>
 </div>
 @endif
@@ -57,6 +60,9 @@
             Number</label>
         <div class="col-md-9">
             <input type="text" id="" class="form-control" placeholder="" name="house-number">
+            @if($errors->has('house-number'))
+                <div class="error" style="color:red">House number must be required.</div>
+            @endif
         </div>
     </div>
 </div>
@@ -68,7 +74,9 @@
             <input type="text" id=""
                     class="form-control"
                     placeholder="" name="house-name">
-
+            @if($errors->has('house-number'))
+                <div class="error" style="color:red">House name must be required.</div>
+            @endif
         </div>
 
     </div>
@@ -82,6 +90,9 @@
                     class="form-control"
                     placeholder=""
                     name="address-info">
+            @if($errors->has('house-number'))
+                <div class="error" style="color:red">Address info must be required.</div>
+            @endif
         </div>
     </div>
 </div>
@@ -93,6 +104,9 @@
             <input type="text" id=""
                     class="form-control"
                     placeholder="" name="street">
+            @if($errors->has('street'))
+                <div class="error" style="color:red">Street must be required.</div>
+            @endif
         </div>
     </div>
 </div>
@@ -104,6 +118,9 @@
             <input type="text" id=""
                     class="form-control"
                     placeholder="" name="post-code">
+            @if($errors->has('post-code'))
+                <div class="error" style="color:red">Postcode must be required.</div>
+            @endif
         </div>
     </div>
 </div>
@@ -123,8 +140,10 @@
                         found in record
                     </option>
                 @endforelse
-
             </select>
+            @if($errors->has('country'))
+                <div class="error" style="color:red">Country must be required.</div>
+            @endif
         </div>
     </div>
 </div>
@@ -137,6 +156,9 @@
                 <option value="">Select state
                 </option>
             </select>
+            @if($errors->has('state'))
+                <div class="error" style="color:red">State must be required.</div>
+            @endif
         </div>
     </div>
 </div>
@@ -147,6 +169,9 @@
             <select name="city"
                     class="city-change form-control">
             </select>
+            @if($errors->has('city'))
+                <div class="error" style="color:red">City must be required.</div>
+            @endif
         </div>
     </div>
 </div>
