@@ -30,12 +30,6 @@
                     <i class="ft-aperture"></i>
                 </a>
             </li>
-            <li>
-                <a data-action="reload" data-toggle="modal" data-keyboard="false"
-                    data-target="#editAddress">
-                    <i class="ft-edit"></i>
-                </a>
-            </li>
         </ul>
     </div>
 </div>
