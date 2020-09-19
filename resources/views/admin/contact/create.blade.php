@@ -1229,9 +1229,11 @@
     </div>
 
 
+    <div class="modal fade modal_custom" id="create-modal" role="dialog">
+        <div class="modal-dialog">
 
             <!-- Modal content-->
-            <div class="modal-contentmodal_custom" id="create-modal">
+           <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title"></h4>

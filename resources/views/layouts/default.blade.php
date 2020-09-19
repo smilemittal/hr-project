@@ -27,15 +27,15 @@
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/bootstrap.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/bootstrap-extended.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/colors.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/components.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/bootstrap-extended.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/colors.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/components.min.css')}}">
     <!-- END: Theme CSS-->
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css"
-          href="{{asset('app-assets/css/core/menu/menu-types/vertical-menu.min.css')}}">
+          href="{{asset('app-assets/css/core/menu/menu-types/vertical-menu-modern.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/core/colors/palette-gradient.min.css')}}">
 
     @yield('page-css')
@@ -619,6 +619,7 @@
 <!-- BEGIN: Theme JS-->
 <script src="{{asset('app-assets/js/core/app-menu.js')}}" type="text/javascript"></script>
 <script src="{{asset('app-assets/js/core/app.js')}}" type="text/javascript"></script>
+<script src="{{asset('app-assets/vendors/js/jquery.sharrre.js')}}" type="text/javascript"></script>
 <!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->
