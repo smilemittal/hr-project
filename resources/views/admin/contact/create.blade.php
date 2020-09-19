@@ -1,4 +1,10 @@
 @extends('layouts.default')
+@section('page-vendor-css')
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/ui/prism.min.css')}}">
+@endsection
+@section('page-css')
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/plugins/forms/tags/tagging.min.css')}}">
+@endsection
 @section('content')
 
     <div class="content-header row">
@@ -278,6 +284,11 @@
         </div>
     </div>
     <!--Close-->
+@endsection
+@section('page-vendor-js')
+<script src="{{asset('app-assets/vendors/js/forms/tags/tagging.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('app-assets/vendors/js/ui/prism.min.js')}}" type="text/javascript"></script>
+
 @endsection
 @section('page-js')
 <script>

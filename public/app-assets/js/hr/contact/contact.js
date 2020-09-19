@@ -324,6 +324,7 @@ function previewImage(input) {
 function childForm(route) {
     $.get(route, function (data) {
         $(".child-form").html(data);
+        $(".tags").tagging();
     });
 }
 
@@ -390,6 +391,8 @@ function selectMoreState(stateID, route) {
 }
 
 $(document).ready(function (e) {
+    $(".tags").tagging();
+
     $('#child-form').on('submit', (function (e) {
         let companyName = document.getElementById('company-name').value;
         if (companyName) {

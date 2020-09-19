@@ -319,10 +319,8 @@
                                         <div class="form-group">
                                             <label>Tags</label>
                                             <div class="position-relative">
-                                                <input name='tags'
-                                                        type="text" id=""
-                                                        class="form-control"
-                                                        placeholder="tags">
+                                                <div  class="form-control tags"
+                                                     data-tags-input-name="tags"></div>
                                                 @if($errors->has('tags'))
                                                     <div class="error" style="color:red">Tags must be required.</div>
                                                 @endif
