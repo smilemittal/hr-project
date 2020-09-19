@@ -1,4 +1,10 @@
 @extends('layouts.default')
+@section('page-vendor-css')
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/ui/prism.min.css')}}">
+@endsection
+@section('page-css')
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/plugins/forms/tags/tagging.min.css')}}">
+@endsection
 @section('content')
     <div class="content-header row">
         <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
@@ -44,150 +50,6 @@
         </section>
         <!-- Tabs with Icons end -->
     </div>
-
-
-    <!-- Modal More Address-->
-    <div class="modal fade text-left" id="editAddress" tabindex="-1" role="dialog" aria-labelledby="basicModalLabel3"
-         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="basicModalLabel3">Edit Information</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="media d-flex mx-0 user-text mt-0">
-                                <div class="media-body text-left text-dark">
-                                    <div class="row">
-                                        <div class="col-md-2 pr-md-0">
-                                            <div class="form-group">
-                                                <select id="" name="priority" class="form-control">
-                                                    <option value="low">Mr</option>
-                                                    <option value="medium"></option>
-                                                    <option value="high"></option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <div class="position-relative">
-                                                            <input type="text" id="" class="form-control"
-                                                                   placeholder="First Name" name="issuetitle">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <div class="position-relative">
-                                                            <input type="text" id="" class="form-control"
-                                                                   placeholder="Middle Name" name="issuetitle">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <div class="position-relative">
-                                                            <input type="text" id="" class="form-control"
-                                                                   placeholder="Last Name" name="issuetitle">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xl-4 col-md-6">
-                                            <div class="form-group">
-                                                <label for="" class="">Job Position</label>
-                                                <div class="position-relative">
-                                                    <select id="" name="priority" class="form-control">
-                                                        <option value="low">Designer</option>
-                                                        <option value="medium">Developer</option>
-                                                        <option value="high">Coder</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Business / Refine</label>
-                                                <div class="position-relative">
-                                                    <input type="text" id="" class="form-control" placeholder=""
-                                                           name="employeename">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-md-6">
-                                            <div class="form-group">
-                                                <label for="">tag</label>
-                                                <div class="position-relative">
-                                                    <input name='tags' value='tag1, tag2 ' type="text" id=""
-                                                           class="form-control" placeholder="" name="employeename">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 col-xl-4">
-                                            <div class="form-group">
-                                                <label for="">Email</label>
-                                                <div class="position-relative">
-                                                    <input type="text" id="" class="form-control"
-                                                           placeholder="Enter Your Email" name="employeename">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-xl-4">
-                                            <div class="form-group">
-                                                <label for="">Phone</label>
-                                                <div class="position-relative">
-                                                    <input type="text" id="" class="form-control" placeholder="Phone"
-                                                           name="employeename">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-xl-4">
-                                            <div class="form-group">
-                                                <label for="">Mobile</label>
-                                                <div class="position-relative">
-                                                    <input type="text" id="" class="form-control" placeholder="Mobile"
-                                                           name="employeename">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label for="">Address</label>
-                                                <div class="position-relative">
-                                                    <input type="text" id="" class="form-control" placeholder="Address"
-                                                           name="employeename">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn grey btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-sm btn-danger">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Modal Edit Address-->
     <div class="modal fade text-left" id="moreAddress" tabindex="-1" role="dialog" aria-labelledby="basicModalLabel3"
          aria-hidden="true">
@@ -269,6 +131,11 @@
         </div>
     </div>
     <!--Close-->
+@endsection
+@section('page-vendor-js')
+<script src="{{asset('app-assets/vendors/js/forms/tags/tagging.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('app-assets/vendors/js/ui/prism.min.js')}}" type="text/javascript"></script>
+
 @endsection
 @section('page-js')
 <script>

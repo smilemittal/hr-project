@@ -30,12 +30,6 @@
                     <i class="ft-aperture"></i>
                 </a>
             </li>
-            <li>
-                <a data-action="reload" data-toggle="modal" data-keyboard="false"
-                    data-target="#editAddress">
-                    <i class="ft-edit"></i>
-                </a>
-            </li>
         </ul>
     </div>
 </div>
@@ -328,10 +322,8 @@
                                         <div class="form-group">
                                             <label>Tags</label>
                                             <div class="position-relative">
-                                                <input name='tags'
-                                                        type="text" id=""
-                                                        class="form-control"
-                                                        placeholder="tags">
+                                                <div  class="form-control tags"
+                                                     data-tags-input-name="tags"></div>
                                                 @if($errors->has('tags'))
                                                     <div class="error" style="color:red">Tags must be required.</div>
                                                 @endif
@@ -413,17 +405,17 @@
                             <div class="row cxrmcheckbox pb-2">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" value="Customer" name="cxrm[]" id="customCheck1">
+                                        <input type="checkbox" class="custom-control-input" value="Customer" name="cxrm[]" id="{{ $is_parent ? 'parent' : 'child' }}_Customer">
                                         <label class="custom-control-label"
-                                                for="customCheck1">Customer</label>
+                                                for="{{ $is_parent ? 'parent' : 'child' }}_Customer">Customer</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox"
-                                                class="custom-control-input" value="Supplier" name="cxrm[]" id="customCheck2">
+                                                class="custom-control-input" value="Supplier" name="cxrm[]" id="{{ $is_parent ? 'parent' : 'child' }}_Supplier">
                                         <label class="custom-control-label"
-                                                for="customCheck2">Supplier</label>
+                                                for="{{ $is_parent ? 'parent' : 'child' }}_Supplier">Supplier</label>
                                         <!-- <i class="ft-external-link ccm"></i> -->
                                     </div>
                                 </div>
@@ -431,34 +423,34 @@
                             <div class="row cxrmcheckbox pb-2">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="cxrm[]" value="Beneficiary" class="custom-control-input" id="customCheck3">
+                                        <input type="checkbox" name="cxrm[]" value="Beneficiary" class="custom-control-input" id="{{ $is_parent ? 'parent' : 'child' }}_Beneficiary">
                                         <label class="custom-control-label"
-                                                for="customCheck3">Beneficiary</label>
+                                                for="{{ $is_parent ? 'parent' : 'child' }}_Beneficiary">Beneficiary</label>
                                         <!-- <i class="ft-external-link ccm"></i> -->
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="cxrm[]" value="Partner" class="custom-control-input" id="customCheck4">
+                                        <input type="checkbox" name="cxrm[]" value="Partner" class="custom-control-input" id="{{ $is_parent ? 'parent' : 'child' }}_Partner">
                                         <label class="custom-control-label"
-                                                for="customCheck4">Partner</label>
+                                                for="{{ $is_parent ? 'parent' : 'child' }}_Partner">Partner</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row cxrmcheckbox pb-2">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="cxrm[]" value="Employee" class="custom-control-input" id="customCheck5">
+                                        <input type="checkbox" name="cxrm[]" value="Employee" class="custom-control-input" id="{{ $is_parent ? 'parent' : 'child' }}_Employee">
                                         <label class="custom-control-label"
-                                                for="customCheck5">Employee</label>
+                                                for="{{ $is_parent ? 'parent' : 'child' }}_Employee">Employee</label>
                                         <!-- <i class="ft-external-link ccm"></i> -->
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="cxrm[]" value="User" class="custom-control-input" id="customCheck6">
+                                        <input type="checkbox" name="cxrm[]" value="User" class="custom-control-input" id="{{ $is_parent ? 'parent' : 'child' }}_User">
                                         <label class="custom-control-label"
-                                                for="customCheck6">User</label>
+                                                for="{{ $is_parent ? 'parent' : 'child' }}_User">User</label>
                                         <!-- <i class="ft-external-link ccm"></i> -->
                                     </div>
                                 </div>
