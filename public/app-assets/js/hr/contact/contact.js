@@ -202,13 +202,14 @@ function selectCountry(countryID, route) {
         success: function (result) {
             if (result != "error") {
                 document.getElementById('putState').innerText = "";
+                $("#putState").append(
+                    '<option selcetd> Select state</option>'
+                );
                 $.each(result, function (key, value) {
                     $("#putState").append(
                         '<option value=' + value.id + '>' + value.value + '</option>'
                     );
                 });
-
-
             } else {
                 document.getElementById('putState').innerText = "";
                 $("#putState").append(
@@ -228,6 +229,9 @@ function selectState(stateID, route) {
         success: function (result) {
             if (result != "error") {
                 document.getElementById('putCity').innerText = "";
+                $("#putCity").append(
+                    '<option selcetd>Select City</option>'
+                );
                 $.each(result, function (key, value) {
                     $("#putCity").append(
                         '<option value=' + value.id + '>' + value.value + '</option>'
@@ -342,6 +346,9 @@ function selectChildCountry(countryID, route) {
         success: function (result) {
             if (result != "error") {
                 document.getElementById('putChildState').innerText = "";
+                $("#putChildState").append(
+                    '<option selcetd>Select City</option>'
+                );
                 $.each(result, function (key, value) {
                     $("#putChildState").append(
                         '<option value=' + value.id + '>' + value.value + '</option>'
@@ -368,6 +375,9 @@ function selectChildState(stateID, route) {
         success: function (result) {
             if (result != "error") {
                 document.getElementById('putChildCity').innerText = "";
+                $("#putChildCity").append(
+                    '<option selcetd>Select City</option>'
+                );
                 $.each(result, function (key, value) {
                     $("#putChildCity").append(
                         '<option value=' + value.id + '>' + value.value + '</option>'
@@ -398,6 +408,9 @@ function selectMoreCountry(countryID, route) {
         success: function (result) {
             if (result != "error") {
                 document.getElementById('putMoreState').innerText = "";
+                $("#putMoreState").append(
+                    '<option selcetd>Select City</option>'
+                );
                 $.each(result, function (key, value) {
                     $("#putMoreState").append(
                         '<option value=' + value.id + '>' + value.value + '</option>'
@@ -424,6 +437,9 @@ function selectMoreState(stateID, route) {
         success: function (result) {
             if (result != "error") {
                 document.getElementById('putMoreCity').innerText = "";
+                $("#putMoreCity").append(
+                    '<option selcetd>Select City</option>'
+                );
                 $.each(result, function (key, value) {
                     $("#putMoreCity").append(
                         '<option value=' + value.id + '>' + value.value + '</option>'
@@ -526,8 +542,6 @@ $(document).ready(function (e) {
     });
 });
 
-
-
 $(document).ready(function (e) {
     $('#child-address').on('submit', (function (e) {
         let companyName = document.getElementById('company-name').value;
@@ -576,6 +590,17 @@ $(document).ready(function (e) {
         }
     }));
 });
+
+function checkAddressType(id) {
+    let checkBox = document.getElementById(id);
+    let condition = checkBox.firstElementChild.checked;
+    console.log(condition);
+
+}
+
+function moreAddressType(id) {
+    console.log(id);
+}
 
 
 

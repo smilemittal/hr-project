@@ -104,8 +104,8 @@
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="error" style="display: none;color: red"
-                                                                 id="error-for-individual-company">1 type must be
-                                                                select.
+                                                                 id="error-for-individual-company">
+                                                                Type must be selected.
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1065,7 +1065,7 @@
                                                     <div class="col-md-9">
                                                         <div class="row cxrmcheckbox pb-2">
                                                             <div class="col-md-6 col-sm-6">
-                                                                <div class="custom-control custom-checkbox" id="correspondence-more-sec" {{--onclick="checkAddressType(this.id)"--}}>
+                                                                <div class="custom-control custom-checkbox" id="correspondence-more-sec" onclick="moreAddressType(this.id)">
                                                                     <input type="checkbox" name="address-type[]" onclick="ShowHideDiv(this)" value="Correspondence" class="custom-control-input" id="correspondence-more">
                                                                     <label class="custom-control-label"
                                                                            for="correspondence-more">Correspondence</label>
@@ -1073,7 +1073,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 col-sm-6">
-                                                                <div class="custom-control custom-checkbox" id="invoice-more-sec" {{--onclick="checkAddressType(this.id)"--}}>
+                                                                <div class="custom-control custom-checkbox" id="invoice-more-sec" onclick="moreAddressType(this.id)">
                                                                     <input type="checkbox" name="address-type[]" class="custom-control-input" value="Invoice" id="invoice-more">
                                                                     <label class="custom-control-label"
                                                                            for="invoice-more">Invoice</label>
@@ -1082,14 +1082,14 @@
                                                         </div>
                                                         <div class="row cxrmcheckbox pb-2">
                                                             <div class="col-md-6 col-sm-6">
-                                                                <div class="custom-control custom-checkbox" id="registered-more-sec" {{--onclick="checkAddressType(this.id)"--}}>
+                                                                <div class="custom-control custom-checkbox" id="registered-more-sec" onclick="moreAddressType(this.id)">
                                                                     <input type="checkbox" name="address-type[]" value="Registered" class="custom-control-input" id="registered-more">
                                                                     <label class="custom-control-label" for="registered-more">Registered</label>
                                                                     <!-- <i class="ft-external-link ccm"></i> -->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 col-sm-6">
-                                                                <div class="custom-control custom-checkbox" id="shipping-more-sec" {{--onclick="checkAddressType(this.id)"--}}>
+                                                                <div class="custom-control custom-checkbox" id="shipping-more-sec" onclick="moreAddressType(this.id)">
                                                                     <input type="checkbox" name="address-type[]" value="Shipping" class="custom-control-input" id="shipping-more">
                                                                     <label class="custom-control-label" for="shipping-more">Shipping</label>
                                                                 </div>
@@ -1097,7 +1097,7 @@
                                                         </div>
                                                         <div class="row cxrmcheckbox pb-2">
                                                             <div class="col-md-6 col-sm-6">
-                                                                <div class="custom-control custom-checkbox" id="other-more-sec" {{--onclick="checkAddressType(this.id)"--}}>
+                                                                <div class="custom-control custom-checkbox" id="other-more-sec" onclick="moreAddressType(this.id)">
                                                                     <input type="checkbox" name="address-type[]" value="Other" class="custom-control-input" id="other-more">
                                                                     <label class="custom-control-label" for="other-more">Other</label>
                                                                     <!-- <i class="ft-external-link ccm"></i> -->
