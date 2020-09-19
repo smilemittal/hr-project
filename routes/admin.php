@@ -95,7 +95,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/gender/delete/{id}' , 'Admin\SiteSettingController@deleteGender')->name('delete.gender');
 
 
-    //gender routes
+    //marital status routes
     Route::get('/martial-status/index' , 'Admin\SiteSettingController@indexMartialStatus')->name('martial-status.index');
     Route::get('/martial-status/create/view' , 'Admin\SiteSettingController@createViewMartialStatus')->name('create-view.martial-status');
     Route::post('/martial-status/post/data' , 'Admin\SiteSettingController@postMartialStatus')->name('post-data.martial-status');
@@ -106,7 +106,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/martial-status/delete/{id}' , 'Admin\SiteSettingController@deleteMartialStatus')->name('delete.martial-status');
 
 
-    //contract-tag routes
+    //contract-title routes
     Route::get('/contact-title/index' , 'Admin\SiteSettingController@indexContactTitle')->name('contact-title.index');
     Route::get('/contact-title/create/view' , 'Admin\SiteSettingController@createViewContactTitle')->name('create-view.contact-title');
     Route::post('/contact-title/post/data' , 'Admin\SiteSettingController@postContactTitle')->name('post-data.contact-title');
@@ -148,7 +148,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/city/delete/{id}' , 'Admin\SiteSettingController@deleteCity')->name('delete.city');
     Route::post('/city/post/new_city', 'Admin\SiteSettingController@saveNewCity')->name('save-new.city');
 
-    //city routes
+    //state routes
     Route::get('/states/index' , 'Admin\SiteSettingController@indexState')->name('state.index');
     Route::get('/state/create/view' , 'Admin\SiteSettingController@createViewState')->name('create-view.state');
     Route::post('/state/post/data' , 'Admin\SiteSettingController@postState')->name('post-data.state');
@@ -168,6 +168,45 @@ Route::prefix('admin')->group(function () {
     Route::get('/blood-group/active/{id}' , 'Admin\SiteSettingController@activeBloodGroup')->name('active.blood-group');
     Route::get('/blood-group/delete/{id}' , 'Admin\SiteSettingController@deleteBloodGroup')->name('delete.blood-group');
 
+    // Employment type toutes
+    Route::get('/employment-type/index' , 'Admin\SiteSettingController@indexEmploymentType')->name('employment-type.index');
+    Route::get('/employment-type/create/view' , 'Admin\SiteSettingController@createViewEmploymentType')->name('create-view.employment-type');
+    Route::post('/employment-type/post/data' , 'Admin\SiteSettingController@postEmploymentType')->name('post-data.employment-type');
+    Route::get('/employment-type/update/{id}' , 'Admin\SiteSettingController@updateEmploymentType')->name('update.employment-type');
+    Route::post('/employment-type/post/update/data/{id}' , 'Admin\SiteSettingController@updatePostEmploymentType')->name('post-update.employment-type');
+    Route::get('/employment-type/inactive/{id}' , 'Admin\SiteSettingController@inactiveEmploymentType')->name('inactive.employment-type');
+    Route::get('/employment-type/active/{id}' , 'Admin\SiteSettingController@activeEmploymentType')->name('active.employment-type');
+    Route::get('/employment-type/delete/{id}' , 'Admin\SiteSettingController@deleteEmploymentType')->name('delete.employment-type');
+
+    //relationship routes
+    Route::get('/relationship/index' , 'Admin\SiteSettingController@indexRelationship')->name('relationship.index');
+    Route::get('/relationship/create/view' , 'Admin\SiteSettingController@createViewRelationship')->name('create-view.relationship');
+    Route::post('/relationship/post/data' , 'Admin\SiteSettingController@postRelationship')->name('post-data.relationship');
+    Route::get('/relationship/update/{id}' , 'Admin\SiteSettingController@updateRelationship')->name('update.relationship');
+    Route::post('/relationship/post/update/data/{id}' , 'Admin\SiteSettingController@updatePostRelationship')->name('post-update.relationship');
+    Route::get('/relationship/inactive/{id}' , 'Admin\SiteSettingController@inactiveRelationship')->name('inactive.relationship');
+    Route::get('/relationship/active/{id}' , 'Admin\SiteSettingController@activeRelationship')->name('active.relationship');
+    Route::get('/relationship/delete/{id}' , 'Admin\SiteSettingController@deleteRelationship')->name('delete.relationship');
+
+     //attendance routes
+    Route::get('/attendance/index' , 'Admin\SiteSettingController@indexAttendance')->name('attendance.index');
+    Route::get('/attendance/create/view' , 'Admin\SiteSettingController@createViewAttendance')->name('create-view.attendance');
+    Route::post('/attendance/post/data' , 'Admin\SiteSettingController@postAttendance')->name('post-data.attendance');
+    Route::get('/attendance/update/{id}' , 'Admin\SiteSettingController@updateAttendance')->name('update.attendance');
+    Route::post('/attendance/post/update/data/{id}' , 'Admin\SiteSettingController@updatePostAttendance')->name('post-update.attendance');
+    Route::get('/attendance/inactive/{id}' , 'Admin\SiteSettingController@inactiveAttendance')->name('inactive.attendance');
+    Route::get('/attendance/active/{id}' , 'Admin\SiteSettingController@activeAttendance')->name('active.attendance');
+    Route::get('/attendance/delete/{id}' , 'Admin\SiteSettingController@deleteAttendance')->name('delete.attendance');
+
+     //period-frequency routes
+    Route::get('/period-frequency/index' , 'Admin\SiteSettingController@indexPeriodFrequency')->name('period-frequency.index');
+    Route::get('/period-frequency/create/view' , 'Admin\SiteSettingController@createViewPeriodFrequency')->name('create-view.period-frequency');
+    Route::post('/period-frequency/post/data' , 'Admin\SiteSettingController@postPeriodFrequency')->name('post-data.period-frequency');
+    Route::get('/period-frequency/update/{id}' , 'Admin\SiteSettingController@updatePeriodFrequency')->name('update.period-frequency');
+    Route::post('/period-frequency/post/update/data/{id}' , 'Admin\SiteSettingController@updatePostPeriodFrequency')->name('post-update.period-frequency');
+    Route::get('/period-frequency/inactive/{id}' , 'Admin\SiteSettingController@inactivePeriodFrequency')->name('inactive.period-frequency');
+    Route::get('/period-frequency/active/{id}' , 'Admin\SiteSettingController@activePeriodFrequency')->name('active.period-frequency');
+    Route::get('/period-frequency/delete/{id}' , 'Admin\SiteSettingController@deletePeriodFrequency')->name('delete.period-frequency');
 
      //Employee registration process
      Route::get('/employee/index' , 'Admin\EmployeeController@indexEmployee')->name('employee.index');

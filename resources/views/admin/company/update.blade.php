@@ -369,10 +369,8 @@
             error: function(data){
                 $('.modal_city_error').html(data.responseJSON.errors.city[0]);
             }
-
         });
-
-    })
+    });
 </script>
 
 

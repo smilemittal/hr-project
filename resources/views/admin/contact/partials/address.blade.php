@@ -1,5 +1,5 @@
 @if($is_parent)
-<div class="col-md-12" id="address-type" style="display: none">
+    <div class="col-md-12" id="address-type" style="display: none">
     <div class="form-group row">
         <label class="col-md-3" for="">Address
             type</label>
