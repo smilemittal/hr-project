@@ -639,7 +639,6 @@
 <script src="{{asset('app-assets/js/scripts/extensions/toastr.js')}}" type="text/javascript"></script>
 <script src="{{asset('app-assets/vendors/js/tables/datatable/datatables.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('app-assets/js/scripts/tables/datatables/datatable-basic.js')}}" type="text/javascript"></script>
-<script src="{{asset('app-assets/js/hr/contact/contact.js')}}" type="text/javascript"></script>
 <script>
     setTimeout(function(){
         document.getElementById('alert-success-message').style.display = 'none'
