@@ -7,17 +7,17 @@
             <div class="breadcrumbs-top d-inline-block">
                 <div class="breadcrumb-wrapper mr-1">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Settings</a>
+                        <li class="breadcrumb-item"><a href="#">Contact</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#">Cities</a>
+                        <li class="breadcrumb-item"><a href="#">List</a>
                         </li>
                     </ol>
                 </div>
             </div>
         </div>
         <div class="content-header-right col-md-4 col-12 d-block d-md-none"><a
-                class="btn btn-warning btn-min-width float-md-right box-shadow-4 mr-1 mb-1"
-                href="chat-application.html"><i class="ft-mail"></i> Email</a></div>
+                    class="btn btn-warning btn-min-width float-md-right box-shadow-4 mr-1 mb-1"
+                    href="chat-application.html"><i class="ft-mail"></i> Email</a></div>
     </div>
     {{--    main content--}}
     <div class="content-body">
@@ -39,15 +39,17 @@
                         </div>
                         <div class="card-content collapse show">
                             <div class="card-body card-dashboard">
-                                <p class="card-text"><a href="{{route('create-view.city')}}"
+                                <p class="card-text"><a href="{{route('contact.create')}}"
                                                         class="btn btn-success float-right">Add</a></p>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>City</th>
-                                            <th>State</th>                 
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Phone Number</th>
                                             <th>Status</th>
                                             <th>Created At</th>
                                             <th>Action</th>
@@ -57,41 +59,43 @@
                                         @php
                                             $i="1";
                                         @endphp
-                                        @foreach($cities as $city)
+                                        @foreach($contacts as $contact)
                                             <tr>
                                                 <td>{{$i}}</td>
-                                                <td>{{$city->value}}</td>
-                                                <td>{{$city->state->value}}</td>
+                                                <td>{{$contact->contact_type}}</td>
+                                                <td>{{$contact->contact_name}}</td>
                                                 <td>
-                                                    @if($city->status === 'active')
-                                                        <span style="color:green"> {{$city->status}}</span>
+                                                    @if($contact->getAddressInfo->count() > 0)
+                                                        {{isset($contact->getAddressInfo[0]->email)?$contact->getAddressInfo[0]->email:"not found"}}
                                                     @else
-                                                        <span style="color:blue"> {{$city->status}}</span>
+                                                        not found
                                                     @endif
 
                                                 </td>
-                                                <td>{{ !empty($city->created_at)?$city->created_at->diffForHumans(): ''}}</td>
+                                                <td>
+                                                    @if($contact->getAddressInfo->count() > 0)
+                                                        {{isset($contact->getAddressInfo[0]->phone)?$contact->getAddressInfo[0]->phone:"not found"}}
+                                                    @else
+                                                        not found
+                                                    @endif
+                                                </td>
+                                                <td> {{$contact->status}}</td>
+                                                <td>{{ !empty($contact->created_at)?$contact->created_at->diffForHumans(): ''}}</td>
                                                 <td>
                                                     <span class="dropdown">
                                                         <button id="btnSearchDrop12" type="button" class="btn btn-sm btn-icon btn-pure font-medium-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             <i class="ft-more-vertical"></i>
                                                         </button>
                                                         <span aria-labelledby="btnSearchDrop12" class="dropdown-menu mt-1 dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(55px, 27px, 0px);">
-                                                    @if($city->status === 'active')
-                                                            <a href="{{route('inactive.city' , encrypt($city->id))}}" class="dropdown-item" title="click to make inactive the active value">
-                                                                <i class="ft-plus-circle primary"></i> Inactive</a>
-                                                    @else
-                                                            <a href="{{route('active.city' ,  encrypt($city->id))}}" class="dropdown-item" title="click to make active the inactive value">
-                                                                <i class="ft-plus-circle primary"></i> Active</a>
-                                                    @endif
-                                                            <a href="{{route('update.city' ,  encrypt($city->id))}}" class="dropdown-item" title="Edit the value">
-                                                                <i class="ft-trash-2"></i> Edit</a>
-                                                            <a href="{{route('delete.city' ,  encrypt($city->id))}}" class="dropdown-item" title="Danger! this action will delete the record from database">
-                                                                <i class="ft-edit-2"></i> Delete</a>
-                                                    
+                                                            <a href="{{route('contact.view' ,  encrypt($contact->id))}}" class="dropdown-item" title="View the record">
+                                                                <i class="ft-eye"></i> View</a>
+                                                            <a href="{{route('contact.edit' ,  encrypt($contact->id))}}" class="dropdown-item" title="Update the record">
+                                                                <i class="ft-edit-2"></i> Edit</a>
+                                                            <a href="{{route('contact.trash' ,  encrypt($contact->id))}}" class="dropdown-item" title="Danger! this action will move to trash the record.">
+                                                                <i class="ft-trash-2"></i> Delete</a>
                                                         </span>
                                                     </span>
-                                                    
+
                                                 </td>
                                             </tr>
                                             @php
@@ -102,9 +106,11 @@
                                         <tfoot>
                                         <tr>
                                             <th>Id</th>
-                                            <th>City</th>
-                                            <th>State</th>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
                                             <th>Status</th>
+                                            <th>Phone Number</th>
                                             <th>Created At</th>
                                             <th>Action</th>
                                         </tr>

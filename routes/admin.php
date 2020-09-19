@@ -248,6 +248,8 @@ Route::prefix('admin')->group(function () {
     Route::get('office-shift/delete/{id}' , 'Admin\OfficeShiftController@deleteOfficeShift')->name('delete.office-shift');
 
     //Contact Create View
+    Route::get('/contact/form' , 'Admin\ContactController@createContactView')->name('contact.form');
+    Route::get('/contact/index' , 'Admin\ContactController@index')->name('contact.index');
     Route::get('/contact/create/view' , 'Admin\ContactController@create')->name('contact.create');
     Route::post('post/contact' , 'Admin\ContactController@postContact')->name('contact.post');
     Route::post('post/child/contact' , 'Admin\ContactController@postChildContact')->name('contact.child.post');
@@ -255,6 +257,13 @@ Route::prefix('admin')->group(function () {
     Route::get('get/states/for/contact' , 'Admin\ContactController@getStates')->name('get-state-for-contact');
     Route::get('get/cities/for/contact' , 'Admin\ContactController@getCities')->name('get-city-for-contact');
     Route::post('/post/contact/type/info' , 'Admin\ContactController@postContactTypeInfo')->name('post-contact-type-info');
+
+    Route::get('/contact/view/{id}' , 'Admin\ContactController@view')->name('contact.view');
+    Route::get('/contact/edit/{id}' , 'Admin\ContactController@edit')->name('contact.edit');
+    Route::get('/contact/trash/view' , 'Admin\ContactController@trashView')->name('contact.trash.view');
+    Route::get('/contact/trash/{id}' , 'Admin\ContactController@trash')->name('contact.trash');
+    Route::get('/contact/restore/{id}' , 'Admin\ContactController@restore')->name('contact.restore');
+    Route::get('/contact/delete/{id}' , 'Admin\ContactController@delete')->name('contact.delete');
 
 });
 

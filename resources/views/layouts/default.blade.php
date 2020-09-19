@@ -548,10 +548,29 @@
                     {{--                                </li>--}}
                 </ul>
             </li>
-            <li class=" nav-item"><a href="{{route('contact.create')}}"><i class="ft-user"></i><span
-                        class="menu-title" data-i18n="">Contact</span></a>
+
+
+            <li class=" nav-item">
+                <a href="#">
+                    <i class="ft-user"></i>
+                    <span class="menu-title" data-i18n="">Contact</span>
+                </a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="menu-item" href="{{route('contact.index')}}">List</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('contact.create')}}">Add</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('contact.trash.view')}}">Trash</a>
+                    </li>
+
+
+                </ul>
             </li>
-           
+
+
             <li class=" nav-item"><a href="{{route('employee.index')}}"><i class="ft-user"></i><span
                         class="menu-title" data-i18n="">Employee</span></a>
             </li>
@@ -580,6 +599,16 @@
 <div class="app-content content">
     <div class="content-wrapper">
         <div class="content-wrapper-before"></div>
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success mb-2" style="width: 500px;position: absolute;right: 0;top: 0px;" id="alert-success-message" role="alert">
+                <strong>Success! </strong> {{$message}}
+            </div>
+        @endif
+        @if ($message = Session::get('error'))
+            <div class="alert alert-danger mb-2" id="alert-error-message" style="width: 500px;position: absolute;right: 0;top: 0px;" role="alert">
+                <strong>Error! </strong> {{$message}}
+            </div>
+        @endif
         @yield('content')
     </div>
 </div>
@@ -624,7 +653,6 @@
 <script src="{{asset('app-assets/js/scripts/extensions/toastr.js')}}" type="text/javascript"></script>
 <script src="{{asset('app-assets/vendors/js/tables/datatable/datatables.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('app-assets/js/scripts/tables/datatables/datatable-basic.js')}}" type="text/javascript"></script>
-<script src="{{asset('app-assets/js/hr/contact/contact.js')}}" type="text/javascript"></script>
 <script>
     setTimeout(function(){
         document.getElementById('alert-success-message').style.display = 'none'
