@@ -336,7 +336,7 @@
                                                 <label class="col-md-3"
                                                        for="">State</label>
                                                 <div class="col-md-9">
-                                                    <select id="putMoreState" name="priority"
+                                                    <select id="putMoreState" name="state"
                                                             onchange="selectMoreState(this.value, '{{route('get-city-for-contact')}}')"
                                                             class="form-control">
                                                     </select>
@@ -347,7 +347,7 @@
                                             <div class="form-group row">
                                                 <label class="col-md-3" for="">City</label>
                                                 <div class="col-md-9">
-                                                    <select id="putMoreCity" name="City"
+                                                    <select id="putMoreCity" name="city"
                                                             class="form-control">
                                                     </select>
                                                 </div>

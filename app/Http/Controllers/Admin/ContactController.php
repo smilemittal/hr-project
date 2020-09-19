@@ -9,6 +9,7 @@ use App\Country;
 use App\Http\Controllers\Controller;
 use App\State;
 use Illuminate\Http\Request;
+use function GuzzleHttp\Promise\all;
 
 class ContactController extends Controller
 {
@@ -78,6 +79,7 @@ class ContactController extends Controller
         }
     }
 
+
     public function postContact(Request $request)
     {
         $contact = Contact::find($request['id']);
@@ -118,30 +120,32 @@ class ContactController extends Controller
                 'photo' => 'required',
             ]);
 
-
             if ($request->file('photo')) {
                 $profile_picture = $request->file('photo');
                 $imageName = time() . '.' . $profile_picture->getClientOriginalExtension();
                 $profile_picture->storeAs('contact-profile', $imageName);
                 $contact->photo = $imageName;
             }
+
             if ($contact->contact_type == 'Individual') {
                 $contact->contact_name = $request['first-name'];
                 $contact->middle_name = $request['middle-name'];
                 $contact->last_name = $request['last-name'];
                 $contact->job_position = $request['job-position'];
                 $contact->business_info = $request['business-info'];
-            } else {
+            }
+            else {
                 $contact->contact_name = $request['company-name'];
                 $contact->business_classifications = $request['business-classifications'];
                 $contact->account_status = $request['account-status'];
             }
+
             $contact->tags = $request['tags'];
             $contact->social_info = json_encode($request['social']);
             $contact->cxrm = json_encode($request['cxrm']);
             $contact->other_information = $request['other-information'];
-
             $contact->save();
+
             $AddressInfo = new ContactAddress();
             $AddressInfo->contact_id = $contact->id;
             $AddressInfo->house_number = $request['house-number'];
@@ -157,8 +161,9 @@ class ContactController extends Controller
             $AddressInfo->email = $request['email'];
             $AddressInfo->website = $request['website'];
             $AddressInfo->save();
-            if($request['account-rec-able'])
-            $accInfo = new ContactAccountingInfo();
+
+            if ($request['account-rec-able'])
+                $accInfo = new ContactAccountingInfo();
             $accInfo->contact_id = $contact->id;
             $accInfo->sales_person = $request['sales-person'];
             $accInfo->account_receivable = $request['account-rec-able'];
@@ -169,10 +174,22 @@ class ContactController extends Controller
             $accInfo->save();
 
             dd('all done');
-        } else {
-            return redirect()->back('error', 'contact type must be required like company or Individual.');
+
+
+
+
+
+
+
+
+
+
+        }
+        else {
+            return redirect()->back()->with('error', 'Please fill the proper form with select one type like Company or Individual.');
         }
     }
+
 
     public function postChildContact(Request $request)
     {

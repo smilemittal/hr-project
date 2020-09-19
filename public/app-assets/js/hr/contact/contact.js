@@ -586,7 +586,6 @@ function moreAddressType(id) {
             document.getElementById('other').removeAttribute("disabled");
         }
     }
-
 }
 
 

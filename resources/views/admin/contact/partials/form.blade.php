@@ -433,6 +433,10 @@
                                     </div>
                                 </div>
                             </div>
+                            @if($errors->has('cxrm'))
+                                <div class="error" style="color:red">At least one CXRM must be required.</div>
+                            @endif
+
                         </div>
 
                     </div>
@@ -485,6 +489,9 @@
                                                         Person 1
                                                     </option>
                                                 </select>
+                                                @if($errors->has('sales-person'))
+                                                    <div class="error" style="color:red">Sales person must be required.</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -497,6 +504,9 @@
                                             <div class="position-relative">
                                                 <input type="text" id="" name="account-rec-able"
                                                         class="form-control">
+                                                @if($errors->has('account-rec-able'))
+                                                    <div class="error" style="color:red">Account receivable must be required.</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -510,6 +520,9 @@
                                             <div class="position-relative">
                                                 <input type="text" id="" name="sales-price"
                                                         class="form-control">
+                                                @if($errors->has('sales-price'))
+                                                    <div class="error" style="color:red">Sales price must be required.</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -523,6 +536,9 @@
                                             <div class="position-relative">
                                                 <input type="text" id="" name="account-payable"
                                                         class="form-control">
+                                                @if($errors->has('account-payable'))
+                                                    <div class="error" style="color:red">Accounts payable must be required.</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -536,6 +552,9 @@
                                             <div class="position-relative">
                                                 <input type="text" id="" name="customer-payment"
                                                         class="form-control">
+                                                @if($errors->has('customer-payment'))
+                                                    <div class="error" style="color:red">Customer payment terms must be required.</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -549,6 +568,9 @@
                                             <div class="position-relative">
                                                 <input type="text" id="" name="vendor-term"
                                                         class="form-control">
+                                                @if($errors->has('vendor-term'))
+                                                    <div class="error" style="color:red">Vendor payment terms must be required</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -569,6 +591,9 @@
                             <div class="col-md-12">
                                 <textarea id="projectinput9" rows="5" class="form-control" name="other-information"
                                             placeholder="WISIWYG"></textarea>
+                                @if($errors->has('other-information'))
+                                    <div class="error" style="color:red">Other information must be required.</div>
+                                @endif
                             </div>
                         </div>
                     </div>
