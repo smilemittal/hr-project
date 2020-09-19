@@ -176,3 +176,91 @@ button:focus{
 .media-body.text-left.text-dark .row.cxrmcheckbox.pb-2 {
     padding-bottom: 0px !IMPORTANT;
 }
+.radio_button-type .row.p-2 {
+    padding: 0px !important;
+    padding-left: 150px !important;
+}
+.col_custom-head .form-group input {
+    width: 100%;
+    color: #4e5154;
+    border: 1px solid #babfc7;
+    border-radius: .25rem;
+    background-color: #fff;
+    background-clip: padding-box;
+    padding: 10px;
+}
+
+.col_custom-head select.form-control {
+    padding: 5px;
+}
+.address_info {
+    border: 2px solid #2d21213d;
+    border-radius: 5px;
+    padding: 10px;
+    height:100%;
+    box-shadow: 0px 0px 3px #b5aeae;
+    position: relative;
+}
+
+.address_info .col_bx {
+    padding: 0px;
+    margin: 0px;
+}
+
+.address_info .col_bx li {
+    width: 100%;
+    display: flex;
+    margin-bottom: 4px;
+}
+
+.address_info .col_bx li .icons {
+    width: 30px;
+}
+
+.address_info .col_bx li .address-data {
+    width: 90%;
+}
+
+.address_info .col_bx li i {
+    background: #fff;
+    box-shadow: 0px 0px 10px #ddd;
+    padding: 3px;
+    display: inline-block;
+    font-size: 11px;
+    border-radius: 3px;
+}
+
+.address_info .col_bx li .address-data label {
+    font-size: 12px;
+    margin: 0px;
+}
+
+.address_info .col_bx li .address-data p {
+    font-size: 12px;
+    color: #000;
+    font-weight: 600;
+    margin: 0px;
+}
+
+.address_info .col_bx li .address-data a {
+    font-size: 12px;
+    color: #000;
+    font-weight: 600;
+}
+
+.address_info .right-edit-btn {
+    float: right;
+    margin-bottom: -20px;
+}
+
+.address_info .right-edit-btn i {
+    color: #2196F3;
+    font-size: 15px;
+}
+.type-address h2 {
+    font-size: 12px;
+}
+.type-address {
+    display: flex;
+    justify-content: space-between;
+}
