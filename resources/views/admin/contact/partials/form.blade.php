@@ -322,8 +322,8 @@
                                         <div class="form-group">
                                             <label>Tags</label>
                                             <div class="position-relative">
-                                                <div  class="form-control tags"
-                                                     data-tags-input-name="tags"></div>
+                                                <div  class="form-control {{ $is_parent ? 'parent' : 'child' }}-tags"
+                                                     data-tags-input-name="{{ $is_parent ? 'parent' : 'child' }}-tags"></div>
                                                 @if($errors->has('tags'))
                                                     <div class="error" style="color:red">Tags must be required.</div>
                                                 @endif
@@ -337,7 +337,7 @@
                     <div class="col-md-5">
                         <div class="media-body text-left text-dark">
                             <div class="row">
-                               @include('admin.contact.partials.address',['is_parent' => true])
+                               @include('admin.contact.partials.address',['is_parent' => true , 'address_child'=>false])
                             </div>
                             @if($is_parent)
                             <div class="row" id="more-address" style="display: none">

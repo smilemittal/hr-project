@@ -325,7 +325,7 @@ function childForm(route) {
     console.log(route);
     $.get(route, function (data) {
         $(".child-form").html(data);
-        $(".tags").tagging();
+        $(".child-tags").tagging();
     });
 }
 
@@ -340,20 +340,20 @@ function selectMoreCountry(countryID, route) {
         method: 'get',
         data: {'id': countryID},
         success: function (result) {
+            document.getElementById('putMoreState').innerText = "";
             if (result != "error") {
                 document.getElementById('putMoreState').innerText = "";
                 $("#putMoreState").append(
                     '<option selcetd>Select City</option>'
                 );
+
+
                 $.each(result, function (key, value) {
                     $("#putMoreState").append(
                         '<option value=' + value.id + '>' + value.value + '</option>'
                     );
                 });
-
-
             } else {
-                document.getElementById('putMoreState').innerText = "";
                 $("#putMoreState").append(
                     '<option selected disabled>Record not found</option>'
                 );
@@ -392,8 +392,7 @@ function selectMoreState(stateID, route) {
 }
 
 $(document).ready(function (e) {
-    $(".tags").tagging();
-
+    $(".parent-tags").tagging();
     $('#child-form').on('submit', (function (e) {
         let companyName = document.getElementById('company-name').value;
         if (companyName) {
@@ -533,23 +532,31 @@ function checkAddressType(id) {
             document.getElementById('correspondence-more').setAttribute("disabled", "");
         } else if (checkBox.firstElementChild.value == 'Invoice') {
             document.getElementById('invoice-more').setAttribute("disabled", "");
-        } else if (checkBox.firstElementChild.value == 'Registered') {
+        }
+        else if (checkBox.firstElementChild.value == 'Registered') {
             document.getElementById('registered-more').setAttribute("disabled", "");
-        } else if (checkBox.firstElementChild.value == 'Shipping') {
+        }
+        else if (checkBox.firstElementChild.value == 'Shipping') {
             document.getElementById('shipping-more').setAttribute("disabled", "");
-        } else if (checkBox.firstElementChild.value == 'Other') {
+        }
+        else if (checkBox.firstElementChild.value == 'Other') {
             document.getElementById('other-more').setAttribute("disabled", "");
         }
-    } else {
+    }
+    else {
         if (checkBox.firstElementChild.value == 'Correspondence') {
             document.getElementById('correspondence-more').removeAttribute("disabled");
-        } else if (checkBox.firstElementChild.value == 'Invoice') {
+        }
+        else if (checkBox.firstElementChild.value == 'Invoice') {
             document.getElementById('invoice-more').removeAttribute("disabled");
-        } else if (checkBox.firstElementChild.value == 'Registered') {
+        }
+        else if (checkBox.firstElementChild.value == 'Registered') {
             document.getElementById('registered-more').removeAttribute("disabled");
-        } else if (checkBox.firstElementChild.value == 'Shipping') {
+        }
+        else if (checkBox.firstElementChild.value == 'Shipping') {
             document.getElementById('shipping-more').removeAttribute("disabled");
-        } else if (checkBox.firstElementChild.value == 'Other') {
+        }
+        else if (checkBox.firstElementChild.value == 'Other') {
             document.getElementById('other-more').removeAttribute("disabled");
         }
     }

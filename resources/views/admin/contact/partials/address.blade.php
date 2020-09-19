@@ -1,12 +1,11 @@
 @if($is_parent)
-    <div class="col-md-12" id="address-type">
+    <div class="col-md-12" id="address-type" style="{{isset($address_child)?"display: block" : "display: none"}}">
     <div class="form-group row">
-        <label class="col-md-3" for="">Address
-            type</label>
+        <label class="col-md-3" for="">Address type</label>
         <div class="col-md-9">
             <div class="row cxrmcheckbox pb-2">
                 <div class="col-md-6 col-sm-6">
-                    <div class="custom-control custom-checkbox" id="correspondence-sec" onclick="checkAddressType(this.id)">
+                    <div class="custom-control custom-checkbox" id="{{ $is_parent ? 'parent' : 'child' }}-correspondence-sec" onclick="checkAddressType(this.id)">
                         <input type="checkbox" name="address-type[]" value="Correspondence" class="custom-control-input" id="Correspondence">
                         <label class="custom-control-label"
                                 for="Correspondence">Correspondence</label>

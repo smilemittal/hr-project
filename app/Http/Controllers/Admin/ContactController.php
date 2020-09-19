@@ -188,7 +188,7 @@ class ContactController extends Controller
             $accInfo->save();
             return redirect()->back()->with('success', 'Form submitted successfully.');
         } else {
-            return redirect()->back()->with('error', 'Please fill the proper form with select one type like Company or Individual.');
+            return redirect()->back()->with('error', 'Please fill all the fields.');
         }
     }
 
@@ -286,7 +286,7 @@ class ContactController extends Controller
         $AddressInfo->country_id = $request['country'];
         $AddressInfo->pincode = $request['post-code'];
         $AddressInfo->save();
-        dd('all-done');
+        return response("success");
     }
 
     public function view($id)
@@ -367,7 +367,8 @@ class ContactController extends Controller
         try {
             $countries = Country::whereStatus('active')->get();
             $is_parent = true;
-            return view('admin.contact.partials.address', compact('countries', 'is_parent'))->render();
+            $address_child = true;
+            return view('admin.contact.partials.address', compact('countries', 'is_parent' , 'address_child'))->render();
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
