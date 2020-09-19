@@ -193,61 +193,55 @@ function companyRadio(id) {
     contactType = 'Company';
 }
 
-function selectCountry(countryID, route) {
+$(document).on('change', '.country-change', function() {
+    var countrySelect = $(this);
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        url: route,
+        url: $.trim(getStates) + '/' + countrySelect.val(),
         method: 'get',
-        data: {'id': countryID},
         success: function (result) {
             if (result != "error") {
-                document.getElementById('putState').innerText = "";
-                $("#putState").append(
+                countrySelect.parents('.country-parent').next().find('.state-change').html(
                     '<option selcetd> Select state</option>'
                 );
                 $.each(result, function (key, value) {
-                    $("#putState").append(
+                    countrySelect.parents('.country-parent').next().find('.state-change').append(
                         '<option value=' + value.id + '>' + value.value + '</option>'
                     );
                 });
             } else {
-                document.getElementById('putState').innerText = "";
-                $("#putState").append(
+                 countrySelect.parents('.country-parent').next().find('.state-change').html(
                     '<option selected disabled>Record not found</option>'
                 );
             }
         }
     });
-}
+});
 
-function selectState(stateID, route) {
+$(document).on('change', '.state-change', function() {
+    var stateSelect = $(this);
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        url: route,
+        url: $.trim(getCities) + '/' + stateSelect.val(),
         method: 'get',
-        data: {'id': stateID},
         success: function (result) {
             if (result != "error") {
-                document.getElementById('putCity').innerText = "";
-                $("#putCity").append(
-                    '<option selcetd>Select City</option>'
+                stateSelect.parents('.state-parent').next().find('.city-change').html(
+                    '<option selcetd> Select City</option>'
                 );
                 $.each(result, function (key, value) {
-                    $("#putCity").append(
+                    stateSelect.parents('.state-parent').next().find('.city-change').append(
                         '<option value=' + value.id + '>' + value.value + '</option>'
                     );
                 });
-
-
             } else {
-                document.getElementById('putCity').innerText = "";
-                $("#putCity").append(
+                countrySelect.parents('.state-parent').next().find('.city-change').html(
                     '<option selected disabled>Record not found</option>'
                 );
             }
         }
     });
-}
+});
 
 function postDetail(contactInfo) {
     if (document.getElementById('record-id').value == '') {
@@ -321,7 +315,7 @@ function previewImage(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
-            $(input).prev().attr('src', e.target.result);
+            $(input).parent().find('img').attr('src', e.target.result);
         };
         reader.readAsDataURL(input.files[0]);
     }
@@ -330,6 +324,7 @@ function previewImage(input) {
 function childForm(route) {
     $.get(route, function (data) {
         $(".child-form").html(data);
+        $(".tags").tagging();
     });
 }
 
@@ -396,6 +391,8 @@ function selectMoreState(stateID, route) {
 }
 
 $(document).ready(function (e) {
+    $(".tags").tagging();
+
     $('#child-form').on('submit', (function (e) {
         let companyName = document.getElementById('company-name').value;
         if (companyName) {
@@ -586,7 +583,6 @@ function moreAddressType(id) {
             document.getElementById('other').removeAttribute("disabled");
         }
     }
-
 }
 
 
