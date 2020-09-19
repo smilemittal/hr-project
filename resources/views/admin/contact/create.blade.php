@@ -35,7 +35,6 @@
                                     <input type="hidden" id="record-id" name="id">
 
                                     @include('admin.contact.partials.form', ['is_parent' => true])
-                                  
 
                                     <button type="submit" class="btn btn-success float-right mb-2">Submit</button>
                                 </form>
@@ -315,16 +314,13 @@
                                                        for="">Country</label>
                                                 <div class="col-md-9">
                                                     <select id="" name="country"
-                                                            onchange="selectMoreCountry(this.value , '{{route('get-state-for-contact')}}')"
                                                             class="form-control">
                                                         <option value="">Select Country
                                                         </option>
                                                         @forelse($countries as $country)
                                                             <option value="{{$country->id}}">{{$country->value}}</option>
                                                         @empty
-                                                            <option selected disabled>not
-                                                                found in record
-                                                            </option>
+                                                            <option selected disabled>not found in record</option>
                                                         @endforelse
 
                                                     </select>
@@ -336,8 +332,7 @@
                                                 <label class="col-md-3"
                                                        for="">State</label>
                                                 <div class="col-md-9">
-                                                    <select id="putMoreState" name="state"
-                                                            onchange="selectMoreState(this.value, '{{route('get-city-for-contact')}}')"
+                                                    <select id="putMoreState" name="priority"
                                                             class="form-control">
                                                     </select>
                                                 </div>
@@ -431,6 +426,8 @@
 @section('page-js')
 <script>
     var createForm = "{{ route('contact.form') }}";
+    var getStates = "{{ route('get.state', ['country_id' => '']) }}";
+    var getCities = "{{ route('get.city', ['state_id' => '']) }}";
 </script>
 <script src="{{asset('app-assets/js/hr/contact/contact.js')}}" type="text/javascript"></script>
 

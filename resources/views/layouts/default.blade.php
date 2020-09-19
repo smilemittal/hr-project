@@ -473,12 +473,26 @@
                     <span class="menu-title" data-i18n="">Settings</span>
                 </a>
                 <ul class="menu-content">
+
                     <li>
                         <a class="menu-item" href="{{route('contract-type.index')}}">Contract Type</a>
                     </li>
                     <li>
                         <a class="menu-item" href="{{route('education-level.index')}}">Education Level</a>
                     </li>
+                    <li>
+                        <a class="menu-item" href="{{route('employment-type.index')}}">Employment Type</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('attendance.index')}}">Attendance</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('period-frequency.index')}}">Period Frequency</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('relationship.index')}}">Relationship</a>
+                    </li>
+
                     <li>
                         <a class="menu-item" href="{{route('document-type.index')}}">Document Type</a>
                     </li>

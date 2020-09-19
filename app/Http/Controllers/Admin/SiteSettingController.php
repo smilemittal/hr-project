@@ -18,6 +18,10 @@ use App\JobType;
 use App\MartialStatus;
 use App\Nationality;
 use App\State;
+use App\Relationship;
+use App\Attendance;
+use App\EmploymentType;
+use App\PeriodFrequency;
 use Illuminate\Http\Request;
 use Symfony\Component\Process\Pipes\UnixPipes;
 
@@ -1841,4 +1845,478 @@ class SiteSettingController extends Controller
         }
     }
     //End Blood Group
+
+    //Start Attendance
+    public function indexAttendance() {
+        try{
+            $attendances = Attendance::get();
+            return view('admin.settings.attendance.index' , compact('attendances'));
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function createViewAttendance() {
+        try{
+            return view('admin.settings.attendance.create');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function postAttendance(Request $request) {
+        try{
+            $request->validate([
+                'attendance' => 'required|unique:attendances,value|max:50'
+            ]);
+
+            Attendance::create([
+                'value'=> $request['attendance'],
+                'status' => 'active',
+            ]);
+
+            return redirect()->back()->with('success' , 'Attendance submitted successfully.');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function updateAttendance($id) {
+        try{
+            $record = Attendance::find(decrypt($id));
+            if($record) {
+                return view('admin.settings.attendance.update' , compact('record'));
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function updatePostAttendance(Request $request , $id) {
+        try{
+            $record = Attendance::find(decrypt($id));
+            if($record) {
+                $request->validate([
+                    'attendance' => 'required|unique:attendances,value|max:50'
+                ]);
+
+                $record->value = $request['attendance'];
+                $record->save();
+                return redirect()->back()->with('success' , 'Attendance updated successfully.');
+            }
+            else {
+                return redirect()->back()->with('success' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function inactiveAttendance($id) {
+        try{
+            $record = Attendance::find(decrypt($id));
+            if($record) {
+                $record->status = 'inactive';
+                $record->save();
+                return redirect()->back()->with('success' , 'Attendance Inactive successfully.');
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function activeAttendance($id) {
+        try{
+            $record = Attendance::find(decrypt($id));
+            if($record) {
+                $record->status = 'active';
+                $record->save();
+                return redirect()->back()->with('success' , 'Attendance active successfully.');
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+
+    }
+
+    public function deleteAttendance($id) {
+        try{
+            $record = Attendance::find(decrypt($id));
+            if($record) {
+                $record->delete();
+                return redirect()->back()->with('success' , 'Attendance delete successfully.');
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+    //End Attendance
+
+    //Start Employment Tyoe
+    public function indexEmploymentType() {
+        try{
+            $employmentTypes = EmploymentType::get();
+            return view('admin.settings.employment-type.index' , compact('employmentTypes'));
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function createViewEmploymentType() {
+        try{
+            return view('admin.settings.employment-type.create');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function postEmploymentType(Request $request) {
+        try{
+            $request->validate([
+                'employment_type' => 'required|unique:employment_types,value|max:50'
+            ]);
+
+            EmploymentType::create([
+                'value'=> $request['employment_type'],
+                'status' => 'active',
+            ]);
+
+            return redirect()->back()->with('success' , 'Employment Type submitted successfully.');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function updateEmploymentType($id) {
+        try{
+            $record = EmploymentType::find(decrypt($id));
+            if($record) {
+                return view('admin.settings.employment-type.update' , compact('record'));
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function updatePostEmploymentType(Request $request , $id) {
+        try{
+            $record = EmploymentType::find(decrypt($id));
+            if($record) {
+                $request->validate([
+                    'employment_type' => 'required|unique:employment_types,value|max:50'
+                ]);
+
+                $record->value = $request['employment_type'];
+                $record->save();
+                return redirect()->back()->with('success' , 'Employment Type updated successfully.');
+            }
+            else {
+                return redirect()->back()->with('success' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function inactiveEmploymentType($id) {
+        try{
+            $record = EmploymentType::find(decrypt($id));
+            if($record) {
+                $record->status = 'inactive';
+                $record->save();
+                return redirect()->back()->with('success' , 'Employment Type Inactive successfully.');
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function activeEmploymentType($id) {
+        try{
+            $record = EmploymentType::find(decrypt($id));
+            if($record) {
+                $record->status = 'active';
+                $record->save();
+                return redirect()->back()->with('success' , 'Employment Type active successfully.');
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+
+    }
+
+    public function deleteEmploymentType($id) {
+        try{
+            $record = EmploymentType::find(decrypt($id));
+            if($record) {
+                $record->delete();
+                return redirect()->back()->with('success' , 'Employment Type delete successfully.');
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+    //End Employment Type
+
+
+    //Start Period Frequency
+    public function indexPeriodFrequency() {
+        try{
+            $periodFrequencies = PeriodFrequency::get();
+            return view('admin.settings.period-frequency.index' , compact('periodFrequencies'));
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function createViewPeriodFrequency() {
+        try{
+            return view('admin.settings.period-frequency.create');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function postPeriodFrequency(Request $request) {
+        try{
+            $request->validate([
+                'period_frequency' => 'required|unique:period_frequencies,value|max:50'
+            ]);
+
+            PeriodFrequency::create([
+                'value'=> $request['period_frequency'],
+                'status' => 'active',
+            ]);
+
+            return redirect()->back()->with('success' , 'Period Frequency submitted successfully.');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function updatePeriodFrequency($id) {
+        try{
+            $record = PeriodFrequency::find(decrypt($id));
+            if($record) {
+                return view('admin.settings.period-frequency.update' , compact('record'));
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function updatePostPeriodFrequency(Request $request , $id) {
+        try{
+            $record = PeriodFrequency::find(decrypt($id));
+            if($record) {
+                $request->validate([
+                    'period_frequency' => 'required|unique:period_frequencies,value|max:50'
+                ]);
+
+                $record->value = $request['period_frequency'];
+                $record->save();
+                return redirect()->back()->with('success' , 'Period Frequency updated successfully.');
+            }
+            else {
+                return redirect()->back()->with('success' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function inactivePeriodFrequency($id) {
+        try{
+            $record = PeriodFrequency::find(decrypt($id));
+            if($record) {
+                $record->status = 'inactive';
+                $record->save();
+                return redirect()->back()->with('success' , 'Period Frequency Inactive successfully.');
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function activePeriodFrequency($id) {
+        try{
+            $record = PeriodFrequency::find(decrypt($id));
+            if($record) {
+                $record->status = 'active';
+                $record->save();
+                return redirect()->back()->with('success' , 'PeriodFrequency active successfully.');
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+
+    }
+
+    public function deletePeriodFrequency($id) {
+        try{
+            $record = PeriodFrequency::find(decrypt($id));
+            if($record) {
+                $record->delete();
+                return redirect()->back()->with('success' , 'Period Frequency delete successfully.');
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+    //End Period Frequency
+
+     //Start Relationship
+    public function indexRelationship() {
+        try{
+            $relationships = Relationship::get();
+            return view('admin.settings.relationship.index' , compact('relationships'));
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function createViewRelationship() {
+        try{
+            return view('admin.settings.relationship.create');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function postRelationship(Request $request) {
+        try{
+            $request->validate([
+                'relationship' => 'required|unique:relationships,value|max:50'
+            ]);
+
+            Relationship::create([
+                'value'=> $request['relationship'],
+                'status' => 'active',
+            ]);
+
+            return redirect()->back()->with('success' , 'Relationship submitted successfully.');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function updateRelationship($id) {
+        try{
+            $record = Relationship::find(decrypt($id));
+            if($record) {
+                return view('admin.settings.relationship.update' , compact('record'));
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function updatePostRelationship(Request $request , $id) {
+        try{
+            $record = Relationship::find(decrypt($id));
+            if($record) {
+                $request->validate([
+                    'relationship' => 'required|unique:relationships,value|max:50'
+                ]);
+
+                $record->value = $request['relationship'];
+                $record->save();
+                return redirect()->back()->with('success' , 'Relationship updated successfully.');
+            }
+            else {
+                return redirect()->back()->with('success' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function inactiveRelationship($id) {
+        try{
+            $record = Relationship::find(decrypt($id));
+            if($record) {
+                $record->status = 'inactive';
+                $record->save();
+                return redirect()->back()->with('success' , 'Relationship Inactive successfully.');
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function activeRelationship($id) {
+        try{
+            $record = Relationship::find(decrypt($id));
+            if($record) {
+                $record->status = 'active';
+                $record->save();
+                return redirect()->back()->with('success' , 'Relationship active successfully.');
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+
+    }
+
+    public function deleteRelationship($id) {
+        try{
+            $record = Relationship::find(decrypt($id));
+            if($record) {
+                $record->delete();
+                return redirect()->back()->with('success' , 'Relationship delete successfully.');
+            }
+            else {
+                return redirect()->back()->with('error' , 'wrong access.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+    //End Relationship
+
 }

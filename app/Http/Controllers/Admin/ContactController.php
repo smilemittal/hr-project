@@ -30,9 +30,9 @@ class ContactController extends Controller
         }
     }
 
-    public function getStates(Request $request)
+    public function getStates($country_id = 0)
     {
-        $country = Country::find($request->id);
+        $country = Country::find($country_id);
         if ($country->getState->count() > 0) {
             $state = $country->getState;
             return $state;
@@ -41,9 +41,9 @@ class ContactController extends Controller
         }
     }
 
-    public function getCities(Request $request)
+    public function getCities($state_id = 0)
     {
-        $state = State::find($request->id);
+        $state = State::find($state_id);
         if ($state->getCity->count() > 0) {
             $city = $state->getCity;
             return $city;
@@ -79,7 +79,6 @@ class ContactController extends Controller
         }
     }
 
-
     public function postContact(Request $request)
     {
         $contact = Contact::find($request['id']);
@@ -92,6 +91,7 @@ class ContactController extends Controller
                     'business-info' => 'required',
                 ]);
             } elseif ($contact->contact_type == 'company') {
+                dd('in else');
                 $request->validate([
                     'company-name' => 'required',
                     'business-classifications' => 'required',
@@ -100,7 +100,7 @@ class ContactController extends Controller
                 ]);
             }
             $request->validate([
-                'cxrm*' => 'required',
+                'cxrm' => 'required',
                 'account-rec-able' => 'required',
                 'sales-price' => 'required',
                 'account-payable' => 'required',
@@ -119,6 +119,8 @@ class ContactController extends Controller
                 'email' => 'required',
                 'photo' => 'required',
             ]);
+
+            dd($request->all());
 
             if ($request->file('photo')) {
                 $profile_picture = $request->file('photo');
@@ -189,7 +191,6 @@ class ContactController extends Controller
             return redirect()->back()->with('error', 'Please fill the proper form with select one type like Company or Individual.');
         }
     }
-
 
     public function postChildContact(Request $request)
     {
