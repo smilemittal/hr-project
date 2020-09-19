@@ -50,7 +50,7 @@
                             onclick="individualRadio(this.id)">
                         <input class="form-check-input" type="radio"
                                 name="contact-type" id="individual"
-                                value="Individual">
+                                value="Individual" checked>
                         <label class="form-check-label" for="individual">
                             Individual
                         </label>
@@ -91,6 +91,9 @@
                                             type="file"
                                             onchange="previewImage(this);"
                                             name="photo">
+                                    @if($errors->has('photo'))
+                                        <div class="error" style="color:red">Picture must be required.</div>
+                                    @endif
                                 </a>
                             </div>
                             <div class="media-body text-left text-dark">

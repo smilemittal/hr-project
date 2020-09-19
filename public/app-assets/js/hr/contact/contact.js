@@ -1,4 +1,4 @@
-let contactType;
+let contactType = "Individual";
 let recordID;
 
 function personal_info(val) {
@@ -322,6 +322,7 @@ function previewImage(input) {
 }
 
 function childForm(route) {
+    console.log(route);
     $.get(route, function (data) {
         $(".child-form").html(data);
     });
@@ -557,13 +558,17 @@ function moreAddressType(id) {
     if (condition) {
         if (checkBox.firstElementChild.value == 'Correspondence') {
             document.getElementById('Correspondence').setAttribute("disabled", "");
-        } else if (checkBox.firstElementChild.value == 'Invoice') {
+        }
+        else if (checkBox.firstElementChild.value == 'Invoice') {
             document.getElementById('Invoice').setAttribute("disabled", "");
-        } else if (checkBox.firstElementChild.value == 'Registered') {
+        }
+        else if (checkBox.firstElementChild.value == 'Registered') {
             document.getElementById('Registered').setAttribute("disabled", "");
-        } else if (checkBox.firstElementChild.value == 'Shipping') {
+        }
+        else if (checkBox.firstElementChild.value == 'Shipping') {
             document.getElementById('Shipping').setAttribute("disabled", "");
-        } else if (checkBox.firstElementChild.value == 'Other') {
+        }
+        else if (checkBox.firstElementChild.value == 'Other') {
             document.getElementById('other').setAttribute("disabled", "");
         }
     }
@@ -581,6 +586,21 @@ function moreAddressType(id) {
         }
     }
 }
+
+function moreAddress(route) {
+    // alert('hi');
+    $.get(route, function (data) {
+        $("#append-address-fields").html(data);
+    });
+}
+
+$('#moreAddress').on('shown.bs.modal', function (e) {
+    //alert('hi');
+    moreAddress(moreAddressRoute);
+})
+
+
+
 
 
 // function ShowHideDiv(chkPassport) {

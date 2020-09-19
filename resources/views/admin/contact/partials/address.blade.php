@@ -1,10 +1,9 @@
 @if($is_parent)
-    <div class="col-md-12" id="address-type" style="display: none">
+    <div class="col-md-12" id="address-type">
     <div class="form-group row">
         <label class="col-md-3" for="">Address
             type</label>
         <div class="col-md-9">
-
             <div class="row cxrmcheckbox pb-2">
                 <div class="col-md-6 col-sm-6">
                     <div class="custom-control custom-checkbox" id="correspondence-sec" onclick="checkAddressType(this.id)">
@@ -46,7 +45,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         @if($errors->has('address-type'))
             <div class="error" style="color:red">Address type must be required.</div>
@@ -56,8 +54,7 @@
 @endif
 <div class="col-md-12">
     <div class="form-group row">
-        <label class="col-md-3" for="">House
-            Number</label>
+        <label class="col-md-3" for="">House Number</label>
         <div class="col-md-9">
             <input type="text" id="" class="form-control" placeholder="" name="house-number">
             @if($errors->has('house-number'))

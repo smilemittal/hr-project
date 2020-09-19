@@ -89,38 +89,51 @@ class ContactController extends Controller
                     'last-name' => 'required',
                     'job-position' => 'required',
                     'business-info' => 'required',
+                    'cxrm' => 'required',
+                    'account-rec-able' => 'required',
+                    'sales-price' => 'required',
+                    'account-payable' => 'required',
+                    'customer-payment' => 'required',
+                    'vendor-term' => 'required',
+                    'house-number' => 'required',
+                    'house-name' => 'required',
+                    'address-info' => 'required',
+                    'street' => 'required',
+                    'city' => 'required',
+                    'state' => 'required',
+                    'country' => 'required',
+                    'post-code' => 'required',
+                    'mobile' => 'required',
+                    'phone' => 'required',
+                    'email' => 'required',
+                    'photo' => 'required',
                 ]);
-            } elseif ($contact->contact_type == 'company') {
-                dd('in else');
+            } elseif ($contact->contact_type == 'Company') {
                 $request->validate([
                     'company-name' => 'required',
                     'business-classifications' => 'required',
                     'account-status' => 'required',
                     'website' => 'required',
+                    'cxrm' => 'required',
+                    'account-rec-able' => 'required',
+                    'sales-price' => 'required',
+                    'account-payable' => 'required',
+                    'customer-payment' => 'required',
+                    'vendor-term' => 'required',
+                    'address-type'=>'required',
+                    'house-number' => 'required',
+                    'street' => 'required',
+                    'city' => 'required',
+                    'state' => 'required',
+                    'country' => 'required',
+                    'post-code' => 'required',
+                    'mobile' => 'required',
+                    'phone' => 'required',
+                    'email' => 'required',
+                    'photo' => 'required',
                 ]);
             }
-            $request->validate([
-                'cxrm' => 'required',
-                'account-rec-able' => 'required',
-                'sales-price' => 'required',
-                'account-payable' => 'required',
-                'customer-payment' => 'required',
-                'vendor-term' => 'required',
-                'house-number' => 'required',
-                'house-name' => 'required',
-                'address-info' => 'required',
-                'street' => 'required',
-                'city' => 'required',
-                'state' => 'required',
-                'country' => 'required',
-                'post-code' => 'required',
-                'mobile' => 'required',
-                'phone' => 'required',
-                'email' => 'required',
-                'photo' => 'required',
-            ]);
 
-            dd($request->all());
 
             if ($request->file('photo')) {
                 $profile_picture = $request->file('photo');
@@ -135,8 +148,7 @@ class ContactController extends Controller
                 $contact->last_name = $request['last-name'];
                 $contact->job_position = $request['job-position'];
                 $contact->business_info = $request['business-info'];
-            }
-            else {
+            } else {
                 $contact->contact_name = $request['company-name'];
                 $contact->business_classifications = $request['business-classifications'];
                 $contact->account_status = $request['account-status'];
@@ -150,6 +162,7 @@ class ContactController extends Controller
 
             $AddressInfo = new ContactAddress();
             $AddressInfo->contact_id = $contact->id;
+            $AddressInfo->address_type = json_encode($request['address-type']);
             $AddressInfo->house_number = $request['house-number'];
             $AddressInfo->house_name = $request['house-name'];
             $AddressInfo->address_info = $request['address-info'];
@@ -164,8 +177,7 @@ class ContactController extends Controller
             $AddressInfo->website = $request['website'];
             $AddressInfo->save();
 
-            if ($request['account-rec-able'])
-                $accInfo = new ContactAccountingInfo();
+            $accInfo = new ContactAccountingInfo();
             $accInfo->contact_id = $contact->id;
             $accInfo->sales_person = $request['sales-person'];
             $accInfo->account_receivable = $request['account-rec-able'];
@@ -174,20 +186,8 @@ class ContactController extends Controller
             $accInfo->customer_payments_terms = $request['customer-payment'];
             $accInfo->vendor_payments_terms = $request['vendor-term'];
             $accInfo->save();
-
-            dd('all done');
-
-
-
-
-
-
-
-
-
-
-        }
-        else {
+            return redirect()->back()->with('success', 'Form submitted successfully.');
+        } else {
             return redirect()->back()->with('error', 'Please fill the proper form with select one type like Company or Individual.');
         }
     }
@@ -358,6 +358,16 @@ class ContactController extends Controller
             $countries = Country::whereStatus('active')->get();
             $is_parent = false;
             return view('admin.contact.partials.form', compact('countries', 'is_parent'))->render();
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function createAddressView() {
+        try {
+            $countries = Country::whereStatus('active')->get();
+            $is_parent = true;
+            return view('admin.contact.partials.address', compact('countries', 'is_parent'))->render();
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }

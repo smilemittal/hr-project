@@ -249,6 +249,7 @@ Route::prefix('admin')->group(function () {
 
     //Contact Create View
     Route::get('/contact/form' , 'Admin\ContactController@createContactView')->name('contact.form');
+    Route::get('/contact/address/form' , 'Admin\ContactController@createAddressView')->name('contact.address.form');
     Route::get('/contact/index' , 'Admin\ContactController@index')->name('contact.index');
     Route::get('/contact/create/view' , 'Admin\ContactController@create')->name('contact.create');
     Route::post('post/contact' , 'Admin\ContactController@postContact')->name('contact.post');

@@ -1,6 +1,5 @@
 @extends('layouts.default')
 @section('content')
-
     <div class="content-header row">
         <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
             <div class="breadcrumbs-top float-md-left">
@@ -19,7 +18,6 @@
      
     </div>
     {{--    main content--}}
-
     <div class="content-body">
         <!-- Tabs with Icons start -->
         <section id="tabs-with-icons">
@@ -198,161 +196,9 @@
                 <form id="child-address" method="post" action="{{route('more.address.post')}}">
                     <input type="hidden" id="parentID" name="id">
                     <div class="modal-body pb-0">
-                        <div class="row">
-                            <div class="col-lg-12 col-xl-12">
-                                <div class="col_dropdown">
-                                    <div class="col_boxdrop">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group row">
-                                                    <label class="col-md-3" for="">Address
-                                                        type</label>
-                                                    <div class="col-md-9">
-                                                        <div class="row cxrmcheckbox pb-2">
-                                                            <div class="col-md-6 col-sm-6">
-                                                                <div class="custom-control custom-checkbox" id="correspondence-more-sec" onclick="moreAddressType(this.id)">
-                                                                    <input type="checkbox" name="address-type[]" onclick="ShowHideDiv(this)" value="Correspondence" class="custom-control-input" id="correspondence-more">
-                                                                    <label class="custom-control-label"
-                                                                           for="correspondence-more">Correspondence</label>
-                                                                    <!-- <i class="ft-external-link ccm"></i> -->
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 col-sm-6">
-                                                                <div class="custom-control custom-checkbox" id="invoice-more-sec" onclick="moreAddressType(this.id)">
-                                                                    <input type="checkbox" name="address-type[]" class="custom-control-input" value="Invoice" id="invoice-more">
-                                                                    <label class="custom-control-label"
-                                                                           for="invoice-more">Invoice</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row cxrmcheckbox pb-2">
-                                                            <div class="col-md-6 col-sm-6">
-                                                                <div class="custom-control custom-checkbox" id="registered-more-sec" onclick="moreAddressType(this.id)">
-                                                                    <input type="checkbox" name="address-type[]" value="Registered" class="custom-control-input" id="registered-more">
-                                                                    <label class="custom-control-label" for="registered-more">Registered</label>
-                                                                    <!-- <i class="ft-external-link ccm"></i> -->
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 col-sm-6">
-                                                                <div class="custom-control custom-checkbox" id="shipping-more-sec" onclick="moreAddressType(this.id)">
-                                                                    <input type="checkbox" name="address-type[]" value="Shipping" class="custom-control-input" id="shipping-more">
-                                                                    <label class="custom-control-label" for="shipping-more">Shipping</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row cxrmcheckbox pb-2">
-                                                            <div class="col-md-6 col-sm-6">
-                                                                <div class="custom-control custom-checkbox" id="other-more-sec" onclick="moreAddressType(this.id)">
-                                                                    <input type="checkbox" name="address-type[]" value="Other" class="custom-control-input" id="other-more">
-                                                                    <label class="custom-control-label" for="other-more">Other</label>
-                                                                    <!-- <i class="ft-external-link ccm"></i> -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                        <div class="row" id="append-address-fields">
+{{--                            rendering area--}}
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group row">
-                                                <label class="col-md-3" for="">House Number</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="" class="form-control" placeholder="" name="house-number">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group extent-wrp row">
-                                                <label class="col-md-3" for="">House
-                                                    Name</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id=""
-                                                           class="form-control"
-                                                           placeholder="" name="house-name">
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group row">
-                                                <label class="col-md-3" for="">Address
-                                                    info</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id=""
-                                                           class="form-control"
-                                                           placeholder=""
-                                                           name="address-info">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group row">
-                                                <label class="col-md-3"
-                                                       for="">Street</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id=""
-                                                           class="form-control"
-                                                           placeholder="" name="street">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group row">
-                                                <label class="col-md-3"
-                                                       for="">Postcode</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id=""
-                                                           class="form-control"
-                                                           placeholder="" name="post-code">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group row">
-                                                <label class="col-md-3"
-                                                       for="">Country</label>
-                                                <div class="col-md-9">
-                                                    <select id="" name="country"
-                                                            class="form-control">
-                                                        <option value="">Select Country
-                                                        </option>
-                                                        @forelse($countries as $country)
-                                                            <option value="{{$country->id}}">{{$country->value}}</option>
-                                                        @empty
-                                                            <option selected disabled>not found in record</option>
-                                                        @endforelse
-
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group row">
-                                                <label class="col-md-3"
-                                                       for="">State</label>
-                                                <div class="col-md-9">
-                                                    <select id="putMoreState" name="priority"
-                                                            class="form-control">
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group row">
-                                                <label class="col-md-3" for="">City</label>
-                                                <div class="col-md-9">
-                                                    <select id="putMoreCity" name="city"
-                                                            class="form-control">
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            </div>
                         </div>
                         <div class="modal-footer pt-0">
                             <button type="button" class="btn grey btn-sm btn-secondary" data-dismiss="modal">Close
@@ -387,12 +233,13 @@
                         </div>
                         <input type="submit" value="Submit" class="btn btn-success float-right">
                         <div class="col-md-12">
-                            <div class="success" style="display: none;color: green"
+
+
+                            <div class="success float-right" style="display: none;color: green"
                                  id="success-sub-child">Child added successfully.
                             </div>
                             <div class="error" style="display: none;color: red"
-                                 id="error-for-sub-child">Company name and Business classifications must be required for
-                                create the sub contact.
+                                 id="error-for-sub-child">Company name and Business classifications must be required for create the sub contact.
                             </div>
                         </div>
                     </form>
@@ -428,6 +275,7 @@
     var createForm = "{{ route('contact.form') }}";
     var getStates = "{{ route('get.state', ['country_id' => '']) }}";
     var getCities = "{{ route('get.city', ['state_id' => '']) }}";
+    var moreAddressRoute = "{{route('contact.address.form')}}";
 </script>
 <script src="{{asset('app-assets/js/hr/contact/contact.js')}}" type="text/javascript"></script>
 
