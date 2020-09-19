@@ -397,9 +397,62 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton6"
                                     x-placement="bottom-start"
                                     style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 28px, 0px);">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <ul>
+                                        <li><a class="dropdown-item" href="#">My Partners</a></li>
+                                        <li>
+                                         <a class="dropdown-item" href="#">Persons</a>
+                                         <a class="dropdown-item" href="#">Companies</a>
+                                        </li>
+                                         <li>
+                                         <a class="dropdown-item" href="#">Customers</a>
+                                         <a class="dropdown-item" href="#">Venders</a>
+                                        </li>
+                                         <li>
+                                         <a class="dropdown-item" href="#">Available for mass mailing</a>
+                                        </li>
+                                         <li>
+                                         <a class="dropdown-item" href="#">My Activities</a>
+                                        </li>
+                                         <li>
+                                         <a class="dropdown-item" href="#">Late Activities</a>
+                                         <a class="dropdown-item" href="#">Today Activities</a>
+                                         <a class="dropdown-item" href="#">Future Activities</a>
+                                        </li>
+
+                                         <li>
+                                         <a class="dropdown-item" href="#">Archived</a>
+                                        </li>
+                                        <li class="tab-panel">
+                                            <a href="javascript:void(0)" class="accordion">Add Custom filter</a>
+<div class="panel">
+  <div class="dropdown">
+  <select name="Accoutn" id="Accoutn">
+    <option value="Accoutn">Accoutn Payble</option>
+    <option value="Contains">Contains</option>
+  </select>
+  <div class="delete"><i class="fas fa-trash-alt"></i></div>
+</div>
+  <div class="dropdown">
+    <select name="Contains" id="Contains">
+    <option value="Contains">Contains </option>
+    <option value="Contains">Contains</option>
+  </select>
+</div>
+  <div class="dropdown">
+  <div class="inpt-feild">
+      <input type="text" name="">
+  </div>
+  <div class="buttons-add">
+      <a href="#" class="apply">Apply</a>
+      <a href="#"><span>+</span> Add a conditon</a>
+  </div>
+  </div>
+
+</div>
+
+                                        </li>
+                                    </ul>                                  
+                                    
                                 </div>
                             </div>
                         </li>
@@ -413,9 +466,26 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton6"
                                     x-placement="bottom-start"
                                     style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 28px, 0px);">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                                   <ul>
+                               <li> <a class="dropdown-item" href="#">Selesperson</a></li>
+                                 <li>   <a class="dropdown-item" href="#">Company</a></li>
+                                   <li> <a class="dropdown-item" href="#">Country</a></li>
+                                     <li class="tab-panel">
+                                            <a href="javascript:void(0)" class="accordion">Add Custom Group</a>
+<div class="panel">
+  <div class="dropdown">
+  <select name="Archived" id="Archived">
+    <option value="Archive">Archive</option>
+    <option value="Contains">Contains</option>
+  </select>
+</div>
+  <div class="buttons-add">
+      <a href="#" class="apply">Apply</a>
+
+  </div>
+  </div>
+</li>
+</ul>
                                 </div>
                             </div>
                         </li>
@@ -429,9 +499,34 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton6"
                                     x-placement="bottom-start"
                                     style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 28px, 0px);">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                <ul>
+                                     <li class="tab-panel">
+                                        <div class="accrodin-box">
+<a href="javascript:void(0)" class="accordion">Save Current Search</a>
+<div class="panel">
+<div class="searach-input">
+    <input type="text" placeholder="Contacts" name="">
+</div>
+  <div class="buttons-add">
+      <a href="#" class="apply">Save</a>
+    
+  </div>
+</div>
+  </div></li>
+            <li>                             <div class="accrodin-box">
+<a href="javascript:void(0)" class="accordion">Add to my dashboard</a>
+<div class="panel">
+<div class="searach-input">
+    <input type="text" placeholder="Contacts" name="">
+</div>
+  <div class="buttons-add">
+      <a href="#" class="apply">Add</a>
+    
+  </div>
+  <p>Add to Google Spreadsheet</p>
+</div>
+  </div>
+</li></ul>
                                 </div>
                             </div>
                         </li>
@@ -873,7 +968,22 @@
 </script>
 @yield('scripts')
 
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
 
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
 </body>
 <!-- END: Body-->
 

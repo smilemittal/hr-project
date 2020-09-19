@@ -339,3 +339,44 @@ button:focus{
 .user-text h3{
   color: #000;
 }
+
+ul.nav.navbar-nav.ml-auto.float-left.mt-1.filter-part .dropdown-menu.show {
+    max-height: 400px;
+    overflow: auto;
+}
+.dropdown-menu ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+.dropdown-menu ul li {
+    border-bottom: 1px solid #ddd;
+    padding: 6px 0px;
+}
+.dropdown-menu ul li a {
+    font-size: 14px;
+    color: #232323;
+    font-weight: 500;
+    padding: 2px 10px !important;
+}
+.accordion {
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+.dropdown .dropdown-menu {
+    min-width: 250px !important;
+}
