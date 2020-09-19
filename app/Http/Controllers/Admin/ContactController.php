@@ -12,11 +12,13 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $contacts = Contact::get();
 //        dd(!isset($contacts[1]->getAddressInfo),$contacts[0]->getAddressInfo[0] , $contacts[0]->getAccInfo);
-        return view('admin.contact.index' , compact('contacts'));
+        return view('admin.contact.index', compact('contacts'));
     }
+
     public function create()
     {
         try {
@@ -117,7 +119,6 @@ class ContactController extends Controller
             ]);
 
 
-
             if ($request->file('photo')) {
                 $profile_picture = $request->file('photo');
                 $imageName = time() . '.' . $profile_picture->getClientOriginalExtension();
@@ -139,7 +140,7 @@ class ContactController extends Controller
             $contact->social_info = json_encode($request['social']);
             $contact->cxrm = json_encode($request['cxrm']);
             $contact->other_information = $request['other-information'];
-           
+
             $contact->save();
             $AddressInfo = new ContactAddress();
             $AddressInfo->contact_id = $contact->id;
@@ -169,7 +170,7 @@ class ContactController extends Controller
 
             dd('all done');
         } else {
-            return redirect()->back('error','contact type must be required like company or Individual.');
+            return redirect()->back('error', 'contact type must be required like company or Individual.');
         }
     }
 
@@ -243,10 +244,10 @@ class ContactController extends Controller
             $accInfo->vendor_payments_terms = $request['vendor-term'];
             $accInfo->save();
 
-            $name = $contact->contact_name. " " .$contact->last_name;
+            $name = $contact->contact_name . " " . $contact->last_name;
             $email = $AddressInfo->email;
-            $photo = public_path('storage/app/public/contact-profile/'.$contact->photo);
-            return response(array('name'=>$name , 'email'=>$email , 'picture'=>$photo));
+            $photo = public_path('storage/app/public/contact-profile/' . $contact->photo);
+            return response(array('name' => $name, 'email' => $email, 'picture' => $photo));
         } else {
             return "no parent found";
         }
@@ -270,72 +271,68 @@ class ContactController extends Controller
         dd('all-done');
     }
 
-    public function view($id) {
+    public function view($id)
+    {
         $exist = Contact::find(decrypt($id));
-        if($exist) {
-            return view('admin.contact.view' , compact('exist'));
-        }
-        else {
-            return redirect()->back()->with('error' , 'invalid access.');
+        if ($exist) {
+            return view('admin.contact.view', compact('exist'));
+        } else {
+            return redirect()->back()->with('error', 'invalid access.');
         }
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
         $exist = Contact::find(decrypt($id));
-        if($exist) {
-            return view('admin.contact.update' , compact('exist'));
-
-        }
-        else {
-            return redirect()->back()->with('error' , 'invalid access.');
+        if ($exist) {
+            return view('admin.contact.update', compact('exist'));
+        } else {
+            return redirect()->back()->with('error', 'invalid access.');
         }
     }
 
-    public function trash($id) {
+    public function trash($id)
+    {
         $exist = Contact::find(decrypt($id));
-        if($exist) {
-            $exist->softDeletes();
-            return redirect()->back()->with('success' , 'Move to trash successfully.');
-        }
-        else {
-            return redirect()->back()->with('error' , 'invalid access.');
-        }
-    }
-
-    public function trashView() {
-        dd("trash view");
-    }
-
-    public function restore($id) {
-        dd("restore", $id);
-        $exist = Contact::find(decrypt($id));
-        if($exist) {
-            $exist->softdelete();
-            return redirect()->back()->with('success' , 'record restore successfully.');
-        }
-        else {
-            return redirect()->back()->with('error' , 'invalid access.');
-        }
-    }
-
-    public function delete($id) {
-        dd("delete", $id);
-        $exist = Contact::find(decrypt($id));
-        if($exist) {
-            $exist->getAddressInfo->delete();
-            $exist->getAccInfo->delete();
+        if ($exist) {
             $exist->delete();
-            return redirect()->back()->with('success' , 'Deleted from database successfully.');
-        }
-        else {
-            return redirect()->back()->with('error' , 'invalid access.');
+            return redirect()->back()->with('success', 'Move to trash successfully.');
+        } else {
+            return redirect()->back()->with('error', 'invalid access.');
         }
     }
 
+    public function trashView()
+    {
+        $contacts = Contact::onlyTrashed()->get();
+        return view('admin.contact.trash', compact('contacts'));
+    }
 
+    public function restore($id)
+    {
+        $exist = Contact::withTrashed()->find(decrypt($id));
+        if ($exist) {
+            $exist->restore();
+            return redirect()->back()->with('success', 'record restore successfully.');
+        } else {
+            return redirect()->back()->with('error', 'invalid access.');
+        }
+    }
 
-
-
+    public function delete($id)
+    {
+        $exist = Contact::withTrashed()->find(decrypt($id));
+        if ($exist) {
+            foreach ($exist->getAddressInfo as $record) {
+                $record->delete();
+            }
+            $exist->getAccInfo->delete();
+            $exist->forceDelete();
+            return redirect()->back()->with('success', 'Deleted from database successfully.');
+        } else {
+            return redirect()->back()->with('error', 'invalid access.');
+        }
+    }
 
     public function createContactView()
     {
@@ -347,4 +344,5 @@ class ContactController extends Controller
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
+
 }

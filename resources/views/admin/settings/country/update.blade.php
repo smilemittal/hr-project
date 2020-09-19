@@ -1,16 +1,6 @@
 @extends('layouts.default')
 @section('content')
-    <!-- BEGIN: Content-->
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success mb-2" style="width: 500px;position: absolute;right: 0;top: 0px;" id="alert-success-message" role="alert">
-            <strong>Success! </strong> {{$message}}
-        </div>
-    @endif
-    @if ($message = Session::get('error'))
-        <div class="alert alert-danger mb-2" id="alert-error-message" style="width: 500px;position: absolute;right: 0;top: 0px;" role="alert">
-            <strong>Error! </strong> {{$message}}
-        </div>
-    @endif
+
     <div class="content-header row">
         <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
             <h3 class="content-header-title mb-0 d-inline-block">Admin</h3>

@@ -90,9 +90,9 @@
                                                             <a href="{{route('contact.view' ,  encrypt($contact->id))}}" class="dropdown-item" title="View the record">
                                                                 <i class="ft-eye"></i> View</a>
                                                             <a href="{{route('contact.edit' ,  encrypt($contact->id))}}" class="dropdown-item" title="Update the record">
-                                                                <i class="ft-trash-2"></i> Edit</a>
+                                                                <i class="ft-edit-2"></i> Edit</a>
                                                             <a href="{{route('contact.trash' ,  encrypt($contact->id))}}" class="dropdown-item" title="Danger! this action will move to trash the record.">
-                                                                <i class="ft-edit-2"></i> Delete</a>
+                                                                <i class="ft-trash-2"></i> Delete</a>
                                                         </span>
                                                     </span>
 
@@ -109,6 +109,7 @@
                                             <th>Type</th>
                                             <th>Name</th>
                                             <th>Email</th>
+                                            <th>Status</th>
                                             <th>Phone Number</th>
                                             <th>Created At</th>
                                             <th>Action</th>

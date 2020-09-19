@@ -552,6 +552,7 @@
                         <a class="menu-item" href="{{route('contact.trash.view')}}">Trash</a>
                     </li>
 
+
                 </ul>
             </li>
 
@@ -584,6 +585,16 @@
 <div class="app-content content">
     <div class="content-wrapper">
         <div class="content-wrapper-before"></div>
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success mb-2" style="width: 500px;position: absolute;right: 0;top: 0px;" id="alert-success-message" role="alert">
+                <strong>Success! </strong> {{$message}}
+            </div>
+        @endif
+        @if ($message = Session::get('error'))
+            <div class="alert alert-danger mb-2" id="alert-error-message" style="width: 500px;position: absolute;right: 0;top: 0px;" role="alert">
+                <strong>Error! </strong> {{$message}}
+            </div>
+        @endif
         @yield('content')
     </div>
 </div>
