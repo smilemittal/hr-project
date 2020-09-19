@@ -250,7 +250,7 @@ function selectState(stateID, route) {
 }
 
 function postDetail(contactInfo) {
-    if(document.getElementById('record-id').value == '') {
+    if (document.getElementById('record-id').value == '') {
         if (contactType === 'Individual') {
             let firstName = document.getElementById('first-name').value;
             let lastName = document.getElementById('last-name').value;
@@ -386,13 +386,15 @@ function selectChildState(stateID, route) {
 }
 
 function childForm(route) {
-    $.get(route, function( data ) {
-        $( ".child-form" ).html( data );
+    $.get(route, function (data) {
+        $(".child-form").html(data);
     });
 }
+
 $('#create-modal').on('shown.bs.modal', function (e) {
     childForm(createForm);
 })
+
 function selectMoreCountry(countryID, route) {
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -522,8 +524,7 @@ $(document).ready(function (e) {
                     // }, 3000);
                 }
             });
-        }
-        else {
+        } else {
             document.getElementById('error-for-sub-child').style.display = 'block';
             window.stop();
             setTimeout(function () {
@@ -577,10 +578,9 @@ $(document).ready(function (e) {
                     // }, 3000);
                 }
             });
-        }
-        else {
-           alert('company name must be required for adding the company address.');
-           window.stop();
+        } else {
+            alert('company name must be required for adding the company address.');
+            window.stop();
         }
     }));
 });
@@ -588,16 +588,63 @@ $(document).ready(function (e) {
 function checkAddressType(id) {
     let checkBox = document.getElementById(id);
     let condition = checkBox.firstElementChild.checked;
-    console.log(condition);
-
+    if (condition) {
+        if (checkBox.firstElementChild.value == 'Correspondence') {
+            document.getElementById('correspondence-more').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Invoice') {
+            document.getElementById('invoice-more').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Registered') {
+            document.getElementById('registered-more').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Shipping') {
+            document.getElementById('shipping-more').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Other') {
+            document.getElementById('other-more').setAttribute("disabled", "");
+        }
+    } else {
+        if (checkBox.firstElementChild.value == 'Correspondence') {
+            document.getElementById('correspondence-more').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Invoice') {
+            document.getElementById('invoice-more').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Registered') {
+            document.getElementById('registered-more').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Shipping') {
+            document.getElementById('shipping-more').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Other') {
+            document.getElementById('other-more').removeAttribute("disabled");
+        }
+    }
 }
 
 function moreAddressType(id) {
-    console.log(id);
+    let checkBox = document.getElementById(id);
+    let condition = checkBox.firstElementChild.checked;
+    if (condition) {
+        if (checkBox.firstElementChild.value == 'Correspondence') {
+            document.getElementById('Correspondence').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Invoice') {
+            document.getElementById('Invoice').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Registered') {
+            document.getElementById('Registered').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Shipping') {
+            document.getElementById('Shipping').setAttribute("disabled", "");
+        } else if (checkBox.firstElementChild.value == 'Other') {
+            document.getElementById('Other').setAttribute("disabled", "");
+        }
+    } else {
+        if (checkBox.firstElementChild.value == 'Correspondence') {
+            document.getElementById('Correspondence').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Invoice') {
+            document.getElementById('Invoice').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Registered') {
+            document.getElementById('Registered').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Shipping') {
+            document.getElementById('Shipping').removeAttribute("disabled");
+        } else if (checkBox.firstElementChild.value == 'Other') {
+            document.getElementById('Other').removeAttribute("disabled");
+        }
+    }
+
 }
-
-
-
 
 
 // function ShowHideDiv(chkPassport) {
