@@ -1,0 +1,2 @@
+[19-Sep-2020 07:47:08 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 69632 bytes) in /home/dfhgkjdfjhgkfgjh/public_html/database/seeds/custom/Seeder1599823173.php on line 29434
+[19-Sep-2020 07:47:08 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 32768 bytes) in /home/dfhgkjdfjhgkfgjh/public_html/vendor/laravel/framework/src/Illuminate/Auth/EloquentUserProvider.php on line 1
