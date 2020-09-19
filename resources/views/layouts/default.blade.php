@@ -534,10 +534,28 @@
                     {{--                                </li>--}}
                 </ul>
             </li>
-            <li class=" nav-item"><a href="{{route('contact.create')}}"><i class="ft-user"></i><span
-                        class="menu-title" data-i18n="">Contact</span></a>
+
+
+            <li class=" nav-item">
+                <a href="#">
+                    <i class="ft-user"></i>
+                    <span class="menu-title" data-i18n="">Contact</span>
+                </a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="menu-item" href="{{route('contact.index')}}">List</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('contact.create')}}">Add</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{route('contact.trash.view')}}">Trash</a>
+                    </li>
+
+                </ul>
             </li>
-           
+
+
             <li class=" nav-item"><a href="{{route('employee.index')}}"><i class="ft-user"></i><span
                         class="menu-title" data-i18n="">Employee</span></a>
             </li>
