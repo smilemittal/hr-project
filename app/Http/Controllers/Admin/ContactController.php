@@ -53,6 +53,11 @@ class ContactController extends Controller
     public function postContactTypeInfo(Request $request)
     {
         if ($request['contact-type'] == 'Individual') {
+            $request->validate([
+                'first-name' => 'required',
+                'last-name' => 'required',
+                'contact-type' => 'required',
+            ]);
             $contact = Contact::create([
                 'contact_type' => $request['contact-type'],
                 'contact_name' => $request['first-name'],
@@ -60,6 +65,10 @@ class ContactController extends Controller
             ]);
             return $contact->id;
         } else if ($request['contact-type'] == 'Company') {
+            $request->validate([
+                'company-name' => 'required',
+                'contact-type' => 'required',
+            ]);
             $contact = Contact::create([
                 'contact_type' => $request['contact-type'],
                 'contact_name' => $request['company-name'],
@@ -131,9 +140,10 @@ class ContactController extends Controller
             $AddressInfo->email = $request['email'];
             $AddressInfo->website = $request['website'];
             $AddressInfo->save();
+            if($request['account-rec-able'])
             $accInfo = new ContactAccountingInfo();
             $accInfo->contact_id = $contact->id;
-            $accInfo->sales_person = 1;
+            $accInfo->sales_person = $request['sales-person'];
             $accInfo->account_receivable = $request['account-rec-able'];
             $accInfo->sales_price_list = $request['sales-price'];
             $accInfo->accounts_payable = $request['account-payable'];
@@ -244,5 +254,15 @@ class ContactController extends Controller
         dd('all-done');
     }
 
+    public function createContactView()
+    {
+        try {
+            $countries = Country::whereStatus('active')->get();
+            $is_parent = false;
 
+            return view('admin.contact.partials.form', compact('countries', 'is_parent'))->render();
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
 }

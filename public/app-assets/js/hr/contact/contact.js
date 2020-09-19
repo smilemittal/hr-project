@@ -246,88 +246,78 @@ function selectState(stateID, route) {
 }
 
 function postDetail(contactInfo) {
-    if (contactType === 'Individual') {
-        let firstName = document.getElementById('first-name').value;
-        let lastName = document.getElementById('last-name').value;
+    if(document.getElementById('record-id').value == '') {
+        if (contactType === 'Individual') {
+            let firstName = document.getElementById('first-name').value;
+            let lastName = document.getElementById('last-name').value;
 
-        if (firstName && lastName) {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                // headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                url: contactInfo,
-                method: 'post',
-                data: {'first-name': firstName, 'last-name': lastName, 'contact-type': contactType},
-                success: function (result) {
-                    if (result != "error") {
-                        document.getElementById('record-id').value = result;
-                    } else {
-
+            if (firstName && lastName) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
-                }
-            });
+                });
+                $.ajax({
+                    url: contactInfo,
+                    method: 'post',
+                    data: {'first-name': firstName, 'last-name': lastName, 'contact-type': contactType},
+                    success: function (result) {
+                        if (result != "error") {
+                            document.getElementById('record-id').value = result;
+                        } else {
+
+                        }
+                    }
+                });
+            } else {
+                document.getElementById('error-for-first-name').style.display = 'block';
+                document.getElementById('error-for-last-name').style.display = 'block';
+                setTimeout(function () {
+                    document.getElementById('error-for-first-name').style.display = 'none';
+                    document.getElementById('error-for-last-name').style.display = 'none';
+                }, 3000);
+            }
+        } else if (contactType === 'Company') {
+            let companyName = document.getElementById('company-name').value;
+            if (companyName) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: contactInfo,
+                    method: 'post',
+                    data: {'company-name': companyName, 'contact-type': contactType},
+                    success: function (result) {
+                        if (result != "error") {
+                            recordID = result;
+                            document.getElementById('record-id').value = result;
+                            document.getElementById('parentID').value = result;
+                        } else {
+                        }
+                    }
+                });
+            } else {
+                document.getElementById('error-for-company-name').style.display = 'block';
+                setTimeout(function () {
+                    document.getElementById('error-for-company-name').style.display = 'none';
+                }, 3000);
+            }
         } else {
-            document.getElementById('error-for-first-name').style.display = 'block';
-            document.getElementById('error-for-last-name').style.display = 'block';
+            document.getElementById('error-for-individual-company').style.display = 'block';
             setTimeout(function () {
-                document.getElementById('error-for-first-name').style.display = 'none';
-                document.getElementById('error-for-last-name').style.display = 'none';
+                document.getElementById('error-for-individual-company').style.display = 'none';
             }, 3000);
         }
-    } else if (contactType === 'Company') {
-        let companyName = document.getElementById('company-name').value;
-        if (companyName) {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                url: contactInfo,
-                method: 'post',
-                data: {'company-name': companyName, 'contact-type': contactType},
-                success: function (result) {
-                    if (result != "error") {
-                        recordID = result;
-                        document.getElementById('record-id').value = result;
-                        document.getElementById('parentID').value = result;
-                    } else {
-                    }
-                }
-            });
-        } else {
-            document.getElementById('error-for-company-name').style.display = 'block';
-            setTimeout(function () {
-                document.getElementById('error-for-company-name').style.display = 'none';
-            }, 3000);
-        }
-    } else {
-        document.getElementById('error-for-individual-company').style.display = 'block';
-        setTimeout(function () {
-            document.getElementById('error-for-individual-company').style.display = 'none';
-        }, 3000);
     }
-
 }
 
 function previewImage(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
-            $('#targetImage').attr('src', e.target.result);
-        };
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-function previewChildImage(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('#targetChildImage').attr('src', e.target.result);
+            $(input).prev().attr('src', e.target.result);
         };
         reader.readAsDataURL(input.files[0]);
     }
@@ -386,9 +376,13 @@ function selectChildState(stateID, route) {
 }
 
 function childForm(route) {
-
+    $.get(route, function( data ) {
+        $( ".child-form" ).html( data );
+    });
 }
-
+$('#create-modal').on('shown.bs.modal', function (e) {
+    childForm(createForm);
+})
 function selectMoreCountry(countryID, route) {
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
