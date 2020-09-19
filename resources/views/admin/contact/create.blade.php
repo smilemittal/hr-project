@@ -55,6 +55,10 @@
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title"></h4>
+                </div>
                 <form id="child-address" method="post" action="{{route('more.address.post')}}">
                     <input type="hidden" id="parentID" name="id">
                     <div class="modal-body pb-0">
