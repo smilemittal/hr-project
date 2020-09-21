@@ -226,7 +226,7 @@ class ContactController extends Controller
                 $profile_picture->storeAs('public/contact-profile', $imageName);
                 $contact->photo = $imageName;
             }
-            $contact->contact_type = $parentContact->contact_type;
+            $contact->contact_type = "Individual";
             $contact->contact_name = $request['first-name'];
             $contact->middle_name = $request['middle-name'];
             $contact->last_name = $request['last-name'];
@@ -251,6 +251,7 @@ class ContactController extends Controller
             $AddressInfo->mobile = $request['mobile'];
             $AddressInfo->phone = $request['phone'];
             $AddressInfo->email = $request['email'];
+            $AddressInfo->save();
             $accInfo = new ContactAccountingInfo();
             $accInfo->contact_id = $contact->id;
             $accInfo->sales_person = 1;

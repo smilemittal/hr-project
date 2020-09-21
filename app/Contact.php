@@ -17,4 +17,8 @@ class Contact extends Model
     public function getAccInfo() {
         return $this->hasOne(ContactAccountingInfo::class);
     }
+
+    public function getChildContact() {
+        return $this->hasMany(Contact::class , 'parent_id' , 'id');
+    }
 }
