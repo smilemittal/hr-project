@@ -70,7 +70,7 @@
                                                         <div class="media d-flex mx-0 my-1 user-text">
                                                             <div class="align-left p-0 mr-2">
                                                                 <a href="#" class="profile-image">
-                                                                    <img src="{{asset('storage/app/public/contact-profile/' . $exist->photo)}}" class="rounded-squre img-border height-120" alt="Card image">
+                                                                    <img src="{{asset('storage/app/public/contact-profile/' . $exist->photo)}}" class="rounded-squre img-border height-120" alt="Card image" width="120" height="120">
                                                                 </a>
                                                             </div>
 
