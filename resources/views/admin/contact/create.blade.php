@@ -37,9 +37,7 @@
                             <div class="card-body">
                                 <form action="{{route('contact.post')}}" method="post" enctype="multipart/form-data">
                                     <input type="hidden" id="record-id" name="id">
-
                                     @include('admin.contact.partials.form', ['is_parent' => true])
-
                                     <button type="submit" class="btn btn-success float-right mb-2">Submit</button>
                                 </form>
                             </div>
@@ -60,7 +58,8 @@
                     <h4 class="modal-title"></h4>
                 </div>
                 <form id="child-address" method="post" action="{{route('more.address.post')}}">
-                    <input type="hidden" id="parentID" name="id">
+                    <input type="hidden" class="contactChild"  name="id" value="{{old('id')}}">
+
                     <div class="modal-body pb-0">
                         <div class="row" id="append-address-fields">
 {{--                            rendering area--}}
@@ -93,7 +92,7 @@
                 </div>
                 <div class="modal-body">
                     <form id="child-form" method="post" action="{{route('contact.child.post')}}" enctype="multipart/form-data">
-                        <input type="hidden" id="parentID" name="id">
+                        <input type="hidden" class="contactChild" name="id">
                         <div class="child-form">
 
                         </div>

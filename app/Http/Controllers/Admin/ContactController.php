@@ -82,6 +82,7 @@ class ContactController extends Controller
     public function postContact(Request $request)
     {
         $contact = Contact::find($request['id']);
+
         if ($contact) {
             if ($contact->contact_type == 'Individual') {
                 $request->validate([
@@ -134,11 +135,10 @@ class ContactController extends Controller
                 ]);
             }
 
-
             if ($request->file('photo')) {
                 $profile_picture = $request->file('photo');
                 $imageName = time() . '.' . $profile_picture->getClientOriginalExtension();
-                $profile_picture->storeAs('contact-profile', $imageName);
+                $profile_picture->storeAs('public/contact-profile', $imageName);
                 $contact->photo = $imageName;
             }
 
@@ -188,7 +188,7 @@ class ContactController extends Controller
             $accInfo->save();
             return redirect()->back()->with('success', 'Form submitted successfully.');
         } else {
-            return redirect()->back()->with('error', 'Please fill all the fields.');
+            return redirect()->back()->with('error', 'Please fill the form.');
         }
     }
 
@@ -264,7 +264,7 @@ class ContactController extends Controller
 
             $name = $contact->contact_name . " " . $contact->last_name;
             $email = $AddressInfo->email;
-            $photo = public_path('storage/app/public/contact-profile/' . $contact->photo);
+            $photo = asset('storage/app/public/contact-profile/' . $contact->photo);
             return response(array('name' => $name, 'email' => $email, 'picture' => $photo));
         } else {
             return "no parent found";
@@ -357,6 +357,7 @@ class ContactController extends Controller
         try {
             $countries = Country::whereStatus('active')->get();
             $is_parent = false;
+
             return view('admin.contact.partials.form', compact('countries', 'is_parent'))->render();
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
@@ -367,8 +368,8 @@ class ContactController extends Controller
         try {
             $countries = Country::whereStatus('active')->get();
             $is_parent = true;
-            $address_child = true;
-            return view('admin.contact.partials.address', compact('countries', 'is_parent' , 'address_child'))->render();
+            $addressChild = true;
+            return view('admin.contact.partials.address', compact('countries', 'is_parent' ,'addressChild'))->render();
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }

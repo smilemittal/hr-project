@@ -1,50 +1,51 @@
 @if($is_parent)
-    <div class="col-md-12" id="address-type" style="{{isset($address_child)?"display: block" : "display: none"}}">
+    <div class="col-md-12" id="address-type" style="{{isset($addressChild)?"display:block":"display:none"}}">
     <div class="form-group row">
         <label class="col-md-3" for="">Address type</label>
         <div class="col-md-9">
             <div class="row cxrmcheckbox pb-2">
                 <div class="col-md-6 col-sm-6">
-                    <div class="custom-control custom-checkbox" id="{{ $is_parent ? 'parent' : 'child' }}-correspondence-sec" onclick="checkAddressType(this.id)">
-                        <input type="checkbox" name="address-type[]" value="Correspondence" class="custom-control-input" id="Correspondence">
+                    <div class="custom-control custom-checkbox" id="{{ isset($addressChild) ? 'child' : 'parent' }}-correspondence-sec" onclick="{{ isset($addressChild) ? "moreAddressType(this.id)" : "" }}">
+                        <input type="checkbox" name="address-type[]" value="Correspondence" class="custom-control-input" id="{{ isset($addressChild) ? 'child' : 'parent' }}-Correspondence">
                         <label class="custom-control-label"
-                                for="Correspondence">Correspondence</label>
+                                for="{{ isset($addressChild) ? 'child' : 'parent' }}-Correspondence">Correspondence</label>
                         <!-- <i class="ft-external-link ccm"></i> -->
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
-                    <div class="custom-control custom-checkbox" id="invoice-sec" onclick="checkAddressType(this.id)">
-                        <input type="checkbox" name="address-type[]" class="custom-control-input" value="Invoice" id="Invoice">
+                    <div class="custom-control custom-checkbox" id="{{ isset($addressChild) ? 'child' : 'parent' }}-invoice-sec" onclick="{{ isset($addressChild) ? "moreAddressType(this.id)" : "" }}">
+                        <input type="checkbox" name="address-type[]" class="custom-control-input" value="Invoice" id="{{ isset($addressChild) ? 'child' : 'parent' }}-Invoice">
                         <label class="custom-control-label"
-                                for="Invoice">Invoice</label>
+                                for="{{ isset($addressChild) ? 'child' : 'parent' }}-Invoice">Invoice</label>
                     </div>
                 </div>
             </div>
             <div class="row cxrmcheckbox pb-2">
                 <div class="col-md-6 col-sm-6">
-                    <div class="custom-control custom-checkbox" id="registered-sec" onclick="checkAddressType(this.id)">
-                        <input type="checkbox" name="address-type[]" value="Registered" class="custom-control-input" id="Registered">
-                        <label class="custom-control-label" for="Registered">Registered</label>
+                    <div class="custom-control custom-checkbox" id="{{ isset($addressChild) ? 'child' : 'parent' }}-registered-sec" onclick="{{ isset($addressChild) ? "moreAddressType(this.id)" : "" }}">
+                        <input type="checkbox" name="address-type[]" value="Registered" class="custom-control-input" id="{{ isset($addressChild) ? 'child' : 'parent' }}-Registered">
+                        <label class="custom-control-label" for="{{ isset($addressChild) ? 'child' : 'parent' }}-Registered">Registered</label>
                         <!-- <i class="ft-external-link ccm"></i> -->
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
-                    <div class="custom-control custom-checkbox" id="shipping-sec" onclick="checkAddressType(this.id)">
-                        <input type="checkbox" name="address-type[]" value="Shipping" class="custom-control-input" id="Shipping">
-                        <label class="custom-control-label" for="Shipping">Shipping</label>
+                    <div class="custom-control custom-checkbox" id="{{ isset($addressChild) ? 'child' : 'parent' }}-shipping-sec" onclick="{{ isset($addressChild) ? "moreAddressType(this.id)" : "" }}">
+                        <input type="checkbox" name="address-type[]" value="Shipping" class="custom-control-input" id="{{ isset($addressChild) ? 'child' : 'parent' }}-Shipping">
+                        <label class="custom-control-label" for="{{ isset($addressChild) ? 'child' : 'parent' }}-Shipping">Shipping</label>
                     </div>
                 </div>
             </div>
             <div class="row cxrmcheckbox pb-2">
                 <div class="col-md-6 col-sm-6">
-                    <div class="custom-control custom-checkbox" id="other-sec" onclick="checkAddressType(this.id)">
-                        <input type="checkbox" name="address-type[]" value="Other" class="custom-control-input" id="other">
-                        <label class="custom-control-label" for="other">Other</label>
+                    <div class="custom-control custom-checkbox" id="{{ isset($addressChild) ? 'child' : 'parent' }}-other-sec" onclick="{{ isset($addressChild) ? "moreAddressType(this.id)" : "" }}">
+                        <input type="checkbox" name="address-type[]" value="Other" class="custom-control-input" id="{{ isset($addressChild) ? 'child' : 'parent' }}-Other">
+                        <label class="custom-control-label" for="{{ isset($addressChild) ? 'child' : 'parent' }}-Other">Other</label>
                         <!-- <i class="ft-external-link ccm"></i> -->
                     </div>
                 </div>
             </div>
         </div>
+        <span id="child-address-type" style="display: none">Address type must be required.</span>
         @if($errors->has('address-type'))
             <div class="error" style="color:red">Address type must be required.</div>
         @endif
@@ -55,8 +56,10 @@
     <div class="form-group row">
         <label class="col-md-3" for="">House Number</label>
         <div class="col-md-9">
-            <input type="text" id="" class="form-control" placeholder="" name="house-number">
-            @if($errors->has('house-number'))
+            <input type="text" id="" class="form-control" placeholder="" name="house-number" value="{{old('house-number')}}">
+
+            <span id="child-house-number" style="display: none">House number must be required.</span>
+        @if($errors->has('house-number'))
                 <div class="error" style="color:red">House number must be required.</div>
             @endif
         </div>
@@ -69,8 +72,9 @@
         <div class="col-md-9">
             <input type="text" id=""
                     class="form-control"
-                    placeholder="" name="house-name">
-            @if($errors->has('house-number'))
+                    placeholder="" name="house-name" value="{{old('house-name')}}">
+            <span id="child-house-name" style="display: none">House name must be required.</span>
+        @if($errors->has('house-number'))
                 <div class="error" style="color:red">House name must be required.</div>
             @endif
         </div>
@@ -85,8 +89,9 @@
             <input type="text" id=""
                     class="form-control"
                     placeholder=""
-                    name="address-info">
-            @if($errors->has('house-number'))
+                    name="address-info" value="{{old('address-info')}}">
+            <span id="child-address-info" style="display: none">Address info must be required.</span>
+        @if($errors->has('house-number'))
                 <div class="error" style="color:red">Address info must be required.</div>
             @endif
         </div>
@@ -99,8 +104,9 @@
         <div class="col-md-9">
             <input type="text" id=""
                     class="form-control"
-                    placeholder="" name="street">
-            @if($errors->has('street'))
+                    placeholder="" name="street" value="{{old('street')}}">
+            <span id="child-street" style="display: none">Street must be required.</span>
+        @if($errors->has('street'))
                 <div class="error" style="color:red">Street must be required.</div>
             @endif
         </div>
@@ -113,7 +119,7 @@
         <div class="col-md-9">
             <input type="text" id=""
                     class="form-control"
-                    placeholder="" name="post-code">
+                    placeholder="" name="post-code" value="{{old('post-code')}}">
             @if($errors->has('post-code'))
                 <div class="error" style="color:red">Postcode must be required.</div>
             @endif
@@ -127,8 +133,7 @@
         <div class="col-md-9">
             <select id="" name="country"
                      class="form-control country-change">
-                <option value="">Select Country
-                </option>
+                <option value="">Select Country</option>
                 @forelse($countries as $country)
                     <option value="{{$country->id}}">{{$country->value}}</option>
                 @empty

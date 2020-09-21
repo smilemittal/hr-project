@@ -291,7 +291,10 @@ function postDetail(contactInfo) {
                         if (result != "error") {
                             recordID = result;
                             document.getElementById('record-id').value = result;
-                            document.getElementById('parentID').value = result;
+                            let inputs = document.getElementsByClassName('contactChild');
+                            for(var i = 0; i < inputs.length; i++){
+                                inputs[i].value = result;
+                            }
                         } else {
                         }
                     }
@@ -322,7 +325,6 @@ function previewImage(input) {
 }
 
 function childForm(route) {
-    console.log(route);
     $.get(route, function (data) {
         $(".child-form").html(data);
         $(".child-tags").tagging();
@@ -442,8 +444,7 @@ $(document).ready(function (e) {
                         '                                                            </div>');
 
 
-                    // document.getElementById('child-form').reset();
-                    $(".child-form").html("");
+                    // $(".child-form").html("");
                     document.getElementById('success-sub-child').style.display = 'block';
                     setTimeout(function () {
                         document.getElementById('success-sub-child').style.display = 'none';
@@ -452,7 +453,6 @@ $(document).ready(function (e) {
                 },
                 error: function (data) {
                     // console.log(printErrorMsg(data.error));
-                    conosle.log('error');
                     $.each(data.error, function (key, value) {
                         console.log('abdullah', value);
                     });
@@ -506,7 +506,6 @@ $(document).ready(function (e) {
                 },
                 error: function (data) {
                     // console.log(printErrorMsg(data.error));
-                    conosle.log('error');
                     $.each(data.error, function (key, value) {
                         console.log('abdullah', value);
                     });
@@ -529,35 +528,36 @@ function checkAddressType(id) {
     let condition = checkBox.firstElementChild.checked;
     if (condition) {
         if (checkBox.firstElementChild.value == 'Correspondence') {
-            document.getElementById('correspondence-more').setAttribute("disabled", "");
-        } else if (checkBox.firstElementChild.value == 'Invoice') {
-            document.getElementById('invoice-more').setAttribute("disabled", "");
+            document.getElementById('child-Correspondence').setAttribute("disabled", "");
+        }
+        else if (checkBox.firstElementChild.value == 'Invoice') {
+            document.getElementById('child-Invoice').setAttribute("disabled", "");
         }
         else if (checkBox.firstElementChild.value == 'Registered') {
-            document.getElementById('registered-more').setAttribute("disabled", "");
+            document.getElementById('child-Registered').setAttribute("disabled", "");
         }
         else if (checkBox.firstElementChild.value == 'Shipping') {
-            document.getElementById('shipping-more').setAttribute("disabled", "");
+            document.getElementById('child-Shipping').setAttribute("disabled", "");
         }
         else if (checkBox.firstElementChild.value == 'Other') {
-            document.getElementById('other-more').setAttribute("disabled", "");
+            document.getElementById('child-Other').setAttribute("disabled", "");
         }
     }
     else {
         if (checkBox.firstElementChild.value == 'Correspondence') {
-            document.getElementById('correspondence-more').removeAttribute("disabled");
+            document.getElementById('child-Correspondence').removeAttribute("disabled");
         }
         else if (checkBox.firstElementChild.value == 'Invoice') {
-            document.getElementById('invoice-more').removeAttribute("disabled");
+            document.getElementById('child-Invoice').removeAttribute("disabled");
         }
         else if (checkBox.firstElementChild.value == 'Registered') {
-            document.getElementById('registered-more').removeAttribute("disabled");
+            document.getElementById('child-Registered').removeAttribute("disabled");
         }
         else if (checkBox.firstElementChild.value == 'Shipping') {
-            document.getElementById('shipping-more').removeAttribute("disabled");
+            document.getElementById('child-Shipping').removeAttribute("disabled");
         }
         else if (checkBox.firstElementChild.value == 'Other') {
-            document.getElementById('other-more').removeAttribute("disabled");
+            document.getElementById('child-Other').removeAttribute("disabled");
         }
     }
 }
@@ -567,32 +567,36 @@ function moreAddressType(id) {
     let condition = checkBox.firstElementChild.checked;
     if (condition) {
         if (checkBox.firstElementChild.value == 'Correspondence') {
-            document.getElementById('Correspondence').setAttribute("disabled", "");
+            document.getElementById('parent-Correspondence').setAttribute("disabled", "");
         }
         else if (checkBox.firstElementChild.value == 'Invoice') {
-            document.getElementById('Invoice').setAttribute("disabled", "");
+            document.getElementById('parent-Invoice').setAttribute("disabled", "");
         }
         else if (checkBox.firstElementChild.value == 'Registered') {
-            document.getElementById('Registered').setAttribute("disabled", "");
+            document.getElementById('parent-Registered').setAttribute("disabled", "");
         }
         else if (checkBox.firstElementChild.value == 'Shipping') {
-            document.getElementById('Shipping').setAttribute("disabled", "");
+            document.getElementById('parent-Shipping').setAttribute("disabled", "");
         }
         else if (checkBox.firstElementChild.value == 'Other') {
-            document.getElementById('other').setAttribute("disabled", "");
+            document.getElementById('parent-Other').setAttribute("disabled", "");
         }
     }
     else {
         if (checkBox.firstElementChild.value == 'Correspondence') {
-            document.getElementById('Correspondence').removeAttribute("disabled");
-        } else if (checkBox.firstElementChild.value == 'Invoice') {
-            document.getElementById('Invoice').removeAttribute("disabled");
-        } else if (checkBox.firstElementChild.value == 'Registered') {
-            document.getElementById('Registered').removeAttribute("disabled");
-        } else if (checkBox.firstElementChild.value == 'Shipping') {
-            document.getElementById('Shipping').removeAttribute("disabled");
-        } else if (checkBox.firstElementChild.value == 'Other') {
-            document.getElementById('other').removeAttribute("disabled");
+            document.getElementById('parent-Correspondence').removeAttribute("disabled");
+        }
+        else if (checkBox.firstElementChild.value == 'Invoice') {
+            document.getElementById('parent-Invoice').removeAttribute("disabled");
+        }
+        else if (checkBox.firstElementChild.value == 'Registered') {
+            document.getElementById('parent-Registered').removeAttribute("disabled");
+        }
+        else if (checkBox.firstElementChild.value == 'Shipping') {
+            document.getElementById('parent-Shipping').removeAttribute("disabled");
+        }
+        else if (checkBox.firstElementChild.value == 'Other') {
+            document.getElementById('parent-Other').removeAttribute("disabled");
         }
     }
 }
