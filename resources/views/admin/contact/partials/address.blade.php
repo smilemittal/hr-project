@@ -120,6 +120,7 @@
             <input type="text" id=""
                     class="form-control"
                     placeholder="" name="post-code" value="{{old('post-code')}}">
+            <span id="child-postcode" style="display: none">Post code must be required.</span>
             @if($errors->has('post-code'))
                 <div class="error" style="color:red">Postcode must be required.</div>
             @endif
@@ -142,7 +143,9 @@
                     </option>
                 @endforelse
             </select>
-            @if($errors->has('country'))
+            <span id="child-country" style="display: none">Country must be required.</span>
+
+        @if($errors->has('country'))
                 <div class="error" style="color:red">Country must be required.</div>
             @endif
         </div>
@@ -157,7 +160,8 @@
                 <option value="">Select state
                 </option>
             </select>
-            @if($errors->has('state'))
+            <span id="child-state" style="display: none">State must be required.</span>
+        @if($errors->has('state'))
                 <div class="error" style="color:red">State must be required.</div>
             @endif
         </div>
@@ -170,7 +174,8 @@
             <select name="city"
                     class="city-change form-control">
             </select>
-            @if($errors->has('city'))
+            <span id="child-city" style="display: none">State must be required.</span>
+        @if($errors->has('city'))
                 <div class="error" style="color:red">City must be required.</div>
             @endif
         </div>
