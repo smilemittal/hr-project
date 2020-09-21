@@ -44,6 +44,7 @@
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     <!-- END: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
 </head>
 <!-- END: Head-->
@@ -423,7 +424,7 @@
                                          <a class="dropdown-item" href="#">Archived</a>
                                         </li>
                                         <li class="tab-panel">
-                                            <a href="javascript:void(0)" class="accordion">Add Custom filter</a>
+                                            <a href="javascript:void(0)" class="accordion"> <i class="fas fa-caret-down"></i> Add Custom filter</a>
 <div class="panel">
   <div class="dropdown">
   <select name="Accoutn" id="Accoutn">
@@ -471,7 +472,7 @@
                                  <li>   <a class="dropdown-item" href="#">Company</a></li>
                                    <li> <a class="dropdown-item" href="#">Country</a></li>
                                      <li class="tab-panel">
-                                            <a href="javascript:void(0)" class="accordion">Add Custom Group</a>
+                                            <a href="javascript:void(0)" class="accordion"> <i class="fas fa-caret-down"></i>Add Custom Group</a>
 <div class="panel">
   <div class="dropdown">
   <select name="Archived" id="Archived">
@@ -502,10 +503,18 @@
                                                 <ul>
                                      <li class="tab-panel">
                                         <div class="accrodin-box">
-<a href="javascript:void(0)" class="accordion">Save Current Search</a>
+<a href="javascript:void(0)" class="accordion"><i class="fas fa-caret-down"></i> Save Current Search</a>
 <div class="panel">
 <div class="searach-input">
     <input type="text" placeholder="Contacts" name="">
+  <div class="cheech-box">
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  <label for="vehicle1"> Use by default</label>
+</div>
+<div class="cheech-box">
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+  <label for="vehicle2">share with all user</label>
+</div>
 </div>
   <div class="buttons-add">
       <a href="#" class="apply">Save</a>
@@ -514,7 +523,7 @@
 </div>
   </div></li>
             <li>                             <div class="accrodin-box">
-<a href="javascript:void(0)" class="accordion">Add to my dashboard</a>
+<a href="javascript:void(0)" class="accordion"> <i class="fas fa-caret-down"></i>Add to my dashboard</a>
 <div class="panel">
 <div class="searach-input">
     <input type="text" placeholder="Contacts" name="">

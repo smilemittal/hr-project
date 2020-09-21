@@ -378,5 +378,77 @@ ul.nav.navbar-nav.ml-auto.float-left.mt-1.filter-part .dropdown-menu.show {
   overflow: hidden;
 }
 .dropdown .dropdown-menu {
-    min-width: 250px !important;
+    min-width: 300px !important;
+}
+
+.dropdown-menu ul li.tab-panel a.accordion.active {
+    background: #a174f6;
+    width: 100%;
+    display: inline-block;
+    color: #fff;
+}
+
+.dropdown-menu ul li.tab-panel .dropdown {
+    width: 100%;
+    position: relative;
+}
+
+.dropdown-menu ul li.tab-panel .dropdown select {
+    width: 87%;
+    height: 40px;
+    border: 1px solid #ddd;
+    margin: 10px 0px;
+}
+
+.dropdown-menu ul li.tab-panel .dropdown .delete {
+    position: absolute;
+    right: -10px;
+    top: 8px;
+}
+
+.dropdown-menu ul li.tab-panel .dropdown .inpt-feild input {
+    width: 87%;
+    border: 1px solid #ddd;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.buttons-add {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.buttons-add a {
+    background: #5ed84f !important;
+    padding: 8px 10px;
+    border-radius: 3px;
+    display: inline-block;
+    color: #fff !important;
+    font-size: 13px !important;
+}
+
+.buttons-add a.apply {
+    background: #a174f6 !important;
+}
+
+.dropdown-menu ul .accrodin-box .searach-input {
+    margin-top: 20px;
+}
+
+.dropdown-menu ul .accrodin-box .searach-input input {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 8px 10px;
+}
+.cheech-box {
+    margin-top:5px;
+}
+
+.cheech-box input {
+    width: auto !important;
+}
+
+.cheech-box label {
+    margin: 0px;
 }
