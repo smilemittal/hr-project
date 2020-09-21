@@ -36,7 +36,7 @@
                         <div class="card-content">
                             <div class="card-body">
                                 <form action="{{route('contact.post')}}" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" id="record-id" name="id">
+                                    <input type="hidden" id="record-id" name="id" value="{{old('id')}}">
                                     @include('admin.contact.partials.form', ['is_parent' => true])
                                     <button type="submit" class="btn btn-success float-right mb-2">Submit</button>
                                 </form>

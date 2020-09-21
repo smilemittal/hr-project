@@ -186,7 +186,8 @@
                                                 </div>
                                                 @endif
                                                 @if($exist->contact_type == "Company")
-                                                <div id="company-row" class="col_custom-head row" style="display: none;">
+
+                                                        <div id="company-row" class="col_custom-head row" style="display: none;">
                                                     <div class="col-md-6">
                                                         <div class="media d-flex mx-0 my-1 user-text">
                                                             <div class="align-left p-0 mr-2">

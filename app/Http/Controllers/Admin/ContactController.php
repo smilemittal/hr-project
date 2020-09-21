@@ -82,7 +82,6 @@ class ContactController extends Controller
     public function postContact(Request $request)
     {
         $contact = Contact::find($request['id']);
-
         if ($contact) {
             if ($contact->contact_type == 'Individual') {
                 $request->validate([
