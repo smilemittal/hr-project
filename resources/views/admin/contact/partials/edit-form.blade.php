@@ -633,6 +633,7 @@
                                             <div class="col-md-8">
                                                 <div class="position-relative">
                                                     <select id="" name="sales-person" class="form-control">
+                                                        <option selected value="{{isset($contact->getAccInfo)?$contact->getAccInfo->sales_person:""}}">{{isset($contact->getAccInfo)?$contact->getAccInfo->sales_person:""}}</option>
                                                         <option value="1">Sales Person</option>
                                                         <option value="2">Sales Person 1</option>
                                                     </select>
@@ -652,7 +653,7 @@
                                             <div class="col-md-8">
                                                 <div class="position-relative">
                                                     <input type="text" id="" name="account-rec-able"
-                                                           class="form-control" value="{{old('account-rec-able')}}">
+                                                           class="form-control" value="{{isset($contact->getAccInfo)?$contact->getAccInfo->account_receivable:old('account-rec-able')}}" >
                                                     @if($errors->has('account-rec-able'))
                                                         <div class="error" style="color:red">Account receivable must be
                                                             required.
@@ -670,7 +671,7 @@
                                             <div class="col-md-8">
                                                 <div class="position-relative">
                                                     <input type="text" id="" name="sales-price"
-                                                           class="form-control" value="{{old('sales-price')}}">
+                                                           class="form-control" value="{{isset($contact->getAccInfo)?$contact->getAccInfo->sales_price_list:old('sales-price')}}">
                                                     @if($errors->has('sales-price'))
                                                         <div class="error" style="color:red">Sales price must be required.
                                                         </div>
@@ -687,7 +688,7 @@
                                             <div class="col-md-8">
                                                 <div class="position-relative">
                                                     <input type="text" id="" name="account-payable"
-                                                           class="form-control" value="{{old('account-payable')}}">
+                                                           class="form-control" value="{{isset($contact->getAccInfo)?$contact->getAccInfo->accounts_payable:old('account-payable')}}">
                                                     @if($errors->has('account-payable'))
                                                         <div class="error" style="color:red">Accounts payable must be
                                                             required.
@@ -705,7 +706,7 @@
                                             <div class="col-md-8">
                                                 <div class="position-relative">
                                                     <input type="text" id="" name="customer-payment"
-                                                           class="form-control" value="{{old('customer-payment')}}">
+                                                           class="form-control" value="{{isset($contact->getAccInfo)?$contact->getAccInfo->customer_payments_terms:old('customer-payment')}}">
                                                     @if($errors->has('customer-payment'))
                                                         <div class="error" style="color:red">Customer payment terms must be
                                                             required.
@@ -723,7 +724,7 @@
                                             <div class="col-md-8">
                                                 <div class="position-relative">
                                                     <input type="text" id="" name="vendor-term"
-                                                           class="form-control" value="{{old('vendor-term')}}">
+                                                           class="form-control" value="{{isset($contact->getAccInfo)?$contact->getAccInfo->vendor_payments_terms:old('vendor-term')}}">
                                                     @if($errors->has('vendor-term'))
                                                         <div class="error" style="color:red">Vendor payment terms must be
                                                             required

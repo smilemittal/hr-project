@@ -545,10 +545,6 @@ class ContactController extends Controller
             $contact->cxrm = json_encode($request['cxrm']);
             $contact->other_information = $request['other-information'];
             $contact->save();
-
-
-
-
             $accInfo = new ContactAccountingInfo();
             $accInfo->contact_id = $contact->id;
             $accInfo->sales_person = $request['sales-person'];
@@ -558,7 +554,7 @@ class ContactController extends Controller
             $accInfo->customer_payments_terms = $request['customer-payment'];
             $accInfo->vendor_payments_terms = $request['vendor-term'];
             $accInfo->save();
-            return redirect()->back()->with('success', 'Form submitted successfully.');
+            return redirect()->back()->with('success', 'Form Updated successfully.');
         }
         else {
             return redirect()->back('error' , 'contact not found');
