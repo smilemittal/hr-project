@@ -260,6 +260,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/post/contact/type/info' , 'Admin\ContactController@postContactTypeInfo')->name('post-contact-type-info');
 
     Route::get('/contact/edit/view/{id}' , 'Admin\ContactController@contactEditView')->name('edit.contact.view');
+    Route::post('/contact/update' , 'Admin\ContactController@updateContact')->name('update.contact');
 
 
 
