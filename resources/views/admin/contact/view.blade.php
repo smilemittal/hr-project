@@ -1,14 +1,21 @@
 @extends('layouts.default')
+@section('page-vendor-css')
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/ui/prism.min.css')}}">
+@endsection
+@section('page-css')
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/plugins/forms/tags/tagging.min.css')}}">
+@endsection
 @section('content')
     <section id="tabs-with-icons">
         <div class="row match-height">
             <div class="col-xl-12 col-lg-12">
+{{--                <a onclick="editContactForm('{{ route('edit.contact.view' , encrypt($exist->id)) }}')" class="btn btn-success">Edit</a>--}}
                 <div class="card">
                     <!-- <div class="card-header">
                                 <h4 class="card-title">Basic Tabs</h4>
                             </div> -->
                     <div class="card-content">
-                        <div class="card-body">
+                        <div class="card-body" id="partial-edit-form">
                             <div class="card-header p-0">
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
@@ -36,7 +43,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a data-action="reload" data-toggle="modal" data-keyboard="false" data-target="#editAddress">
+                                            <a data-action="reload" onclick="editContactForm('{{ route('edit.contact.view' , encrypt($exist->id)) }}')" data-toggle="modal" data-keyboard="false" data-target="#editAddress">
                                                 <i class="ft-edit"></i>
                                             </a>
                                         </li>
@@ -46,6 +53,7 @@
                             <!--newcode-->
                             <div class="card-content">
                                 <div class="card-body px-0">
+
                                     <div class="tab-content p-0">
                                         <div class="radio_button-type">
                                             <div class="row p-2">
@@ -94,7 +102,7 @@
                                                                         <div class="col-md-7">
                                                                             <div class="form-group">
                                                                                 <label>Job Position</label>
-                                                                                <input type="name" placeholder="Desinger" name="" value="{{$exist->job_position}}">
+                                                                                <input type="name" placeholder="Designer" name="" value="{{$exist->job_position}}">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-5">
@@ -123,12 +131,24 @@
                                                                             </div>
                                                                         </div>
                                                                     @endif
+
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
-                                                                            <label>Tag</label>
-                                                                            <input type="name" placeholder="" name="">
+                                                                            <label>Tags</label>
+{{--                                                                            @dd(explode("," ,$exist->tags))--}}
+{{--                                                                            @if($exist->tags) @foreach(explode("," ,$exist->tags) as $tags) {{$tags}} @endforeach @endif--}}
+                                                                            <div class="position-relative">
+                                                                                <div class="form-control view-tags"
+                                                                                     data-tags-input-name="view-tags[]">{!! $exist->tags !!}</div>
+                                                                                @if($errors->has('tags'))
+                                                                                    <div class="error" style="color:red">
+                                                                                        Tags must be required.
+                                                                                    </div>
+                                                                                @endif
+                                                                            </div>
                                                                         </div>
                                                                     </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -188,6 +208,7 @@
                                                             </div>
                                                         </div>
                                                     @endif
+
                                                     @if($exist->contact_type === "Company")
                                                         <div class="col-md-6">
                                                             <div class="row">
@@ -266,10 +287,10 @@
 
                                                                     </ul>
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                     @endif
+
                                                 </div>
                                                 {{--                                                <div id="company-row" class="col_custom-head row" style="display: none;">--}}
                                                 {{--                                                    <div class="col-md-6">--}}
@@ -637,54 +658,52 @@
                                                     <div class="form-body">
                                                         <h4 class="form-section">CxRM</h4>
 
-{{--                                                        @foreach(json_decode($exist->cxrm) as $cxrm)--}}
-{{--                                                            @dd(json_decode($exist->cxrm))--}}
-                                                            <div class="row cxrmcheckbox pb-2">
-                                                                <div class="col-md-6 col-sm-6">
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox" class="custom-control-input" value="Customer" name="cxrm[]" id="customCheck1" >
-                                                                        <label class="custom-control-label" for="customCheck1">Customer</label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 col-sm-6">
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox" class="custom-control-input" value="Supplier" name="cxrm[]" id="customCheck2" >
-                                                                        <label class="custom-control-label" for="customCheck2">Supplier</label>
-                                                                    </div>
+                                                        <div class="row cxrmcheckbox pb-2">
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" value="Customer" name="cxrm[]" id="customCheck1" {{in_array('Customer', json_decode($exist->cxrm,true)) ? 'checked' : ''}}>
+                                                                    <label class="custom-control-label" for="customCheck1">Customer</label>
                                                                 </div>
                                                             </div>
-                                                            <div class="row cxrmcheckbox pb-2">
-                                                                <div class="col-md-6 col-sm-6">
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox" name="cxrm[]" value="Beneficiary" class="custom-control-input" id="customCheck3">
-                                                                        <label class="custom-control-label" for="customCheck3">Beneficiary</label>
-                                                                        <!-- <i class="ft-external-link ccm"></i> -->
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 col-sm-6">
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox" name="cxrm[]" value="Partner" class="custom-control-input" id="customCheck4">
-                                                                        <label class="custom-control-label" for="customCheck4">Partner</label>
-                                                                    </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" value="Supplier" name="cxrm[]" id="customCheck2" {{in_array('Supplier', json_decode($exist->cxrm,true)) ? 'checked' : ''}}>
+                                                                    <label class="custom-control-label" for="customCheck2">Supplier</label>
                                                                 </div>
                                                             </div>
-                                                            <div class="row cxrmcheckbox pb-2">
-                                                                <div class="col-md-6 col-sm-6">
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox" name="cxrm[]" value="Employee" class="custom-control-input" id="customCheck5">
-                                                                        <label class="custom-control-label" for="customCheck5">Employee</label>
-                                                                        <!-- <i class="ft-external-link ccm"></i> -->
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 col-sm-6">
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox" name="cxrm[]" value="User" class="custom-control-input" id="customCheck6">
-                                                                        <label class="custom-control-label" for="customCheck6">User</label>
-                                                                        <!-- <i class="ft-external-link ccm"></i> -->
-                                                                    </div>
+                                                        </div>
+                                                        <div class="row cxrmcheckbox pb-2">
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" name="cxrm[]" value="Beneficiary" class="custom-control-input" id="customCheck3" {{in_array('Beneficiary', json_decode($exist->cxrm,true)) ? 'checked' : ''}}>
+                                                                    <label class="custom-control-label" for="customCheck3">Beneficiary</label>
+                                                                    <!-- <i class="ft-external-link ccm"></i> -->
                                                                 </div>
                                                             </div>
-{{--                                                        @endforeach--}}
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" name="cxrm[]" value="Partner" class="custom-control-input" id="customCheck4" {{in_array('Partner', json_decode($exist->cxrm,true)) ? 'checked' : ''}}>
+                                                                    <label class="custom-control-label" for="customCheck4">Partner</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row cxrmcheckbox pb-2">
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" name="cxrm[]" value="Employee" class="custom-control-input" id="customCheck5" {{in_array('Employee', json_decode($exist->cxrm,true)) ? 'checked' : ''}}>
+                                                                    <label class="custom-control-label" for="customCheck5">Employee</label>
+                                                                    <!-- <i class="ft-external-link ccm"></i> -->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" name="cxrm[]" value="User" class="custom-control-input" id="customCheck6" {{in_array('User', json_decode($exist->cxrm,true)) ? 'checked' : ''}}>
+                                                                    <label class="custom-control-label" for="customCheck6">User</label>
+                                                                    <!-- <i class="ft-external-link ccm"></i> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -694,7 +713,7 @@
                                             <div class="tab-pane" id="tabIcon2" aria-labelledby="baseIcon-tab2">
                                                 <div id="contact-target" style="display: block;">
                                                     <div class="row" id="child-contact-section">
-                                                        <div class="col-sm-12">
+                                                        <div class="col-sm-12" style="display: none">
                                                             <h4>Contacts</h4>
                                                             <a href="javascript:void(0)" class="create_btn" data-toggle="modal" data-target="#create-modal">Create</a>
                                                         </div>
@@ -830,10 +849,13 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                             <!--newcode-->
-                            <button type="submit" class="btn btn-success float-right mb-2">Submit</button>
+
+{{--                            <button type="submit" class="btn btn-success float-right mb-2">Submit</button>--}}
+
                         </div>
                     </div>
                 </div>
@@ -868,8 +890,30 @@
             </div>
         </div>
     </div>
+
+
+
+@endsection
+
+
+
+
+
+
+@section('page-vendor-js')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="{{asset('app-assets/vendors/js/forms/tags/tagging.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('app-assets/vendors/js/ui/prism.min.js')}}" type="text/javascript"></script>
+
+@endsection
+@section('page-js')
     <script>
+        {{--var editContactForm = "{{ route('edit.contact.view') }}";--}}
+        var getStates = "{{ route('get.state', ['country_id' => '']) }}";
+        var getCities = "{{ route('get.city', ['state_id' => '']) }}";
+        var moreAddressRoute = "{{route('contact.address.form')}}";
+
         $(document).ready(function () {
             $("#companyChecked").click(function () {
                 $("#company-row").show();
@@ -888,4 +932,6 @@
 
         });
     </script>
+    <script src="{{asset('app-assets/js/hr/contact/contact.js')}}" type="text/javascript"></script>
+
 @endsection

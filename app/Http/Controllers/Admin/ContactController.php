@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Contact;
 use App\ContactAccountingInfo;
 use App\ContactAddress;
+use App\ContactTitle;
 use App\Country;
 use App\Http\Controllers\Controller;
 use App\State;
@@ -15,7 +16,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $contacts = Contact::get();
+        $contacts = Contact::orderBy('created_at' , 'desc')->get();
 //        dd(!isset($contacts[1]->getAddressInfo),$contacts[0]->getAddressInfo[0] , $contacts[0]->getAccInfo);
         return view('admin.contact.index', compact('contacts'));
     }
@@ -24,7 +25,9 @@ class ContactController extends Controller
     {
         try {
             $countries = Country::whereStatus('active')->get();
-            return view('admin.contact.create', compact('countries'));
+            $contactTitle = ContactTitle::whereStatus('active')->get();
+
+            return view('admin.contact.create', compact('countries' , 'contactTitle'));
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
@@ -90,13 +93,7 @@ class ContactController extends Controller
                     'job-position' => 'required',
                     'business-info' => 'required',
                     'cxrm' => 'required',
-                    'account-rec-able' => 'required',
-                    'sales-price' => 'required',
-                    'account-payable' => 'required',
-                    'customer-payment' => 'required',
-                    'vendor-term' => 'required',
                     'house-number' => 'required',
-                    'house-name' => 'required',
                     'address-info' => 'required',
                     'street' => 'required',
                     'city' => 'required',
@@ -108,20 +105,16 @@ class ContactController extends Controller
                     'email' => 'required',
                     'photo' => 'required',
                 ]);
-            } elseif ($contact->contact_type == 'Company') {
+            }
+            elseif ($contact->contact_type == 'Company') {
                 $request->validate([
                     'company-name' => 'required',
                     'business-classifications' => 'required',
                     'account-status' => 'required',
                     'website' => 'required',
                     'cxrm' => 'required',
-                    'account-rec-able' => 'required',
-                    'sales-price' => 'required',
-                    'account-payable' => 'required',
-                    'customer-payment' => 'required',
-                    'vendor-term' => 'required',
-                    'address-type'=>'required',
                     'house-number' => 'required',
+                    'address-info' => 'required',
                     'street' => 'required',
                     'city' => 'required',
                     'state' => 'required',
@@ -133,6 +126,16 @@ class ContactController extends Controller
                     'photo' => 'required',
                 ]);
             }
+
+            if($request['sales-person'] || $request['account-rec-able'] || $request['sales-price'] || $request['account-payable']) {
+                $request->validate([
+                    'sales-person' => 'required',
+                    'account-rec-able' => 'required',
+                    'sales-price' => 'required',
+                    'account-payable' => 'required',
+                ]);
+            }
+
 
             if ($request->file('photo')) {
                 $profile_picture = $request->file('photo');
@@ -153,7 +156,7 @@ class ContactController extends Controller
                 $contact->account_status = $request['account-status'];
             }
 
-            $contact->tags = $request['tags'];
+            $contact->tags = implode(", " , $request['parent-tags']);
             $contact->social_info = json_encode($request['social']);
             $contact->cxrm = json_encode($request['cxrm']);
             $contact->other_information = $request['other-information'];
@@ -193,7 +196,7 @@ class ContactController extends Controller
 
     public function postChildContact(Request $request)
     {
-        $validations = $request->validate([
+        $request->validate([
             'first-name' => 'required',
             'last-name' => 'required',
             'job-position' => 'required',
@@ -205,7 +208,6 @@ class ContactController extends Controller
             'customer-payment' => 'required',
             'vendor-term' => 'required',
             'house-number' => 'required',
-            'house-name' => 'required',
             'address-info' => 'required',
             'street' => 'required',
             'city' => 'required',
@@ -232,7 +234,7 @@ class ContactController extends Controller
             $contact->last_name = $request['last-name'];
             $contact->job_position = $request['job-position'];
             $contact->business_info = $request['business-info'];
-            $contact->tags = $request['tags'];
+            $contact->tags = implode(", " , $request['child-tags']);
             $contact->social_info = json_encode($request['social']);
             $contact->cxrm = json_encode($request['cxrm']);
             $contact->other_information = $request['other-information'];
@@ -273,20 +275,39 @@ class ContactController extends Controller
 
     public function postMoreAddress(Request $request)
     {
-        $parentContact = Contact::find($request['id']);
-        $AddressInfo = new ContactAddress();
-        $AddressInfo->contact_id = $parentContact->id;
-        $AddressInfo->address_type = json_encode($request['address-type']);
-        $AddressInfo->house_number = $request['house-number'];
-        $AddressInfo->house_name = $request['house-name'];
-        $AddressInfo->address_info = $request['address-info'];
-        $AddressInfo->street = $request['street'];
-        $AddressInfo->city_id = $request['city'];
-        $AddressInfo->state_id = $request['state'];
-        $AddressInfo->country_id = $request['country'];
-        $AddressInfo->pincode = $request['post-code'];
-        $AddressInfo->save();
-        return response("success");
+        $validation = $request->validate([
+            'address-type' => 'validate',
+            'house-number' => 'validate',
+            'address-info' => 'validate',
+            'street' => 'validate',
+            'city' => 'validate',
+            'state' => 'validate',
+            'country' => 'validate',
+            'post-code' => 'validate',
+        ]);
+
+        if ($validation->passes()) {
+            $parentContact = Contact::find($request['id']);
+            $AddressInfo = new ContactAddress();
+            $AddressInfo->contact_id = $parentContact->id;
+            $AddressInfo->address_type = json_encode($request['address-type']);
+            $AddressInfo->house_number = $request['house-number'];
+            $AddressInfo->house_name = $request['house-name'];
+            $AddressInfo->address_info = $request['address-info'];
+            $AddressInfo->street = $request['street'];
+            $AddressInfo->city_id = $request['city'];
+            $AddressInfo->state_id = $request['state'];
+            $AddressInfo->country_id = $request['country'];
+            $AddressInfo->pincode = $request['post-code'];
+            $AddressInfo->save();
+            return response("success");
+        }
+        else {
+            return response()->json(['error'=>$validation->errors()->all()]);
+        }
+
+
+
     }
 
     public function view($id)
@@ -364,15 +385,34 @@ class ContactController extends Controller
         }
     }
 
-    public function createAddressView() {
+    public function createAddressView()
+    {
         try {
             $countries = Country::whereStatus('active')->get();
             $is_parent = true;
             $addressChild = true;
-            return view('admin.contact.partials.address', compact('countries', 'is_parent' ,'addressChild'))->render();
+            return view('admin.contact.partials.address', compact('countries', 'is_parent', 'addressChild'))->render();
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
+
+    public function contactEditView($id) {
+        try {
+            $countries = Country::whereStatus('active')->get();
+            $contact = Contact::find(decrypt($id));
+            $contactTitle = ContactTitle::whereStatus('active')->get();
+            $is_parent = true;
+            $isEdit = true;
+            return view('admin.contact.partials.edit-form', compact('contact','countries', 'is_parent', 'isEdit' , 'contactTitle'))->render();
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+
+
+    }
+
+
+
 
 }

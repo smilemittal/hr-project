@@ -259,12 +259,17 @@ Route::prefix('admin')->group(function () {
     Route::get('get/cities/{state_id?}' , 'Admin\ContactController@getCities')->name('get.city');
     Route::post('/post/contact/type/info' , 'Admin\ContactController@postContactTypeInfo')->name('post-contact-type-info');
 
+    Route::get('/contact/edit/view/{id}' , 'Admin\ContactController@contactEditView')->name('edit.contact.view');
+
+
+
     Route::get('/contact/view/{id}' , 'Admin\ContactController@view')->name('contact.view');
     Route::get('/contact/edit/{id}' , 'Admin\ContactController@edit')->name('contact.edit');
     Route::get('/contact/trash/view' , 'Admin\ContactController@trashView')->name('contact.trash.view');
     Route::get('/contact/trash/{id}' , 'Admin\ContactController@trash')->name('contact.trash');
     Route::get('/contact/restore/{id}' , 'Admin\ContactController@restore')->name('contact.restore');
     Route::get('/contact/delete/{id}' , 'Admin\ContactController@delete')->name('contact.delete');
+
 
 });
 

@@ -452,11 +452,10 @@ $(document).ready(function (e) {
 
                 },
                 error: function (data) {
-                    // console.log(printErrorMsg(data.error));
+                    console.log(printErrorMsg(data.error));
                     $.each(data.error, function (key, value) {
                         console.log('abdullah', value);
                     });
-
                     // document.getElementById('error-for-sub-child').style.display = 'block';
                     // setTimeout(function () {
                     //     document.getElementById('error-for-sub-child').style.display = 'block';
@@ -505,7 +504,7 @@ $(document).ready(function (e) {
 
                 },
                 error: function (data) {
-                    // console.log(printErrorMsg(data.error));
+                    console.log( data.response);
                     $.each(data.error, function (key, value) {
                         console.log('abdullah', value);
                     });
@@ -609,9 +608,18 @@ function moreAddress(route) {
 }
 
 $('#moreAddress').on('shown.bs.modal', function (e) {
-    //alert('hi');
     moreAddress(moreAddressRoute);
 })
+
+$(".view-tags").tagging();
+
+
+function editContactForm(route) {
+    $.get(route, function (data) {
+        console.log(data);
+        $("#partial-edit-form").html(data);
+    });
+}
 
 
 
