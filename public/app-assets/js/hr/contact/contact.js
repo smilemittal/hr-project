@@ -506,7 +506,7 @@ $(document).ready(function (e) {
                 error: function (data) {
                     console.log( data.response);
                     $.each(data.error, function (key, value) {
-                        console.log('abdullah', value);
+
                     });
 
                     // document.getElementById('error-for-sub-child').style.display = 'block';

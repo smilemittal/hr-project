@@ -283,18 +283,16 @@ class ContactController extends Controller
 
     public function postMoreAddress(Request $request)
     {
-        $validation = $request->validate([
-            'address-type' => 'validate',
-            'house-number' => 'validate',
-            'address-info' => 'validate',
-            'street' => 'validate',
-            'city' => 'validate',
-            'state' => 'validate',
-            'country' => 'validate',
-            'post-code' => 'validate',
+        $request->validate([
+            'address-type' => 'required',
+            'house-number' => 'required',
+            'address-info' => 'required',
+            'street' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'country' => 'required',
+            'post-code' => 'required',
         ]);
-
-        if ($validation->passes()) {
             $parentContact = Contact::find($request['id']);
             $AddressInfo = new ContactAddress();
             $AddressInfo->contact_id = $parentContact->id;
@@ -309,13 +307,6 @@ class ContactController extends Controller
             $AddressInfo->pincode = $request['post-code'];
             $AddressInfo->save();
             return response("success");
-        }
-        else {
-            return response()->json(['error'=>$validation->errors()->all()]);
-        }
-
-
-
     }
 
     public function view($id)
