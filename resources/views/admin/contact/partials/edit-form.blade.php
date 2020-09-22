@@ -354,7 +354,7 @@
                                     <div class="col-md-12">
                                         <div class="address_info">
                                             <div class="right-edit-btn">
-                                                <a href="#" data-toggle="modal" data-target="#edit-address"><i class="ft-edit"></i></a>
+                                                <a href="#" data-toggle="modal" data-target="#update-contact-address"><i class="ft-edit"></i></a>
                                             </div>
                                             <ul class="col_bx">
                                                 <li>

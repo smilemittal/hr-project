@@ -261,6 +261,9 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/contact/edit/view/{id}' , 'Admin\ContactController@contactEditView')->name('edit.contact.view');
     Route::post('/contact/update' , 'Admin\ContactController@updateContact')->name('update.contact');
+    Route::get('/contact/edit/more/address/view/{id}' , 'Admin\ContactController@editMoreAddressView')->name('update.more.address.view');
+    Route::post('/contact/update/address' , 'Admin\ContactController@contactUpdateAddress')->name('contact.update.address');
+
 
 
 

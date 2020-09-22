@@ -661,13 +661,13 @@
                                                         <div class="row cxrmcheckbox pb-2">
                                                             <div class="col-md-6 col-sm-6">
                                                                 <div class="custom-control custom-checkbox">
-                                                                    <input type="checkbox" class="custom-control-input" value="Customer" name="cxrm[]" id="customCheck1" {{in_array('Customer', json_decode($exist->cxrm,true)) ? 'checked' : ''}}>
+                                                                    <input type="checkbox" class="custom-control-input" value="Customer" name="cxrm[]" id="customCheck1" @if($exist->cxrm){{in_array('Customer', json_decode($exist->cxrm,true)) ? 'checked' : ''}}@endif>
                                                                     <label class="custom-control-label" for="customCheck1">Customer</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 col-sm-6">
                                                                 <div class="custom-control custom-checkbox">
-                                                                    <input type="checkbox" class="custom-control-input" value="Supplier" name="cxrm[]" id="customCheck2" {{in_array('Supplier', json_decode($exist->cxrm,true)) ? 'checked' : ''}}>
+                                                                    <input type="checkbox" class="custom-control-input" value="Supplier" name="cxrm[]" id="customCheck2" @if($exist->cxrm){{in_array('Supplier', json_decode($exist->cxrm,true)) ? 'checked' : ''}}@endif>
                                                                     <label class="custom-control-label" for="customCheck2">Supplier</label>
                                                                 </div>
                                                             </div>
@@ -675,14 +675,14 @@
                                                         <div class="row cxrmcheckbox pb-2">
                                                             <div class="col-md-6 col-sm-6">
                                                                 <div class="custom-control custom-checkbox">
-                                                                    <input type="checkbox" name="cxrm[]" value="Beneficiary" class="custom-control-input" id="customCheck3" {{in_array('Beneficiary', json_decode($exist->cxrm,true)) ? 'checked' : ''}}>
+                                                                    <input type="checkbox" name="cxrm[]" value="Beneficiary" class="custom-control-input" id="customCheck3" @if($exist->cxrm){{in_array('Beneficiary', json_decode($exist->cxrm,true)) ? 'checked' : ''}}@endif>
                                                                     <label class="custom-control-label" for="customCheck3">Beneficiary</label>
                                                                     <!-- <i class="ft-external-link ccm"></i> -->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 col-sm-6">
                                                                 <div class="custom-control custom-checkbox">
-                                                                    <input type="checkbox" name="cxrm[]" value="Partner" class="custom-control-input" id="customCheck4" {{in_array('Partner', json_decode($exist->cxrm,true)) ? 'checked' : ''}}>
+                                                                    <input type="checkbox" name="cxrm[]" value="Partner" class="custom-control-input" id="customCheck4" @if($exist->cxrm){{in_array('Partner', json_decode($exist->cxrm,true)) ? 'checked' : ''}}@endif>
                                                                     <label class="custom-control-label" for="customCheck4">Partner</label>
                                                                 </div>
                                                             </div>
@@ -690,20 +690,19 @@
                                                         <div class="row cxrmcheckbox pb-2">
                                                             <div class="col-md-6 col-sm-6">
                                                                 <div class="custom-control custom-checkbox">
-                                                                    <input type="checkbox" name="cxrm[]" value="Employee" class="custom-control-input" id="customCheck5" {{in_array('Employee', json_decode($exist->cxrm,true)) ? 'checked' : ''}}>
+                                                                    <input type="checkbox" name="cxrm[]" value="Employee" class="custom-control-input" id="customCheck5" @if($exist->cxrm){{in_array('Employee', json_decode($exist->cxrm,true)) ? 'checked' : ''}}@endif>
                                                                     <label class="custom-control-label" for="customCheck5">Employee</label>
                                                                     <!-- <i class="ft-external-link ccm"></i> -->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 col-sm-6">
                                                                 <div class="custom-control custom-checkbox">
-                                                                    <input type="checkbox" name="cxrm[]" value="User" class="custom-control-input" id="customCheck6" {{in_array('User', json_decode($exist->cxrm,true)) ? 'checked' : ''}}>
+                                                                    <input type="checkbox" name="cxrm[]" value="User" class="custom-control-input" id="customCheck6" @if($exist->cxrm){{in_array('User', json_decode($exist->cxrm,true)) ? 'checked' : ''}}@endif>
                                                                     <label class="custom-control-label" for="customCheck6">User</label>
                                                                     <!-- <i class="ft-external-link ccm"></i> -->
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -863,7 +862,7 @@
         </div>
     </section>
     <!-- Modal -->
-    <div class="modal fade" id="edit-address" role="dialog">
+    <div class="modal fade" id="update-contact-address" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -871,7 +870,24 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p>Some text in the modal.</p>
+                    <div class="row">
+                        <form id="child-form" method="post" action="{{route('contact.update.address')}}" enctype="multipart/form-data">
+                            <div class="update-child-address">
+
+                            </div>
+                            <input type="submit" value="Submit" class="btn btn-success float-right">
+                            <div class="col-md-12">
+
+
+                                <div class="success float-right" style="display: none;color: green"
+                                     id="success-sub-child">Child Update successfully.
+                                </div>
+                                <div class="error" style="display: none;color: red"
+                                     id="error-for-sub-child">Company name and Business classifications must be required for create the sub contact.
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -885,7 +901,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p>Some text in the modal.</p>
+                    <p>Company</p>
                 </div>
             </div>
         </div>
@@ -912,7 +928,7 @@
         {{--var editContactForm = "{{ route('edit.contact.view') }}";--}}
         var getStates = "{{ route('get.state', ['country_id' => '']) }}";
         var getCities = "{{ route('get.city', ['state_id' => '']) }}";
-        var moreAddressRoute = "{{route('contact.address.form')}}";
+        var moreAddressRoute = "{{route('update.more.address.view' , encrypt($exist->id))}}";
 
         $(document).ready(function () {
             $("#companyChecked").click(function () {

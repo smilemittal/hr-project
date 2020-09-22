@@ -601,7 +601,6 @@ function moreAddressType(id) {
 }
 
 function moreAddress(route) {
-    // alert('hi');
     $.get(route, function (data) {
         $("#append-address-fields").html(data);
     });
@@ -616,10 +615,23 @@ $(".view-tags").tagging();
 
 function editContactForm(route) {
     $.get(route, function (data) {
-        console.log(data);
         $("#partial-edit-form").html(data);
     });
 }
+
+
+
+function updateMoreAddress(route) {
+    $.get(route, function (data) {
+        $("#update-child-address").html(data);
+    });
+}
+
+$('#update-contact-address').on('shown.bs.modal', function (e) {
+    console.log('hi');
+    updateMoreAddress(moreAddressRoute);
+})
+
 
 
 

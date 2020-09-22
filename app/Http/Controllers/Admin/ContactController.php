@@ -561,7 +561,11 @@ class ContactController extends Controller
         }
     }
 
-    public function updateMoreAddress(Request $request) {
+    public function editMoreAddressView($id) {
+        dd($id);
+    }
+
+    public function contactUpdateAddress(Request $request) {
         dd($request->all());
     }
 
