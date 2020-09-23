@@ -9,7 +9,7 @@
     <section id="tabs-with-icons">
         <div class="row match-height">
             <div class="col-xl-12 col-lg-12">
-{{--                <a onclick="editContactForm('{{ route('edit.contact.view' , encrypt($exist->id)) }}')" class="btn btn-success">Edit</a>--}}
+                {{--                <a onclick="editContactForm('{{ route('edit.contact.view' , encrypt($exist->id)) }}')" class="btn btn-success">Edit</a>--}}
                 <div class="card">
                     <!-- <div class="card-header">
                                 <h4 class="card-title">Basic Tabs</h4>
@@ -135,8 +135,8 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <label>Tags</label>
-{{--                                                                            @dd(explode("," ,$exist->tags))--}}
-{{--                                                                            @if($exist->tags) @foreach(explode("," ,$exist->tags) as $tags) {{$tags}} @endforeach @endif--}}
+                                                                            {{--                                                                            @dd(explode("," ,$exist->tags))--}}
+                                                                            {{--                                                                            @if($exist->tags) @foreach(explode("," ,$exist->tags) as $tags) {{$tags}} @endforeach @endif--}}
                                                                             <div class="position-relative">
                                                                                 <div class="form-control view-tags"
                                                                                      data-tags-input-name="view-tags[]">{!! $exist->tags !!}</div>
@@ -159,9 +159,9 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="address_info">
-                                                                        <div class="right-edit-btn">
-                                                                            <a href="#" data-toggle="modal" data-target="#edit-address"><i class="ft-edit"></i></a>
-                                                                        </div>
+                                                                        {{--                                                                        <div class="right-edit-btn">--}}
+                                                                        {{--                                                                            <a href="#" data-toggle="modal" data-target="#edit-address"><i class="ft-edit"></i></a>--}}
+                                                                        {{--                                                                        </div>--}}
                                                                         <ul class="col_bx">
                                                                             <li>
                                                                                 <div class="icons">
@@ -218,11 +218,11 @@
                                                                         @foreach($exist->getAddressInfo as $key=>$address)
                                                                             <div class="tab-pane fade show @if($key == 0) active @endif" id="tab{{$key}}" role="tabpanel" aria-labelledby="tab">
                                                                                 <div class="address_info">
-                                                                                    <div class="right-edit-btn">
-                                                                                        <a href="#" data-toggle="modal" data-target="#edit-address">
-                                                                                            <i class="ft-edit"></i>
-                                                                                        </a>
-                                                                                    </div>
+                                                                                    {{--                                                                                    <div class="right-edit-btn">--}}
+                                                                                    {{--                                                                                        <a href="#" data-toggle="modal" data-target="#edit-address">--}}
+                                                                                    {{--                                                                                            <i class="ft-edit"></i>--}}
+                                                                                    {{--                                                                                        </a>--}}
+                                                                                    {{--                                                                                    </div>--}}
                                                                                     <ul class="col_bx">
                                                                                         <li>
                                                                                             <div class="icons">
@@ -273,7 +273,6 @@
                                                                     <ul class="nav nav-tabs address_info" id="myTab" role="tablist">
                                                                         <div class="type-address">
                                                                             <h2>Address type</h2>
-                                                                            <a data-toggle="modal" data-target="#edit-address-type" href="#"><i class="ft-edit"></i></a>
                                                                         </div>
                                                                         @foreach($exist->getAddressInfo as $key=>$address)
                                                                             @foreach(json_decode($address->address_type) as $type )
@@ -853,7 +852,7 @@
                             </div>
                             <!--newcode-->
 
-{{--                            <button type="submit" class="btn btn-success float-right mb-2">Submit</button>--}}
+                            {{--                            <button type="submit" class="btn btn-success float-right mb-2">Submit</button>--}}
 
                         </div>
                     </div>
@@ -861,51 +860,99 @@
             </div>
         </div>
     </section>
-    <!-- Modal -->
-    <div class="modal fade" id="update-contact-address" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
+
+
+    <!-- Modal Edit Address-->
+    <div class="modal fade text-left" id="contact-edit-address" tabindex="-1" role="dialog" aria-labelledby="basicModalLabel3"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title"></h4>
                 </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <form id="child-form" method="post" action="{{route('contact.update.address')}}" enctype="multipart/form-data">
-                            <div class="update-child-address">
+                <form id="update-contact-address" method="post" action="{{route('contact.update.address')}}" enctype="multipart/form-data">
+                    <div class="update-child-address">
 
-                            </div>
-                            <input type="submit" value="Submit" class="btn btn-success float-right">
-                            <div class="col-md-12">
-
-
-                                <div class="success float-right" style="display: none;color: green"
-                                     id="success-sub-child">Child Update successfully.
-                                </div>
-                                <div class="error" style="display: none;color: red"
-                                     id="error-for-sub-child">Company name and Business classifications must be required for create the sub contact.
-                                </div>
-                            </div>
-                        </form>
                     </div>
-                </div>
+                    <input type="submit" value="Submit" class="btn btn-success float-right">
+                    <div class="col-md-12">
+
+
+                        <div class="success float-right" style="display: none;color: green"
+                             id="success-address">Address Update successfully.
+                        </div>
+                        <div class="error" style="display: none;color: red"
+                             id="error-for-sub-child">Company name and Business classifications must be required for
+                            create the sub contact.
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
+
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="edit-address-type" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
+
+
+    <div class="modal fade text-left" id="edit-company-address" tabindex="-1" role="dialog" aria-labelledby="basicModalLabel3"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title"></h4>
                 </div>
-                <div class="modal-body">
-                    <p>Company</p>
-                </div>
+                <form id="update-company-addresses" method="post" action="{{route('contact.update.company.address')}}" enctype="multipart/form-data">
+                    <div class="update-company-address">
+
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-success float-right">
+                    <div class="col-md-12">
+                        <div class="success float-right" style="display: none;color: green"
+                             id="success-address">Address Update successfully.
+                        </div>
+                        <div class="error" style="display: none;color: red"
+                             id="error-for-sub-child">Company name and Business classifications must be required for
+                            create the sub contact.
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
+
     </div>
+
+
+
+
+    <div class="modal fade text-left" id="edit-company-contact" tabindex="-1" role="dialog" aria-labelledby="basicModalLabel3"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <form id="update-company-contact" method="post" action="{{route('update.company.contact')}}" enctype="multipart/form-data">
+                    <div class="update-company-contact">
+
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-success float-right">
+                    <div class="col-md-12">
+                        <div class="success float-right" style="display: none;color: green"
+                             id="success-contact">Address Update successfully.
+                        </div>
+                        <div class="error" style="display: none;color: red"
+                             id="error-for-sub-child">Company name and Business classifications must be required for
+                            create the sub contact.
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
 
 
 
@@ -925,7 +972,7 @@
 @endsection
 @section('page-js')
     <script>
-        {{--var editContactForm = "{{ route('edit.contact.view') }}";--}}
+                {{--var editContactForm = "{{ route('edit.contact.view') }}";--}}
         var getStates = "{{ route('get.state', ['country_id' => '']) }}";
         var getCities = "{{ route('get.city', ['state_id' => '']) }}";
         var moreAddressRoute = "{{route('update.more.address.view' , encrypt($exist->id))}}";

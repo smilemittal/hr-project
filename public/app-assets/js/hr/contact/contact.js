@@ -193,7 +193,7 @@ function companyRadio(id) {
     contactType = 'Company';
 }
 
-$(document).on('change', '.country-change', function() {
+$(document).on('change', '.country-change', function () {
     var countrySelect = $(this);
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -210,7 +210,7 @@ $(document).on('change', '.country-change', function() {
                     );
                 });
             } else {
-                 countrySelect.parents('.country-parent').next().find('.state-change').html(
+                countrySelect.parents('.country-parent').next().find('.state-change').html(
                     '<option selected disabled>Record not found</option>'
                 );
             }
@@ -218,7 +218,7 @@ $(document).on('change', '.country-change', function() {
     });
 });
 
-$(document).on('change', '.state-change', function() {
+$(document).on('change', '.state-change', function () {
     var stateSelect = $(this);
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -292,7 +292,7 @@ function postDetail(contactInfo) {
                             recordID = result;
                             document.getElementById('record-id').value = result;
                             let inputs = document.getElementsByClassName('contactChild');
-                            for(var i = 0; i < inputs.length; i++){
+                            for (var i = 0; i < inputs.length; i++) {
                                 inputs[i].value = result;
                             }
                         } else {
@@ -504,7 +504,7 @@ $(document).ready(function (e) {
 
                 },
                 error: function (data) {
-                    console.log( data.response);
+                    console.log(data.response);
                     $.each(data.error, function (key, value) {
 
                     });
@@ -528,34 +528,25 @@ function checkAddressType(id) {
     if (condition) {
         if (checkBox.firstElementChild.value == 'Correspondence') {
             document.getElementById('child-Correspondence').setAttribute("disabled", "");
-        }
-        else if (checkBox.firstElementChild.value == 'Invoice') {
+        } else if (checkBox.firstElementChild.value == 'Invoice') {
             document.getElementById('child-Invoice').setAttribute("disabled", "");
-        }
-        else if (checkBox.firstElementChild.value == 'Registered') {
+        } else if (checkBox.firstElementChild.value == 'Registered') {
             document.getElementById('child-Registered').setAttribute("disabled", "");
-        }
-        else if (checkBox.firstElementChild.value == 'Shipping') {
+        } else if (checkBox.firstElementChild.value == 'Shipping') {
             document.getElementById('child-Shipping').setAttribute("disabled", "");
-        }
-        else if (checkBox.firstElementChild.value == 'Other') {
+        } else if (checkBox.firstElementChild.value == 'Other') {
             document.getElementById('child-Other').setAttribute("disabled", "");
         }
-    }
-    else {
+    } else {
         if (checkBox.firstElementChild.value == 'Correspondence') {
             document.getElementById('child-Correspondence').removeAttribute("disabled");
-        }
-        else if (checkBox.firstElementChild.value == 'Invoice') {
+        } else if (checkBox.firstElementChild.value == 'Invoice') {
             document.getElementById('child-Invoice').removeAttribute("disabled");
-        }
-        else if (checkBox.firstElementChild.value == 'Registered') {
+        } else if (checkBox.firstElementChild.value == 'Registered') {
             document.getElementById('child-Registered').removeAttribute("disabled");
-        }
-        else if (checkBox.firstElementChild.value == 'Shipping') {
+        } else if (checkBox.firstElementChild.value == 'Shipping') {
             document.getElementById('child-Shipping').removeAttribute("disabled");
-        }
-        else if (checkBox.firstElementChild.value == 'Other') {
+        } else if (checkBox.firstElementChild.value == 'Other') {
             document.getElementById('child-Other').removeAttribute("disabled");
         }
     }
@@ -567,34 +558,25 @@ function moreAddressType(id) {
     if (condition) {
         if (checkBox.firstElementChild.value == 'Correspondence') {
             document.getElementById('parent-Correspondence').setAttribute("disabled", "");
-        }
-        else if (checkBox.firstElementChild.value == 'Invoice') {
+        } else if (checkBox.firstElementChild.value == 'Invoice') {
             document.getElementById('parent-Invoice').setAttribute("disabled", "");
-        }
-        else if (checkBox.firstElementChild.value == 'Registered') {
+        } else if (checkBox.firstElementChild.value == 'Registered') {
             document.getElementById('parent-Registered').setAttribute("disabled", "");
-        }
-        else if (checkBox.firstElementChild.value == 'Shipping') {
+        } else if (checkBox.firstElementChild.value == 'Shipping') {
             document.getElementById('parent-Shipping').setAttribute("disabled", "");
-        }
-        else if (checkBox.firstElementChild.value == 'Other') {
+        } else if (checkBox.firstElementChild.value == 'Other') {
             document.getElementById('parent-Other').setAttribute("disabled", "");
         }
-    }
-    else {
+    } else {
         if (checkBox.firstElementChild.value == 'Correspondence') {
             document.getElementById('parent-Correspondence').removeAttribute("disabled");
-        }
-        else if (checkBox.firstElementChild.value == 'Invoice') {
+        } else if (checkBox.firstElementChild.value == 'Invoice') {
             document.getElementById('parent-Invoice').removeAttribute("disabled");
-        }
-        else if (checkBox.firstElementChild.value == 'Registered') {
+        } else if (checkBox.firstElementChild.value == 'Registered') {
             document.getElementById('parent-Registered').removeAttribute("disabled");
-        }
-        else if (checkBox.firstElementChild.value == 'Shipping') {
+        } else if (checkBox.firstElementChild.value == 'Shipping') {
             document.getElementById('parent-Shipping').removeAttribute("disabled");
-        }
-        else if (checkBox.firstElementChild.value == 'Other') {
+        } else if (checkBox.firstElementChild.value == 'Other') {
             document.getElementById('parent-Other').removeAttribute("disabled");
         }
     }
@@ -610,8 +592,9 @@ $('#moreAddress').on('shown.bs.modal', function (e) {
     moreAddress(moreAddressRoute);
 })
 
-$(".view-tags").tagging();
 
+//contact update content
+$(".view-tags").tagging();
 
 function editContactForm(route) {
     $.get(route, function (data) {
@@ -619,22 +602,139 @@ function editContactForm(route) {
     });
 }
 
-
-
 function updateMoreAddress(route) {
     $.get(route, function (data) {
-        $("#update-child-address").html(data);
+        console.log(data);
+        $(".update-child-address").html(data);
     });
 }
 
-$('#update-contact-address').on('shown.bs.modal', function (e) {
-    console.log('hi');
-    updateMoreAddress(moreAddressRoute);
-})
+$(document).ready(function (e) {
+    $('#update-contact-address').on('submit', (function (e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            method: 'POST',
+            url: $(this).attr('action'),
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                $("#update-contact-address").empty();
+                $("#update-contact-address").append(data.address.house_name+', '+data.address.street+', '+data.city+', '+data.address.postcode+', '+data.country)
+                $("#update-contact-email").text(data.address.email)
+                $("#update-contact-mobile").text(data.address.phone)
+                $("#update-contact-phone").text(data.address.mobile)
+                document.getElementById('success-address').style.display = 'block';
+                setTimeout(function () {
+                    document.getElementById('success-address').style.display = 'none';
+                }, 3000);
+            },
+            error: function (data) {
+                console.log(data.response);
+                $.each(data.error, function (key, value) {
+                });
+            }
+        });
+    }));
+});
+
+function updateCompanyAddress(route) {
+    $.get(route, function (data) {
+        console.log(data);
+        $(".update-company-address").html(data);
+    });
+}
+
+$(document).ready(function (e) {
+    $('#update-company-addresses').on('submit', (function (e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            method: 'POST',
+            url: $(this).attr('action'),
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                console.log(data);
+                $("#company-address-"+data.address.id).empty();
+                $("#company-address-"+data.address.id).append(data.address.house_name+', '+data.address.street+', '+data.city+', '+data.address.postcode+', '+data.country)
+                $("#company-email-"+data.address.id).text(data.address.email)
+                $("#company-phone-"+data.address.id).text(data.address.phone)
+                $("#company-mobile-"+data.address.id).text(data.address.mobile)
+                $("#company-website-"+data.address.id).text(data.address.website)
+                document.getElementById('success-address').style.display = 'block';
+                setTimeout(function () {
+                    document.getElementById('success-address').style.display = 'none';
+                }, 3000);
+            },
+            error: function (data) {
+                console.log(data.response);
+                $.each(data.error, function (key, value) {
+                });
+            }
+        });
+    }));
+});
+
+function updateCompanyContact(route) {
+    $.get(route, function (data) {
+        console.log(data);
+        $(".update-company-contact").html(data);
+    });
+}
+
+$(document).ready(function (e) {
+    $('#update-company-contact').on('submit', (function (e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            method: 'POST',
+            url: $(this).attr('action'),
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                console.log(data);
 
 
 
 
+                $("#contact-name-"+data.contact.id).empty();
+                $("#contact-name-"+data.contact.id).append(data.name)
+                // $("#contact-email-"+data.contact.id).text(data.email)
+                document.getElementById('success-contact').style.display = 'block';
+                setTimeout(function () {
+                    document.getElementById('success-contact').style.display = 'none';
+                }, 3000);
+            },
+            error: function (data) {
+                console.log(data.response);
+                $.each(data.error, function (key, value) {
+                });
+            }
+        });
+    }));
+});
 
 
 // function ShowHideDiv(chkPassport) {

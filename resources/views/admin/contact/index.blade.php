@@ -89,8 +89,6 @@
                                                         <span aria-labelledby="btnSearchDrop12" class="dropdown-menu mt-1 dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(55px, 27px, 0px);">
                                                             <a href="{{route('contact.view' ,  encrypt($contact->id))}}" class="dropdown-item" title="View the record">
                                                                 <i class="ft-eye"></i> View</a>
-                                                            <a href="{{route('contact.edit' ,  encrypt($contact->id))}}" class="dropdown-item" title="Update the record">
-                                                                <i class="ft-edit-2"></i> Edit</a>
                                                             <a href="{{route('contact.trash' ,  encrypt($contact->id))}}" class="dropdown-item" title="Danger! this action will move to trash the record.">
                                                                 <i class="ft-trash-2"></i> Delete</a>
                                                         </span>

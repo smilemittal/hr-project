@@ -93,6 +93,7 @@
                                     </a>
                                 </div>
                                 <div class="media-body text-left text-dark">
+                                    @if($individual)
                                     <div class="row_bussiness-md"
                                          id="individual-basic-info"
                                          style="display: block">
@@ -201,7 +202,7 @@
 
                                         </div>
                                     </div>
-
+                                    @endif
                                     @if($company)
                                         <div class="row_bussiness-md"
                                              id="company-basic-info" style="{{$company?"display: block" : "display: none"}}">
@@ -279,60 +280,6 @@
                                     <div class="row_colmd row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="">Email</label>
-                                                <div class="position-relative">
-                                                    <input type="email" id="" class="form-control" placeholder="Enter Your Email" value="{{isset($contact->getAddressInfo[0])?$contact->getAddressInfo[0]->email:old('email')}}" name="email">
-                                                    @if($errors->has('email'))
-                                                        <div class="error" style="color:red">{{$errors->first('email')}}</div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @if($is_parent)
-                                            <div class="col-md-12" id="website" style="@if($contact->contact_type == "Company") display: block @else display: none @endif">
-                                                <div class="form-group">
-                                                    <label>Website</label>
-                                                    <div class="position-relative">
-                                                        <input type="url" class="form-control" placeholder="Enter Your Website" value="{{isset($contact)?$contact->website:old('website')}}" name="website">
-                                                        @if($errors->has('website'))
-                                                            <div class="error" style="color:red">Website URL must be
-                                                                required.
-                                                            </div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endif
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Phone</label>
-                                                <div class="position-relative">
-                                                    <input type="text" id=""
-                                                           class="form-control"
-                                                           placeholder="Phone"
-                                                           name="phone" value="{{isset($contact->getAddressInfo[0])?$contact->getAddressInfo[0]->phone:old('phone')}}">
-                                                    @if($errors->has('phone'))
-                                                        <div class="error" style="color:red">Phone must be required.</div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Mobile</label>
-                                                <div class="position-relative">
-                                                    <input type="text" id=""
-                                                           class="form-control"
-                                                           placeholder="Mobile" value="{{isset($contact->getAddressInfo[0])?$contact->getAddressInfo[0]->mobile:old('mobile')}}"
-                                                           name="mobile" value="{{old('mobile')}}">
-                                                    @if($errors->has('mobile'))
-                                                        <div class="error" style="color:red">Mobile must be required.</div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
                                                 <label>Tags</label>
                                                 <div class="position-relative">
                                                     <div class="form-control {{ $is_parent ? 'parent' : 'child' }}-tags"
@@ -354,7 +301,7 @@
                                     <div class="col-md-12">
                                         <div class="address_info">
                                             <div class="right-edit-btn">
-                                                <a href="#" data-toggle="modal" data-target="#update-contact-address"><i class="ft-edit"></i></a>
+                                                <a href="#" data-toggle="modal" data-target="#contact-edit-address" onclick="updateMoreAddress('{{route('update.more.address.view' , encrypt($contact->id))}}')"><i class="ft-edit"></i></a>
                                             </div>
                                             <ul class="col_bx">
                                                 <li>
@@ -363,7 +310,7 @@
                                                     </div>
                                                     <div class="address-data">
                                                         <label>Address</label>
-                                                        <p>{{isset($contact->getAddressInfo[0])?$contact->getAddressInfo[0]->house_name : "not set"}}
+                                                        <p id="update-contact-address">{{isset($contact->getAddressInfo[0])?$contact->getAddressInfo[0]->house_name : "not set"}}
                                                             ,
                                                             {{isset($contact->getAddressInfo[0])?$contact->getAddressInfo[0]->street : "not set"}}
                                                             street
@@ -377,7 +324,7 @@
                                                         <i class="ft-edit"></i>
                                                     </div>
                                                     <div class="address-data">
-                                                        <a href="#"> {{isset($contact->getAddressInfo[0])?$contact->getAddressInfo[0]->email : "not set"}}</a>
+                                                        <a href="#" id="update-contact-email"> {{isset($contact->getAddressInfo[0])?$contact->getAddressInfo[0]->email : "not set"}}</a>
                                                     </div>
                                                 </li>
                                                 <li>
@@ -385,7 +332,7 @@
                                                         <i class="ft-edit"></i>
                                                     </div>
                                                     <div class="address-data">
-                                                        <a href="#"> {{isset($contact->getAddressInfo[0])?$contact->getAddressInfo[0]->phone : "not set"}}</a>
+                                                        <a href="#" id="update-contact-phone"> {{isset($contact->getAddressInfo[0])?$contact->getAddressInfo[0]->phone : "not set"}}</a>
                                                     </div>
                                                 </li>
                                                 <li>
@@ -393,7 +340,7 @@
                                                         <i class="ft-edit"></i>
                                                     </div>
                                                     <div class="address-data">
-                                                        <a href="#"> {{isset($contact->getAddressInfo[0])?$contact->getAddressInfo[0]->mobile : "not set"}}</a>
+                                                        <a href="#" id="update-contact-mobile"> {{isset($contact->getAddressInfo[0])?$contact->getAddressInfo[0]->mobile : "not set"}}</a>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -413,7 +360,7 @@
                                                 <div class="tab-pane fade show @if($key == 0) active @endif" id="tab{{$key}}" role="tabpanel" aria-labelledby="tab">
                                                     <div class="address_info">
                                                         <div class="right-edit-btn">
-                                                            <a href="#" data-toggle="modal" data-target="#edit-address">
+                                                            <a href="" onclick="updateCompanyAddress('{{route('edit.company.address' , ['id'=> encrypt($address->id), 'contact'=>encrypt($contact->id)])}}')" data-toggle="modal" data-target="#edit-company-address">
                                                                 <i class="ft-edit"></i>
                                                             </a>
                                                         </div>
@@ -424,7 +371,7 @@
                                                                 </div>
                                                                 <div class="address-data">
                                                                     <label>Address 0</label>
-                                                                    <p>{{$address->house_name}}
+                                                                    <p id="company-address-{{$address->id}}">{{$address->house_name}}
                                                                         ,
                                                                         {{$address->street}}
                                                                         street
@@ -438,7 +385,7 @@
                                                                     <i class="ft-edit"></i>
                                                                 </div>
                                                                 <div class="address-data">
-                                                                    <a href="#">{{$address->email}}</a>
+                                                                    <a href="#" id="company-email-{{$address->id}}">{{$address->email}}</a>
                                                                 </div>
                                                             </li>
                                                             <li>
@@ -446,7 +393,7 @@
                                                                     <i class="ft-edit"></i>
                                                                 </div>
                                                                 <div class="address-data">
-                                                                    <a href="#">{{$address->mobile}}</a>
+                                                                    <a href="#" id="company-mobile-{{$address->id}}">{{$address->mobile}}</a>
                                                                 </div>
                                                             </li>
                                                             <li>
@@ -454,7 +401,15 @@
                                                                     <i class="ft-edit"></i>
                                                                 </div>
                                                                 <div class="address-data">
-                                                                    <a href="#">{{$address->phone}}</a>
+                                                                    <a href="#" id="company-phone-{{$address->id}}">{{$address->phone}}</a>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="icons">
+                                                                    <i class="ft-edit"></i>
+                                                                </div>
+                                                                <div class="address-data">
+                                                                    <a href="#" id="company-website-{{$address->id}}">{{isset($address->website)?$address->website : "URL"}}</a>
                                                                 </div>
                                                             </li>
                                                         </ul>
@@ -467,7 +422,6 @@
                                         <ul class="nav nav-tabs address_info" id="myTab" role="tablist">
                                             <div class="type-address">
                                                 <h2>Address type</h2>
-                                                <a data-toggle="modal" data-target="#edit-address-type" href="#"><i class="ft-edit"></i></a>
                                             </div>
                                             @foreach($contact->getAddressInfo as $key=>$address)
                                                 @foreach(json_decode($address->address_type) as $type )
@@ -599,19 +553,57 @@
                     </div>
                 </div>
                 <!--Contact Tab Content-->
-                @if($is_parent)
+                @if($company)
 
                     <div class="tab-pane" id="{{ $is_parent ? 'parent' : 'child' }}_contact-tab" aria-labelledby="baseIcon-tab2">
 
                         <div id="contact-target" style="{{$company?"display: block" : "display: none"}}">
                             <div class="row" id="child-contact-section">
 
-                                <div class="col-sm-12">
-                                    <h4>Contacts</h4>
-                                    <a href="javascript:void(0)" class="create_btn"
-                                       data-toggle="modal"
-                                       data-target="#create-modal">Create</a>
-                                </div>
+{{--                                <div class="col-sm-12">--}}
+{{--                                    <h4>Contacts</h4>--}}
+{{--                                    <a href="javascript:void(0)" class="create_btn"--}}
+{{--                                       data-toggle="modal"--}}
+{{--                                       data-target="#create-modal">Create</a>--}}
+{{--                                </div>--}}
+                                @if($contact->getChildContact)
+                                    @foreach($contact->getChildContact as $child)
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="card mb-1 contactbox-m">
+                                                <div class="card-body p-0">
+                                                    <div class="row">
+                                                        <div class="right-edit-btn">
+                                                            <a href="" onclick="updateCompanyContact('{{route('edit.company.contact' , ['id'=> encrypt($child->id), 'contact'=>encrypt($contact->id)])}}')" data-toggle="modal" data-target="#edit-company-contact">
+                                                                <i class="ft-edit"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-4">
+                                                            <div class="border-left-radius-palette">
+                                                                <img id="contact-imag-{{$child->id}}" src="{{asset('storage/app/public/contact-profile/'.$child->photo)}}" class="rounded-squre img-fluid img-border height-120 mt-0"
+                                                                     alt="Card image">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-8 pl-0">
+                                                            <div class="p-0">
+                                                                <div class="float-right">
+                                                                    <button type="button"
+                                                                            class="close_btn close"
+                                                                            data-toggle="modal"
+                                                                            data-target="#close_modal">
+                                                                        <span aria-hidden="true">×</span>
+                                                                    </button>
+                                                                    <p id="contact-name-{{$child->id}}">{{$child->contact_name}}</p>
+                                                                    <a href="#" id="contact-email-{{$child->id}}">{{isset($child->getAddressInfo[0])?$child->getAddressInfo[0]->email:"email not found"}}</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -763,5 +755,12 @@
         </div>
     </div>
     <!--newcode-->
-    <button type="submit" class="btn btn-success float-right mb-2">Submit</button>
+
+    <button type="submit" class="btn btn-success float-right mb-2" style="{{isset($isContact)?"display:none":"display:bloack"}}">Submit</button>
 </form>
+
+
+
+
+
+

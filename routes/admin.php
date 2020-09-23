@@ -264,7 +264,11 @@ Route::prefix('admin')->group(function () {
     Route::get('/contact/edit/more/address/view/{id}' , 'Admin\ContactController@editMoreAddressView')->name('update.more.address.view');
     Route::post('/contact/update/address' , 'Admin\ContactController@contactUpdateAddress')->name('contact.update.address');
 
+    Route::get('/contact/edit/company/address/{id}/{contact}' , 'Admin\ContactController@editCompanyAddress')->name('edit.company.address');
+    Route::post('/contact/update/company/address' , 'Admin\ContactController@contactUpdateCompanyAddress')->name('contact.update.company.address');
 
+    Route::get('/contact/edit/company/contact/{id}/{contact}' , 'Admin\ContactController@editCompanyContact')->name('edit.company.contact');
+    Route::post('/contact/update/company/contact' , 'Admin\ContactController@updateCompanyContact')->name('update.company.contact');
 
 
     Route::get('/contact/view/{id}' , 'Admin\ContactController@view')->name('contact.view');

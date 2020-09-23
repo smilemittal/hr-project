@@ -8,7 +8,9 @@ use App\ContactAddress;
 use App\ContactTitle;
 use App\Country;
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\TrimStrings;
 use App\State;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use function GuzzleHttp\Promise\all;
 
@@ -16,7 +18,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $contacts = Contact::orderBy('created_at' , 'desc')->get();
+        $contacts = Contact::orderBy('created_at', 'desc')->get();
 //        dd(!isset($contacts[1]->getAddressInfo),$contacts[0]->getAddressInfo[0] , $contacts[0]->getAccInfo);
         return view('admin.contact.index', compact('contacts'));
     }
@@ -27,7 +29,7 @@ class ContactController extends Controller
             $countries = Country::whereStatus('active')->get();
             $contactTitle = ContactTitle::whereStatus('active')->get();
 
-            return view('admin.contact.create', compact('countries' , 'contactTitle'));
+            return view('admin.contact.create', compact('countries', 'contactTitle'));
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
@@ -109,8 +111,7 @@ class ContactController extends Controller
                     'sales-price' => 'required',
                     'account-payable' => 'required',
                 ]);
-            }
-            elseif ($contact->contact_type == 'Company') {
+            } elseif ($contact->contact_type == 'Company') {
                 $request->validate([
                     'company-name' => 'required',
                     'business-classifications' => 'required',
@@ -164,7 +165,7 @@ class ContactController extends Controller
                 $contact->account_status = $request['account-status'];
             }
 
-            $contact->tags = implode(", " , $request['parent-tags']);
+            $contact->tags = implode(", ", $request['parent-tags']);
             $contact->social_info = json_encode($request['social']);
             $contact->cxrm = json_encode($request['cxrm']);
             $contact->other_information = $request['other-information'];
@@ -242,7 +243,7 @@ class ContactController extends Controller
             $contact->last_name = $request['last-name'];
             $contact->job_position = $request['job-position'];
             $contact->business_info = $request['business-info'];
-            $contact->tags = implode(", " , $request['child-tags']);
+            $contact->tags = implode(", ", $request['child-tags']);
             $contact->social_info = json_encode($request['social']);
             $contact->cxrm = json_encode($request['cxrm']);
             $contact->other_information = $request['other-information'];
@@ -293,20 +294,20 @@ class ContactController extends Controller
             'country' => 'required',
             'post-code' => 'required',
         ]);
-            $parentContact = Contact::find($request['id']);
-            $AddressInfo = new ContactAddress();
-            $AddressInfo->contact_id = $parentContact->id;
-            $AddressInfo->address_type = json_encode($request['address-type']);
-            $AddressInfo->house_number = $request['house-number'];
-            $AddressInfo->house_name = $request['house-name'];
-            $AddressInfo->address_info = $request['address-info'];
-            $AddressInfo->street = $request['street'];
-            $AddressInfo->city_id = $request['city'];
-            $AddressInfo->state_id = $request['state'];
-            $AddressInfo->country_id = $request['country'];
-            $AddressInfo->pincode = $request['post-code'];
-            $AddressInfo->save();
-            return response("success");
+        $parentContact = Contact::find($request['id']);
+        $AddressInfo = new ContactAddress();
+        $AddressInfo->contact_id = $parentContact->id;
+        $AddressInfo->address_type = json_encode($request['address-type']);
+        $AddressInfo->house_number = $request['house-number'];
+        $AddressInfo->house_name = $request['house-name'];
+        $AddressInfo->address_info = $request['address-info'];
+        $AddressInfo->street = $request['street'];
+        $AddressInfo->city_id = $request['city'];
+        $AddressInfo->state_id = $request['state'];
+        $AddressInfo->country_id = $request['country'];
+        $AddressInfo->pincode = $request['post-code'];
+        $AddressInfo->save();
+        return response("success");
     }
 
     public function view($id)
@@ -396,33 +397,31 @@ class ContactController extends Controller
         }
     }
 
-    public function contactEditView($id) {
+    public function contactEditView($id)
+    {
         try {
             $countries = Country::whereStatus('active')->get();
             $contact = Contact::find(decrypt($id));
-            if($contact->contact_type == "Company"){
+            if ($contact->contact_type == "Company") {
                 $company = true;
                 $individual = false;
-            }
-            else {
+            } else {
                 $company = false;
                 $individual = true;
             }
             $contactTitle = ContactTitle::whereStatus('active')->get();
             $is_parent = true;
             $isEdit = true;
-            return view('admin.contact.partials.edit-form', compact('contact', 'company' , 'individual', 'countries', 'is_parent', 'isEdit' , 'contactTitle'))->render();
+            return view('admin.contact.partials.edit-form', compact('contact', 'company', 'individual', 'countries', 'is_parent', 'isEdit', 'contactTitle'))->render();
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
-
-
     }
 
-    public function updateContact(Request $request) {
-        dd($request->all());
+    public function updateContact(Request $request)
+    {
         $contact = Contact::find($request['id']);
-        if($contact) {
+        if ($contact) {
             if ($contact->contact_type == 'Individual') {
                 $request->validate([
                     'first-name' => 'required',
@@ -430,48 +429,23 @@ class ContactController extends Controller
                     'job-position' => 'required',
                     'business-info' => 'required',
                     'cxrm' => 'required',
-                    'house-number' => 'required',
-                    'address-info' => 'required',
-                    'street' => 'required',
-                    'city' => 'required',
-                    'state' => 'required',
-                    'country' => 'required',
-                    'post-code' => 'required',
-                    'mobile' => 'required',
-                    'phone' => 'required',
-                    'email' => 'required',
-                    'photo' => 'required',
                     'sales-person' => 'required',
                     'account-rec-able' => 'required',
                     'sales-price' => 'required',
                     'account-payable' => 'required',
                 ]);
-            }
-            elseif ($contact->contact_type == 'Company') {
+            } elseif ($contact->contact_type == 'Company') {
                 $request->validate([
                     'company-name' => 'required',
                     'business-classifications' => 'required',
                     'account-status' => 'required',
-                    'website' => 'required',
                     'cxrm' => 'required',
-                    'house-number' => 'required',
-                    'address-info' => 'required',
-                    'street' => 'required',
-                    'city' => 'required',
-                    'state' => 'required',
-                    'country' => 'required',
-                    'post-code' => 'required',
-                    'mobile' => 'required',
-                    'phone' => 'required',
-                    'email' => 'required',
-                    'photo' => 'required',
                     'sales-person' => 'required',
                     'account-rec-able' => 'required',
                     'sales-price' => 'required',
                     'account-payable' => 'required',
                 ]);
             }
-
 //            if($request['sales-person'] || $request['account-rec-able'] || $request['sales-price'] || $request['account-payable']) {
 //                $request->validate([
 //                    'sales-person' => 'required',
@@ -480,7 +454,6 @@ class ContactController extends Controller
 //                    'account-payable' => 'required',
 //                ]);
 //            }
-
             if ($request->file('photo')) {
                 $profile_picture = $request->file('photo');
                 $imageName = time() . '.' . $profile_picture->getClientOriginalExtension();
@@ -494,32 +467,10 @@ class ContactController extends Controller
                 $contact->last_name = $request['last-name'];
                 $contact->job_position = $request['job-position'];
                 $contact->business_info = $request['business-info'];
-
-
-                $AddressInfo = $contact->getAddressInfo[0];
-                $AddressInfo->contact_id = $contact->id;
-                $AddressInfo->address_type = json_encode($request['address-type']);
-                $AddressInfo->house_number = $request['house-number'];
-                $AddressInfo->house_name = $request['house-name'];
-                $AddressInfo->address_info = $request['address-info'];
-                $AddressInfo->street = $request['street'];
-                $AddressInfo->city_id = $request['city'];
-                $AddressInfo->state_id = $request['state'];
-                $AddressInfo->country_id = $request['country'];
-                $AddressInfo->pincode = $request['post-code'];
-                $AddressInfo->mobile = $request['mobile'];
-                $AddressInfo->phone = $request['phone'];
-                $AddressInfo->email = $request['email'];
-                $AddressInfo->website = $request['website'];
-                $AddressInfo->save();
-
             } else {
                 $contact->contact_name = $request['company-name'];
                 $contact->business_classifications = $request['business-classifications'];
                 $contact->account_status = $request['account-status'];
-
-
-
 //                $AddressInfo = $contact->getAddressInfo[0];
 //                $AddressInfo->contact_id = $contact->id;
 //                $AddressInfo->address_type = json_encode($request['address-type']);
@@ -536,11 +487,9 @@ class ContactController extends Controller
 //                $AddressInfo->email = $request['email'];
 //                $AddressInfo->website = $request['website'];
 //                $AddressInfo->save();
-
-
             }
-
-            $contact->tags = implode(", " , $request['parent-tags']);
+            $contact->tags = /*implode(", " , $request['parent-tags'])*/
+                "";
             $contact->social_info = json_encode($request['social']);
             $contact->cxrm = json_encode($request['cxrm']);
             $contact->other_information = $request['other-information'];
@@ -555,25 +504,230 @@ class ContactController extends Controller
             $accInfo->vendor_payments_terms = $request['vendor-term'];
             $accInfo->save();
             return redirect()->back()->with('success', 'Form Updated successfully.');
+        } else {
+            return redirect()->back('error', 'contact not found');
         }
-        else {
-            return redirect()->back('error' , 'contact not found');
+    }
+
+    public function editMoreAddressView($id)
+    {
+        try {
+            $contact = Contact::find(decrypt($id));
+            if ($contact->getAddressInfo) {
+                $countries = Country::whereStatus('active')->get();
+                $is_parent = true;
+                $addressChild = true;
+                if ($contact->contact_type == "Company") {
+                    $address = $contact->getAddressInfo;
+                    $company = true;
+                    $individual = false;
+                } else {
+                    $address = $contact->getAddressInfo[0];
+                    $company = false;
+                    $individual = true;
+                }
+                return view('admin.contact.partials.edit-address', compact('company', 'individual', 'address', 'contact', 'countries', 'is_parent', 'addressChild'))->render();
+            } else {
+                return response('Address ID error');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
         }
     }
 
-    public function editMoreAddressView($id) {
-        dd($id);
+    public function contactUpdateAddress(Request $request)
+    {
+        $address = ContactAddress::find($request['id']);
+        if ($address) {
+            $address->email = $request['email'];
+            $address->phone = $request['phone'];
+            $address->mobile = $request['mobile'];
+            $address->house_number = $request['house-number'];
+            $address->house_name = $request['house-name'];
+            $address->address_info = $request['address-info'];
+            $address->street = $request['street'];
+            $address->city_id = $request['city'];
+            $address->state_id = $request['state'];
+            $address->country_id = $request['country'];
+            $address->pincode = $request['post-code'];
+            $address->save();
+            $city = $address->getCity->value;
+            $country = $address->getCountry->value;
+            return response(array('address' => $address, "city" => $city, "country" => $country));
+        } else {
+            return response('error');
+        }
     }
 
-    public function contactUpdateAddress(Request $request) {
-        dd($request->all());
+    public function editCompanyAddress($id , $con)
+    {
+        try {
+            $address = ContactAddress::find(decrypt($id));
+            $contact = Contact::find(decrypt($con));
+            if ($address) {
+                $countries = Country::whereStatus('active')->get();
+                $available  = array();
+                $checked = array();
+                foreach ($contact->getAddressInfo as $add) {
+                    foreach (json_decode($add->address_type) as $key=>$add_type) {
+                        if(isset(json_decode($address->address_type)[$key]) && $add_type == json_decode($address->address_type)[$key]) {
+                            array_push($checked, json_decode($address->address_type)[$key]);
+                        }
+                        else {
+                            array_push($available ,$add_type);
+                        }
+                    }
+                }
+                $is_parent = true;
+                $addressChild = true;
+                $company = true;
+                $individual = false;
+                return view('admin.contact.partials.edit-address', compact('checked','company', 'available', 'individual', 'address', 'contact', 'countries', 'is_parent', 'addressChild'))->render();
+            } else {
+                return response('Address ID error');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
-    public function updateChildContact(Request $request) {
-        dd($request->all());
+    public function contactUpdateCompanyAddress(Request $request)
+    {
+        $address = ContactAddress::find($request['id']);
+        if ($address) {
+            $address->address_type = json_encode($request['address-type']);
+            $address->email = $request['email'];
+            $address->phone = $request['phone'];
+            $address->mobile = $request['mobile'];
+            $address->website = isset( $request['website'])? $request['website']:"";
+            $address->house_number = $request['house-number'];
+            $address->house_name = $request['house-name'];
+            $address->address_info = $request['address-info'];
+            $address->street = $request['street'];
+            $address->city_id = $request['city'];
+            $address->state_id = $request['state'];
+            $address->country_id = $request['country'];
+            $address->pincode = $request['post-code'];
+            $address->save();
+            $city = $address->getCity->value;
+            $country = $address->getCountry->value;
+            return response(array('address' => $address, "city" => $city, "country" => $country));
+        } else {
+            return response('error');
+        }
+    }
+
+    public function editCompanyContact($id , $con) {
+        $childContact = Contact::find(decrypt($id));
+        try {
+            if($childContact) {
+                $countries = Country::whereStatus('active')->get();
+                $contact = Contact::find(decrypt($id));
+                if ($contact->contact_type == "Company") {
+                    $company = true;
+                    $individual = false;
+                } else {
+                    $company = false;
+                    $individual = true;
+                }
+                $contactTitle = ContactTitle::whereStatus('active')->get();
+                $is_parent = false;
+                $isContact = true;
+                $isEdit = true;
+                return view('admin.contact.partials.edit-form', compact('isContact','contact', 'company', 'individual', 'countries', 'is_parent', 'isEdit', 'contactTitle'))->render();
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+
+
+
+
+
+
     }
 
 
+    public function updateCompanyContact(Request $request)
+    {
+        $contact = Contact::find($request['id']);
+        if ($contact) {
+                $request->validate([
+                    'first-name' => 'required',
+                    'last-name' => 'required',
+                    'job-position' => 'required',
+                    'business-info' => 'required',
+                    'cxrm' => 'required',
+                    'sales-person' => 'required',
+                    'account-rec-able' => 'required',
+                    'sales-price' => 'required',
+                    'account-payable' => 'required',
+                ]);
+
+//            if($request['sales-person'] || $request['account-rec-able'] || $request['sales-price'] || $request['account-payable']) {
+//                $request->validate([
+//                    'sales-person' => 'required',
+//                    'account-rec-able' => 'required',
+//                    'sales-price' => 'required',
+//                    'account-payable' => 'required',
+//                ]);
+//            }
+            if ($request->file('photo')) {
+                $profile_picture = $request->file('photo');
+                $imageName = time() . '.' . $profile_picture->getClientOriginalExtension();
+                $profile_picture->storeAs('public/contact-profile', $imageName);
+                $contact->photo = $imageName;
+            }
+
+            if ($contact->contact_type == 'Individual') {
+                $contact->contact_name = $request['first-name'];
+                $contact->middle_name = $request['middle-name'];
+                $contact->last_name = $request['last-name'];
+                $contact->job_position = $request['job-position'];
+                $contact->business_info = $request['business-info'];
+            } else {
+                $contact->contact_name = $request['company-name'];
+                $contact->business_classifications = $request['business-classifications'];
+                $contact->account_status = $request['account-status'];
+//                $AddressInfo = $contact->getAddressInfo[0];
+//                $AddressInfo->contact_id = $contact->id;
+//                $AddressInfo->address_type = json_encode($request['address-type']);
+//                $AddressInfo->house_number = $request['house-number'];
+//                $AddressInfo->house_name = $request['house-name'];
+//                $AddressInfo->address_info = $request['address-info'];
+//                $AddressInfo->street = $request['street'];
+//                $AddressInfo->city_id = $request['city'];
+//                $AddressInfo->state_id = $request['state'];
+//                $AddressInfo->country_id = $request['country'];
+//                $AddressInfo->pincode = $request['post-code'];
+//                $AddressInfo->mobile = $request['mobile'];
+//                $AddressInfo->phone = $request['phone'];
+//                $AddressInfo->email = $request['email'];
+//                $AddressInfo->website = $request['website'];
+//                $AddressInfo->save();
+            }
+            $contact->tags = /*implode(", " , $request['parent-tags'])*/
+                "";
+            $contact->social_info = json_encode($request['social']);
+            $contact->cxrm = json_encode($request['cxrm']);
+            $contact->other_information = $request['other-information'];
+            $contact->save();
+            $accInfo = new ContactAccountingInfo();
+            $accInfo->contact_id = $contact->id;
+            $accInfo->sales_person = $request['sales-person'];
+            $accInfo->account_receivable = $request['account-rec-able'];
+            $accInfo->sales_price_list = $request['sales-price'];
+            $accInfo->accounts_payable = $request['account-payable'];
+            $accInfo->customer_payments_terms = $request['customer-payment'];
+            $accInfo->vendor_payments_terms = $request['vendor-term'];
+            $accInfo->save();
+            $image = asset('storage/app/public/contact-profile/'.$contact->photo);
+            $name = $contact->contact_name. " " . $contact->last_name;
+            return response(array('image'=>$image , 'name'=>$name));
+        } else {
+            return redirect()->back('error', 'contact not found');
+        }
+    }
 
 
 }
